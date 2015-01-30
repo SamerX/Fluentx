@@ -1,0 +1,5 @@
+D:\Mii Personal Work\Fluentx\Fluentx\bin\Release-3.5\Fluentx.dll
+D:\Mii Personal Work\Fluentx\Fluentx\bin\Release-3.5\Fluentx.pdb
+D:\Mii Personal Work\Fluentx\Fluentx\obj\Release-3.5\Fluentx.dll
+D:\Mii Personal Work\Fluentx\Fluentx\obj\Release-3.5\Fluentx.pdb
+D:\Mii Personal Work\Fluentx\Fluentx\obj\Release-3.5\Fluentx.csprojResolveAssemblyReference.cache

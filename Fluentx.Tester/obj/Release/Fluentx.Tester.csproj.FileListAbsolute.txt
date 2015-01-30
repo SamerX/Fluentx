@@ -1,0 +1,15 @@
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.Tester.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.Tester.pdb
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.pdb
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.xml
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.csprojResolveAssemblyReference.cache
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.pdb
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.Tester.dll
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.Tester.pdb
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.dll
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release\Fluentx.pdb
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.csprojResolveAssemblyReference.cache
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.dll
+D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release\Fluentx.Tester.pdb

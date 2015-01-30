@@ -1,0 +1,71 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.30723.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluentx", "Fluentx\Fluentx.csproj", "{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluentx.Tester", "Fluentx.Tester\Fluentx.Tester.csproj", "{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluentx.Mvc", "Fluentx.Mvc\Fluentx.Mvc.csproj", "{08E569BE-4B5C-4303-9715-E9800B311B14}"
+EndProject
+Global
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 4
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://tfs.codeplex.com/tfs/tfs11
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Fluentx.Tester\\Fluentx.Tester.csproj
+		SccProjectName1 = Fluentx.Tester
+		SccLocalPath1 = Fluentx.Tester
+		SccProjectUniqueName2 = Fluentx\\Fluentx.csproj
+		SccProjectName2 = Fluentx
+		SccLocalPath2 = Fluentx
+		SccProjectUniqueName3 = Fluentx.Mvc\\Fluentx.Mvc.csproj
+		SccProjectName3 = Fluentx.Mvc
+		SccLocalPath3 = Fluentx.Mvc
+	EndGlobalSection
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+		Release-3.5|Any CPU = Release-3.5|Any CPU
+		Release-4.0|Any CPU = Release-4.0|Any CPU
+		Release-4.5|Any CPU = Release-4.5|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-3.5|Any CPU.ActiveCfg = Release-3.5|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-3.5|Any CPU.Build.0 = Release-3.5|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-3.5|Any CPU.Deploy.0 = Release-3.5|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-4.0|Any CPU.ActiveCfg = Release-4.0|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-4.0|Any CPU.Build.0 = Release-4.0|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-4.5|Any CPU.ActiveCfg = Release-4.5|Any CPU
+		{7862A0D6-AA06-483D-9C0C-4F43477F5EFF}.Release-4.5|Any CPU.Build.0 = Release-4.5|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-3.5|Any CPU.ActiveCfg = Release-3.5|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-3.5|Any CPU.Build.0 = Release-3.5|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-4.0|Any CPU.ActiveCfg = Release-4.0|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-4.0|Any CPU.Build.0 = Release-4.0|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-4.5|Any CPU.ActiveCfg = Release-4.5|Any CPU
+		{3657FE4E-4441-4576-BC0B-BB6C7AAEF095}.Release-4.5|Any CPU.Build.0 = Release-4.5|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-3.5|Any CPU.ActiveCfg = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-3.5|Any CPU.Build.0 = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-4.0|Any CPU.ActiveCfg = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-4.0|Any CPU.Build.0 = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-4.5|Any CPU.ActiveCfg = Release|Any CPU
+		{08E569BE-4B5C-4303-9715-E9800B311B14}.Release-4.5|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

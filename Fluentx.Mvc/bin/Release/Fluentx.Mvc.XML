@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fluentx.Mvc</name>
+    </assembly>
+    <members>
+        <member name="T:Fluentx.Mvc.JsonBinderAttribute">
+            <summary>
+            Used for MVC controller view model parameters where you want to serialize JSON posted data (object) to MVC controller.
+            </summary>
+        </member>
+        <member name="T:Fluentx.Mvc.RedirectAndPostActionResult">
+            <summary>
+            This action result posts the specified data dictionary to the specified url, posted data values will be converted using the default string conversion.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,924 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Fluentx</name>
+    </assembly>
+    <members>
+        <member name="T:Fluentx.Expresser`1">
+            <summary>
+            Expresser expresses an entity's properties in a strongly typed format using lambda expressions, instead of 
+            creating too many POCO's you can you the expresser to transfer the entity's data that you want.
+            </summary>
+            <typeparam name="TEntity"></typeparam>    
+        </member>
+        <member name="M:Fluentx.Expresser`1.Set(`0,System.Linq.Expressions.Expression{System.Func{`0,System.Object}}[])">
+            <summary>
+            Expressers all direct public properties and fields within the entity EXCEPT what has has been specified.
+            </summary>
+            <param name="entity"></param>
+            <param name="excepters"></param>
+        </member>
+        <member name="T:Fluentx.Extensions">
+            <summary>
+            Set of very useful extension methods for hour by hour use in .NET code.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Extension method to perform For Each operation.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Fluentx.Extensions.Random``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Extension method to perform random return of an item within the specified list.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNull(System.Object)">
+            <summary>
+            Extension method to evaluate if object is null.
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNotNull(System.Object)">
+            <summary>
+            Extension method to evaluate if object is not null
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.In``1(``0,``0[])">
+            <summary>
+            Extension method to evaluate if the specified object exists within the specified list, NULL object will through an exception.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.In``1(``0,System.Boolean,``0[])">
+            <summary>
+            Extension method to evaluate if the specified object exists within the specified list including if the object is NULL.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="allowNull"></param>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.FormatWith(System.String,System.Object[])">
+            <summary>
+            Extension method that performs the operation string.Format 
+            </summary>
+            <param name="this"></param>
+            <param name="args"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToInt32(System.String,System.Int32)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt32(System.String,System.UInt32)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToInt16(System.String,System.Int16)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt16(System.String,System.UInt16)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToInt64(System.String,System.Int64)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt64(System.String,System.UInt64)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToDouble(System.String,System.Double)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToFloat(System.String,System.Single)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToByte(System.String,System.Byte)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToSByte(System.String,System.SByte)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToBool(System.String,System.Boolean)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToDateTime(System.String,System.DateTime)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IgnoreCaseEqual(System.String,System.String)">
+            <summary>
+            Extension method to compare two strings for equality ignoring character case. (Note: uses Equals(string, StringComparison.OrdinalIgnoreCase)).
+            </summary>
+            <param name="this"></param>
+            <param name="compareOperand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Extension method that returns whether the specified Enumerable is null or empty.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IfTrue(System.Boolean,System.Action)">
+            <summary>
+            Extension method that performs the action if the value is true.
+            </summary>
+            <param name="this"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Fluentx.Extensions.IfFalse(System.Boolean,System.Action)">
+            <summary>
+            Extension method that performs the action if the value is false. Returns the same boolean value.
+            </summary>
+            <param name="this"></param>
+            <param name="action"></param>
+        </member>
+        <member name="M:Fluentx.Extensions.Is``1(``0)">
+            <summary>
+            Extension method that performs a boolean evaluation if @this is of type T.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.As``1(``0)">
+            <summary>
+            Extension method that performs a safe cast for @this as T.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Lock``1(``0,System.Action{``0})">
+            <summary>
+            Performs a lock operation (using a private object) on the specified action with @this as the parameter for the action.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="action"></param>
+        </member>
+        <member name="T:Fluentx.Fx">
+            <summary>
+            Fx is the main class for Fluentx and its a shortened name for Fluentx, Fx also is equivelant for the mathematical representation of F(x) :)
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.GetType">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetType"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.GetHashCode">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetHashCode"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.ToString">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.ToString"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.Equals(System.Object)">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.Equals(System.Object)"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="T:Fluentx.ITriableAction">
+            <summary>
+            Any action might or might not complete successfully.
+            </summary>
+        </member>
+        <member name="T:Fluentx.IConditionBuilder">
+            <summary>
+            Any condition builder.
+            </summary>
+        </member>
+        <member name="T:Fluentx.IConditionalAction">
+            <summary>
+            Any condition action.
+            </summary>
+        </member>
+        <member name="T:Fluentx.IEarlyLoopBuilder">
+            <summary>
+            Any early loop builder (e.g while)
+            </summary>
+        </member>
+        <member name="T:Fluentx.ILoopAction">
+            <summary>
+            Any loop action.
+            </summary>
+        </member>
+        <member name="T:Fluentx.ILateLoopBuilder">
+            <summary>
+            Any late loop builder (e.g Do-While)
+            </summary>
+        </member>
+        <member name="T:Fluentx.IEarlyLoop">
+            <summary>
+            Any early loop (e.g while).
+            </summary>
+        </member>
+        <member name="T:Fluentx.ILateLoop">
+            <summary>
+            Any late loop (e.g Do-While).
+            </summary>
+        </member>
+        <member name="T:Fluentx.ISwitchBuilder">
+            <summary>
+            Switch statement builder.
+            </summary>
+        </member>
+        <member name="T:Fluentx.ISwitchCaseBuilder">
+            <summary>
+            Switch case statement builder.
+            </summary>
+        </member>
+        <member name="T:Fluentx.ISwitchTypeBuilder">
+            <summary>
+            Switch statement for Types builder.
+            </summary>
+        </member>
+        <member name="T:Fluentx.ISwitchTypeCaseBuilder">
+            <summary>
+            Switch case statement for types builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Fx.WhileTrue(System.Func{System.Boolean})">
+            <summary>
+            Performs a while control as long the action is evaluating to true.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.WhileFalse(System.Func{System.Boolean})">
+            <summary>
+            Performs a while control as long the action is evaluating to false.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.WhileTrueFor(System.Func{System.Boolean},System.UInt16)">
+            <summary>
+            Performs a while control as long the action is evaluating to true for a maximum of <paramref name="maxloops"/>
+            </summary>
+            <param name="action"></param>
+            <param name="maxLoops"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.WhileFalseFor(System.Func{System.Boolean},System.UInt16)">
+            <summary>
+            Performs a while control as long the action is evaluating to false for a maximum of <paramref name="maxloops"/>
+            </summary>
+            <param name="action"></param>
+            <param name="maxLoops"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.While(System.Func{System.Boolean},System.Action)">
+            <summary>
+            Performs a while control using the evaluation condition for the specified action.
+            </summary>
+            <param name="condition"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.While(System.Boolean,System.Action)">
+            <summary>
+            Performs a while control using specified condition for the specified action.
+            </summary>
+            <param name="condition"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.While(System.Func{System.Boolean})">
+            <summary>
+            Prepare for the excution of a while statement using the specified condition, this requires the call to Do eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Do(System.Action)">
+            <summary>
+            Prepare for the excution of a Do-While statement using the specified condition, this requires the call to While eventually.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.If(System.Func{System.Boolean})">
+            <summary>
+            Prepare for the excution of IF statement, requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.If(System.Boolean)">
+            <summary>
+            Prepare for the excution of IF statement, requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.When(System.Func{System.Boolean})">
+            <summary>
+            Prepare for the excution of IF statement (alternative for IF), requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.When(System.Boolean)">
+            <summary>
+            Prepare for the excution of IF statement (alternative for IF), requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.IfNot(System.Func{System.Boolean})">
+            <summary>
+            Prepare for the excution of IF NOT statement, requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.IfNot(System.Boolean)">
+            <summary>
+            Prepare for the excution of IF NOT statement, requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ForEach``1(System.Collections.Generic.IEnumerable{``0},System.Action{``0})">
+            <summary>
+            Performs a foreach loop on the specified list by excuting action for each item in the Enumerable
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ForEach``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            Prepares for the execution of a foreach statement, this requires the call to Do eventually.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Try(System.Action)">
+            <summary>
+            Prepares for the excution of a Try/Catch action, this requires the call to one of the following actions eventually: Catch, Swallow, SwalloIf.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Using``1(``0,System.Action{``0})">
+            <summary>
+            Performs a using statement for disposable objects by executing action.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Switch``1(``0)">
+            <summary>
+            Prepares for a switch statement over the specified mainOperand, this requires the call to Default eventually.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="mainOperand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Switch(System.Type)">
+            <summary>
+            Prepares for a switch statement over the specified type, this requires the call to Default eventually.
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Switch``1">
+            <summary>
+            Prepares for a switch statement over the specified type T, this requires the call to Default eventually.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.RetryOnFail(System.Func{System.Boolean},System.UInt16,System.UInt16)">
+            <summary>
+            Performs an action, if the action failed (returned false) it re-attempts to do the action again for <paramref name="attempts"/>, and waits for <paramref name="attemptSleepInMilliSeconds"/> between each attempt.
+            </summary>
+            <param name="action"></param>
+            <param name="attempts"></param>
+            <param name="attemptSleepInMilliSeconds"></param>
+        </member>
+        <member name="M:Fluentx.Fx.ToInt32(System.String,System.Int32)">
+            <summary>
+            Tries to parse specified string to Int32, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToUInt32(System.String,System.UInt32)">
+            <summary>
+            Tries to parse specified string to UInt32, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToInt16(System.String,System.Int16)">
+            <summary>
+            Tries to parse specified string to Int16, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToUInt16(System.String,System.UInt16)">
+            <summary>
+            Tries to parse specified string to UInt16, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToInt64(System.String,System.Int64)">
+            <summary>
+            Tries to parse specified string to Int64, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToUInt64(System.String,System.UInt64)">
+            <summary>
+            Tries to parse specified string to UInt64, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToDouble(System.String,System.Double)">
+            <summary>
+            Tries to parse specified string to double, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToFloat(System.String,System.Single)">
+            <summary>
+            Tries to parse specified string to float, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToByte(System.String,System.Byte)">
+            <summary>
+            Tries to parse specified string to byte, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToSByte(System.String,System.SByte)">
+            <summary>
+            Tries to parse specified string to sbyte, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToBool(System.String,System.Boolean)">
+            <summary>
+            Tries to parse specified string to bool, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.ToDateTime(System.String,System.DateTime)">
+            <summary>
+            Tries to parse specified string to DateTime, if it fails it returns the default value specified.
+            </summary>
+            <param name="strValue"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Is(System.Linq.Expressions.Expression{System.Func{System.Boolean}})">
+            <summary>
+            Performs the evaluation of the expression to bool. e.g ()=>{boolean expression}
+            </summary>
+            <param name="expression"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Lock(System.Action)">
+            <summary>
+            Performs a lock operation (using a private object) on the specified action.
+            </summary>
+            <param name="action"></param>
+        </member>
+        <member name="M:Fluentx.Fx.Lock``1(System.Func{``0})">
+            <summary>
+            Performs a lock operation (using a private object) on the specified action and return the operation return value;
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Lock``1(``0,System.Action{``0})">
+            <summary>
+            Performs a lock operation (using a private object) on the specified action and return @this;
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionalAction#Else(System.Action)">
+            <summary>
+            Performs the else part of the if statement its chained to.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionalAction#ElseIf(System.Func{System.Boolean})">
+            <summary>
+            Prepares for the extra ElseIf condition, this requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionalAction#ElseIf(System.Boolean)">
+            <summary>
+            Prepares for the extra ElseIf condition, this requires the call to Then eventually.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Then(System.Action)">
+            <summary>
+            Performs the action for the previous conditional control statment (If, ElseIf).
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#And(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using AND.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#And(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using AND.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#AndNot(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using AND NOT.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#AndNot(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using AND NOT.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Or(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using OR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Or(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using OR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#OrNot(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using OR NOT.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#OrNot(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using OR NOT.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Xor(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using XOR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Xor(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using XOR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Xnor(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using XNOR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IConditionBuilder#Xnor(System.Boolean)">
+            <summary>
+            Evaluates the specified condition with the previously chained condition using XNOR.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoopBuilder#Do(System.Action)">
+            <summary>
+            Performs the specified action after evaluating the previous looping statement.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoopBuilder#While(System.Func{System.Boolean})">
+            <summary>
+            Performs the while statement using the specified condition statement after evaluating the previous Do statement.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoopBuilder#LateBreakOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to break the looping statment lately (before the end of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoopBuilder#EarlyBreakOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to break the looping statment early (at the begining of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoopBuilder#LateContinueOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to continue the looping statment lately (before the end of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoopBuilder#EarlyContinueOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to continue the looping statment early (at the begining of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#IEarlyLoop#Do(System.Action)">
+            <summary>
+            Performs the Do statement after evaluating the previous looping statement.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoopBuilder#LateBreakOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to break the looping statment lately (before the end of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoopBuilder#EarlyBreakOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to break the looping statment early (at the begining of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoopBuilder#LateContinueOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to continue the looping statment lately (before the end of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoopBuilder#EarlyContinueOn(System.Func{System.Boolean})">
+            <summary>
+            Evaluates the specified condition to be used to continue the looping statment early (at the begining of the loop).
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ILateLoop#While(System.Func{System.Boolean})">
+            <summary>
+            Performs the while statement using the specifed condition after it has evaluated the previous chained Do statement.
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#Swallow">
+            <summary>
+            Performs the previously chained Try action and swallow any exception that might occur.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#SwallowIf``1">
+            <summary>
+            Performs the previously chained Try action and swallow only the specified Exception(s).
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#SwallowIf``2">
+            <summary>
+            Performs the previously chained Try action and swallow only the specified Exception(s).
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#SwallowIf``3">
+            <summary>
+            Performs the previously chained Try action and swallow only the specified Exception(s).
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <typeparam name="Exception3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#SwallowIf``4">
+            <summary>
+            Performs the previously chained Try action and swallow only the specified Exception(s).
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <typeparam name="Exception3"></typeparam>
+            <typeparam name="Exception4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#Catch(System.Action{System.Exception})">
+            <summary>
+            Performs the previously chained Try action and catches any exception and performs the specified action for the catch.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#Catch``1(System.Action{``0})">
+            <summary>
+            Performs the previously chained Try action and catches the specified exception(s) and performs the specified action for each catch.
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <param name="action1"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ITriableAction#Catch``2(System.Action{``0},System.Action{``1})">
+            <summary>
+            Performs the previously chained Try action and catches the specified exception(s) and performs the specified action for each catch.
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <param name="action1"></param>
+            <param name="action2"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchBuilder#Case``1(``0)">
+            <summary>
+            Prepares a Case statement for the previously chained Switch statement, this requires the usage of Execute after it.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="compareOperand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchTypeBuilder#Case``1">
+            <summary>
+            Prepares a Case statement for the previously chained Switch statement, this requires the usage of Execute after it.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchCaseBuilder#Execute(System.Action)">
+            <summary>
+            Prepares for the execution of the specified action in case its chained Case has been evaluated.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchTypeCaseBuilder#Execute(System.Action)">
+            <summary>
+            Prepares for the execution of the specified action in case its chained Case has been evaluated.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchBuilder#Default(System.Action)">
+            <summary>
+            Performs the previously chained switch statement along with its chained cases.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Fluentx#ISwitchTypeBuilder#Default(System.Action)">
+            <summary>
+            Performs the previously chained switch statement along with its chained cases.
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fluentx.Fx.Action">
+            <summary>
+            Used for a single default action
+            </summary>
+        </member>
+        <member name="T:Fluentx.Fx.CaseInfo">
+            <summary>
+            Private class to hold information about switch case statement.
+            </summary>
+        </member>
+    </members>
+</doc>
