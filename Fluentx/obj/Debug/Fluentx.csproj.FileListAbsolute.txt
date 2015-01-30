@@ -8,3 +8,7 @@ D:\Mii Personal Work\Fluentx\Fluentx\bin\Debug\Fluentx.pdb
 D:\Mii Personal Work\Fluentx\Fluentx\obj\Debug\Fluentx.csprojResolveAssemblyReference.cache
 D:\Mii Personal Work\Fluentx\Fluentx\obj\Debug\Fluentx.dll
 D:\Mii Personal Work\Fluentx\Fluentx\obj\Debug\Fluentx.pdb
+E:\Mii Personal Work\Fluentx\Fluentx\bin\Debug\Fluentx.dll
+E:\Mii Personal Work\Fluentx\Fluentx\bin\Debug\Fluentx.pdb
+E:\Mii Personal Work\Fluentx\Fluentx\obj\Debug\Fluentx.dll
+E:\Mii Personal Work\Fluentx\Fluentx\obj\Debug\Fluentx.pdb

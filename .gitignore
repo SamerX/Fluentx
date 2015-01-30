@@ -1,0 +1,10 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/Fluentx/bin/Debug
+/Fluentx/obj/Debug
+/Fluentx.Mvc/bin/Debug
+/Fluentx.Mvc/obj/Debug
+/Fluentx.Tester/bin/Debug
+/Fluentx.Tester/obj/Debug

@@ -12,3 +12,10 @@ D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.dll
 D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.pdb
 D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.dll
 D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.pdb
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.Tester.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.Tester.pdb
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.pdb
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.csprojResolveAssemblyReference.cache
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.dll
+E:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.pdb
