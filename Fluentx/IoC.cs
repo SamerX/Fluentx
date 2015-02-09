@@ -73,7 +73,10 @@ namespace Fluentx
 
             public void Register<TResolveType, TConcretType>(LifeCycle lifeCycle)
             {
-                entries.Add(new ContainerEntry(typeof(TResolveType), typeof(TConcretType), lifeCycle));
+                if (!entries.Any(x => x.ResolveType == typeof(TResolveType)))
+                {
+                    entries.Add(new ContainerEntry(typeof(TResolveType), typeof(TConcretType), lifeCycle));
+                }
             }
             /// <summary>
             /// Registers the specified resolve and concerete types in the container, null values are ignored and not registered.
@@ -92,7 +95,7 @@ namespace Fluentx
             /// <param name="lifeCycle"></param>
             public void Register(Type resolveType, Type concreteType, LifeCycle lifeCycle)
             {
-                if (resolveType != null && concreteType != null)
+                if (resolveType != null && concreteType != null && !entries.Any(x => x.ResolveType == resolveType))
                 {
                     entries.Add(new ContainerEntry(resolveType, concreteType, lifeCycle));
                 }
@@ -129,7 +132,7 @@ namespace Fluentx
 
             private object GetInstance(ContainerEntry entry)
             {
-                if (entry == null || entry.LifeCycle == LifeCycle.Transient)
+                if (entry.Instance == null || entry.LifeCycle == LifeCycle.Transient)
                 {
                     var parameters = ResolveConstructorParameters(entry);
                     entry.CreateInstance(parameters.ToArray());
@@ -264,7 +267,7 @@ namespace Fluentx
                 }
             }
         }
-        
+
         private static Type GetType(string typeName)
         {
             return Type.GetType(typeName) ?? AppDomain.CurrentDomain.GetAssemblies()

@@ -554,6 +554,7 @@ namespace Fluentx.Tester
         public void Test_IoC()
         {
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
+            IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
         }
         public interface IOne { }
