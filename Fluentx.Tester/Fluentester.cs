@@ -550,6 +550,13 @@ namespace Fluentx.Tester
             var vmOne = mapper.Map(one);
         }
 
+        [TestMethod]
+        public void Test_IoC()
+        {
+            IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
+            //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
+        }
+        public interface IOne { }
         private class One
         {
             public string X1 { get; set; }
