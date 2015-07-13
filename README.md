@@ -326,43 +326,40 @@ Conditional mapping of a property is to override the basic mapping convention of
 
 <pre>
 .Conditional(x => x.Description, src => src.Description != string.Empty)
-Ignore
 </pre>
 
+<h3>Ignore</h3>
 Ignores the mapping of the specified property (dont map it)
 <pre>
 .Ignore(dest => dest.BirthDate)
-IgnoreIf
 </pre>
 
+<h3>IgnoreIf</h3>
 Ignores the mapping of the specified property if the condition evaluates to true.
 <pre>
 .IgnoreIf(dest => dest.Serial, src=> { return src.Serial == string.Empty;})
-For
 </pre>
 
+<h3>For</h3>
 Maps the specified property using the specified action which takes source as the parameter
 <pre>
 .For(dest => dest.Order, src => RepoAccount.LoadOrder(src.OrderId))
 </pre>
 
 <h3>ForIf</h3>
-
 Maps the specified property using the specified action which takes source as the paramter if the evaluation of the specified action is true
 <pre>
 .ForIf(dest => dest.Number, src => src.Number, src => src.AutoGenerate)
 </pre>
-<h3>Resolve</h3>
 
+<h3>Resolve</h3>
 A custom action to be executed on the mapper when all mapping is done, can be used to manually manipulate the mapping as it has the source and destination as parameters.
 <pre>
 .Resolve((src, dest)=>{ .... do whatever you want here ... }); 
 </pre>
 
 <h3>Centeralized Mapping</h3>
-
 Sometimes you want to use the same mapping in different places in your code, in order to do that fluentx mapper can be used in such a way to make it centerazlied or reusable as follows using inheritance:
-
 <pre>
 public class CustomerMapper : Mapper<DTOCustomer, Customer>
 {
