@@ -280,8 +280,9 @@ ISpecification<int> rule2 = new ExpressionSpecification<int>(x => x == 2, "rule2
 ISpecification<int> rule3 = new ExpressionSpecification<int>(x => x == 3, "rule3 failed");
 ISpecification<int> rule4 = rule1.Or(rule2).Or(rule3); 
 var result = rule4.ValidateWithMessages(4);
-Fluentx Mapper (Object to Object Mapper)
 </pre>
+
+<h2>Fluentx Mapper (Object to Object Mapper)</h2>
 
 Fluentx mapper is an object to object mapper, its very easy, simple and straight forward to use, it has the most common functionalities you would expect of a mapper to do the proper mapping you desire, it also provide you with the option to manually map properties and fields.
 
