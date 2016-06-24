@@ -81,6 +81,29 @@ namespace Fluentx
             }
         }
         /// <summary>
+        /// Returns whether the specified source doesn't contain the specified value or not.
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static bool NotContains<TSource>(this IEnumerable<TSource> source, TSource value)
+        {
+            return !source.Contains(value);
+        }
+        /// <summary>
+        /// Returns whether the specified source doesn't contain the specified value or not.
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="value"></param>
+        /// <param name="comparer"></param>
+        /// <returns></returns>
+        public static bool Contains<TSource>(this IEnumerable<TSource> source, TSource value, IEqualityComparer<TSource> comparer)
+        {
+            return !source.Contains(value, comparer);
+        }
+        /// <summary>
         /// Extension method to perform random return of an item within the specified list.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -95,6 +118,7 @@ namespace Fluentx
             }
             return default(T);
         }
+        
         /// <summary>
         /// Extension method to evaluate if object is null.
         /// </summary>
@@ -146,6 +170,16 @@ namespace Fluentx
         public static bool IsNullOrEmpty<T>(this IEnumerable<T> @this)
         {
             return (@this == null || @this.Count() == 0);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsNotNullOrEmpty<T>(this IEnumerable<T> @this)
+        {
+            return IsNullOrEmpty(@this).Not();
         }
         /// <summary>
         /// Extension method that performs the action if the value is true.
@@ -467,7 +501,7 @@ namespace Fluentx
             return value * 1024;
         }
         /// <summary>
-        /// M stands for Meda. The value mutliplied by 1024 * 1024. e.g. 4.M()
+        /// M stands for Mega. The value mutliplied by 1024 * 1024. e.g. 4.M()
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>

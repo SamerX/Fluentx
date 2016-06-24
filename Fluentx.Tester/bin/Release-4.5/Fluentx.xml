@@ -392,6 +392,22 @@
             <param name="newValue"></param>
             <returns></returns>
         </member>
+        <member name="T:Fluentx.Extensions.WordCountAlgorithm">
+            <summary>
+            Enumeration to specify which algorithm to use when counting words for the WordCount extension method
+            </summary>
+        </member>
+        <member name="F:Fluentx.Extensions.WordCountAlgorithm.Regex">
+            <summary>
+            Uses regular expressions to count words, its not fast for long strings but its accurate in terms of comparing to Microsoft Word, deviation is 0.02%.
+            Note: this benchmark is taken from http://www.dotnetperls.com
+            </summary>
+        </member>
+        <member name="F:Fluentx.Extensions.WordCountAlgorithm.Loop">
+            <summary>
+            Uses a simple loop to check characters and count words, this method is faster than regex, but less accurate.
+            </summary>
+        </member>
         <member name="M:Fluentx.Extensions.January(System.Int32,System.Nullable{System.Int32})">
             <summary>
             Returns the date in January of the specified year or current year.
@@ -655,6 +671,25 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
+        <member name="M:Fluentx.Extensions.NotContains``1(System.Collections.Generic.IEnumerable{``0},``0)">
+            <summary>
+            Returns whether the specified source doesn't contain the specified value or not.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Returns whether the specified source doesn't contain the specified value or not.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="value"></param>
+            <param name="comparer"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Random``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Extension method to perform random return of an item within the specified list.
@@ -698,6 +733,14 @@
         <member name="M:Fluentx.Extensions.IsNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
             Extension method that returns whether the specified Enumerable is null or empty.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
+            <summary>
+            
             </summary>
             <typeparam name="T"></typeparam>
             <param name="this"></param>
@@ -890,7 +933,7 @@
         </member>
         <member name="M:Fluentx.Extensions.M(System.Int32)">
             <summary>
-            M stands for Meda. The value mutliplied by 1024 * 1024. e.g. 4.M()
+            M stands for Mega. The value mutliplied by 1024 * 1024. e.g. 4.M()
             </summary>
             <param name="value"></param>
             <returns></returns>
@@ -933,420 +976,15 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
-        <member name="T:Fluentx.Extensions.WordCountAlgorithm">
-            <summary>
-            Enumeration to specify which algorithm to use when counting words for the WordCount extension method
-            </summary>
-        </member>
-        <member name="F:Fluentx.Extensions.WordCountAlgorithm.Regex">
-            <summary>
-            Uses regular expressions to count words, its not fast for long strings but its accurate in terms of comparing to Microsoft Word, deviation is 0.02%.
-            Note: this benchmark is taken from http://www.dotnetperls.com
-            </summary>
-        </member>
-        <member name="F:Fluentx.Extensions.WordCountAlgorithm.Loop">
-            <summary>
-            Uses a simple loop to check characters and count words, this method is faster than regex, but less accurate.
-            </summary>
-        </member>
         <member name="T:Fluentx.Fx">
             <summary>
             Fx is the main class for Fluentx and its a shortened name for Fluentx, Fx also is equivelant for the mathematical representation of F(x) :)
             </summary>
         </member>
-        <member name="T:Fluentx.IFluentInterface">
+        <member name="P:Fluentx.Fx.Action">
             <summary>
-            Represnt the core of a fluent interface in fluentx
+            Used for a single default action
             </summary>
-        </member>
-        <member name="M:Fluentx.IFluentInterface.GetType">
-            <summary>
-            Redeclaration that hides the <see cref="M:System.Object.GetType"/> method from IntelliSense.
-            </summary>
-        </member>
-        <member name="M:Fluentx.IFluentInterface.GetHashCode">
-            <summary>
-            Redeclaration that hides the <see cref="M:System.Object.GetHashCode"/> method from IntelliSense.
-            </summary>
-        </member>
-        <member name="M:Fluentx.IFluentInterface.ToString">
-            <summary>
-            Redeclaration that hides the <see cref="M:System.Object.ToString"/> method from IntelliSense.
-            </summary>
-        </member>
-        <member name="M:Fluentx.IFluentInterface.Equals(System.Object)">
-            <summary>
-            Redeclaration that hides the <see cref="M:System.Object.Equals(System.Object)"/> method from IntelliSense.
-            </summary>
-        </member>
-        <member name="T:Fluentx.IAction">
-            <summary>
-            Represnt an Action for fluentx
-            </summary>
-        </member>
-        <member name="T:Fluentx.ITriableAction">
-            <summary>
-            Any action might or might not complete successfully.
-            </summary>
-        </member>
-        <member name="M:Fluentx.ITriableAction.Swallow">
-            <summary>
-            
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.SwallowIf``1">
-            <summary>
-            
-            </summary>
-            <typeparam name="Exception1"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.SwallowIf``2">
-            <summary>
-            
-            </summary>
-            <typeparam name="Exception1"></typeparam>
-            <typeparam name="Exception2"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.SwallowIf``3">
-            <summary>
-            
-            </summary>
-            <typeparam name="Exception1"></typeparam>
-            <typeparam name="Exception2"></typeparam>
-            <typeparam name="Exception3"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.SwallowIf``4">
-            <summary>
-            
-            </summary>
-            <typeparam name="Exception1"></typeparam>
-            <typeparam name="Exception2"></typeparam>
-            <typeparam name="Exception3"></typeparam>
-            <typeparam name="Exception4"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.Catch(System.Action{System.Exception})">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.Catch``1(System.Action{``0})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ITriableAction.Catch``2(System.Action{``0},System.Action{``1})">
-            <summary>
-            
-            </summary>
-            <typeparam name="T1"></typeparam>
-            <typeparam name="T2"></typeparam>
-            <param name="action1"></param>
-            <param name="action2"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.IConditionBuilder">
-            <summary>
-            Any condition builder.
-            </summary>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Then(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.And(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.And(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.AndNot(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.AndNot(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Or(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Or(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.OrNot(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.OrNot(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Xor(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Xor(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Xnor(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionBuilder.Xnor(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.IConditionalAction">
-            <summary>
-            Any condition action.
-            </summary>
-        </member>
-        <member name="M:Fluentx.IConditionalAction.Else(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionalAction.ElseIf(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IConditionalAction.ElseIf(System.Boolean)">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.IEarlyLoopBuilder">
-            <summary>
-            Any early loop builder (e.g while)
-            </summary>
-        </member>
-        <member name="M:Fluentx.IEarlyLoopBuilder.Do(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IEarlyLoopBuilder.LateBreakOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IEarlyLoopBuilder.EarlyBreakOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IEarlyLoopBuilder.LateContinueOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.IEarlyLoopBuilder.EarlyContinueOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ILoopAction">
-            <summary>
-            Any loop action.
-            </summary>
-        </member>
-        <member name="T:Fluentx.ILateLoopBuilder">
-            <summary>
-            Any late loop builder (e.g Do-While)
-            </summary>
-        </member>
-        <member name="M:Fluentx.ILateLoopBuilder.While(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ILateLoopBuilder.LateBreakOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ILateLoopBuilder.EarlyBreakOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ILateLoopBuilder.LateContinueOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ILateLoopBuilder.EarlyContinueOn(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.IEarlyLoop">
-            <summary>
-            Any early loop (e.g while).
-            </summary>
-        </member>
-        <member name="M:Fluentx.IEarlyLoop.Do(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ILateLoop">
-            <summary>
-            Any late loop (e.g Do-While).
-            </summary>
-        </member>
-        <member name="M:Fluentx.ILateLoop.While(System.Func{System.Boolean})">
-            <summary>
-            
-            </summary>
-            <param name="condition"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ISwitchBuilder">
-            <summary>
-            Switch statement builder.
-            </summary>
-        </member>
-        <member name="M:Fluentx.ISwitchBuilder.Case``1(``0)">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="compareOperand"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ISwitchBuilder.Default(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ISwitchCaseBuilder">
-            <summary>
-            Switch case statement builder.
-            </summary>
-        </member>
-        <member name="M:Fluentx.ISwitchCaseBuilder.Execute(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ISwitchTypeBuilder">
-            <summary>
-            Switch statement for Types builder.
-            </summary>
-        </member>
-        <member name="M:Fluentx.ISwitchTypeBuilder.Case``1">
-            <summary>
-            
-            </summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.ISwitchTypeBuilder.Default(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
-        </member>
-        <member name="T:Fluentx.ISwitchTypeCaseBuilder">
-            <summary>
-            Switch case statement for types builder.
-            </summary>
-        </member>
-        <member name="M:Fluentx.ISwitchTypeCaseBuilder.Execute(System.Action)">
-            <summary>
-            
-            </summary>
-            <param name="action"></param>
-            <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.WhileTrue(System.Func{System.Boolean})">
             <summary>
@@ -2034,10 +1672,24 @@
             <param name="trueAction"></param>
             <param name="falseAction"></param>
         </member>
-        <member name="P:Fluentx.Fx.Action">
+        <member name="M:Fluentx.Fx.RandomBoolean">
             <summary>
-            Used for a single default action
+            Returns a random value of boolean
             </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.FlipCoin">
+            <summary>
+            Returns a random value of boolean
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.RandomString(System.Int32)">
+            <summary>
+            Returns a random string with a specified length.
+            </summary>
+            <param name="length"></param>
+            <returns></returns>
         </member>
         <member name="T:Fluentx.Fx.CaseInfo">
             <summary>
@@ -2097,12 +1749,592 @@
             <param name="asseertionAction"></param>
             <param name="message"></param>
         </member>
+        <member name="T:Fluentx.IFluentInterface">
+            <summary>
+            Represnt the core of a fluent interface in fluentx
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.GetType">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetType"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.GetHashCode">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.GetHashCode"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.ToString">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.ToString"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IFluentInterface.Equals(System.Object)">
+            <summary>
+            Redeclaration that hides the <see cref="M:System.Object.Equals(System.Object)"/> method from IntelliSense.
+            </summary>
+        </member>
+        <member name="T:Fluentx.IAction">
+            <summary>
+            Represnt an Action for fluentx
+            </summary>
+        </member>
+        <member name="T:Fluentx.IConditionBuilder">
+            <summary>
+            Any condition builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Then(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.And(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.And(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.AndNot(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.AndNot(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Or(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Or(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.OrNot(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.OrNot(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Xor(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Xor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Xnor(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionBuilder.Xnor(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.IConditionalAction">
+            <summary>
+            Any condition action.
+            </summary>
+        </member>
+        <member name="M:Fluentx.IConditionalAction.Else(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionalAction.ElseIf(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IConditionalAction.ElseIf(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ILoopAction">
+            <summary>
+            Any loop action.
+            </summary>
+        </member>
+        <member name="T:Fluentx.IEarlyLoopBuilder">
+            <summary>
+            Any early loop builder (e.g while)
+            </summary>
+        </member>
+        <member name="M:Fluentx.IEarlyLoopBuilder.Do(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IEarlyLoopBuilder.LateBreakOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IEarlyLoopBuilder.EarlyBreakOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IEarlyLoopBuilder.LateContinueOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IEarlyLoopBuilder.EarlyContinueOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.IEarlyLoop">
+            <summary>
+            Any early loop (e.g while).
+            </summary>
+        </member>
+        <member name="M:Fluentx.IEarlyLoop.Do(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ILateLoop">
+            <summary>
+            Any late loop (e.g Do-While).
+            </summary>
+        </member>
+        <member name="M:Fluentx.ILateLoop.While(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ILateLoopBuilder">
+            <summary>
+            Any late loop builder (e.g Do-While)
+            </summary>
+        </member>
+        <member name="M:Fluentx.ILateLoopBuilder.While(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ILateLoopBuilder.LateBreakOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ILateLoopBuilder.EarlyBreakOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ILateLoopBuilder.LateContinueOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ILateLoopBuilder.EarlyContinueOn(System.Func{System.Boolean})">
+            <summary>
+            
+            </summary>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ITriableAction">
+            <summary>
+            Any action might or might not complete successfully.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ITriableAction.Swallow">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.SwallowIf``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.SwallowIf``2">
+            <summary>
+            
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.SwallowIf``3">
+            <summary>
+            
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <typeparam name="Exception3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.SwallowIf``4">
+            <summary>
+            
+            </summary>
+            <typeparam name="Exception1"></typeparam>
+            <typeparam name="Exception2"></typeparam>
+            <typeparam name="Exception3"></typeparam>
+            <typeparam name="Exception4"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.Catch(System.Action{System.Exception})">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.Catch``1(System.Action{``0})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ITriableAction.Catch``2(System.Action{``0},System.Action{``1})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <param name="action1"></param>
+            <param name="action2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ISwitchBuilder">
+            <summary>
+            Switch statement builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ISwitchBuilder.Case``1(``0)">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="compareOperand"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ISwitchBuilder.Default(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ISwitchTypeBuilder">
+            <summary>
+            Switch statement for Types builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ISwitchTypeBuilder.Case``1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ISwitchTypeBuilder.Default(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ISwitchCaseBuilder">
+            <summary>
+            Switch case statement builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ISwitchCaseBuilder.Execute(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.ISwitchTypeCaseBuilder">
+            <summary>
+            Switch case statement for types builder.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ISwitchTypeCaseBuilder.Execute(System.Action)">
+            <summary>
+            
+            </summary>
+            <param name="action"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.LifeCycle">
+            <summary>
+            Represents the life cycle of a registered container entry
+            </summary>
+        </member>
+        <member name="F:Fluentx.LifeCycle.Transient">
+            <summary>
+            IoC container resolves by creating a new instance on every resolve
+            </summary>
+        </member>
+        <member name="F:Fluentx.LifeCycle.Singleton">
+            <summary>
+            IoC container resolves by creating a new instance for the first time then reuse that value for the afterwards calls
+            </summary>
+        </member>
+        <member name="T:Fluentx.AutoRegisterMode">
+            <summary>
+            Used with auto registration of classes
+            </summary>
+        </member>
+        <member name="F:Fluentx.AutoRegisterMode.Flexible">
+            <summary>
+            If resolve type interface not found then the concreteType is used as a resolve type
+            </summary>
+        </member>
+        <member name="F:Fluentx.AutoRegisterMode.Strict">
+            <summary>
+            If resolve type interface not found then no registration happens
+            </summary>
+        </member>
+        <member name="T:Fluentx.IoC">
+            <summary>
+            Its a simple Inversion of Control resolver that help in registering resolve types against 
+            concrete types with support for simple DI (Dependency Injection)
+            </summary>
+        </member>
+        <member name="T:Fluentx.IoC.IoCContainer">
+            <summary>
+            Based on Jimmy Bogard's implementation for simple IoC container
+            </summary>
+        </member>
+        <member name="M:Fluentx.IoC.IoCContainer.Register(System.Type,System.Type)">
+            <summary>
+            Registers the specified resolve and concerete types in the container, null values are ignored and not registered.
+            </summary>
+            <param name="resolveType"></param>
+            <param name="concreteType"></param>
+        </member>
+        <member name="M:Fluentx.IoC.IoCContainer.Register(System.Type,System.Type,Fluentx.LifeCycle)">
+            <summary>
+            Registers the specified resolve and concerete types in the container, null values are ignored and not registered.
+            </summary>
+            <param name="resolveType"></param>
+            <param name="concreteType"></param>
+            <param name="lifeCycle"></param>
+        </member>
+        <member name="M:Fluentx.IoC.IoCContainer.Resolve``1">
+            <summary>
+            Returns a concrete instance of the specified resolve type
+            </summary>
+            <typeparam name="TResolveType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IoC.IoCContainer.Resolve(System.Type)">
+            <summary>
+            Returns a concrete instance of the specified resolve type
+            </summary>
+            <param name="resolveType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IoC.Register``2">
+            <summary>
+            Registers the specified resolveType and concrete type in the container
+            </summary>
+            <typeparam name="TResolveType"></typeparam>
+            <typeparam name="TConcretType"></typeparam>
+        </member>
+        <member name="M:Fluentx.IoC.Register``2(Fluentx.LifeCycle)">
+            <summary>
+            Registers the specified resolveType and concrete type in the container
+            </summary>
+            <typeparam name="TResolveType"></typeparam>
+            <typeparam name="TConcretType"></typeparam>
+            <param name="lifeCycle"></param>
+        </member>
+        <member name="M:Fluentx.IoC.Resolve``1">
+            <summary>
+            Tries to resolve the specified resolveType by retrieving instance of the 
+            registered concrete type in the container.
+            </summary>
+            <typeparam name="TResolveType"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.IoC.AutoRegisterByInterfaces(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Tries to register interfaces only from the collection of types provided by 
+            having the interface as ResolveType and interface name without "I" as concreteType.
+            e.g ISomething => Something
+            </summary>
+            <param name="types">Only interfaces will be looked up for auto registeration</param>
+        </member>
+        <member name="M:Fluentx.IoC.AutoRegisterByClasses(System.Collections.Generic.IEnumerable{System.Type},Fluentx.AutoRegisterMode)">
+            <summary>
+            Tries to register classes only from the collection of types provided by having
+            the class as a ConcreteType and the ConcreteType prefixed with "I" as the 
+            Resolve Type, if no interface found the concreteType it self is used only in case AutoRegistrationMode is set to Flexable.
+            </summary>
+            <param name="types">Only classes will be lookup for auto registration</param>
+            <param name="autoRegisterMode">Either Strict or </param>
+        </member>
+        <member name="M:Fluentx.IoC.AutoRegisterByClassesAsIs(System.Collections.Generic.IEnumerable{System.Type})">
+            <summary>
+            Tries to register classes only from the collection of types provided by 
+            having the resolve type and concrete type the same type provided
+            </summary>
+            <param name="typesToAutoRegister"></param>
+        </member>
         <member name="T:Fluentx.MultitionaryBase`2">
             <summary>
             Multi-value dictionary identified by a key
             </summary>
             <typeparam name="TKey"></typeparam>
             <typeparam name="TKuple"></typeparam>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.MultitionaryBase`2.Current">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.MoveNext">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.Reset">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.GetEnumerator">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.Add(`1)">
+            <summary>
+            
+            </summary>
+            <param name="item"></param>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.Remove(`0)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.Clear">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.MultitionaryBase`2.ContainsKey(`0)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fluentx.MultitionaryBase`2.Item(`0)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fluentx.MultitionaryBase`2.Count">
+            <summary>
+            
+            </summary>
         </member>
         <member name="T:Fluentx.Multitionary`2">
             <summary>
@@ -2185,6 +2417,11 @@
             </summary>
             <typeparam name="TKey"></typeparam>
         </member>
+        <member name="P:Fluentx.IKuple`1.Key">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Fluentx.Kuple`8">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2198,6 +2435,59 @@
             <typeparam name="T6"></typeparam>
             <typeparam name="T7"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`8.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`8.Value7">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`8.#ctor(`0,`1,`2,`3,`4,`5,`6,`7)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+            <param name="value7"></param>
+        </member>
         <member name="T:Fluentx.Kuple`7">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2210,6 +2500,53 @@
             <typeparam name="T5"></typeparam>
             <typeparam name="T6"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`7.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`7.Value6">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`7.#ctor(`0,`1,`2,`3,`4,`5,`6)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+            <param name="value6"></param>
+        </member>
         <member name="T:Fluentx.Kuple`6">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2221,6 +2558,47 @@
             <typeparam name="T4"></typeparam>
             <typeparam name="T5"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`6.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`6.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`6.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`6.Value3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`6.Value4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`6.Value5">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`6.#ctor(`0,`1,`2,`3,`4,`5)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+            <param name="value5"></param>
+        </member>
         <member name="T:Fluentx.Kuple`5">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2231,6 +2609,41 @@
             <typeparam name="T3"></typeparam>
             <typeparam name="T4"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`5.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`5.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`5.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`5.Value3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`5.Value4">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`5.#ctor(`0,`1,`2,`3,`4)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+            <param name="value4"></param>
+        </member>
         <member name="T:Fluentx.Kuple`4">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2240,6 +2653,35 @@
             <typeparam name="T2"></typeparam>
             <typeparam name="T3"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`4.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`4.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`4.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`4.Value3">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`4.#ctor(`0,`1,`2,`3)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+            <param name="value3"></param>
+        </member>
         <member name="T:Fluentx.Kuple`3">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -2248,12 +2690,52 @@
             <typeparam name="T1"></typeparam>
             <typeparam name="T2"></typeparam>
         </member>
+        <member name="P:Fluentx.Kuple`3.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`3.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`3.Value2">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`3.#ctor(`0,`1,`2)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
+            <param name="value2"></param>
+        </member>
         <member name="T:Fluentx.Kuple`2">
             <summary>
             Interface to represent multivalue data structures identified by a key
             </summary>
             <typeparam name="TKey"></typeparam>
             <typeparam name="T1"></typeparam>
+        </member>
+        <member name="P:Fluentx.Kuple`2.Key">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Kuple`2.Value1">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Kuple`2.#ctor(`0,`1)">
+            <summary>
+            
+            </summary>
+            <param name="key"></param>
+            <param name="value1"></param>
         </member>
         <member name="T:Fluentx.IMapper">
             <summary>
@@ -2371,6 +2853,16 @@
             <param name="destType"></param>
             <returns></returns>
         </member>
+        <member name="P:Fluentx.Mapper`2.SourceType">
+            <summary>
+            Mapper source type
+            </summary>
+        </member>
+        <member name="P:Fluentx.Mapper`2.DestinationType">
+            <summary>
+            Mapper destination type
+            </summary>
+        </member>
         <member name="M:Fluentx.Mapper`2.MapInstanceToInstance(`0,`1)">
             <summary>
             Executes mapping
@@ -2457,16 +2949,6 @@
             <param name="dest"></param>
             <returns></returns>
         </member>
-        <member name="P:Fluentx.Mapper`2.SourceType">
-            <summary>
-            Mapper source type
-            </summary>
-        </member>
-        <member name="P:Fluentx.Mapper`2.DestinationType">
-            <summary>
-            Mapper destination type
-            </summary>
-        </member>
         <member name="T:Fluentx.PagedData`1">
             <summary>
             A simple container class for paged data.
@@ -2508,6 +2990,21 @@
             A class represents a time period between to date item instances.
             </summary>
         </member>
+        <member name="P:Fluentx.Period.Start">
+            <summary>
+            Period start datetime
+            </summary>
+        </member>
+        <member name="P:Fluentx.Period.End">
+            <summary>
+            Period end datetime
+            </summary>
+        </member>
+        <member name="P:Fluentx.Period.Length">
+            <summary>
+            Period length as a timespan
+            </summary>
+        </member>
         <member name="M:Fluentx.Period.#ctor(System.DateTime,System.DateTime)">
             <summary>
             Creates a period with the specified start and end dates
@@ -2529,21 +3026,6 @@
             </summary>
             <param name="date"></param>
             <returns></returns>
-        </member>
-        <member name="P:Fluentx.Period.Start">
-            <summary>
-            Period start datetime
-            </summary>
-        </member>
-        <member name="P:Fluentx.Period.End">
-            <summary>
-            Period end datetime
-            </summary>
-        </member>
-        <member name="P:Fluentx.Period.Length">
-            <summary>
-            Period length as a timespan
-            </summary>
         </member>
         <member name="T:Fluentx.PredicateBuilder">
             <summary>
@@ -2638,6 +3120,11 @@
             </summary>
             <typeparam name="T"></typeparam>
         </member>
+        <member name="P:Fluentx.CompositeSpecification`1.Message">
+            <summary>
+            Message returned for the specificaiton validation
+            </summary>
+        </member>
         <member name="M:Fluentx.CompositeSpecification`1.Validate(`0)">
             <summary>
             Executes and Validates the specificaiton
@@ -2672,11 +3159,6 @@
             </summary>
             <param name="specification"></param>
             <returns></returns>
-        </member>
-        <member name="P:Fluentx.CompositeSpecification`1.Message">
-            <summary>
-            Message returned for the specificaiton validation
-            </summary>
         </member>
         <member name="T:Fluentx.AndSpecification`1">
             <summary>
@@ -2791,6 +3273,17 @@
             </summary>
             <param name="instance"></param>
             <returns></returns>
+        </member>
+        <member name="T:Fluentx.TypeNotRegisteredException">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.TypeNotRegisteredException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
         </member>
         <member name="T:Fluentx.UISearch`1">
             <summary>

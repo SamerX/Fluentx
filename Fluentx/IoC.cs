@@ -29,7 +29,7 @@ namespace Fluentx
         /// <summary>
         /// If resolve type interface not found then the concreteType is used as a resolve type
         /// </summary>
-        Flexable,
+        Flexible,
         /// <summary>
         /// If resolve type interface not found then no registration happens
         /// </summary>
@@ -223,6 +223,7 @@ namespace Fluentx
         /// Resolve Type, if no interface found the concreteType it self is used only in case AutoRegistrationMode is set to Flexable.
         /// </summary>
         /// <param name="types">Only classes will be lookup for auto registration</param>
+        /// <param name="autoRegisterMode">Either Strict or </param>
         public static void AutoRegisterByClasses(IEnumerable<Type> types, AutoRegisterMode autoRegisterMode = AutoRegisterMode.Strict)
         {
             if (types != null)
@@ -240,7 +241,7 @@ namespace Fluentx
                         }
                         else
                         {
-                            if (autoRegisterMode == AutoRegisterMode.Flexable)
+                            if (autoRegisterMode == AutoRegisterMode.Flexible)
                             {
                                 Container.Register(type, type);
                             }

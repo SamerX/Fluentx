@@ -8,3 +8,9 @@ E:\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.pdb
 E:\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.dll
 E:\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.pdb
 E:\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.csprojResolveAssemblyReference.cache
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.XML
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.dll
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.pdb
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.csprojResolveAssemblyReference.cache
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.dll
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.pdb

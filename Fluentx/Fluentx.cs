@@ -12,6 +12,7 @@ namespace Fluentx
     /// </summary>
     public sealed class Fx : IFluentInterface, IAction, ITriableAction, IConditionBuilder, IConditionalAction, IEarlyLoopBuilder, ILoopAction, ILateLoopBuilder, IEarlyLoop, ILateLoop, ISwitchBuilder, ISwitchCaseBuilder, ISwitchTypeBuilder, ISwitchTypeCaseBuilder
     {
+        private const string alphabetCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private Fx()
         {
             //Not to be initialized from the out side.
@@ -1421,6 +1422,32 @@ namespace Fluentx
             {
                 falseAction();
             }
+        }
+        /// <summary>
+        /// Returns a random value of boolean
+        /// </summary>
+        /// <returns></returns>
+        public static bool RandomBoolean()
+        {
+            return new Random().Next(0, 1) == 1;
+        }
+        /// <summary>
+        /// Returns a random value of boolean
+        /// </summary>
+        /// <returns></returns>
+        public static bool FlipCoin()
+        {
+            return RandomBoolean();
+        }
+        /// <summary>
+        /// Returns a random string with a specified length.
+        /// </summary>
+        /// <param name="length"></param>
+        /// <returns></returns>
+        public static string RandomString(int length = 8)
+        {
+            return new string(Enumerable.Repeat(alphabetCharacters, length)
+              .Select(s => s[new Random().Next(s.Length)]).ToArray());
         }
         /// <summary>
         /// Private class to hold information about switch case statement.
