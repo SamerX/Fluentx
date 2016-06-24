@@ -252,14 +252,63 @@ namespace Fluentx
             return DateTime.Now.AddYears(@this);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime LastYear(this DateTime @this)
+        {
+            return @this.AddYears(-1);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime NextYear(this DateTime @this)
+        {
+            return @this.AddYears(1);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime LastMonth(this DateTime @this)
+        {
+            return @this.AddMonths(-1);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime NextMonth(this DateTime @this)
+        {
+            return @this.AddMonths(1);
+        }
+
+        /// <summary>
         /// Returns a boolean value wether the date is within the specifed period. (edges are not calculated within)
         /// </summary>
         /// <param name="this"></param>
         /// <param name="period"></param>
+        /// /// <param name="includeEdges"></param>
         /// <returns></returns>
-        public static bool IsWithin(this DateTime @this, Period period)
+        public static bool IsWithin(this DateTime @this, Period period, bool includeEdges = false)
         {
-            return period.IsWrap(@this);
+            return period.IsWrap(@this, includeEdges);
+        }
+        /// <summary>
+        /// returns a boolean value wether the date is NOT within the specifed period. (edges are not calculated within)
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="period"></param>
+        /// <param name="includeEdges"></param>
+        /// <returns></returns>
+        public static bool IsNotWithin(this DateTime @this, Period period, bool includeEdges = false)
+        {
+            return period.IsWrap(@this, includeEdges).Not();
         }
         /// <summary>
         /// Returns end of day 23:59:59;
@@ -280,6 +329,15 @@ namespace Fluentx
             return @this.Date.Date;
         }
         /// <summary>
+        /// Returns tomorrow of the specified day
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime Tomorrow(this DateTime @this)
+        {
+            return @this.AddDays(1);
+        }
+        /// <summary>
         /// Returns next day of the specified day
         /// </summary>
         /// <param name="this"></param>
@@ -288,7 +346,6 @@ namespace Fluentx
         {
             return @this.AddDays(1);
         }
-
         /// <summary>
         /// Returns yesterday of the specified day
         /// </summary>
@@ -298,7 +355,6 @@ namespace Fluentx
         {
             return @this.AddDays(-1);
         }
-
         /// <summary>
         /// Returns yesterday of the specified day
         /// </summary>

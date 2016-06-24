@@ -492,22 +492,50 @@ namespace Fluentx
             }
         }
         /// <summary>
-        /// K stands for Kilo. The value mutliplied by 1024. e.g. 3.K()
+        /// KB stands for Kilo Byte. The value mutliplied by 1024. e.g. 3.KB()
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int K(this int value)
+        public static int KB(this int value)
         {
             return value * 1024;
         }
         /// <summary>
-        /// M stands for Mega. The value mutliplied by 1024 * 1024. e.g. 4.M()
+        /// MB stands for Mega Byte. The value mutliplied by 1024 * 1024. e.g. 4.MB()
         /// </summary>
         /// <param name="value"></param>
         /// <returns></returns>
-        public static int M(this int value)
+        public static int MB(this int value)
         {
             return value * 1024 * 1024;
+        }
+        /// <summary>
+        /// GB stands for Giga Byte. The value mutliplied by 1024 * 1024 * 1024. e.g. 4.GB()
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int GB(this int value)
+        {
+            return value * 1024 * 1024 * 1024;
+        }
+        
+        /// <summary>
+        /// TB stands for Tera Byte. The value mutliplied by 1024 * 1024 * 1024 * 1024. e.g. 4.TB()
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int TB(this int value)
+        {
+            return value * 1024 * 1024 * 1024 * 1024;
+        }
+        /// <summary>
+        /// PB stands for Peta Byte. The value mutliplied by 1024 * 1024 * 1024 * 1024. e.g. 4.PB()
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int PB(this int value)
+        {
+            return value * 1024 * 1024 * 1024 * 1024 * 1024;
         }
         /// <summary>
         /// Returns an empty Enumerable if the specified enumerable is null.
@@ -533,7 +561,7 @@ namespace Fluentx
             return @this != null ? exp(@this) : elseValue;
         }
         /// <summary>
-        /// Converts all elements of the specified enum to a concatenated string.
+        /// Converts all elements of the specified enumerable to a concatenated string.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="collection"></param>
@@ -544,7 +572,7 @@ namespace Fluentx
             return ToString(collection, t => t.ToString(), separator);
         }
         /// <summary>
-        /// Converts all elements of the specified enum to a concatenated string using the specifed exp.
+        /// Converts all elements of the specified enumerable to a concatenated string using the specifed exp.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="collection"></param>

@@ -12,6 +12,7 @@ namespace Fluentx
     /// </summary>
     public sealed class Fx : IFluentInterface, IAction, ITriableAction, IConditionBuilder, IConditionalAction, IEarlyLoopBuilder, ILoopAction, ILateLoopBuilder, IEarlyLoop, ILateLoop, ISwitchBuilder, ISwitchCaseBuilder, ISwitchTypeBuilder, ISwitchTypeCaseBuilder
     {
+        private static readonly Random _random = new Random();
         private const string alphabetCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private Fx()
         {
@@ -43,7 +44,7 @@ namespace Fluentx
 
         private List<CaseInfo> SwitchCases { get; set; }
 
-        
+
 
 
         #endregion
@@ -1353,7 +1354,7 @@ namespace Fluentx
             this.SwitchCases.Last().Action = action;
             return this;
         }
-        
+
         /// <summary>
         /// Prepares for the execution of the specified action in case its chained Case has been evaluated.
         /// </summary>
@@ -1429,7 +1430,7 @@ namespace Fluentx
         /// <returns></returns>
         public static bool RandomBoolean()
         {
-            return new Random().Next(0, 1) == 1;
+            return _random.Next(0, 1) == 1;
         }
         /// <summary>
         /// Returns a random value of boolean
@@ -1445,9 +1446,9 @@ namespace Fluentx
         /// <param name="length"></param>
         /// <returns></returns>
         public static string RandomString(int length = 8)
-        {
+        {            
             return new string(Enumerable.Repeat(alphabetCharacters, length)
-              .Select(s => s[new Random().Next(s.Length)]).ToArray());
+              .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
         /// <summary>
         /// Private class to hold information about switch case statement.

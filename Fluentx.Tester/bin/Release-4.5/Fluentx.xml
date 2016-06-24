@@ -596,12 +596,50 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.IsWithin(System.DateTime,Fluentx.Period)">
+        <member name="M:Fluentx.Extensions.LastYear(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NextYear(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.LastMonth(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NextMonth(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsWithin(System.DateTime,Fluentx.Period,System.Boolean)">
             <summary>
             Returns a boolean value wether the date is within the specifed period. (edges are not calculated within)
             </summary>
             <param name="this"></param>
             <param name="period"></param>
+            /// <param name="includeEdges"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNotWithin(System.DateTime,Fluentx.Period,System.Boolean)">
+            <summary>
+            returns a boolean value wether the date is NOT within the specifed period. (edges are not calculated within)
+            </summary>
+            <param name="this"></param>
+            <param name="period"></param>
+            <param name="includeEdges"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.EndOfDay(System.DateTime)">
@@ -614,6 +652,13 @@
         <member name="M:Fluentx.Extensions.StartOfDay(System.DateTime)">
             <summary>
             Returns start of day 00:00:00
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Tomorrow(System.DateTime)">
+            <summary>
+            Returns tomorrow of the specified day
             </summary>
             <param name="this"></param>
             <returns></returns>
@@ -924,16 +969,37 @@
             <param name="list"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.K(System.Int32)">
+        <member name="M:Fluentx.Extensions.KB(System.Int32)">
             <summary>
-            K stands for Kilo. The value mutliplied by 1024. e.g. 3.K()
+            KB stands for Kilo Byte. The value mutliplied by 1024. e.g. 3.KB()
             </summary>
             <param name="value"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.M(System.Int32)">
+        <member name="M:Fluentx.Extensions.MB(System.Int32)">
             <summary>
-            M stands for Mega. The value mutliplied by 1024 * 1024. e.g. 4.M()
+            MB stands for Mega Byte. The value mutliplied by 1024 * 1024. e.g. 4.MB()
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.GB(System.Int32)">
+            <summary>
+            GB stands for Giga Byte. The value mutliplied by 1024 * 1024 * 1024. e.g. 4.GB()
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.TB(System.Int32)">
+            <summary>
+            TB stands for Tera Byte. The value mutliplied by 1024 * 1024 * 1024 * 1024. e.g. 4.TB()
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.PB(System.Int32)">
+            <summary>
+            PB stands for Peta Byte. The value mutliplied by 1024 * 1024 * 1024 * 1024. e.g. 4.PB()
             </summary>
             <param name="value"></param>
             <returns></returns>
@@ -959,7 +1025,7 @@
         </member>
         <member name="M:Fluentx.Extensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.String)">
             <summary>
-            Converts all elements of the specified enum to a concatenated string.
+            Converts all elements of the specified enumerable to a concatenated string.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="collection"></param>
@@ -968,7 +1034,7 @@
         </member>
         <member name="M:Fluentx.Extensions.ToString``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.String},System.String)">
             <summary>
-            Converts all elements of the specified enum to a concatenated string using the specifed exp.
+            Converts all elements of the specified enumerable to a concatenated string using the specifed exp.
             </summary>
             <typeparam name="T"></typeparam>
             <param name="collection"></param>
@@ -3020,11 +3086,12 @@
             <param name="edgesOverlap"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Period.IsWrap(System.DateTime)">
+        <member name="M:Fluentx.Period.IsWrap(System.DateTime,System.Boolean)">
             <summary>
             Returns a boolean wether the specified date is within the current period.(edges are not calculated within)
             </summary>
             <param name="date"></param>
+            /// <param name="includeEdges"></param>
             <returns></returns>
         </member>
         <member name="T:Fluentx.PredicateBuilder">
@@ -3259,6 +3326,12 @@
             </summary>
             <param name="expression"></param>
             <param name="message"></param>
+        </member>
+        <member name="M:Fluentx.ExpressionSpecification`1.#ctor(System.Func{`0,System.String})">
+            <summary>
+            
+            </summary>
+            <param name="expression"></param>
         </member>
         <member name="M:Fluentx.ExpressionSpecification`1.Validate(`0)">
             <summary>

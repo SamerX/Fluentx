@@ -245,6 +245,7 @@ namespace Fluentx
     public sealed class ExpressionSpecification<T> : CompositeSpecification<T>
     {
         private Func<T, bool> expression;
+        private Func<T, string> expressionWithMessage;
         /// <summary>
         /// 
         /// </summary>
@@ -270,13 +271,31 @@ namespace Fluentx
             this.Message = message;
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        public ExpressionSpecification(Func<T, string> expression)
+        {
+            if (expression == null)
+                throw new ArgumentNullException();
+            else
+                this.expressionWithMessage = expression;
+            //this.Message = message;
+        }
+        /// <summary>
         /// Validate the specification and return true or false
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
         public override bool Validate(T instance)
         {
-            return this.expression(instance);
+            if(this.expression != null){
+                return this.expression(instance);
+            }
+            else
+            {
+                return this.expressionWithMessage(instance).IsNullOrEmpty();
+            }
         }
         /// <summary>
         /// validates the specificaiton and return validation messages
@@ -285,7 +304,15 @@ namespace Fluentx
         /// <returns></returns>
         public override IList<string> ValidateWithMessages(T instance)
         {
-            return (this.expression(instance) ? new List<string>() : new List<string>() { Message });
+            if (this.expression != null)
+            {
+                return (this.expression(instance) ? new List<string>() : new List<string>() { Message });
+            }
+            else
+            {
+                this.Message = this.expressionWithMessage(instance);
+                return (this.Message.IsNullOrEmpty() ? new List<string>() : new List<string>() { Message });
+            }
         }
     }
 }

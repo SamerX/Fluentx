@@ -55,10 +55,18 @@ namespace Fluentx
         /// Returns a boolean wether the specified date is within the current period.(edges are not calculated within)
         /// </summary>
         /// <param name="date"></param>
+        /// /// <param name="includeEdges"></param>
         /// <returns></returns>
-        public bool IsWrap(DateTime date)
+        public bool IsWrap(DateTime date, bool includeEdges = false)
         {
-            return this.Start < date && this.End > date;
+            if (includeEdges)
+            {
+                return this.Start <= date && this.End >= date;
+            }
+            else
+            {
+                return this.Start < date && this.End > date;
+            }
         }
     }
 }

@@ -444,7 +444,7 @@ namespace Fluentx.Tester
         [TestMethod]
         public void Test_Expression_Specification()
         {
-
+            var x = Fx.RandomString(3);
         }
         [TestMethod]
         public void Test_Shuffle()
