@@ -18,5 +18,6 @@ D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\bin\Release\Fluentx.Mv
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\bin\Release\Fluentx.Mvc.pdb
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\bin\Release\System.Web.Mvc.dll
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\bin\Release\System.Web.Mvc.xml
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\obj\Release\Fluentx.Mvc.csprojResolveAssemblyReference.cache
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\obj\Release\Fluentx.Mvc.dll
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx.Mvc\obj\Release\Fluentx.Mvc.pdb

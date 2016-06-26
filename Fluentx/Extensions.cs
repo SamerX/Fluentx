@@ -12,6 +12,7 @@ namespace Fluentx
     /// </summary>
     public static partial class Extensions
     {
+        private static Random random = new Random();
         /// <summary>
         /// Extension method to perform For Each operation.
         /// </summary>
@@ -113,7 +114,7 @@ namespace Fluentx
         {
             if (@this != null)
             {
-                int index = new Random().Next(0, @this.Count());
+                int index = random.Next(0, @this.Count());
                 return @this.ElementAt(index);
             }
             return default(T);
@@ -481,12 +482,11 @@ namespace Fluentx
         /// <returns></returns>
         public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
         {
-            var dice = new Random();
             var buffer = list.ToList();
 
             for (int i = 0; i < buffer.Count; i++)
             {
-                int dicePick = dice.Next(i, buffer.Count);
+                int dicePick = random.Next(i, buffer.Count);
                 yield return buffer[dicePick];
                 buffer[dicePick] = buffer[i];
             }

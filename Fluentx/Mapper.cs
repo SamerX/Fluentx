@@ -245,17 +245,24 @@ namespace Fluentx
                                     {
                                         var destPropValue = Array.CreateInstance(destInnerType, sourcePropValue.Length);
 
-                                        for (int i = 0; i < sourcePropValue.Length; i++)
+                                        if (sourcePropValue != null)
                                         {
-                                            //Map the value
-                                            var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { sourcePropValue.GetValue(i) });
+                                            for (int i = 0; i < sourcePropValue.Length; i++)
+                                            {
+                                                //Map the value
+                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { sourcePropValue.GetValue(i) });
 
-                                            //Add the value to 
-                                            destPropValue.SetValue(value, i);
+                                                //Add the value to 
+                                                destPropValue.SetValue(value, i);
+                                            }
+
+                                            //Mapping finished then set the destination property to the newly created property value
+                                            destProp.SetValue(dest, destPropValue, null);
                                         }
-
-                                        //Mapping finished then set the destination property to the newly created property value
-                                        destProp.SetValue(dest, destPropValue, null);
+                                        else
+                                        {
+                                            destProp.SetValue(dest, null, null);
+                                        }
                                     }
                                     #endregion
 
@@ -268,18 +275,24 @@ namespace Fluentx
                                         //Create instance of destination property using an empty constructor
                                         var destPropValue = Activator.CreateInstance(destPropValueType);
 
-                                        //Loop over srouce property value
-                                        foreach (var item in sourcePropValue)
+                                        if (sourcePropValue != null)
                                         {
-                                            //Map the value
-                                            var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                            //Loop over srouce property value
+                                            foreach (var item in sourcePropValue)
+                                            {
+                                                //Map the value
+                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
 
-                                            //Add the mapped value to destination property value
-                                            destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                                //Add the mapped value to destination property value
+                                                destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                            }
+                                            //Mapping finished then set the destination property to the newly created property value
+                                            destProp.SetValue(dest, destPropValue, null);
                                         }
-
-                                        //Mapping finished then set the destination property to the newly created property value
-                                        destProp.SetValue(dest, destPropValue, null);
+                                        else
+                                        {
+                                            destProp.SetValue(dest, null, null);
+                                        }
                                     }
                                     #endregion
                                 }
@@ -293,20 +306,26 @@ namespace Fluentx
                                     {
                                         ArrayList tempDestValues = new ArrayList();
 
-                                        foreach (var item in sourcePropValue)
+                                        if (sourcePropValue != null)
                                         {
-                                            //Map the value
-                                            var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                            foreach (var item in sourcePropValue)
+                                            {
+                                                //Map the value
+                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
 
-                                            //Add the value to temp destination array
-                                            tempDestValues.Add(value);
+                                                //Add the value to temp destination array
+                                                tempDestValues.Add(value);
+                                            }
+                                            //Create destination property value from the temp array
+                                            Array destPropValue = tempDestValues.ToArray(destInnerType);
+
+                                            //Mapping finished then set the destination property to the newly created property value
+                                            destProp.SetValue(dest, destPropValue, null);
                                         }
-
-                                        //Create destination property value from the temp array
-                                        Array destPropValue = tempDestValues.ToArray(destInnerType);
-
-                                        //Mapping finished then set the destination property to the newly created property value
-                                        destProp.SetValue(dest, destPropValue, null);
+                                        else
+                                        {
+                                            destProp.SetValue(dest, null, null);
+                                        }
                                     }
                                     #endregion
 
@@ -319,18 +338,25 @@ namespace Fluentx
                                         //Create instance of destination property using an empty constructor
                                         var destPropValue = Activator.CreateInstance(destPropValueType);
 
-                                        //Loop over srouce property value
-                                        foreach (var item in sourcePropValue)
+                                        if (sourcePropValue != null)
                                         {
-                                            //Map the value
-                                            var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                            //Loop over srouce property value
+                                            foreach (var item in sourcePropValue)
+                                            {
+                                                //Map the value
+                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
 
-                                            //Add the mapped value to destination property value
-                                            destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                                //Add the mapped value to destination property value
+                                                destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                            }
+                                            //Mapping finished then set the destination property to the newly created property value
+                                            destProp.SetValue(dest, destPropValue, null);
                                         }
 
-                                        //Mapping finished then set the destination property to the newly created property value
-                                        destProp.SetValue(dest, destPropValue, null);
+                                        else
+                                        {
+                                            destProp.SetValue(dest, null, null);
+                                        }
                                     }
                                     #endregion
                                 }

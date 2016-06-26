@@ -128,10 +128,10 @@ namespace Fluentx
         /// <returns></returns>
         public override IList<string> ValidateWithMessages(T instance)
         {
-            var leftSpecResult = this.leftSpecification.ValidateWithMessages(instance);
-            var rightSpecResult = this.rightSpecification.ValidateWithMessages(instance);
+            IList<string> leftSpecResult = new List<string>();
+            IList<string> rightSpecResult = new List<string>();
 
-            if (leftSpecResult.IsNullOrEmpty() && rightSpecResult.IsNullOrEmpty())
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() && (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
                 return new List<string>();
             }
@@ -176,10 +176,10 @@ namespace Fluentx
         /// <returns></returns>
         public override IList<string> ValidateWithMessages(T instance)
         {
-            var leftSpecResult = this.leftSpecification.ValidateWithMessages(instance);
-            var rightSpecResult = this.rightSpecification.ValidateWithMessages(instance);
+            IList<string> leftSpecResult = new List<string>();
+            IList<string> rightSpecResult = new List<string>();
 
-            if (leftSpecResult.IsNullOrEmpty() || rightSpecResult.IsNullOrEmpty())
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() || (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
                 return new List<string>();
             }
@@ -225,10 +225,10 @@ namespace Fluentx
         /// <returns></returns>
         public override IList<string> ValidateWithMessages(T instance)
         {
-            var leftSpecResult = this.leftSpecification.ValidateWithMessages(instance);
-            var rightSpecResult = this.rightSpecification.ValidateWithMessages(instance);
+            IList<string> leftSpecResult = new List<string>();
+            IList<string> rightSpecResult = new List<string>();
 
-            if (leftSpecResult.IsNullOrEmpty() ^ rightSpecResult.IsNullOrEmpty())
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() ^ (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
                 return new List<string>();
             }
@@ -289,7 +289,8 @@ namespace Fluentx
         /// <returns></returns>
         public override bool Validate(T instance)
         {
-            if(this.expression != null){
+            if (this.expression != null)
+            {
                 return this.expression(instance);
             }
             else

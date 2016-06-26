@@ -13,3 +13,4 @@ D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.dl
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\bin\Release-4.5\Fluentx.pdb
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.dll
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.pdb
+D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\obj\Release-4.5\Fluentx.csprojResolveAssemblyReference.cache
