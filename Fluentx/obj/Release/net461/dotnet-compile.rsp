@@ -8,9 +8,9 @@
 --suppress-warning:CS1705
 --optimize:True
 --output-name:Fluentx
---file-version:3.0.0.0
---version:3.0.0.0
---informational-version:3.0.0
+--file-version:3.0.1.0
+--version:3.0.1.0
+--informational-version:3.0.1
 --target-framework:.NETFramework,Version=v4.6.1
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll
