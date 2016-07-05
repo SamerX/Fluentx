@@ -1,7 +1,0 @@
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\bin\Debug\Fluentx.Mvc.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\bin\Debug\Fluentx.Mvc.pdb
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\bin\Debug\System.Web.Mvc.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\bin\Debug\System.Web.Mvc.xml
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\obj\Debug\Fluentx.Mvc.csprojResolveAssemblyReference.cache
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\obj\Debug\Fluentx.Mvc.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Mvc\obj\Debug\Fluentx.Mvc.pdb

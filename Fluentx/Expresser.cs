@@ -1,11 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Linq.Expressions;
-using System.Runtime.Serialization;
 using System.Reflection;
-
 namespace Fluentx
 {
     /// <summary>
@@ -85,7 +82,7 @@ namespace Fluentx
         /// <param name="excepters"></param>
         public void Set(TEntity entity, params Expression<Func<TEntity, object>>[] excepters)
         {
-            var properties = entity.GetType().GetProperties();
+            var properties = entity.GetType().GetTypeInfo().GetProperties();
             foreach (var property in properties)
             {
                 if (excepters != null && excepters.Any(x => x.Body.NodeType == ExpressionType.MemberAccess && (x.Body as MemberExpression).Member.Name == property.Name))
@@ -95,7 +92,7 @@ namespace Fluentx
                     Set(property.Name, (property as PropertyInfo).GetValue(entity, null));
             }
 
-            var fields = entity.GetType().GetFields();
+            var fields = entity.GetType().GetTypeInfo().GetFields();
             foreach (var field in fields)
             {
                 if (excepters.Any(x => x.Body.NodeType == ExpressionType.MemberAccess && (x.Body as MemberExpression).Member.Name == field.Name))
@@ -171,7 +168,7 @@ namespace Fluentx
         public static Expresser<TEntity> Create(TEntity entity, params Expression<Func<TEntity, object>>[] excepters)
         {
             Expresser<TEntity> expresser = new Expresser<TEntity>();
-            var properties = entity.GetType().GetProperties();
+            var properties = entity.GetType().GetTypeInfo().GetProperties();
             foreach (var property in properties)
             {
                 if (excepters != null && excepters.Any(x => x.Body.NodeType == ExpressionType.MemberAccess && (x.Body as MemberExpression).Member.Name == property.Name))
@@ -181,7 +178,7 @@ namespace Fluentx
                     expresser.Set(property.Name, (property as PropertyInfo).GetValue(entity, null));
             }
 
-            var fields = entity.GetType().GetFields();
+            var fields = entity.GetType().GetTypeInfo().GetFields();
             foreach (var field in fields)
             {
                 if (excepters.Any(x => x.Body.NodeType == ExpressionType.MemberAccess && (x.Body as MemberExpression).Member.Name == field.Name))

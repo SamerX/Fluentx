@@ -1,7 +1,0 @@
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.Tester.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.Tester.pdb
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\bin\Debug\Fluentx.pdb
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.csprojResolveAssemblyReference.cache
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\Fluentx.Tester.pdb

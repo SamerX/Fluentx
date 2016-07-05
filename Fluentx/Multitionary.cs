@@ -246,7 +246,7 @@ namespace Fluentx
     /// <typeparam name="T5"></typeparam>
     /// <typeparam name="T6"></typeparam>
     /// <typeparam name="T7"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2, T3, T4, T5, T6, T7> : IKuple<TKey>
     {
         /// <summary>
@@ -314,7 +314,7 @@ namespace Fluentx
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="T5"></typeparam>
     /// <typeparam name="T6"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2, T3, T4, T5, T6> : IKuple<TKey>
     {
         /// <summary>
@@ -375,7 +375,7 @@ namespace Fluentx
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="T5"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2, T3, T4, T5> : IKuple<TKey>
     {
         /// <summary>
@@ -429,7 +429,7 @@ namespace Fluentx
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2, T3, T4> : IKuple<TKey>
     {
         /// <summary>
@@ -476,7 +476,7 @@ namespace Fluentx
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2, T3> : IKuple<TKey>
     {
         /// <summary>
@@ -516,7 +516,7 @@ namespace Fluentx
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1, T2> : IKuple<TKey>
     {
         /// <summary>
@@ -549,7 +549,7 @@ namespace Fluentx
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="T1"></typeparam>
-    [Serializable]
+    
     public class Kuple<TKey, T1> : IKuple<TKey>
     {
         /// <summary>

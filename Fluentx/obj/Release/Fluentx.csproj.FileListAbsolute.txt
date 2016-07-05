@@ -1,9 +1,0 @@
-E:\Mii Personal Work\Fluentx\Fluentx\bin\Release\Fluentx.dll
-E:\Mii Personal Work\Fluentx\Fluentx\bin\Release\Fluentx.pdb
-E:\Mii Personal Work\Fluentx\Fluentx\obj\Release\Fluentx.csprojResolveAssemblyReference.cache
-E:\Mii Personal Work\Fluentx\Fluentx\obj\Release\Fluentx.dll
-E:\Mii Personal Work\Fluentx\Fluentx\obj\Release\Fluentx.pdb
-D:\Mii Personal Work\Fluentx\Fluentx\bin\Release\Fluentx.dll
-D:\Mii Personal Work\Fluentx\Fluentx\bin\Release\Fluentx.pdb
-D:\Mii Personal Work\Fluentx\Fluentx\obj\Release\Fluentx.dll
-D:\Mii Personal Work\Fluentx\Fluentx\obj\Release\Fluentx.pdb
