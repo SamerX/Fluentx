@@ -1,5 +1,0 @@
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx\bin\Debug\Fluentx.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx\bin\Debug\Fluentx.pdb
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx\obj\Debug\Fluentx.csprojResolveAssemblyReference.cache
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx\obj\Debug\Fluentx.dll
-E:\Mii Personal Work\Fluentx\Fluentx\Fluentx\obj\Debug\Fluentx.pdb

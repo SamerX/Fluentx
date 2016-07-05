@@ -153,12 +153,12 @@ namespace Fluentx
         /// <param name="dest"></param>
         private void MapInstanceToInstance(TSource source, TDestination dest)
         {
-            var destinationProperties = typeof(TDestination).GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.CanWrite).ToList();
+            var destinationProperties = typeof(TDestination).GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.CanWrite).ToList();
 
             foreach (var destProp in destinationProperties)
             {
                 var sourceProp =
-                    typeof(TSource).GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.Name == destProp.Name)
+                    typeof(TSource).GetTypeInfo().GetProperties(BindingFlags.Public | BindingFlags.Instance).Where(p => p.Name == destProp.Name)
                     .FirstOrDefault();
 
                 //When a match for the source and destination is found
@@ -211,14 +211,14 @@ namespace Fluentx
                                 destProp.SetValue(dest, sourceProp.GetValue(source, null), null);
                             }
                             //Handles the case of Nullable to Premitive and ViseVersa
-                            else if (destProp.PropertyType.IsValueType && sourceProp.PropertyType.IsValueType &&
-                                (sourceProp.PropertyType.IsAssignableFrom(destProp.PropertyType) || destProp.PropertyType.IsAssignableFrom(sourceProp.PropertyType)) &&
+                            else if (destProp.PropertyType.GetTypeInfo().IsValueType && sourceProp.PropertyType.GetTypeInfo().IsValueType &&
+                                (sourceProp.PropertyType.GetTypeInfo().IsAssignableFrom(destProp.PropertyType) || destProp.PropertyType.GetTypeInfo().IsAssignableFrom(sourceProp.PropertyType)) &&
                                 sourceProp.GetValue(source, null) != null)
                             {
                                 destProp.SetValue(dest, sourceProp.GetValue(source, null), null);
                             }
                             //Handles the case of IEnumerable
-                            else if (typeof(IEnumerable).IsAssignableFrom(sourceProp.PropertyType) && typeof(IEnumerable).IsAssignableFrom(destProp.PropertyType))
+                            else if (typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(sourceProp.PropertyType) && typeof(IEnumerable).GetTypeInfo().IsAssignableFrom(destProp.PropertyType))
                             {
                                 //Get the inner types for source and destination proprties
                                 var sourceInnerType = sourceProp.PropertyType.IsArray ? sourceProp.PropertyType.GetElementType() : sourceProp.PropertyType.GenericTypeArguments.First();
@@ -250,7 +250,7 @@ namespace Fluentx
                                             for (int i = 0; i < sourcePropValue.Length; i++)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { sourcePropValue.GetValue(i) });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { sourcePropValue.GetValue(i) });
 
                                                 //Add the value to 
                                                 destPropValue.SetValue(value, i);
@@ -281,10 +281,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", BindingFlags.InvokeMethod).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -311,7 +311,7 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
 
                                                 //Add the value to temp destination array
                                                 tempDestValues.Add(value);
@@ -344,10 +344,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().InvokeMember("Add", BindingFlags.InvokeMethod, null, destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", BindingFlags.InvokeMethod).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -369,7 +369,7 @@ namespace Fluentx
                                 //A map exist in the list and we can use it to map this property
                                 if (mapping != null)
                                 {
-                                    var value = mapping.GetType().InvokeMember("Map", BindingFlags.InvokeMethod, null, mapping, new object[] { sourceProp.GetValue(source, null) });
+                                    var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { sourceProp.GetValue(source, null) });
                                     destProp.SetValue(dest, value, null);
                                 }
                                 else
@@ -417,7 +417,7 @@ namespace Fluentx
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
         public IMapper<TSource, TDestination> For<T>(Expression<Func<TDestination, T>> destinationMember, Func<TSource, T> resolver)
         {
-            var tempDestinationMember = typeof(T).IsValueType ?
+            var tempDestinationMember = typeof(T).GetTypeInfo().IsValueType ?
                 Expression.Lambda<Func<TDestination, object>>(Expression.Convert(destinationMember.Body, typeof(object)), destinationMember.Parameters)
                 :
                 Expression.Lambda<Func<TDestination, object>>(destinationMember.Body, destinationMember.Parameters);
@@ -436,7 +436,7 @@ namespace Fluentx
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
         public IMapper<TSource, TDestination> ForIf<T>(Expression<Func<TDestination, T>> destinationMember, Func<TSource, T> resolver, Func<TSource, bool> conditionalAction)
         {
-            var tempDestinationMember = typeof(T).IsValueType ?
+            var tempDestinationMember = typeof(T).GetTypeInfo().IsValueType ?
                Expression.Lambda<Func<TDestination, object>>(Expression.Convert(destinationMember.Body, typeof(object)), destinationMember.Parameters)
                :
                Expression.Lambda<Func<TDestination, object>>(destinationMember.Body, destinationMember.Parameters);

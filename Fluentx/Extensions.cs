@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
+using System.Threading;
 
 namespace Fluentx
 {
@@ -318,7 +320,7 @@ namespace Fluentx
 
             Type t = typeof(T);
 
-            if (!t.IsEnum)
+            if (!t.GetTypeInfo().IsEnum)
             {
                 throw new ArgumentException("Enum parsing failed. Provided Type (" + t.Name + ") is not an enum", "T");
             }
@@ -348,7 +350,7 @@ namespace Fluentx
 
             Type t = typeof(T);
 
-            if (!t.IsEnum)
+            if (!t.GetTypeInfo().IsEnum)
             {
                 return default(T);
             }

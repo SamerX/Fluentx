@@ -1,7 +1,0 @@
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release-4.0\Fluentx.Tester.dll
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release-4.0\Fluentx.Tester.pdb
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release-4.0\Fluentx.dll
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\bin\Release-4.0\Fluentx.pdb
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release-4.0\Fluentx.Tester.csprojResolveAssemblyReference.cache
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release-4.0\Fluentx.Tester.dll
-D:\Mii Personal Work\Fluentx\Fluentx.Tester\obj\Release-4.0\Fluentx.Tester.pdb

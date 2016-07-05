@@ -1,0 +1,35 @@
+﻿-d:RELEASE
+-d:TRACE
+-d:NET461
+-nowarn:CS1701
+-nowarn:CS1702
+-nowarn:CS1705
+-optimize
+-t:library
+-debug:full
+-nostdlib
+-nologo
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\obj\Release\net461\dotnet-compile.assemblyinfo.cs"
+-out:"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\bin\Release\net461\FluentxCore.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll"
+-r:"C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Expresser.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Extensions.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Extensions.DateTime.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Extensions.Logical.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Extensions.String.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Fluentx.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Guard.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\IFluentInterface.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\IoC.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Mapper.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Multitionary.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\PagedData.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Period.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\PredicateBuilder.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Specifications.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\TypeNotRegisteredException.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\UISearch.cs"
+"D:\Mii Google Drive\Mii Personal Work\Fluentx\FluentxCore\Properties\AssemblyInfo.cs"

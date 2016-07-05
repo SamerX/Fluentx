@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
-using System.Web;
 
 namespace Fluentx
 {
@@ -142,7 +141,7 @@ namespace Fluentx
 
             private IEnumerable<object> ResolveConstructorParameters(ContainerEntry entry)
             {
-                var constructorInfo = entry.ConcreteType.GetConstructors().First();
+                var constructorInfo = entry.ConcreteType.GetTypeInfo().GetConstructors().First();
 
                 foreach (var parameter in constructorInfo.GetParameters())
                 {
@@ -207,7 +206,7 @@ namespace Fluentx
             {
                 foreach (var type in types)
                 {
-                    if (type.IsInterface)
+                    if (type.GetTypeInfo().IsInterface)
                     {
                         var concreteTypeExpectedName = type.Name.Substring(1);
                         var concreteType = GetType(concreteTypeExpectedName);
@@ -230,7 +229,7 @@ namespace Fluentx
             {
                 foreach (var type in types)
                 {
-                    if (type.IsClass)
+                    if (type.GetTypeInfo().IsClass)
                     {
                         var resolveTypeExpectedName = "I" + type.Name;
                         var resolveType = GetType(resolveTypeExpectedName);
@@ -261,7 +260,7 @@ namespace Fluentx
             {
                 foreach (var type in typesToAutoRegister)
                 {
-                    if (type.IsClass)
+                    if (type.GetTypeInfo().IsClass)
                     {
                         Container.Register(type, type);
                     }
@@ -271,9 +270,10 @@ namespace Fluentx
 
         private static Type GetType(string typeName)
         {
-            return Type.GetType(typeName) ?? AppDomain.CurrentDomain.GetAssemblies()
-                .Select(x => x.DefinedTypes.FirstOrDefault(t => t.Name == typeName))
-                .FirstOrDefault(x => x != null);
+            return Type.GetType(typeName);
+                //??Assemblycon AppDomain.CurrentDomain.GetAssemblies()
+                //.Select(x => x.DefinedTypes.FirstOrDefault(t => t.Name == typeName))
+                //.FirstOrDefault(x => x != null);
         }
     }
 }
