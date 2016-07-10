@@ -250,7 +250,7 @@ namespace Fluentx
                                             for (int i = 0; i < sourcePropValue.Length; i++)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { sourcePropValue.GetValue(i) });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { sourcePropValue.GetValue(i) });
 
                                                 //Add the value to 
                                                 destPropValue.SetValue(value, i);
@@ -281,10 +281,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", BindingFlags.InvokeMethod).Invoke(destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType}).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -311,7 +311,7 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
 
                                                 //Add the value to temp destination array
                                                 tempDestValues.Add(value);
@@ -344,10 +344,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", BindingFlags.InvokeMethod).Invoke(destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType}).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -369,7 +369,7 @@ namespace Fluentx
                                 //A map exist in the list and we can use it to map this property
                                 if (mapping != null)
                                 {
-                                    var value = mapping.GetType().GetTypeInfo().GetMethod("Map", BindingFlags.InvokeMethod).Invoke(mapping, new object[] { sourceProp.GetValue(source, null) });
+                                    var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceProp.PropertyType}).Invoke(mapping, new object[] { sourceProp.GetValue(source, null) });
                                     destProp.SetValue(dest, value, null);
                                 }
                                 else
