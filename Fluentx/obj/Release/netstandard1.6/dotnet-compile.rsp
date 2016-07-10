@@ -8,9 +8,9 @@
 --suppress-warning:CS1705
 --optimize:True
 --output-name:Fluentx
---file-version:3.0.1.0
---version:3.0.1.0
---informational-version:3.0.1
+--file-version:3.0.2.0
+--version:3.0.2.0
+--informational-version:3.0.2
 --target-framework:.NETStandard,Version=v1.6
 --reference:C:\Users\Samer\.nuget\packages\Microsoft.Win32.Primitives\4.0.1\ref\netstandard1.3\Microsoft.Win32.Primitives.dll
 --reference:C:\Users\Samer\.nuget\packages\System.AppContext\4.1.0\ref\netstandard1.6\System.AppContext.dll

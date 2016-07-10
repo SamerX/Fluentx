@@ -387,10 +387,6 @@
       "Fluentx/3.0.2": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.1",
-        "dependencies": {
-          "dotnet-test-xunit": "2.2.0-preview2-build1029",
-          "xunit": "2.1.0"
-        },
         "compile": {
           "net461/Fluentx.dll": {}
         },
