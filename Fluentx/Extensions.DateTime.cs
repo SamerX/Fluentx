@@ -287,7 +287,6 @@ namespace Fluentx
         {
             return @this.AddMonths(1);
         }
-
         /// <summary>
         /// Returns a boolean value wether the date is within the specifed period. (edges are not calculated within)
         /// </summary>
@@ -364,5 +363,70 @@ namespace Fluentx
         {
             return @this.AddDays(-1);
         }
+        /// <summary>
+        /// Returns a new datetime instance with the specified Hour(24 based), Minute, Second and MiliSecond
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="hour"></param>
+        /// <param name="minute"></param>
+        /// <param name="second"></param>
+        /// <param name="millisecond"></param>
+        /// <returns></returns>
+        public static DateTime At(this DateTime @this, int hour = 0, int minute = 0, int second = 0, int millisecond = 0)
+        {
+            return new DateTime(@this.Year, @this.Month, @this.Day, hour, minute, second, millisecond);
+        }
+        /// <summary>
+        /// Returns start of the month as datetime.
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static DateTime StartOfMonth(this int month, int? year = null)
+        {
+            return new DateTime(year ?? DateTime.Now.Year, month, 1);
+        }
+        /// <summary>
+        /// Returns end of the month as datetime.
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static DateTime EndOfMonth(this int month, int? year = null)
+        {
+            var days = DateTime.DaysInMonth(year ?? DateTime.Now.Year, month);
+            return new DateTime(year ?? DateTime.Now.Year, month, days);
+        }
+        /// <summary>
+        /// Returns start of the month as datetime.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static DateTime StartOfMonth(this DateTime value)
+        {
+            return new DateTime(value.Year, value.Month, 1, value.Hour, value.Minute, value.Second, value.Millisecond);
+        }
+        /// <summary>
+        /// Returns end of the month as datetime.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static DateTime EndOfMonth(this DateTime value)
+        {
+            var days = DateTime.DaysInMonth(value.Year, value.Month);
+            return new DateTime(value.Year, value.Month, days, value.Hour, value.Minute, value.Second, value.Millisecond);
+        }
+        /// <summary>
+        /// Returns last day of the month. 
+        /// </summary>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
+        public static int LastDayOfMonth(this int month, int? year = null)
+        {
+            var days = DateTime.DaysInMonth(year ?? DateTime.Now.Year, month);
+            return days;
+        }
+    
     }
 }

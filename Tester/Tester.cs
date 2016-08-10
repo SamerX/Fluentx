@@ -419,7 +419,7 @@ namespace Tester
 
             var result = rule4.ValidateWithMessages(4);
 
-            Assert.True(result.Count > 0);
+            Assert.True(result.Count() > 0);
         }
 
         [Fact]
@@ -500,7 +500,7 @@ namespace Tester
         [Fact]
         public void Test_Mapper()
         {
-
+            DateTime.Now.At(5, 30);
             var one = new One()
             {
                 X1 = "test value",
@@ -559,7 +559,7 @@ namespace Tester
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
         }
         public interface IOne { }
-        private class One
+        public class One
         {
             public string X1 { get; set; }
             public int X2 { get; set; }
@@ -573,7 +573,7 @@ namespace Tester
             public Two X10 { get; set; }
         }
 
-        private class VMOne
+        public class VMOne
         {
             public string X1 { get; set; }
             public int X2 { get; set; }
@@ -586,27 +586,27 @@ namespace Tester
             public IList<VMThree> X9 { get; set; }
             public VMTwo X10 { get; set; }
         }
-        private class Two
+        public class Two
         {
             public Three X11 { get; set; }
             public IList<Three> X12 { get; set; }
         }
 
-        private class VMTwo
+        public class VMTwo
         {
             public VMThree X11 { get; set; }
             public IList<VMThree> X12 { get; set; }
         }
-        private class Three
+        public class Three
         {
             public int X21 { get; set; }
         }
 
-        private class VMThree
+        public class VMThree
         {
             public int X21 { get; set; }
         }
-        private class PrivateDisposableTestEntity : IDisposable
+        public class PrivateDisposableTestEntity : IDisposable
         {
             public int Id { get; set; }
             public PrivateDisposableTestEntity()
@@ -619,5 +619,40 @@ namespace Tester
             }
 
         }
+
+        public interface IOneBusinessRules
+        {
+            ISpecification<One> FirstRule { get; }
+            ISpecification<One> SecondRule { get; }
+
+        }
+        public class OneBusinessRules : IOneBusinessRules
+        {
+            public ISpecification<One> FirstRule
+            {
+                get
+                {
+                    return new ExpressionSpecification<One>(x =>
+                    {
+                        return true;
+                    });
+                }
+            }
+
+            public ISpecification<One> SecondRule
+            {
+                get
+                {
+                    return new ExpressionSpecification<One>(x =>
+                    {
+                        return true;
+                    });
+                }
+            }
+        }
+
+
     }
+
+
 }

@@ -23,7 +23,7 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        IList<string> ValidateWithMessages(T instance);
+        IEnumerable<string> ValidateWithMessages(T instance);
         /// <summary>
         /// And a specification with another
         /// </summary>
@@ -64,7 +64,7 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public abstract IList<string> ValidateWithMessages(T instance);
+        public abstract IEnumerable<string> ValidateWithMessages(T instance);
         /// <summary>
         /// Current specification AND specified specification 
         /// </summary>
@@ -93,6 +93,7 @@ namespace Fluentx
             return new XorSpecification<T>(this, specification);
         }
     }
+
     /// <summary>
     /// Represents the And Specification
     /// </summary>
@@ -126,10 +127,10 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public override IList<string> ValidateWithMessages(T instance)
+        public override IEnumerable<string> ValidateWithMessages(T instance)
         {
-            IList<string> leftSpecResult = new List<string>();
-            IList<string> rightSpecResult = new List<string>();
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
 
             if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() && (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
@@ -174,10 +175,10 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public override IList<string> ValidateWithMessages(T instance)
+        public override IEnumerable<string> ValidateWithMessages(T instance)
         {
-            IList<string> leftSpecResult = new List<string>();
-            IList<string> rightSpecResult = new List<string>();
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
 
             if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() || (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
@@ -223,10 +224,10 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public override IList<string> ValidateWithMessages(T instance)
+        public override IEnumerable<string> ValidateWithMessages(T instance)
         {
-            IList<string> leftSpecResult = new List<string>();
-            IList<string> rightSpecResult = new List<string>();
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
 
             if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() ^ (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
             {
@@ -303,7 +304,7 @@ namespace Fluentx
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public override IList<string> ValidateWithMessages(T instance)
+        public override IEnumerable<string> ValidateWithMessages(T instance)
         {
             if (this.expression != null)
             {

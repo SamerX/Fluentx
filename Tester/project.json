@@ -3,7 +3,7 @@
   "testRunner": "xunit",
   "dependencies": {
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "Fluentx": "3.0.2-*",
+    "Fluentx": "3.0.3-*",
     "xunit": "2.1.0"
   },
 

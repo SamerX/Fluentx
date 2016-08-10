@@ -384,7 +384,7 @@
           "lib/net45/xunit.runner.utility.desktop.dll": {}
         }
       },
-      "Fluentx/3.0.2": {
+      "Fluentx/3.0.3": {
         "type": "project",
         "framework": ".NETFramework,Version=v4.6.1",
         "compile": {
@@ -1037,7 +1037,7 @@
         "xunit.runner.utility.nuspec"
       ]
     },
-    "Fluentx/3.0.2": {
+    "Fluentx/3.0.3": {
       "type": "project",
       "path": "../Fluentx/project.json",
       "msbuildProject": "../Fluentx/Fluentx.xproj"
@@ -1045,7 +1045,7 @@
   },
   "projectFileDependencyGroups": {
     "": [
-      "Fluentx >= 3.0.2-*",
+      "Fluentx >= 3.0.3-*",
       "dotnet-test-xunit >= 2.2.0-preview2-build1029",
       "xunit >= 2.1.0"
     ],
