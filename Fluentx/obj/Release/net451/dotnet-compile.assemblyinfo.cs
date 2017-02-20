@@ -2,4 +2,4 @@
 [assembly:System.Reflection.AssemblyFileVersionAttribute("3.0.7.0")]
 [assembly:System.Reflection.AssemblyVersionAttribute("3.0.7.0")]
 [assembly:System.Reflection.AssemblyInformationalVersionAttribute("3.0.7")]
-[assembly:System.Runtime.Versioning.TargetFrameworkAttribute(".NETStandard,Version=v1.6")]
+[assembly:System.Runtime.Versioning.TargetFrameworkAttribute(".NETFramework,Version=v4.5.1")]

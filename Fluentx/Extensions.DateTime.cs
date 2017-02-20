@@ -132,6 +132,10 @@ namespace Fluentx
         {
             return new DateTime(year ?? DateTime.Now.Year, 12, @this);
         }
+        public static DateTime Of(this int @this, int month, int? year = null)
+        {
+            return new DateTime(year ?? DateTime.Now.Year, month, @this);
+        }
         /// <summary>
         /// Returns the date of the specifed day in year. e.g 365.DayInYear(2014) => 31/12/2014
         /// </summary>
@@ -417,6 +421,16 @@ namespace Fluentx
             return new DateTime(value.Year, value.Month, days, value.Hour, value.Minute, value.Second, value.Millisecond);
         }
         /// <summary>
+        /// Returns last day of the month for the specified datetime value.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int LastDayOfMonth(this DateTime value)
+        {
+            var days = DateTime.DaysInMonth(value.Year, value.Month);
+            return days;
+        }
+        /// <summary>
         /// Returns last day of the month. 
         /// </summary>
         /// <param name="month"></param>
@@ -427,6 +441,6 @@ namespace Fluentx
             var days = DateTime.DaysInMonth(year ?? DateTime.Now.Year, month);
             return days;
         }
-    
+
     }
 }

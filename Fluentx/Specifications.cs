@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Fluentx
 {
@@ -19,11 +17,23 @@ namespace Fluentx
         /// <returns></returns>
         bool Validate(T o);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="o"></param>
+        /// <returns></returns>
+        bool ValidateAndContinue(T o);
+        /// <summary>
         /// When overriden in a derived class does the validaiton on the specification (Rule(s)) and return list of validation messages
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
         IEnumerable<string> ValidateWithMessages(T instance);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        IEnumerable<string> ValidateWithMessagesAndContinue(T instance);
         /// <summary>
         /// And a specification with another
         /// </summary>
@@ -52,7 +62,7 @@ namespace Fluentx
         /// <summary>
         /// Message returned for the specificaiton validation
         /// </summary>
-        protected string Message { get; set; }
+        protected IEnumerable<string> Messages { get; set; }
         /// <summary>
         /// Executes and Validates the specificaiton
         /// </summary>
@@ -60,11 +70,23 @@ namespace Fluentx
         /// <returns></returns>
         public abstract bool Validate(T instance);
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public abstract bool ValidateAndContinue(T instance);
+        /// <summary>
         /// Executes and validates the specificaiton and return validation messages.
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
         public abstract IEnumerable<string> ValidateWithMessages(T instance);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public abstract IEnumerable<string> ValidateWithMessagesAndContinue(T instance);
         /// <summary>
         /// Current specification AND specified specification 
         /// </summary>
@@ -113,7 +135,7 @@ namespace Fluentx
             this.rightSpecification = right;
         }
         /// <summary>
-        /// Executes and validates the specificaiton
+        /// Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
         /// </summary>
         /// <param name="instance"></param>
         /// <returns></returns>
@@ -121,6 +143,16 @@ namespace Fluentx
         {
             return this.leftSpecification.Validate(instance)
                 && this.rightSpecification.Validate(instance);
+        }
+        /// <summary>
+        /// Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public override bool ValidateAndContinue(T instance)
+        {
+            return this.leftSpecification.ValidateAndContinue(instance)
+                & this.rightSpecification.ValidateAndContinue(instance);
         }
         /// <summary>
         /// Executes and validates the specification and return validation messages
@@ -133,6 +165,20 @@ namespace Fluentx
             IEnumerable<string> rightSpecResult = new List<string>();
 
             if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() && (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
+            {
+                return new List<string>();
+            }
+            else
+            {
+                return leftSpecResult.Concat(rightSpecResult).ToList();
+            }
+        }
+        public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
+        {
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
+
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty() & (rightSpecResult = this.rightSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty())
             {
                 return new List<string>();
             }
@@ -171,6 +217,16 @@ namespace Fluentx
                 || this.rightSpecification.Validate(instance);
         }
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public override bool ValidateAndContinue(T instance)
+        {
+            return this.leftSpecification.ValidateAndContinue(instance)
+                | this.rightSpecification.ValidateAndContinue(instance);
+        }
+        /// <summary>
         /// Executes and validates the specification and return validation messages
         /// </summary>
         /// <param name="instance"></param>
@@ -181,6 +237,20 @@ namespace Fluentx
             IEnumerable<string> rightSpecResult = new List<string>();
 
             if ((leftSpecResult = this.leftSpecification.ValidateWithMessages(instance)).IsNullOrEmpty() || (rightSpecResult = this.rightSpecification.ValidateWithMessages(instance)).IsNullOrEmpty())
+            {
+                return new List<string>();
+            }
+            else
+            {
+                return leftSpecResult.Concat(rightSpecResult).ToList();
+            }
+        }
+        public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
+        {
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
+
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty() | (rightSpecResult = this.rightSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty())
             {
                 return new List<string>();
             }
@@ -220,6 +290,16 @@ namespace Fluentx
                 ^ this.rightSpecification.Validate(instance);
         }
         /// <summary>
+        /// Executes and validates the specification (for Xor its no difference with Validate Method)
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public override bool ValidateAndContinue(T instance)
+        {
+            return this.leftSpecification.ValidateAndContinue(instance)
+                ^ this.rightSpecification.ValidateAndContinue(instance);
+        }
+        /// <summary>
         /// Executes and validates the specification and return validation meessages
         /// </summary>
         /// <param name="instance"></param>
@@ -238,6 +318,25 @@ namespace Fluentx
                 return leftSpecResult.Concat(rightSpecResult).ToList();
             }
         }
+        /// <summary>
+        /// Executes and validates the specification and return validation meessages (for Xor no difference from Validate method)
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
+        {
+            IEnumerable<string> leftSpecResult = new List<string>();
+            IEnumerable<string> rightSpecResult = new List<string>();
+
+            if ((leftSpecResult = this.leftSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty() ^ (rightSpecResult = this.rightSpecification.ValidateWithMessagesAndContinue(instance)).IsNullOrEmpty())
+            {
+                return new List<string>();
+            }
+            else
+            {
+                return leftSpecResult.Concat(rightSpecResult).ToList();
+            }
+        }
     }
     /// <summary>
     /// Represents an expression based specification
@@ -246,7 +345,7 @@ namespace Fluentx
     public sealed class ExpressionSpecification<T> : CompositeSpecification<T>
     {
         private Func<T, bool> expression;
-        private Func<T, string> expressionWithMessage;
+        private Func<T, IEnumerable<string>> expressionWithMessage;
         /// <summary>
         /// 
         /// </summary>
@@ -263,19 +362,19 @@ namespace Fluentx
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
-        public ExpressionSpecification(Func<T, bool> expression, string message)
+        public ExpressionSpecification(Func<T, bool> expression, IEnumerable<string> message)
         {
             if (expression == null)
                 throw new ArgumentNullException();
             else
                 this.expression = expression;
-            this.Message = message;
+            this.Messages = message;
         }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="expression"></param>
-        public ExpressionSpecification(Func<T, string> expression)
+        public ExpressionSpecification(Func<T, IEnumerable<string>> expression)
         {
             if (expression == null)
                 throw new ArgumentNullException();
@@ -299,6 +398,18 @@ namespace Fluentx
                 return this.expressionWithMessage(instance).IsNullOrEmpty();
             }
         }
+
+        public override bool ValidateAndContinue(T instance)
+        {
+            if (this.expression != null)
+            {
+                return this.expression(instance);
+            }
+            else
+            {
+                return this.expressionWithMessage(instance).IsNullOrEmpty();
+            }
+        }
         /// <summary>
         /// validates the specificaiton and return validation messages
         /// </summary>
@@ -308,12 +419,25 @@ namespace Fluentx
         {
             if (this.expression != null)
             {
-                return (this.expression(instance) ? new List<string>() : new List<string>() { Message });
+                return (this.expression(instance) ? new List<string>() : Messages );
             }
             else
             {
-                this.Message = this.expressionWithMessage(instance);
-                return (this.Message.IsNullOrEmpty() ? new List<string>() : new List<string>() { Message });
+                this.Messages = this.expressionWithMessage(instance);
+                return (this.Messages.IsNullOrEmpty() ? new List<string>() : Messages);
+            }
+        }
+
+        public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
+        {
+            if (this.expression != null)
+            {
+                return (this.expression(instance) ? new List<string>() : Messages);
+            }
+            else
+            {
+                this.Messages = this.expressionWithMessage(instance);
+                return (this.Messages.IsNullOrEmpty() ? new List<string>() : Messages);
             }
         }
     }

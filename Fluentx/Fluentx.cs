@@ -1451,6 +1451,11 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
+        public static void RunWithTimer(int milliseconds, Action action)
+        {
+            //var timer = Sys
+            //timer.
+        }
         /// <summary>
         /// Private class to hold information about switch case statement.
         /// </summary>
