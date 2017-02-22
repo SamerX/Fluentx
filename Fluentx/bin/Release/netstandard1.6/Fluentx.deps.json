@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v1.6": {},
     ".NETStandard,Version=v1.6/": {
-      "Fluentx/3.0.7": {
+      "Fluentx/3.0.8": {
         "dependencies": {
           "System.Collections.NonGeneric": "4.3.0",
           "System.Threading.Thread": "4.3.0",
@@ -778,7 +778,7 @@
     }
   },
   "libraries": {
-    "Fluentx/3.0.7": {
+    "Fluentx/3.0.8": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

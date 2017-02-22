@@ -8,14 +8,59 @@
 --suppress-warning:CS1705
 --optimize:True
 --output-name:Fluentx
---file-version:3.0.6.0
---version:3.0.6.0
---informational-version:3.0.6
+--file-version:3.0.8.0
+--version:3.0.8.0
+--informational-version:3.0.8
 --target-framework:.NETFramework,Version=v4.6.1
+--reference:C:\Users\Samer\.nuget\packages\Microsoft.Win32.Primitives\4.3.0\ref\net46\Microsoft.Win32.Primitives.dll
+--reference:C:\Users\Samer\.nuget\packages\System.AppContext\4.3.0\ref\net46\System.AppContext.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Collections.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Collections.Concurrent.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Console\4.3.0\ref\net46\System.Console.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Debug.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Tools.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Diagnostics.Tracing.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Globalization.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Globalization.Calendars\4.3.0\ref\net46\System.Globalization.Calendars.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.IO.dll
+--reference:C:\Users\Samer\.nuget\packages\System.IO.Compression\4.3.0\ref\net46\System.IO.Compression.dll
+--reference:C:\Users\Samer\.nuget\packages\System.IO.Compression.ZipFile\4.3.0\ref\net46\System.IO.Compression.ZipFile.dll
+--reference:C:\Users\Samer\.nuget\packages\System.IO.FileSystem\4.3.0\ref\net46\System.IO.FileSystem.dll
+--reference:C:\Users\Samer\.nuget\packages\System.IO.FileSystem.Primitives\4.3.0\ref\net46\System.IO.FileSystem.Primitives.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Linq.Expressions.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Net.Http\4.3.0\ref\net46\System.Net.Http.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Net.Primitives.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Net.Sockets\4.3.0\ref\net46\System.Net.Sockets.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.ObjectModel.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Extensions.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Reflection.Primitives.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Resources.ResourceManager.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Extensions.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Handles.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.InteropServices.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Runtime.InteropServices.RuntimeInformation\4.3.0\ref\netstandard1.1\System.Runtime.InteropServices.RuntimeInformation.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Runtime.Numerics.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Security.Cryptography.Algorithms\4.3.0\ref\net461\System.Security.Cryptography.Algorithms.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Security.Cryptography.Encoding\4.3.0\ref\net46\System.Security.Cryptography.Encoding.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Security.Cryptography.Primitives\4.3.0\ref\net46\System.Security.Cryptography.Primitives.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Security.Cryptography.X509Certificates\4.3.0\ref\net461\System.Security.Cryptography.X509Certificates.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.Encoding.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.Encoding.Extensions.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Text.RegularExpressions.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.Tasks.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Threading.Timer.dll
+--reference:C:\Users\Samer\.nuget\packages\System.Xml.ReaderWriter\4.3.0\ref\net46\System.Xml.ReaderWriter.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Facades\System.Xml.XDocument.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\mscorlib.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Core.dll
 --reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\Microsoft.CSharp.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.IO.Compression.FileSystem.dll
+--reference:C:\Program Files (x86)\Reference Assemblies\Microsoft\Framework\.NETFramework\v4.6.1\System.Xml.dll
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\Expresser.cs
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\Extensions.cs
 D:\Mii Google Drive\Mii Personal Work\Fluentx\Fluentx\Extensions.DateTime.cs
