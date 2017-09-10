@@ -21,6 +21,7 @@ namespace Fluentx
         {
             return !@this;
         }
+       
         /// <summary>
         /// Anding with a condition
         /// </summary>

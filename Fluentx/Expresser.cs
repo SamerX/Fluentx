@@ -29,7 +29,7 @@ namespace Fluentx
                 case ExpressionType.Convert:
                 case ExpressionType.ConvertChecked:
                     var uniaryExpression = expression.Body as UnaryExpression;
-                    memberExpression = ((uniaryExpression != null) ? uniaryExpression.Operand : null) as MemberExpression;
+                    memberExpression = (uniaryExpression?.Operand) as MemberExpression;
                     break;
                 default:
                     memberExpression = expression.Body as MemberExpression;

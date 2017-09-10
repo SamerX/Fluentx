@@ -8,6 +8,7 @@ namespace Fluentx
     /// <summary>
     /// Behavioural presenation of throwing expected exceptions
     /// </summary>
+    /// 
     public class Guard
     {
         /// <summary>

@@ -121,7 +121,22 @@ namespace Fluentx
             }
             return default(T);
         }
-        
+        /// <summary>
+        /// Returns a random sequential range from the specified Enumeration.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> RandomRange<T>(this IEnumerable<T> @this)
+        {
+            if (@this != null)
+            {
+                int i1 = random.Next(0, @this.Count());
+                int i2 = random.Next(0, @this.Count());
+                return @this.Where((x, index) => { return index.BetweenRegardlessIncludeEdges(i1, i2); });
+            }
+            return null;
+        }
         /// <summary>
         /// Extension method to evaluate if object is null.
         /// </summary>
@@ -286,7 +301,7 @@ namespace Fluentx
             return @this;
         }
         /// <summary>
-        /// Returns if a @this in between the specified range.
+        /// Returns if a @this in between the specified range without including the edges.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -295,7 +310,43 @@ namespace Fluentx
         /// <returns></returns>
         public static bool Between<T>(this T @this, T lower, T upper) where T : IComparable<T>
         {
-            return @this.CompareTo(lower) >= 0 && @this.CompareTo(upper) < 0;
+            return @this.CompareTo(lower) > 0 && @this.CompareTo(upper) < 0;
+        }
+        /// <summary>
+        /// Returns if a @this in between the specified range including the edges.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="lower"></param>
+        /// <param name="upper"></param>
+        /// <returns></returns>
+        public static bool BetweenIncludeEdges<T>(this T @this, T lower, T upper) where T : IComparable<T>
+        {
+            return @this.CompareTo(lower) >= 0 && @this.CompareTo(upper) <= 0;
+        }
+        /// <summary>
+        /// Returns if a @this in between the specified range regardless of the order without including the edges.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="endpoint1"></param>
+        /// <param name="endpoint2"></param>
+        /// <returns></returns>
+        public static bool BetweenRegardless<T>(this T @this, T endpoint1, T endpoint2) where T : IComparable<T>
+        {
+            return (@this.CompareTo(endpoint1) > 0 && @this.CompareTo(endpoint2) < 0) || (@this.CompareTo(endpoint2) > 0 && @this.CompareTo(endpoint1) < 0);
+        }
+        /// <summary>
+        /// Returns if a @this in between the specified range regardless of the order including the edges.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="endpoint1"></param>
+        /// <param name="endpoint2"></param>
+        /// <returns></returns>
+        public static bool BetweenRegardlessIncludeEdges<T>(this T @this, T endpoint1, T endpoint2) where T : IComparable<T>
+        {
+            return (@this.CompareTo(endpoint1) >= 0 && @this.CompareTo(endpoint2) <= 0) || (@this.CompareTo(endpoint2) >= 0 && @this.CompareTo(endpoint1) <= 0);
         }
         /// <summary>
         /// Parses a string to enum and throughs exceptions as if it fails.
@@ -476,21 +527,23 @@ namespace Fluentx
             }
             return max;
         }
+
+
         /// <summary>
-        /// Shuffles the specified enumeration randomly
+        /// Shuffles the specified list items randomly.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
-        /// <returns></returns>
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> list)
+        public static void Shuffle<T>(this IList<T> list)
         {
-            var buffer = list.ToList();
+            //int iterations = random.Next(list.Count / 2, list.Count + 1);
 
-            for (int i = 0; i < buffer.Count; i++)
+            for (int i = 0; i < list.Count; i++)
             {
-                int dicePick = random.Next(i, buffer.Count);
-                yield return buffer[dicePick];
-                buffer[dicePick] = buffer[i];
+                int dicePick = random.Next(list.Count);
+                T temp = list[dicePick];
+                list[dicePick] = list[i];
+                list[i] = temp;
             }
         }
         /// <summary>
@@ -520,7 +573,7 @@ namespace Fluentx
         {
             return value * 1024 * 1024 * 1024;
         }
-        
+
         /// <summary>
         /// TB stands for Tera Byte. The value mutliplied by 1024 * 1024 * 1024 * 1024. e.g. 4.TB()
         /// </summary>
@@ -548,6 +601,14 @@ namespace Fluentx
         public static IEnumerable<T> EmptyIfNull<T>(this IEnumerable<T> @this)
         {
             return @this ?? Enumerable.Empty<T>();
+        }
+        public static double ToCelcius(this int fahrenheit)
+        {
+            return (5.0 / 9.0) * (fahrenheit - 32);
+        }
+        public static double ToFahrenheit(this int celius)
+        {
+            return ((9.0 / 5.0) * celius) + 32;
         }
         /// <summary>
         /// Tries to return the value of the specifed expression without checking for nullability.
@@ -591,5 +652,9 @@ namespace Fluentx
             }
             return sBuilder.ToString(0, Math.Max(0, sBuilder.Length - separator.Length));
         }
+        
+
+        
+
     }
 }

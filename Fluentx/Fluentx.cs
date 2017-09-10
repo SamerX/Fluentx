@@ -5,6 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading;
+using System.Threading.Tasks;
 
 namespace Fluentx
 {
@@ -19,6 +20,12 @@ namespace Fluentx
         {
             //Not to be initialized from the out side.
         }
+        /// <summary>
+        /// Unix Time EPOCH
+        /// </summary>
+        public static readonly DateTime EPOCH = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+
+        public static readonly double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
@@ -160,8 +167,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IEarlyLoopBuilder While(Func<bool> condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = condition;
+            Fx instance = new Fx
+            {
+                ConditionValue = condition
+            };
             return instance;
         }
         /// <summary>
@@ -171,8 +180,10 @@ namespace Fluentx
         /// <returns></returns>
         public static ILateLoopBuilder Do(Action action)
         {
-            Fx instance = new Fx();
-            instance.Action = action;
+            Fx instance = new Fx
+            {
+                Action = action
+            };
             return instance;
         }
         /// <summary>
@@ -182,8 +193,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder If(Func<bool> condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = condition;
+            Fx instance = new Fx
+            {
+                ConditionValue = condition
+            };
             return instance;
         }
         /// <summary>
@@ -193,8 +206,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder If(bool condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = () => { return condition; };
+            Fx instance = new Fx
+            {
+                ConditionValue = () => { return condition; }
+            };
             return instance;
         }
         /// <summary>
@@ -204,8 +219,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder When(Func<bool> condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = condition;
+            Fx instance = new Fx
+            {
+                ConditionValue = condition
+            };
             return instance;
         }
         /// <summary>
@@ -215,8 +232,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder When(bool condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = () => { return condition; };
+            Fx instance = new Fx
+            {
+                ConditionValue = () => { return condition; }
+            };
             return instance;
         }
         /// <summary>
@@ -226,8 +245,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder IfNot(Func<bool> condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = () => { return !condition(); };
+            Fx instance = new Fx
+            {
+                ConditionValue = () => { return !condition(); }
+            };
             return instance;
         }
         /// <summary>
@@ -237,8 +258,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IConditionBuilder IfNot(bool condition)
         {
-            Fx instance = new Fx();
-            instance.ConditionValue = () => { return !condition; };
+            Fx instance = new Fx
+            {
+                ConditionValue = () => { return !condition; }
+            };
             return instance;
         }
         /// <summary>
@@ -283,8 +306,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IEarlyLoopBuilder ForEach<T>(IEnumerable<T> list)
         {
-            Fx instance = new Fx();
-            instance.InternalList = list;
+            Fx instance = new Fx
+            {
+                InternalList = list
+            };
             return instance;
         }
 
@@ -330,8 +355,10 @@ namespace Fluentx
         /// <returns></returns>
         public static IEarlyLoopBuilder ForEvery<T>(IEnumerable<T> list)
         {
-            Fx instance = new Fx();
-            instance.InternalList = list;
+            Fx instance = new Fx
+            {
+                InternalList = list
+            };
             return instance;
         }
         /// <summary>
@@ -341,8 +368,10 @@ namespace Fluentx
         /// <returns></returns>
         public static ITriableAction Try(Action action)
         {
-            Fx instance = new Fx();
-            instance.Action = action;
+            Fx instance = new Fx
+            {
+                Action = action
+            };
             return instance;
         }
         /// <summary>
@@ -369,9 +398,11 @@ namespace Fluentx
         /// <returns></returns>
         public static ISwitchBuilder Switch<T>(T mainOperand)
         {
-            Fx instance = new Fx();
-            instance.SwitchCases = new List<CaseInfo>();
-            instance.SwitchMainOperand = mainOperand;
+            Fx instance = new Fx
+            {
+                SwitchCases = new List<CaseInfo>(),
+                SwitchMainOperand = mainOperand
+            };
             return instance;
         }
         /// <summary>
@@ -381,9 +412,11 @@ namespace Fluentx
         /// <returns></returns>
         public static ISwitchTypeBuilder Switch(Type type)
         {
-            Fx instance = new Fx();
-            instance.SwitchCases = new List<CaseInfo>();
-            instance.SwitchMainOperand = type;
+            Fx instance = new Fx
+            {
+                SwitchCases = new List<CaseInfo>(),
+                SwitchMainOperand = type
+            };
             return instance;
         }
         /// <summary>
@@ -393,9 +426,11 @@ namespace Fluentx
         /// <returns></returns>
         public static ISwitchTypeBuilder Switch<T>()
         {
-            Fx instance = new Fx();
-            instance.SwitchCases = new List<CaseInfo>();
-            instance.SwitchMainOperand = typeof(T);
+            Fx instance = new Fx
+            {
+                SwitchCases = new List<CaseInfo>(),
+                SwitchMainOperand = typeof(T)
+            };
             return instance;
         }
         /// <summary>
@@ -412,7 +447,8 @@ namespace Fluentx
             {
                 counter++;
                 isSuccess = action();
-                if (!isSuccess) System.Threading.Thread.Sleep(attemptSleepInMilliSeconds);
+
+                if (!isSuccess) Task.Delay(attemptSleepInMilliSeconds);
             }
             while (!isSuccess && counter < attempts);
         }
@@ -424,8 +460,7 @@ namespace Fluentx
         /// <returns></returns>
         public static int ToInt32(string strValue, int defaultValue = default(int))
         {
-            Int32 x;
-            if (Int32.TryParse(strValue, out x))
+            if (Int32.TryParse(strValue, out int x))
                 return x;
             else
                 return defaultValue;
@@ -438,8 +473,7 @@ namespace Fluentx
         /// <returns></returns>
         public static uint ToUInt32(string strValue, uint defaultValue = default(uint))
         {
-            UInt32 x;
-            if (UInt32.TryParse(strValue, out x))
+            if (UInt32.TryParse(strValue, out uint x))
                 return x;
             else
                 return defaultValue;
@@ -452,8 +486,7 @@ namespace Fluentx
         /// <returns></returns>
         public static int ToInt(string strValue, int defaultValue = default(int))
         {
-            Int32 x;
-            if (Int32.TryParse(strValue, out x))
+            if (Int32.TryParse(strValue, out int x))
                 return x;
             else
                 return defaultValue;
@@ -466,8 +499,7 @@ namespace Fluentx
         /// <returns></returns>
         public static uint ToUInt(string strValue, uint defaultValue = default(uint))
         {
-            UInt32 x;
-            if (UInt32.TryParse(strValue, out x))
+            if (UInt32.TryParse(strValue, out uint x))
                 return x;
             else
                 return defaultValue;
@@ -480,8 +512,7 @@ namespace Fluentx
         /// <returns></returns>
         public static long ToLong(string strValue, long defaultValue = default(long))
         {
-            long x;
-            if (long.TryParse(strValue, out x))
+            if (long.TryParse(strValue, out long x))
                 return x;
             else
                 return defaultValue;
@@ -494,8 +525,7 @@ namespace Fluentx
         /// <returns></returns>
         public static ulong ToULong(string strValue, ulong defaultValue = default(ulong))
         {
-            ulong x;
-            if (ulong.TryParse(strValue, out x))
+            if (ulong.TryParse(strValue, out ulong x))
                 return x;
             else
                 return defaultValue;
@@ -508,8 +538,7 @@ namespace Fluentx
         /// <returns></returns>
         public static short ToInt16(string strValue, short defaultValue = default(short))
         {
-            Int16 x;
-            if (Int16.TryParse(strValue, out x))
+            if (Int16.TryParse(strValue, out short x))
                 return x;
             else
                 return defaultValue;
@@ -522,8 +551,7 @@ namespace Fluentx
         /// <returns></returns>
         public static ushort ToUInt16(string strValue, ushort defaultValue = default(ushort))
         {
-            UInt16 x;
-            if (UInt16.TryParse(strValue, out x))
+            if (UInt16.TryParse(strValue, out ushort x))
                 return x;
             else
                 return defaultValue;
@@ -536,8 +564,7 @@ namespace Fluentx
         /// <returns></returns>
         public static long ToInt64(string strValue, long defaultValue = default(long))
         {
-            Int64 x;
-            if (Int64.TryParse(strValue, out x))
+            if (Int64.TryParse(strValue, out long x))
                 return x;
             else
                 return defaultValue;
@@ -550,8 +577,7 @@ namespace Fluentx
         /// <returns></returns>
         public static ulong ToUInt64(string strValue, ulong defaultValue = default(ulong))
         {
-            UInt64 x;
-            if (UInt64.TryParse(strValue, out x))
+            if (UInt64.TryParse(strValue, out ulong x))
                 return x;
             else
                 return defaultValue;
@@ -564,8 +590,7 @@ namespace Fluentx
         /// <returns></returns>
         public static double ToDouble(string strValue, double defaultValue = default(double))
         {
-            double x;
-            if (Double.TryParse(strValue, out x))
+            if (Double.TryParse(strValue, out double x))
                 return x;
             else
                 return defaultValue;
@@ -578,8 +603,7 @@ namespace Fluentx
         /// <returns></returns>
         public static float ToFloat(string strValue, float defaultValue = default(float))
         {
-            float x;
-            if (Single.TryParse(strValue, out x))
+            if (float.TryParse(strValue, out float x))
                 return x;
             else
                 return defaultValue;
@@ -592,8 +616,7 @@ namespace Fluentx
         /// <returns></returns>
         public static decimal ToDecimal(string strValue, decimal defaultValue = default(decimal))
         {
-            decimal x;
-            if (Decimal.TryParse(strValue, out x))
+            if (Decimal.TryParse(strValue, out decimal x))
                 return x;
             else
                 return defaultValue;
@@ -606,8 +629,7 @@ namespace Fluentx
         /// <returns></returns>
         public static byte ToByte(string strValue, byte defaultValue = default(byte))
         {
-            byte x;
-            if (Byte.TryParse(strValue, out x))
+            if (Byte.TryParse(strValue, out byte x))
                 return x;
             else
                 return defaultValue;
@@ -620,8 +642,7 @@ namespace Fluentx
         /// <returns></returns>
         public static sbyte ToSByte(string strValue, sbyte defaultValue = default(sbyte))
         {
-            sbyte x;
-            if (SByte.TryParse(strValue, out x))
+            if (SByte.TryParse(strValue, out sbyte x))
                 return x;
             else
                 return defaultValue;
@@ -634,8 +655,7 @@ namespace Fluentx
         /// <returns></returns>
         public static bool ToBool(string strValue, bool defaultValue = default(bool))
         {
-            bool x;
-            if (bool.TryParse(strValue, out x))
+            if (bool.TryParse(strValue, out bool x))
                 return x;
             else
                 return defaultValue;
@@ -648,8 +668,7 @@ namespace Fluentx
         /// <returns></returns>
         public static DateTime ToDateTime(string strValue, DateTime defaultValue = default(DateTime))
         {
-            DateTime x;
-            if (DateTime.TryParse(strValue, out x))
+            if (DateTime.TryParse(strValue, out DateTime x))
                 return x;
             else
                 return defaultValue;
@@ -662,8 +681,7 @@ namespace Fluentx
         /// <returns></returns>
         public static Guid ToGuid(string strValue, Guid defaultValue = default(Guid))
         {
-            Guid x;
-            if (Guid.TryParse(strValue, out x))
+            if (Guid.TryParse(strValue, out Guid x))
                 return x;
             else
                 return defaultValue;
@@ -1447,14 +1465,51 @@ namespace Fluentx
         /// <param name="length"></param>
         /// <returns></returns>
         public static string RandomString(int length = 8)
-        {            
+        {
             return new string(Enumerable.Repeat(alphabetCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
-        public static void RunWithTimer(int milliseconds, Action action)
+        /// <summary>
+        /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.
+        /// </summary>
+        /// <returns></returns>
+        public static Guid NewSequentialGuid(SequentialGuidType guidType = SequentialGuidType.SequentialAsString)
         {
-            //var timer = Sys
-            //timer.
+            byte[] guidArray = Guid.NewGuid().ToByteArray();
+
+            long timestamp = DateTime.UtcNow.Ticks / 10000L;
+            byte[] timestampBytes = BitConverter.GetBytes(timestamp);
+
+            if (BitConverter.IsLittleEndian)
+            {
+                Array.Reverse(timestampBytes);
+            }
+
+            switch (guidType)
+            {
+                case SequentialGuidType.SequentialAsString:
+                    {
+                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 0, 6);
+
+                        if (BitConverter.IsLittleEndian)
+                        {
+                            Array.Reverse(guidArray, 0, 4);
+                            Array.Reverse(guidArray, 4, 2);
+                        }
+                        break;
+                    }
+                case SequentialGuidType.SequentialAsBinary:
+                    {
+                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 0, 6);
+                        break;
+                    }
+                case SequentialGuidType.SequentialAtEnd:
+                    {
+                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 10, 6);
+                        break;
+                    }
+            }
+            return new Guid(guidArray);
         }
         /// <summary>
         /// Private class to hold information about switch case statement.

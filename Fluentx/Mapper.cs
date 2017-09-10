@@ -72,7 +72,7 @@ namespace Fluentx
         /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
         /// <param name="subMapper">An instance of a mapper that will be used as a sub mapper in the current mapper in case a match is found for mapping</param>
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
-        IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new();
+        //IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new();
         /// <summary>
         /// Creates and adds a new mapper to list of mappers that will be used in case a name match and types match found during mapping.
         /// </summary>
@@ -80,6 +80,8 @@ namespace Fluentx
         /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
         IMapper<TSource, TDestination> UseMapper<TSrc, TDest>() where TDest : new();
+
+        IMapper<TSource, TDestination> UseMappers(params IMapper[] subMappers);
         /// <summary>
         /// Use this method to do custom actions through the mapper, handy to tigh custom resolvings with the mapper. Resolvers are the last things to be executed throught the mapper.
         /// </summary>
@@ -113,6 +115,20 @@ namespace Fluentx
         private readonly Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>> membersIgnored = new Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>>();
         private readonly Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>> membersConditional = new Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>>();
 
+        public Mapper()
+        {
+
+        }
+        public Mapper(params IMapper[] mappers)
+        {
+            if (mappers.IsNotNullOrEmpty())
+            {
+                foreach (var mapper in mappers)
+                {
+                    this.mappings.Add(mapper);
+                }
+            }
+        }
         /// <summary>
         /// Creates a mapper using the specified source type and destination type
         /// </summary>
@@ -123,6 +139,14 @@ namespace Fluentx
         {
             var mainType = typeof(Mapper<,>);
             Type[] innerType = { sourceType, destType };
+            var mapperType = mainType.MakeGenericType(innerType);
+            return (IMapper)Activator.CreateInstance(mapperType);
+        }
+
+        public static IMapper Create<TSrc, TDest>()
+        {
+            var mainType = typeof(Mapper<,>);
+            Type[] innerType = { typeof(TSrc), typeof(TDest) };
             var mapperType = mainType.MakeGenericType(innerType);
             return (IMapper)Activator.CreateInstance(mapperType);
         }
@@ -250,7 +274,7 @@ namespace Fluentx
                                             for (int i = 0; i < sourcePropValue.Length; i++)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { sourcePropValue.GetValue(i) });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType }).Invoke(mapping, new object[] { sourcePropValue.GetValue(i) });
 
                                                 //Add the value to 
                                                 destPropValue.SetValue(value, i);
@@ -281,10 +305,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType }).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType}).Invoke(destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType }).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -304,21 +328,25 @@ namespace Fluentx
                                     #region IEnumerable to Array
                                     if (destProp.PropertyType.IsArray)
                                     {
-                                        ArrayList tempDestValues = new ArrayList();
+                                        var tempDestValues = new List<object>();
 
                                         if (sourcePropValue != null)
                                         {
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType }).Invoke(mapping, new object[] { item });
 
                                                 //Add the value to temp destination array
                                                 tempDestValues.Add(value);
                                             }
                                             //Create destination property value from the temp array
-                                            Array destPropValue = tempDestValues.ToArray(destInnerType);
-
+                                            //Array destPropValue = tempDestValues.ToArray(destInnerType);
+                                            var destPropValue = Array.CreateInstance(destInnerType, tempDestValues.Count);
+                                            for (int i = 0; i < destPropValue.Length; i++)
+                                            {
+                                                destPropValue.SetValue(tempDestValues[i], i);
+                                            }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
                                         }
@@ -344,10 +372,10 @@ namespace Fluentx
                                             foreach (var item in sourcePropValue)
                                             {
                                                 //Map the value
-                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType}).Invoke(mapping, new object[] { item });
+                                                var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceInnerType }).Invoke(mapping, new object[] { item });
 
                                                 //Add the mapped value to destination property value
-                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType}).Invoke(destPropValue, new object[] { value });
+                                                destPropValue.GetType().GetTypeInfo().GetMethod("Add", new Type[] { destInnerType }).Invoke(destPropValue, new object[] { value });
                                             }
                                             //Mapping finished then set the destination property to the newly created property value
                                             destProp.SetValue(dest, destPropValue, null);
@@ -369,7 +397,7 @@ namespace Fluentx
                                 //A map exist in the list and we can use it to map this property
                                 if (mapping != null)
                                 {
-                                    var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceProp.PropertyType}).Invoke(mapping, new object[] { sourceProp.GetValue(source, null) });
+                                    var value = mapping.GetType().GetTypeInfo().GetMethod("Map", new Type[] { sourceProp.PropertyType }).Invoke(mapping, new object[] { sourceProp.GetValue(source, null) });
                                     destProp.SetValue(dest, value, null);
                                 }
                                 else
@@ -474,15 +502,15 @@ namespace Fluentx
         /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
         /// <param name="subMapper">An instance of a mapper that will be used as a sub mapper in the current mapper in case a match is found for mapping</param>
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
-        public IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new()
-        {
-            if (mappings.Where(x => x.SourceType == typeof(TSrc) && x.DestinationType == typeof(TDest)).Any())
-            {
-                throw new InvalidOperationException("There is already a mapping for Mapper<{0},{1}> registered in this mapper");
-            }
-            mappings.Add(subMapper);
-            return this;
-        }
+        //public IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new()
+        //{
+        //    if (mappings.Where(x => x.SourceType == typeof(TSrc) && x.DestinationType == typeof(TDest)).Any())
+        //    {
+        //        throw new InvalidOperationException("There is already a mapping for Mapper<{0},{1}> registered in this mapper");
+        //    }
+        //    mappings.Add(subMapper);
+        //    return this;
+        //}
         /// <summary>
         /// Creates and adds a new mapper to list of mappers that will be used in case a name match and types match found during mapping.
         /// </summary>
@@ -496,6 +524,17 @@ namespace Fluentx
                 throw new InvalidOperationException("There is already a mapping for Mapper<{0},{1}> registered in this mapper");
             }
             mappings.Add(new Mapper<TSrc, TDest>());
+            return this;
+        }
+        public IMapper<TSource, TDestination> UseMappers(params IMapper[] subMappers)
+        {
+            if (subMappers.IsNotNullOrEmpty())
+            {
+                foreach (var subMapper in subMappers)
+                {
+                    mappings.Add(subMapper);
+                }
+            }
             return this;
         }
         /// <summary>

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace Fluentx
 {
     /// <summary>
-    /// Helps building prediates to provide And/Or true/false for linq expressions
+    /// Helps building prediates to provide And/AndNot/Or/OrNot/Not true/false for linq expressions
     /// </summary>
     public static class PredicateBuilder
     {
@@ -24,6 +24,13 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static Expression<Func<T, bool>> False<T>() { return x => false; }
+        /// <summary>
+        /// Creates a predicate using the specified expression
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static Expression<Func<T, bool>> Create<T>(Expression<Func<T, bool>> predicate) { return predicate; }
         /// <summary>
         /// Ors a predicate with another
         /// </summary>
@@ -59,6 +66,40 @@ namespace Fluentx
         {
             var expInvoked = Expression.Invoke(expRight, expLeft.Parameters.Cast<Expression>());
             return Expression.Lambda<Func<T, bool>>(Expression.ExclusiveOr(expLeft.Body, expInvoked), expLeft.Parameters);
+        }
+        /// <summary>
+        /// Negating a predicate
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public static Expression<Func<T, bool>> Not<T>(this Expression<Func<T, bool>> expression)
+        {
+            return Expression.Lambda<Func<T, bool>>(Expression.Not(expression.Body), expression.Parameters);
+        }
+        /// <summary>
+        /// Anding Not with another predicate
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expLeft"></param>
+        /// <param name="expRight"></param>
+        /// <returns></returns>
+        public static Expression<Func<T, bool>> AndNot<T>(this Expression<Func<T, bool>> expLeft, Expression<Func<T, bool>> expRight)
+        {
+            var expInvoked = Expression.Invoke(expRight.Not(), expLeft.Parameters.Cast<Expression>());
+            return Expression.Lambda<Func<T, bool>>(Expression.AndAlso(expLeft.Body, expInvoked), expLeft.Parameters);
+        }
+        /// <summary>
+        /// Oring Not with another predicate
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="expLeft"></param>
+        /// <param name="expRight"></param>
+        /// <returns></returns>
+        public static Expression<Func<T, bool>> OrNot<T>(this Expression<Func<T, bool>> expLeft, Expression<Func<T, bool>> expRight)
+        {
+            var expInvoked = Expression.Invoke(expRight.Not(), expLeft.Parameters.Cast<Expression>());
+            return Expression.Lambda<Func<T, bool>>(Expression.OrElse(expLeft.Body, expInvoked), expLeft.Parameters);
         }
     }
 }

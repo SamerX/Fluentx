@@ -12,6 +12,19 @@ namespace Fluentx
     /// </summary>
     public static partial class Extensions
     {
+
+        public static DateTime FromUnixTime(this long unixTime)
+        {
+            return Fx.EPOCH.AddSeconds(unixTime);
+        }
+        public static long ToUnixTimeInSeconds(this DateTime date)
+        {
+            return Convert.ToInt64((date - Fx.EPOCH).TotalSeconds);
+        }
+        public static long ToUnixTimeInMilliSeconds(this DateTime date)
+        {
+            return Convert.ToInt64((date - Fx.EPOCH).TotalSeconds);
+        }
         /// <summary>
         /// Returns the date in January of the specified year or current year.
         /// </summary>
@@ -292,7 +305,7 @@ namespace Fluentx
             return @this.AddMonths(1);
         }
         /// <summary>
-        /// Returns a boolean value wether the date is within the specifed period. (edges are not calculated within)
+        /// Returns a boolean value wether the date is within the specifed period. (default : edges are not calculated within)
         /// </summary>
         /// <param name="this"></param>
         /// <param name="period"></param>
@@ -303,7 +316,7 @@ namespace Fluentx
             return period.IsWrap(@this, includeEdges);
         }
         /// <summary>
-        /// returns a boolean value wether the date is NOT within the specifed period. (edges are not calculated within)
+        /// returns a boolean value wether the date is NOT within the specifed period. (default : edges are not calculated within)
         /// </summary>
         /// <param name="this"></param>
         /// <param name="period"></param>
@@ -442,5 +455,54 @@ namespace Fluentx
             return days;
         }
 
+        public static bool IsLeapYear(this DateTime value)
+        {
+            return (value.Year % 4 == 0 && (value.Year % 100 != 0 || value.Year % 400 == 0));
+        }
+
+        public static bool IsLeapYear(this int year)
+        {
+            return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
+        }
+
+        //public static int Age(this DateTime dateTime)
+        //{
+        //    var today = DateTime.Today;
+        //    // Calculate the age.
+        //    var age = today.Year - dateTime.Year;
+        //    // Go back to the year the person was born in case of a leap year
+        //    if (dateTime > today.AddYears(-age)) age--;
+        //    return age;
+        //}
+
+        public static Age Age(this DateTime dateTime)
+        {
+            var age = new Age();
+            DateTime Now = DateTime.Now;
+            age.Years = new DateTime(DateTime.Now.Subtract(dateTime).Ticks).Year - 1;
+            DateTime PastYearDate = dateTime.AddYears(age.Years);
+
+            for (int i = 1; i <= 12; i++)
+            {
+                if (PastYearDate.AddMonths(i) == Now)
+                {
+                    age.Months = i;
+                    break;
+                }
+                else if (PastYearDate.AddMonths(i) >= Now)
+                {
+                    age.Months = i - 1;
+                    break;
+                }
+            }
+            age.Days = Now.Subtract(PastYearDate.AddMonths(age.Months)).Days;
+            age.Hours = Now.Subtract(PastYearDate).Hours;
+            age.Minutes = Now.Subtract(PastYearDate).Minutes;
+            age.Seconds = Now.Subtract(PastYearDate).Seconds;
+            return age;
+        }
+
     }
 }
+
+
