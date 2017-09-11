@@ -381,3 +381,15 @@ var mapper = new CustomerMapper();
 var customer = mapper.Map(dtoCustomer);
 </pre>
 of course you can now cache the mapper and reuse it any where in your code in the way you desire.
+
+
+<h2>
+Sorting Algorithm
+</h2>
+Fluentx has a lot of sorting algorithms implemented against lists in c#, that includes : Quick Sort, Merge Sort, Heap Sort, Insertion Sort, Bubble Sort, Gnome Sort, Intro Sort, Cocktail Sort, Odd Even Sort and more.
+
+
+<h2>
+Text Search Algorithms
+</h2>
+Fluentx has an implementation for well know text search algoithms like: Boyer Moore Algorithm, Linear Search, Binary Search and many others.
