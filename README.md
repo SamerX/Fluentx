@@ -1,6 +1,8 @@
 # Fluentx
 Fluentx : A Special .NET Library
 
+For donations please use the following paypal link: https://www.paypal.me/SamerX
+
 <h2>What is Fluentx?</h2>
 
 Fluentx is a .NET library I have created to help me in development in any project I work on, you can consider it as a utility libarary but its really bigger than that, it holds various utility methods, helper methods and design patterns that will help any developer using the .NET framework, I have also collected some extension methods from the web (some are optimized and some are left as is) which I have used previously in projects I have been working on, so if you think that you have a helper method, extension method a pattern or a class that will help others and you think it can fit in Fluentx then please feel free, the main limitation is dependency, because as much as possible I want fluentx to be portable and does'nt depend on web, windows or any other library or framework.
@@ -393,3 +395,8 @@ Fluentx has a lot of sorting algorithms implemented against lists in c#, that in
 Text Search Algorithms
 </h2>
 Fluentx has an implementation for well know text search algoithms like: Boyer Moore Algorithm, Linear Search, Binary Search and many others.
+
+<h2>
+Donation and Support
+</h2>
+For donations please use the following link: https://www.paypal.me/SamerX
