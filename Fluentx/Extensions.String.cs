@@ -273,6 +273,8 @@ namespace Fluentx
             else
                 return defaultValue;
         }
+
+        
         /// <summary>
         /// Extension method to compare two strings for equality ignoring character case. (Note: uses Equals(string, StringComparison.OrdinalIgnoreCase)).
         /// </summary>

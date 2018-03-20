@@ -25,7 +25,12 @@ namespace Fluentx
 
             return d;
         }
-
+        /// <summary>
+        /// Levenshtein Distance is a string metric for measuring the difference between two sequences, distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
         public static int LevenshteinDistance(string first, string second)
         {
             uint s1len, s2len, x, y, lastdiag, olddiag;
@@ -55,7 +60,11 @@ namespace Fluentx
                 return ((a) < (b) ? ((a) < (c) ? (a) : (c)) : ((b) < (c) ? (b) : (c)));
             }
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="count"></param>
+        /// <returns></returns>
         public static int[] Fibonacci(this int count)
         {
             int[] numbers = new int[count];
@@ -104,7 +113,11 @@ namespace Fluentx
 
             return first;
         }
-
+        /// <summary>
+        /// An Armstrong number is an integer such that the sum of the cubes of its digits is equal to the number itself.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public static bool IsArmstrong(this double num)
         {
             double sum = 0;
@@ -129,7 +142,11 @@ namespace Fluentx
 
             return num == sum;
         }
-
+        /// <summary>
+        /// This method reverses any number backwards.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static int Reverse(this int number)
         {
             int reverse = 0;
@@ -143,12 +160,20 @@ namespace Fluentx
 
             return reverse;
         }
-
+        /// <summary>
+        /// This returns whether a number is palindrome or not.
+        /// </summary>
+        /// <param name="num"></param>
+        /// <returns></returns>
         public static bool IsPalindrome(this int num)
         {
             return num == Reverse(num);
         }
-
+        /// <summary>
+        /// A perfect number is a positive integer that is equal to the sum of its proper positive divisors, that is, the sum of its positive divisors excluding the number itself.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static bool IsPerfect(this int number)
         {
             int sum = 0;
@@ -164,7 +189,11 @@ namespace Fluentx
 
             return sum == number;
         }
-
+        /// <summary>
+        /// A strong number is a number where the sum of factorial of its digits is equal the number it self.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static bool IsStrong(this int number)
         {
             long fact;
@@ -212,12 +241,21 @@ namespace Fluentx
 
             return factors;
         }
-
+        /// <summary>
+        /// Hypotenuse is the longest side of a right-angled triangle, the side opposite of the right angle.
+        /// </summary>
+        /// <param name="side1"></param>
+        /// <param name="side2"></param>
+        /// <returns></returns>
         public static double Hypotenuse(double side1, double side2)
         {
             return Math.Sqrt((side1 * side1) + (side2 * side2));
         }
-
+        /// <summary>
+        /// Returns the wording of a specific number in english.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static string ToWords(this int number)
         {
             var words = new StringBuilder();
@@ -268,7 +306,11 @@ namespace Fluentx
 
             return words.ToString();
         }
-
+        /// <summary>
+        /// Returns whether a number is prime or not.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         private static bool IsPrime(this int number)
         {
             // Test whether the parameter is a prime number.

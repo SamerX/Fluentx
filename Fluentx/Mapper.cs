@@ -450,7 +450,7 @@ namespace Fluentx
                 :
                 Expression.Lambda<Func<TDestination, object>>(destinationMember.Body, destinationMember.Parameters);
 
-            Func<TSource, object> tempResolver = (src) => resolver(src);
+            object tempResolver(TSource src) => resolver(src);
 
             membersResolved.Add(tempDestinationMember, new KeyValuePair<Func<TSource, object>, Func<TSource, bool>>(tempResolver, src => true));
             return this;
@@ -469,7 +469,7 @@ namespace Fluentx
                :
                Expression.Lambda<Func<TDestination, object>>(destinationMember.Body, destinationMember.Parameters);
 
-            Func<TSource, object> tempResolver = (src) => resolver(src);
+            object tempResolver(TSource src) => resolver(src);
 
             membersResolved.Add(tempDestinationMember, new KeyValuePair<Func<TSource, object>, Func<TSource, bool>>(tempResolver, conditionalAction));
             return this;

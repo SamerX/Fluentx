@@ -32,6 +32,22 @@ namespace Fluentx.Tester
         }
 
         [Fact]
+        public void Test_KGtoLBS()
+        {
+            var result = 6.ToKG();
+
+            var backResult = result.ToLBS();
+        }
+
+        [Fact]
+        public void Test_MeterToFeet()
+        {
+            var result = 6.ToMeter();
+
+            var backResult = result.ToFeet();
+        }
+
+        [Fact]
         public void Test_COMBGuid()
         {
             var g1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAtEnd);

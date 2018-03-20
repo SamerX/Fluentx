@@ -15,7 +15,7 @@ namespace Fluentx
     public sealed class Fx : IFluentInterface, IAction, ITriableAction, IConditionBuilder, IConditionalAction, IEarlyLoopBuilder, ILoopAction, ILateLoopBuilder, IEarlyLoop, ILateLoop, ISwitchBuilder, ISwitchCaseBuilder, ISwitchTypeBuilder, ISwitchTypeCaseBuilder
     {
         private static readonly Random _random = new Random();
-        private const string alphabetCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        private const string alphabetAndNumbersCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private Fx()
         {
             //Not to be initialized from the out side.
@@ -26,6 +26,9 @@ namespace Fluentx
         public static readonly DateTime EPOCH = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
 
         public static readonly double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
+
+        public static readonly double PI = 22 / 7;
+
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
@@ -43,17 +46,16 @@ namespace Fluentx
         private bool LoopStoperCondition { get; set; }
 
         private enum LoopStopers { Break, Continue };
+
         private LoopStopers LoopStoper { get; set; }
 
         private enum LoopStoperLocations { BeginingOfTheLoop, EndOfTheLoop }
+
         private LoopStoperLocations LoopStoperLocation { get; set; }
 
         private object SwitchMainOperand { get; set; }
 
         private List<CaseInfo> SwitchCases { get; set; }
-
-
-
 
         #endregion
 
@@ -686,6 +688,7 @@ namespace Fluentx
             else
                 return defaultValue;
         }
+        
         /// <summary>
         /// 
         /// </summary>
@@ -1427,7 +1430,7 @@ namespace Fluentx
             return this;
         }
         /// <summary>
-        /// 
+        /// Implementation of the Ternary operator
         /// </summary>
         /// <param name="condition"></param>
         /// <param name="trueAction"></param>
@@ -1466,7 +1469,7 @@ namespace Fluentx
         /// <returns></returns>
         public static string RandomString(int length = 8)
         {
-            return new string(Enumerable.Repeat(alphabetCharacters, length)
+            return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
         /// <summary>

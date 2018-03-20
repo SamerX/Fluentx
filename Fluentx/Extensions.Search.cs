@@ -6,6 +6,13 @@ namespace Fluentx
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// Linear search implementation.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="valueToFind"></param>
+        /// <returns></returns>
         public static int LinearSearch<T>(this IList<T> list, T valueToFind) where T : IComparable<T>
         {
             for (int i = 0; i < list.Count; i++)
@@ -71,7 +78,12 @@ namespace Fluentx
                 return mid;
             }
         }
-
+        /// <summary>
+        /// Boyer Moore Search implementation
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="valueToFind"></param>
+        /// <returns></returns>
         public static int[] BoyerMooreSearch(this string text, string valueToFind)
         {
             var retVal = new List<int>();
@@ -114,7 +126,12 @@ namespace Fluentx
                     _badChar[(int)str[i]] = i;
             }
         }
-
+        /// <summary>
+        /// Knuth Morris Pratt Search implementation.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="valueToFind"></param>
+        /// <returns></returns>
         public static int[] KnuthMorrisPrattSearch(this string text, string valueToFind)
         {
             List<int> retVal = new List<int>();
@@ -181,7 +198,14 @@ namespace Fluentx
                 }
             }
         }
-
+        /// <summary>
+        /// Brute force search algorithm.
+        /// </summary>
+        /// <param name="text"></param>
+        /// <param name="startLength"></param>
+        /// <param name="endLength"></param>
+        /// <param name="testCallback"></param>
+        /// <returns></returns>
         public static bool BruteForce(this string text, int startLength, int endLength, Func<string, bool> testCallback)
         {
             for (int len = startLength; len <= endLength; ++len)

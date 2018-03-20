@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2012/06/nuspec.xsd">
+  <metadata>
+    <id>Fluentx</id>
+    <version>4.0.0</version>
+    <authors>Fluentx</authors>
+    <owners>Fluentx</owners>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>A great library with enumerous helper methods .. it has a lightweight IoC container, a light weight Object to Object mapper, an implementation for the specification pattern and tons of extension and helper methods .. use it you will love it.</description>
+    <copyright>Samer A.R.</copyright>
+    <dependencies>
+      <group targetFramework=".NETStandard1.5">
+        <dependency id="NETStandard.Library" version="1.6.1" exclude="Build,Analyzers" />
+      </group>
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="C:\Users\Samer\Source\Repos\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.dll" target="lib\netstandard1.5\Fluentx.dll" />
+  </files>
+</package>

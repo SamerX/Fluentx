@@ -271,20 +271,16 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool Is<T>(this T @this)
-        {
-            return @this is T;
-        }
+        public static bool Is<T>(this T @this) => @this is T;
+
         /// <summary>
         /// Extension method that performs a safe cast for @this as T.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static T As<T>(this T @this) where T : class
-        {
-            return @this as T;
-        }
+        public static T As<T>(this T @this) where T : class => @this as T;
+
         /// <summary>
         /// Performs a lock operation (using a private object) on the specified action with @this as the parameter for the action.
         /// </summary>
@@ -407,6 +403,24 @@ namespace Fluentx
             }
 
             return (T)Enum.Parse(t, value, ignorecase);
+        }
+        /// <summary>
+        /// Converts an integer into a Hex string.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string ToHex(this int @this)
+        {
+            return @this.ToString("X");
+        }
+        /// <summary>
+        /// Parses a Hex string to integer
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int ParseHex(this string @this)
+        {
+            return int.Parse(@this, System.Globalization.NumberStyles.HexNumber);
         }
         /// <summary>
         /// Simple update of instance memebers using lambda expression.
@@ -602,14 +616,107 @@ namespace Fluentx
         {
             return @this ?? Enumerable.Empty<T>();
         }
+        /// <summary>
+        /// Fahrenheit to Celcius
+        /// </summary>
+        /// <param name="fahrenheit"></param>
+        /// <returns></returns>
+        public static double ToCelcius(this double fahrenheit)
+        {
+            return (5.0 / 9.0) * (fahrenheit - 32);
+        }
+        /// <summary>
+        /// Celcius to Fahrenheit 
+        /// </summary>
+        /// <param name="celius"></param>
+        /// <returns></returns>
+        public static double ToFahrenheit(this double celius)
+        {
+            return ((9.0 / 5.0) * celius) + 32;
+        }
+        /// <summary>
+        /// Fahrenheit to Celcius
+        /// </summary>
+        /// <param name="fahrenheit"></param>
+        /// <returns></returns>
         public static double ToCelcius(this int fahrenheit)
         {
             return (5.0 / 9.0) * (fahrenheit - 32);
         }
+        /// <summary>
+        /// Celcius to Fahrenheit
+        /// </summary>
+        /// <param name="celius"></param>
+        /// <returns></returns>
         public static double ToFahrenheit(this int celius)
         {
             return ((9.0 / 5.0) * celius) + 32;
         }
+        /// <summary>
+        /// KG to LBS
+        /// </summary>
+        /// <param name="kg"></param>
+        /// <returns></returns>
+        public static double ToLBS(this double kg)
+        {
+            return (kg * 2.20462262185);
+        }
+        /// <summary>
+        /// LBS to KG
+        /// </summary>
+        /// <param name="lbs"></param>
+        /// <returns></returns>
+        public static double ToKG(this double lbs)
+        {
+            return (lbs / 2.20462262185);
+        }
+        /// <summary>
+        /// KG to LBS
+        /// </summary>
+        /// <param name="kg"></param>
+        /// <returns></returns>
+        public static double ToLBS(this int kg)
+        {
+            return (kg * 2.20462262185);
+        }
+        /// <summary>
+        /// LBS to KG
+        /// </summary>
+        /// <param name="lbs"></param>
+        /// <returns></returns>
+        public static double ToKG(this int lbs)
+        {
+            return (lbs / 2.20462262185);
+        }
+
+        public static double ToFeet(this int meter)
+        {
+            return (meter * 3.2808398950131);
+        }
+        /// <summary>
+        /// LBS to KG
+        /// </summary>
+        /// <param name="lbs"></param>
+        /// <returns></returns>
+        public static double ToMeter(this int feet)
+        {
+            return (feet / 3.2808398950131);
+        }
+
+        public static double ToFeet(this double meter)
+        {
+            return (meter * 3.2808398950131);
+        }
+        /// <summary>
+        /// LBS to KG
+        /// </summary>
+        /// <param name="lbs"></param>
+        /// <returns></returns>
+        public static double ToMeter(this double feet)
+        {
+            return (feet / 3.2808398950131);
+        }
+
         /// <summary>
         /// Tries to return the value of the specifed expression without checking for nullability.
         /// </summary>
@@ -652,9 +759,9 @@ namespace Fluentx
             }
             return sBuilder.ToString(0, Math.Max(0, sBuilder.Length - separator.Length));
         }
-        
 
-        
+
+
 
     }
 }
