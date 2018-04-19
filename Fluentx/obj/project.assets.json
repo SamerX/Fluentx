@@ -1,6 +1,14 @@
 {
   "version": 3,
   "targets": {
+    ".NETFramework,Version=v4.5": {},
+    ".NETFramework,Version=v4.5.1": {},
+    ".NETFramework,Version=v4.5.2": {},
+    ".NETFramework,Version=v4.6": {},
+    ".NETFramework,Version=v4.6.1": {},
+    ".NETFramework,Version=v4.6.2": {},
+    ".NETFramework,Version=v4.7": {},
+    ".NETFramework,Version=v4.7.1": {},
     ".NETStandard,Version=v1.5": {
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
@@ -3698,31 +3706,48 @@
     }
   },
   "projectFileDependencyGroups": {
+    ".NETFramework,Version=v4.5": [],
+    ".NETFramework,Version=v4.5.1": [],
+    ".NETFramework,Version=v4.5.2": [],
+    ".NETFramework,Version=v4.6": [],
+    ".NETFramework,Version=v4.6.1": [],
+    ".NETFramework,Version=v4.6.2": [],
+    ".NETFramework,Version=v4.7": [],
+    ".NETFramework,Version=v4.7.1": [],
     ".NETStandard,Version=v1.5": [
       "NETStandard.Library >= 1.6.1"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Samer\\.nuget\\packages\\": {},
+    "C:\\Users\\samer\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "4.0.0",
+    "version": "5.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj",
+      "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
       "projectName": "Fluentx",
-      "projectPath": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj",
-      "packagesPath": "C:\\Users\\Samer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx\\obj\\",
+      "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
+      "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
+      "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\obj\\",
       "projectStyle": "PackageReference",
+      "crossTargeting": true,
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
+        "net45",
+        "net451",
+        "net452",
+        "net46",
+        "net461",
+        "net462",
+        "net47",
+        "net471",
         "netstandard1.5"
       ],
       "sources": {
@@ -3730,6 +3755,30 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
+        "net45": {
+          "projectReferences": {}
+        },
+        "net451": {
+          "projectReferences": {}
+        },
+        "net452": {
+          "projectReferences": {}
+        },
+        "net46": {
+          "projectReferences": {}
+        },
+        "net461": {
+          "projectReferences": {}
+        },
+        "net462": {
+          "projectReferences": {}
+        },
+        "net47": {
+          "projectReferences": {}
+        },
+        "net471": {
+          "projectReferences": {}
+        },
         "netstandard1.5": {
           "projectReferences": {}
         }
@@ -3741,6 +3790,14 @@
       }
     },
     "frameworks": {
+      "net45": {},
+      "net451": {},
+      "net452": {},
+      "net46": {},
+      "net461": {},
+      "net462": {},
+      "net47": {},
+      "net471": {},
       "netstandard1.5": {
         "dependencies": {
           "NETStandard.Library": {

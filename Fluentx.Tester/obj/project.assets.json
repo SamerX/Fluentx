@@ -1660,7 +1660,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Fluentx/4.0.0": {
+      "Fluentx/5.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.5",
         "dependencies": {
@@ -5618,7 +5618,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Fluentx/4.0.0": {
+    "Fluentx/5.0.0": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -5626,7 +5626,7 @@
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
-      "Fluentx >= 4.0.0",
+      "Fluentx >= 5.0.0",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
       "xunit >= 2.2.0",
@@ -5634,23 +5634,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Samer\\.nuget\\packages\\": {},
+    "C:\\Users\\samer\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+      "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
       "projectName": "Fluentx.Tester",
-      "projectPath": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
-      "packagesPath": "C:\\Users\\Samer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx.Tester\\obj\\",
+      "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+      "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
+      "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -5663,8 +5663,8 @@
       "frameworks": {
         "netcoreapp2.0": {
           "projectReferences": {
-            "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj": {
-              "projectPath": "C:\\Users\\Samer\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj"
+            "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
+              "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
             }
           }
         }

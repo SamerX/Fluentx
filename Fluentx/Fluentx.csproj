@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.5</TargetFramework>
-    <Version>4.0.0</Version>
+    <TargetFrameworks>netstandard1.5;net45;net451;net452;net46;net461;net462;net47;net471</TargetFrameworks>
+    <Version>5.0.0</Version>
     <Description>A great library with enumerous helper methods .. it has a lightweight IoC container, a light weight Object to Object mapper, an implementation for the specification pattern and tons of extension and helper methods .. use it you will love it.</Description>
     <Copyright>Samer A.R.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>4.0.0.0</AssemblyVersion>
-    <FileVersion>4.0.0.0</FileVersion>
+    <AssemblyVersion>5.0.0.0</AssemblyVersion>
+    <FileVersion>5.0.0.0</FileVersion>
   </PropertyGroup>
 
 </Project>

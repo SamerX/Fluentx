@@ -7,7 +7,7 @@
   "targets": {
     ".NETStandard,Version=v1.5": {},
     ".NETStandard,Version=v1.5/": {
-      "Fluentx/4.0.0": {
+      "Fluentx/5.0.0": {
         "dependencies": {
           "NETStandard.Library": "1.6.1"
         },
@@ -565,7 +565,7 @@
     }
   },
   "libraries": {
-    "Fluentx/4.0.0": {
+    "Fluentx/5.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

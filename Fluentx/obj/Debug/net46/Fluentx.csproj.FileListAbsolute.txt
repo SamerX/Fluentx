@@ -1,0 +1,8 @@
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Debug\net46\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Debug\net46\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.csprojResolveAssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.csproj.CoreCompileInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.AssemblyInfoInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.AssemblyInfo.cs
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Debug\net46\Fluentx.pdb

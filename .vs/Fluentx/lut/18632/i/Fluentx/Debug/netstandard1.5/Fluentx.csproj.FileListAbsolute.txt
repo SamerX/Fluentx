@@ -1,0 +1,10 @@
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\b\Fluentx\Debug\netstandard1.5\Fluentx.deps.json
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\b\Fluentx\Debug\netstandard1.5\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\b\Fluentx\Debug\netstandard1.5\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.csprojResolveAssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.csproj.CoreCompileInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.AssemblyInfoInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.AssemblyInfo.cs
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.csproj.CopyComplete
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\lut\0\i\Fluentx\Debug\netstandard1.5\Fluentx.pdb
