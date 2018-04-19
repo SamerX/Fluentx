@@ -19,6 +19,7 @@ C:\Users\Samer\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.c
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.deps.json
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csprojResolveAssemblyReference.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csproj.CoreCompileInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.AssemblyInfo.cs
