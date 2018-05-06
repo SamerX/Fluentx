@@ -1211,6 +1211,7 @@ namespace Fluentx
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
+        /// <param name="comparer"></param>
         /// <returns></returns>
         public static bool IsSorted<T>(this IList<T> list, IComparer<T> comparer)
         {
@@ -1238,6 +1239,7 @@ namespace Fluentx
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="list"></param>
+        /// <param name="comparer"></param>
         /// <returns></returns>
         public static bool IsSortedDescending<T>(this IList<T> list, IComparer<T> comparer)// where T : IComparable<T>
         {

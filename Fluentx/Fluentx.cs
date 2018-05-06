@@ -24,9 +24,13 @@ namespace Fluentx
         /// Unix Time EPOCH
         /// </summary>
         public static readonly DateTime EPOCH = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
-
+        /// <summary>
+        /// The Golden Ratio
+        /// </summary>
         public static readonly double GoldenRatio = (1 + Math.Sqrt(5)) / 2;
-
+        /// <summary>
+        /// PI represented as 22/7.
+        /// </summary>
         public static readonly double PI = 22 / 7;
 
 

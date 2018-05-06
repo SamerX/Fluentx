@@ -688,7 +688,11 @@ namespace Fluentx
         {
             return (lbs / 2.20462262185);
         }
-
+        /// <summary>
+        /// Converts meters to feets.
+        /// </summary>
+        /// <param name="meter"></param>
+        /// <returns></returns>
         public static double ToFeet(this int meter)
         {
             return (meter * 3.2808398950131);
@@ -696,13 +700,17 @@ namespace Fluentx
         /// <summary>
         /// LBS to KG
         /// </summary>
-        /// <param name="lbs"></param>
+        /// <param name="feet"></param>
         /// <returns></returns>
         public static double ToMeter(this int feet)
         {
             return (feet / 3.2808398950131);
         }
-
+        /// <summary>
+        /// Meters to Feet
+        /// </summary>
+        /// <param name="meter"></param>
+        /// <returns></returns>
         public static double ToFeet(this double meter)
         {
             return (meter * 3.2808398950131);
@@ -710,7 +718,7 @@ namespace Fluentx
         /// <summary>
         /// LBS to KG
         /// </summary>
-        /// <param name="lbs"></param>
+        /// <param name="feet"></param>
         /// <returns></returns>
         public static double ToMeter(this double feet)
         {

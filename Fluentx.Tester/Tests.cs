@@ -761,7 +761,7 @@ namespace Fluentx.Tester
             var result = entity.Safe(x => x.Id);
             Assert.True(result == 0);
 
-            
+
         }
 
         [Fact]
@@ -820,6 +820,28 @@ namespace Fluentx.Tester
             var result = spec1.Xor(spec2).ValidateWithMessagesAndContinue(12);
         }
 
+        [Fact]
+        public void Test_Specification_PlayGround()
+        {
+            var spec1 = new ExpressionSpecification<int>((x) =>
+            {
+                return x > 10;
+            }
+            , new string[] { "less than 10" });
+            var spec2 = new ExpressionSpecification<int>((x) =>
+            {
+                return x > 25;
+            }
+            , new string[] { "less than 25" });
+
+            var spec3 = new ExpressionSpecification<int>((x) =>
+            {
+                return x > 15;
+            }
+            , new string[] { "less than 15" });
+
+            var result = spec1.And(spec2).And(spec3).ValidateWithMessages(22);
+        }
         //[Fact]
         //public void Test_Not_Specification()
         //{
@@ -857,6 +879,9 @@ namespace Fluentx.Tester
             DateTime[] dates = new DateTime[] { DateTime.Now, DateTime.Now.AddYears(3) };
             var min = dates.MinBy(x => x.Year);
             Assert.Equal(2017, min.Year);
+
+            27.May(1983);
+            new DateTime(1983, 5, 27);
         }
 
         [Fact]
@@ -941,6 +966,18 @@ namespace Fluentx.Tester
             var vmOne = mapper.Map(one);
         }
 
+        [Fact]
+        public void Test_Mapper_Collection()
+        {
+            var source = new List<One>()
+            {
+                new One(){X1 = "X1"},
+                new One(){X1 = "X1_1"}
+            };
+
+            var mapper = new Mapper<One, VMOne>();
+            var dest = mapper.Map(source);
+        }
         [Fact]
         public void Test_IoC()
         {

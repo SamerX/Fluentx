@@ -10,6 +10,9 @@ namespace Fluentx
     /// <typeparam name="T"></typeparam>
     public interface ISpecification<T>
     {
+        /// <summary>
+        /// List of validation messages when it failed
+        /// </summary>
         IEnumerable<string> Messages { get; set; }
         /// <summary>
         /// When overriden in a derived class does the validation on the specification (Rule(s)) and return if it succeeds
@@ -276,6 +279,11 @@ namespace Fluentx
             this.Validate(instance);
             return this.Messages;
         }
+        /// <summary>
+        /// Executes and validate hte specification returning validation messages, this will return all failed validations.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
         public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
         {
             this.ValidateAndContinue(instance);
@@ -386,7 +394,11 @@ namespace Fluentx
             this.leftSpecification = left;
             this.rightSpecification = right;
         }
-
+        /// <summary>
+        /// Executes and validates the specificadtion returning the boolean result, in case of failed validation it will stop on the first failed validation without executing the remaining ones in the chain of validations.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
         public override bool Validate(T instance)
         {
             (this.Messages as IList<string>).Clear();
@@ -454,6 +466,11 @@ namespace Fluentx
             this.Validate(instance);
             return this.Messages;
         }
+        /// <summary>
+        /// Executes and validates the specification and returns the messages and will continue even if the validation failed on the first one, all failed validation messages will return.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
         public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
         {
             this.ValidateAndContinue(instance);
@@ -685,7 +702,11 @@ namespace Fluentx
         {
             return this.expression(instance);
         }
-
+        /// <summary>
+        /// Will validate the specification and continue to the next node in rules chain.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
         public override bool ValidateAndContinue(T instance)
         {
             return this.expression(instance);
@@ -699,7 +720,11 @@ namespace Fluentx
         {
             return (this.expression(instance) ? new List<string>() : Messages);
         }
-
+        /// <summary>
+        /// Executes and validates the specification and returns all messages, it will not stop on the first failed validation.
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
         public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
         {
             return (this.expression(instance) ? new List<string>() : Messages);

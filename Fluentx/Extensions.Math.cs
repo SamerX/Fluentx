@@ -10,8 +10,8 @@ namespace Fluentx
         /// Returns the distance between two points on earth in meters.
         /// </summary>
         /// <param name="lat1"></param>
+        /// <param name="lng1"></param>
         /// <param name="lat2"></param>
-        /// <param name="lon1"></param>
         /// <param name="lng2"></param>
         /// <returns></returns>
         public static double Haversine(double lat1, double lng1, double lat2, double lng2)
@@ -84,7 +84,11 @@ namespace Fluentx
 
             return numbers;
         }
-
+        /// <summary>
+        /// Return factorial value of specified number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static long Factorial(this int number)
         {
             if (number < 0)
@@ -97,7 +101,12 @@ namespace Fluentx
 
             return result;
         }
-
+        /// <summary>
+        /// Returns greatest common advisor of the specified first number using the second number.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
         public static int GreatestCommonDivisor(int first, int second)
         {
             if (first == 0)
@@ -214,7 +223,11 @@ namespace Fluentx
 
             return sum == num;
         }
-
+        /// <summary>
+        /// Any of the prime numbers that can be multiplied to give the original specified number
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
         public static IEnumerable<int> PrimeFactor(this int number)
         {
             var factors = new List<int>();

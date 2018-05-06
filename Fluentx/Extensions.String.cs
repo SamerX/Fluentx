@@ -494,7 +494,12 @@ namespace Fluentx
 
             return matches / (length1 + length2);
         }
-
+        /// <summary>
+        /// Encrypts a string using the Cesar algorithm.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static string CesarEncrypt(this string input, int key)
         {
             string output = string.Empty;
@@ -513,7 +518,12 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
-
+        /// <summary>
+        /// Decrypts a string using cesar algorithm.
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
         public static string CesarDecrypt(this string input, int key)
         {
             return CesarEncrypt(input, 26 - key);

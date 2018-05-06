@@ -12,10 +12,10 @@ namespace Fluentx
     public class Guard
     {
         /// <summary>
-        /// Will throw a <see cref="InvalidOperationException"/> if the assertion
+        /// Will throw a <see cref="InvalidOperationException"/> if the conditionToThroughException
         /// is true, with the specificied message.
         /// </summary>
-        /// <param name="assertion">if set to <c>true</c> [assertion].</param>
+        /// <param name="conditionToThroughException">if set to <c>true</c> [assertion].</param>
         /// <param name="message">The message.</param>
         /// <example>
         /// Sample usage:
@@ -23,30 +23,30 @@ namespace Fluentx
         /// Guard.Against(string.IsNullOrEmpty(name), "Name must have a value");
         /// </code>
         /// </example>
-        public static void Against(bool assertion, string message = null)
+        public static void Against(bool conditionToThroughException, string message = null)
         {
-            if (assertion == false)
+            if (conditionToThroughException == false)
                 return;
             throw new InvalidOperationException(message);
         }
         /// <summary>
-        /// Will throw a <see cref="InvalidOperationException"/> if the assertionAction
+        /// Will throw a <see cref="InvalidOperationException"/> if the conditionActionToThroughException
         /// is true, with the specificied message.
         /// </summary>
-        /// <param name="asseertionAction"></param>
+        /// <param name="conditionActionToThroughException"></param>
         /// <param name="message"></param>
-        public static void Against(Func<bool> asseertionAction, string message = null)
+        public static void Against(Func<bool> conditionActionToThroughException, string message = null)
         {
-            if (asseertionAction() == false)
+            if (conditionActionToThroughException() == false)
                 return;
             throw new InvalidOperationException(message);
         }
         /// <summary>
         /// Will throw exception of type <typeparamref name="TException"/>
-        /// with the specified message if the assertion is true
+        /// with the specified message if the conditionToThroughException is true
         /// </summary>
         /// <typeparam name="TException"></typeparam>
-        /// <param name="assertion">if set to <c>true</c> [assertion].</param>
+        /// <param name="conditionToThroughException">if set to <c>true</c> [assertion].</param>
         /// <param name="message">The message.</param>
         /// <example>
         /// Sample usage:
@@ -56,22 +56,22 @@ namespace Fluentx
         /// ]]>
         /// </code>
         /// </example>
-        public static void Against<TException>(bool assertion, string message = null) where TException : Exception
+        public static void Against<TException>(bool conditionToThroughException, string message = null) where TException : Exception
         {
-            if (assertion == false)
+            if (conditionToThroughException == false)
                 return;
             throw (TException)Activator.CreateInstance(typeof(TException), message);
         }
         /// <summary>
         /// Will throw exception of type <typeparamref name="TException"/>
-        /// with the specified message if the assertion is true
+        /// with the specified message if the conditionActionToThroughException is true
         /// </summary>
         /// <typeparam name="TException"></typeparam>
-        /// <param name="asseertionAction"></param>
+        /// <param name="conditionActionToThroughException"></param>
         /// <param name="message"></param>
-        public static void Against<TException>(Func<bool> asseertionAction, string message = null) where TException : Exception
+        public static void Against<TException>(Func<bool> conditionActionToThroughException, string message = null) where TException : Exception
         {
-            if (asseertionAction() == false)
+            if (conditionActionToThroughException() == false)
                 return;
             throw (TException)Activator.CreateInstance(typeof(TException), message);
         }

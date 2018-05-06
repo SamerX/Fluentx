@@ -48,3 +48,4 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\netcoreapp2.0\Fluentx.T
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\netcoreapp2.0\Fluentx.Tester.csproj.CopyComplete
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\netcoreapp2.0\Fluentx.Tester.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Debug\netcoreapp2.0\Fluentx.Tester.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Debug\netcoreapp2.0\Fluentx.xml

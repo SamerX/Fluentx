@@ -1,6 +1,9 @@
 ﻿
 namespace Fluentx
 {
+    /// <summary>
+    /// An enum for possible values to generate a sequential guid.
+    /// </summary>
     public enum SequentialGuidType
     {
         /// <summary>

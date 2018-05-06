@@ -12,15 +12,29 @@ namespace Fluentx
     /// </summary>
     public static partial class Extensions
     {
-
+        /// <summary>
+        /// Parses a unit time to datetime.
+        /// </summary>
+        /// <param name="unixTime"></param>
+        /// <returns></returns>
         public static DateTime FromUnixTime(this long unixTime)
         {
             return Fx.EPOCH.AddSeconds(unixTime);
         }
+        /// <summary>
+        /// Converts to unitx time in seconds
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public static long ToUnixTimeInSeconds(this DateTime date)
         {
             return Convert.ToInt64((date - Fx.EPOCH).TotalSeconds);
         }
+        /// <summary>
+        /// Converts to unix time in milli seconds.
+        /// </summary>
+        /// <param name="date"></param>
+        /// <returns></returns>
         public static long ToUnixTimeInMilliSeconds(this DateTime date)
         {
             return Convert.ToInt64((date - Fx.EPOCH).TotalSeconds);
@@ -145,6 +159,13 @@ namespace Fluentx
         {
             return new DateTime(year ?? DateTime.Now.Year, 12, @this);
         }
+        /// <summary>
+        /// Create a date time instance in human readable format.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="month"></param>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public static DateTime Of(this int @this, int month, int? year = null)
         {
             return new DateTime(year ?? DateTime.Now.Year, month, @this);
@@ -454,12 +475,20 @@ namespace Fluentx
             var days = DateTime.DaysInMonth(year ?? DateTime.Now.Year, month);
             return days;
         }
-
+        /// <summary>
+        /// Returns whether this date time is in a leap year.
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool IsLeapYear(this DateTime value)
         {
             return (value.Year % 4 == 0 && (value.Year % 100 != 0 || value.Year % 400 == 0));
         }
-
+        /// <summary>
+        ///  Returns whether the specified year is a leap year.
+        /// </summary>
+        /// <param name="year"></param>
+        /// <returns></returns>
         public static bool IsLeapYear(this int year)
         {
             return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
@@ -474,7 +503,11 @@ namespace Fluentx
         //    if (dateTime > today.AddYears(-age)) age--;
         //    return age;
         //}
-
+        /// <summary>
+        /// Creates an age instance from the specified datetime instance.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
         public static Age Age(this DateTime dateTime)
         {
             var age = new Age();

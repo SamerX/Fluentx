@@ -66,21 +66,17 @@ namespace Fluentx
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
         IMapper<TSource, TDestination> IgnoreIf(Expression<Func<TDestination, object>> destinationMember, Func<TSource, bool> conditionalAction);
         /// <summary>
-        /// Adds the specified mapper to the list of mappers that will be used in case a name match and types match found during mapping.
-        /// </summary>
-        /// <typeparam name="TSrc">Type of source instance to map from</typeparam>
-        /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
-        /// <param name="subMapper">An instance of a mapper that will be used as a sub mapper in the current mapper in case a match is found for mapping</param>
-        /// <returns>Returns instance of IMapper for chaining purposes</returns>
-        //IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new();
-        /// <summary>
         /// Creates and adds a new mapper to list of mappers that will be used in case a name match and types match found during mapping.
         /// </summary>
         /// <typeparam name="TSrc">Type of source instance to map from</typeparam>
         /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
         /// <returns>Returns instance of IMapper for chaining purposes</returns>
         IMapper<TSource, TDestination> UseMapper<TSrc, TDest>() where TDest : new();
-
+        /// <summary>
+        /// Creates and adds a new mapper to list of mappers that will be used in case a name match and types match found during mapping.
+        /// </summary>
+        /// <param name="subMappers"></param>
+        /// <returns></returns>
         IMapper<TSource, TDestination> UseMappers(params IMapper[] subMappers);
         /// <summary>
         /// Use this method to do custom actions through the mapper, handy to tigh custom resolvings with the mapper. Resolvers are the last things to be executed throught the mapper.
@@ -114,11 +110,17 @@ namespace Fluentx
         private readonly Dictionary<Expression<Func<TDestination, object>>, KeyValuePair<Func<TSource, object>, Func<TSource, bool>>> membersResolved = new Dictionary<Expression<Func<TDestination, object>>, KeyValuePair<Func<TSource, object>, Func<TSource, bool>>>();
         private readonly Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>> membersIgnored = new Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>>();
         private readonly Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>> membersConditional = new Dictionary<Expression<Func<TDestination, object>>, Func<TSource, bool>>();
-
+        /// <summary>
+        /// Create an empty mapper
+        /// </summary>
         public Mapper()
         {
 
         }
+        /// <summary>
+        /// Creates a mapper using the supplied mappers as inner mappers
+        /// </summary>
+        /// <param name="mappers"></param>
         public Mapper(params IMapper[] mappers)
         {
             if (mappers.IsNotNullOrEmpty())
@@ -142,7 +144,12 @@ namespace Fluentx
             var mapperType = mainType.MakeGenericType(innerType);
             return (IMapper)Activator.CreateInstance(mapperType);
         }
-
+        /// <summary>
+        /// Creates a mapper with the specified types.
+        /// </summary>
+        /// <typeparam name="TSrc"></typeparam>
+        /// <typeparam name="TDest"></typeparam>
+        /// <returns></returns>
         public static IMapper Create<TSrc, TDest>()
         {
             var mainType = typeof(Mapper<,>);
@@ -496,22 +503,6 @@ namespace Fluentx
             return this;
         }
         /// <summary>
-        /// Adds the specified mapper to the list of mappers that will be used in case a name match and types match found during mapping.
-        /// </summary>
-        /// <typeparam name="TSrc">Type of source instance to map from</typeparam>
-        /// <typeparam name="TDest">Type of destination instance to map to</typeparam>
-        /// <param name="subMapper">An instance of a mapper that will be used as a sub mapper in the current mapper in case a match is found for mapping</param>
-        /// <returns>Returns instance of IMapper for chaining purposes</returns>
-        //public IMapper<TSource, TDestination> UseMapper<TSrc, TDest>(IMapper<TSrc, TDest> subMapper) where TDest : new()
-        //{
-        //    if (mappings.Where(x => x.SourceType == typeof(TSrc) && x.DestinationType == typeof(TDest)).Any())
-        //    {
-        //        throw new InvalidOperationException("There is already a mapping for Mapper<{0},{1}> registered in this mapper");
-        //    }
-        //    mappings.Add(subMapper);
-        //    return this;
-        //}
-        /// <summary>
         /// Creates and adds a new mapper to list of mappers that will be used in case a name match and types match found during mapping.
         /// </summary>
         /// <typeparam name="TSrc">Type of source instance to map from</typeparam>
@@ -526,6 +517,11 @@ namespace Fluentx
             mappings.Add(new Mapper<TSrc, TDest>());
             return this;
         }
+        /// <summary>
+        /// Adds the specified mappers to the current mapper.
+        /// </summary>
+        /// <param name="subMappers"></param>
+        /// <returns></returns>
         public IMapper<TSource, TDestination> UseMappers(params IMapper[] subMappers)
         {
             if (subMappers.IsNotNullOrEmpty())
@@ -585,6 +581,34 @@ namespace Fluentx
                 action(source, dest);
             }
 
+            return dest;
+        }
+        /// <summary>
+        /// Executes the mapping from source and returns a new destination.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <returns></returns>
+        public IList<TDestination> Map(IEnumerable<TSource> source)
+        {
+            var dest = new List<TDestination>();
+            foreach (var item in source)
+            {
+                dest.Add(Map(item));
+            }
+            return dest;
+        }
+        /// <summary>
+        /// Executes the mapping from source and suppplies it to the specified destination.
+        /// </summary>
+        /// <param name="source"></param>
+        /// <param name="dest"></param>
+        /// <returns></returns>
+        public IList<TDestination> Map(IEnumerable<TSource> source, IList<TDestination> dest)
+        {
+            foreach (var item in source)
+            {
+                dest.Add(Map(item));
+            }
             return dest;
         }
     }
