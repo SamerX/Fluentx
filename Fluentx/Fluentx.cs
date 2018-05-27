@@ -692,7 +692,7 @@ namespace Fluentx
             else
                 return defaultValue;
         }
-        
+
         /// <summary>
         /// 
         /// </summary>
@@ -1517,6 +1517,172 @@ namespace Fluentx
                     }
             }
             return new Guid(guidArray);
+        }
+        /// <summary>
+        /// Generates a singleton class (as a text) using the specified T type, its based on Jon Skeet book: C# in Depth.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="singletonType"></param>
+        /// <returns></returns>
+        public static string GenerateSingletonClass<T>(SingletonType singletonType)
+        {
+            return GenerateSingletonClass(typeof(T).Name, singletonType);
+        }
+        /// <summary>
+        /// Generates a singleton class (as a text) using the specified class name, its based on Jon Skeet book: C# in Depth.
+        /// </summary>
+        /// <param name="className"></param>
+        /// <param name="singletonType"></param>
+        /// <returns></returns>
+        public static string GenerateSingletonClass(string className, SingletonType singletonType)
+        {
+            Guard.Against(className.IsNullOrEmpty(), "Oops! Specify a valid class name to generate the singleton class");
+            switch (singletonType)
+            {
+                case SingletonType.NotThreadSafeNotLazy:
+                    return Generate_NotThreadSafeNotLazy(className);
+                case SingletonType.ThreadSafeUsingLockNotLazy:
+                    return Generate_ThreadSafeUsingLockNotLazy(className);
+                case SingletonType.ThreadSafeUsingLockDoubleCheckingNotLazy:
+                    return Generate_ThreadSafeUsingLockDoubleCheckingNotLazy(className);
+                case SingletonType.ThreadSafeNoLocksSemiLazy:
+                    return Generate_ThreadSafeNoLocksSemiLazy(className);
+                case SingletonType.ThreadSafeFullLazy:
+                    return Generate_ThreadSafeFullLazy(className);
+                case SingletonType.ThreadSafeFullLazyUsingLazyClass:
+                    return Generate_ThreadSafeFullLazyUsingLazyClass(className);
+                default: return string.Empty;
+            }
+        }
+        static string Generate_NotThreadSafeNotLazy(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private static {0} instance = null;
+                    private {0}(){{}}
+
+                    public static {0} Instance
+                    {{
+                        get
+                        {{
+                            if (instance==null)
+                            {{
+                                instance = new {0}();
+                            }}
+                            return instance;
+                        }}
+                    }}
+                }}".FormatWith(name);
+        }
+        static string Generate_ThreadSafeUsingLockNotLazy(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private static {0} instance = null;
+                    private static readonly object padlock = new object();
+
+                    {0}(){{}}
+
+                    public static {0} Instance
+                    {{
+                        get
+                        {{
+                            lock (padlock)
+                            {{
+                                if (instance == null)
+                                {{
+                                    instance = new {0}();
+                                }}
+                                return instance;
+                            }}
+                        }}
+                    }}
+                }}
+                ".FormatWith(name);
+        }
+        static string Generate_ThreadSafeUsingLockDoubleCheckingNotLazy(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private static {0} instance = null;
+                    private static readonly object padlock = new object();
+
+                    {0}(){{}}
+
+                    public static {0} Instance
+                    {{
+                        get
+                        {{
+                            if (instance == null)
+                            {{
+                                lock (padlock)
+                                {{
+                                    if (instance == null)
+                                    {{
+                                        instance = new {0}();
+                                    }}
+                                }}
+                            }}
+                            return instance;
+                        }}
+                    }}
+                }}".FormatWith(name);
+        }
+        static string Generate_ThreadSafeNoLocksSemiLazy(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private static readonly {0} instance = new {0}();
+
+                    static {0}(){{}}
+
+                    private {0}(){{}}
+
+                    public static {0} Instance
+                    {{
+                        get
+                        {{
+                            return instance;
+                        }}
+                    }}
+                }}".FormatWith(name);
+        }
+        static string Generate_ThreadSafeFullLazy(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private {0}(){{}}
+
+                    public static {0} Instance {{ get {{ return Nested.instance; }} }}
+        
+                    private class Nested
+                    {{
+                        static Nested()
+                        {{
+                        }}
+
+                        internal static readonly {0} instance = new {0}();
+                    }}
+                }}".FormatWith(name);
+        }
+        static string Generate_ThreadSafeFullLazyUsingLazyClass(string name)
+        {
+            return @"
+                public sealed class {0}
+                {{
+                    private static readonly Lazy<{0}> lazy = new Lazy<{0}>(() => new {0}());
+    
+                    public static {0} Instance {{ get {{ return lazy.Value; }} }}
+
+                    private {0}()
+                    {{
+                    }}
+                }}".FormatWith(name);
         }
         /// <summary>
         /// Private class to hold information about switch case statement.

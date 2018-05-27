@@ -12,7 +12,7 @@ namespace Fluentx
     public class Guard
     {
         /// <summary>
-        /// Will throw a <see cref="InvalidOperationException"/> if the conditionToThroughException
+        /// Will throw an <see cref="Exception"/> if the conditionToThroughException
         /// is true, with the specificied message.
         /// </summary>
         /// <param name="conditionToThroughException">if set to <c>true</c> [assertion].</param>
@@ -25,21 +25,19 @@ namespace Fluentx
         /// </example>
         public static void Against(bool conditionToThroughException, string message = null)
         {
-            if (conditionToThroughException == false)
-                return;
-            throw new InvalidOperationException(message);
+            if (conditionToThroughException)
+                throw new Exception(message);
         }
         /// <summary>
-        /// Will throw a <see cref="InvalidOperationException"/> if the conditionActionToThroughException
+        /// Will throw an <see cref="Exception"/> if the conditionActionToThroughException
         /// is true, with the specificied message.
         /// </summary>
         /// <param name="conditionActionToThroughException"></param>
         /// <param name="message"></param>
         public static void Against(Func<bool> conditionActionToThroughException, string message = null)
         {
-            if (conditionActionToThroughException() == false)
-                return;
-            throw new InvalidOperationException(message);
+            if (conditionActionToThroughException())
+                throw new Exception(message);
         }
         /// <summary>
         /// Will throw exception of type <typeparamref name="TException"/>
@@ -58,9 +56,8 @@ namespace Fluentx
         /// </example>
         public static void Against<TException>(bool conditionToThroughException, string message = null) where TException : Exception
         {
-            if (conditionToThroughException == false)
-                return;
-            throw (TException)Activator.CreateInstance(typeof(TException), message);
+            if (conditionToThroughException)
+                throw (TException)Activator.CreateInstance(typeof(TException), message);
         }
         /// <summary>
         /// Will throw exception of type <typeparamref name="TException"/>
@@ -71,9 +68,8 @@ namespace Fluentx
         /// <param name="message"></param>
         public static void Against<TException>(Func<bool> conditionActionToThroughException, string message = null) where TException : Exception
         {
-            if (conditionActionToThroughException() == false)
-                return;
-            throw (TException)Activator.CreateInstance(typeof(TException), message);
+            if (conditionActionToThroughException())
+                throw (TException)Activator.CreateInstance(typeof(TException), message);
         }
     }
 }

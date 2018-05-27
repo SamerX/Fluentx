@@ -217,6 +217,16 @@ namespace Fluentx
         {
             return DateTime.Now.AddDays(-@this);
         }
+
+        /// <summary>
+        /// Returns the current datetime - the specifed number of weeks
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime WeeksAgo(this int @this)
+        {
+            return DateTime.Now.AddDays(-@this * 7);
+        }
         /// <summary>
         /// Returns the current datetime - the specifed number of months
         /// </summary>
@@ -270,6 +280,15 @@ namespace Fluentx
         public static DateTime DaysFromNow(this int @this)
         {
             return DateTime.Now.AddDays(@this);
+        }
+        /// <summary>
+        /// Returns the current datetime + the specifed number of days
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime WeeksFromNow(this int @this)
+        {
+            return DateTime.Now.AddDays(@this * 7);
         }
         /// <summary>
         /// Returns the current datetime + the specifed number of months
@@ -494,6 +513,40 @@ namespace Fluentx
             return (year % 4 == 0 && (year % 100 != 0 || year % 400 == 0));
         }
 
+        /// <summary>
+        /// Determines whether the specified <see cref="DateTime"/> is before then current value.
+        /// </summary>
+        /// <param name="this">The current value.</param>
+        /// <param name="toCompareWith">Value to compare with.</param>
+        /// <returns>
+        /// 	<c>true</c> if the specified current is before; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsBefore(this DateTime @this, DateTime toCompareWith)
+        {
+            return @this < toCompareWith;
+        }
+        /// <summary>
+        /// Determines whether the specified <see cref="DateTime"/> value is After then current value.
+        /// </summary>
+        /// <param name="this">The current value.</param>
+        /// <param name="toCompareWith">Value to compare with.</param>
+        /// <returns>
+        /// 	<c>true</c> if the specified current is after; otherwise, <c>false</c>.
+        /// </returns>
+        public static bool IsAfter(this DateTime @this, DateTime toCompareWith)
+        {
+            return @this > toCompareWith;
+        }
+
+        /// <summary>
+        /// Returns original <see cref="DateTime"/> value with time part set to Noon (12:00:00h).
+        /// </summary>
+        /// <param name="value">The <see cref="DateTime"/> find Noon for.</param>
+        /// <returns>A <see cref="DateTime"/> value with time part set to Noon (12:00:00h).</returns>
+        public static DateTime Noon(this DateTime value)
+        {
+            return value.At(12, 0, 0, 0);
+        }
         //public static int Age(this DateTime dateTime)
         //{
         //    var today = DateTime.Today;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace Fluentx
 {
@@ -97,7 +98,7 @@ namespace Fluentx
         //    return new NotSpecification<T>(this);
         //}
         /// <summary>
-        /// Current specification AND specified specification 
+        /// Creates a new Specification holding current specification AND specified specification 
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
@@ -106,7 +107,7 @@ namespace Fluentx
             return new AndSpecification<T>(this, specification);
         }
         /// <summary>
-        /// Current specification OR specified specification 
+        /// Creates a new specification holding current specification OR specified specification 
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
@@ -115,13 +116,43 @@ namespace Fluentx
             return new OrSpecification<T>(this, specification);
         }
         /// <summary>
-        /// Current specification XOR specified specification 
+        /// Creates a new specification holding current specification XOR specified specification 
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
         public ISpecification<T> Xor(ISpecification<T> specification)
         {
             return new XorSpecification<T>(this, specification);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static ISpecification<T> operator &(CompositeSpecification<T> first, ISpecification<T> second)
+        {
+            return first.And(second);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static ISpecification<T> operator |(CompositeSpecification<T> first, ISpecification<T> second)
+        {
+            return first.Or(second);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static ISpecification<T> operator ^(CompositeSpecification<T> first, ISpecification<T> second)
+        {
+            return first.Xor(second);
         }
     }
 
@@ -197,8 +228,8 @@ namespace Fluentx
     /// <typeparam name="T"></typeparam>
     public sealed class AndSpecification<T> : CompositeSpecification<T>
     {
-        ISpecification<T> leftSpecification;
-        ISpecification<T> rightSpecification;
+        private readonly ISpecification<T> leftSpecification;
+        private readonly ISpecification<T> rightSpecification;
         /// <summary>
         /// 
         /// </summary>
@@ -290,99 +321,15 @@ namespace Fluentx
             return this.Messages;
         }
     }
-    //public sealed class AndNotSpecification<T> : CompositeSpecification<T>
-    //{
-    //    ISpecification<T> leftSpecification;
-    //    ISpecification<T> rightSpecification;
-    //    /// <summary>
-    //    /// 
-    //    /// </summary>
-    //    /// <param name="left"></param>
-    //    /// <param name="right"></param>
-    //    public AndNotSpecification(ISpecification<T> left, ISpecification<T> right)
-    //    {
-    //        this.Messages = new List<string>();
-    //        this.leftSpecification = left;
-    //        this.rightSpecification = right;
-    //    }
 
-    //    public override bool Validate(T instance)
-    //    {
-    //        (this.Messages as IList<string>).Clear();
-
-    //        var leftResult = false;
-    //        var rightResult = false;
-
-    //        if (leftResult = this.leftSpecification.Validate(instance))
-    //        {
-    //            if (rightResult = !this.rightSpecification.Validate(instance))
-    //            {
-    //                return true;
-    //            }
-    //            else
-    //            {
-    //                this.Messages = this.Messages.Concat(this.rightSpecification.Messages);
-    //            }
-    //        }
-    //        else
-    //        {
-    //            this.Messages = this.Messages.Concat(this.leftSpecification.Messages);
-    //        }
-    //        return false;
-    //    }
-    //    /// <summary>
-    //    /// Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
-    //    /// </summary>
-    //    /// <param name="instance"></param>
-    //    /// <returns></returns>
-    //    public override bool ValidateAndContinue(T instance)
-    //    {
-    //        (this.Messages as IList<string>).Clear();
-
-    //        var leftResult = this.leftSpecification.Validate(instance);
-    //        var rightResult = !this.rightSpecification.Validate(instance);
-
-    //        if (!leftResult)
-    //        {
-    //            this.Messages = this.Messages.Concat(this.leftSpecification.Messages);
-    //        }
-
-    //        if (!rightResult)
-    //        {
-    //            this.Messages = this.Messages.Concat(this.rightSpecification.Messages);
-    //        }
-
-    //        var result = leftResult & rightResult;
-    //        if (result)
-    //        {
-    //            (this.Messages as IList<string>).Clear();
-    //        }
-    //        return result;
-    //    }
-    //    /// <summary>
-    //    /// Executes and validates the specification and return validation messages
-    //    /// </summary>
-    //    /// <param name="instance"></param>
-    //    /// <returns></returns>
-    //    public override IEnumerable<string> ValidateWithMessages(T instance)
-    //    {
-    //        this.Validate(instance);
-    //        return this.Messages;
-    //    }
-    //    public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
-    //    {
-    //        this.ValidateAndContinue(instance);
-    //        return this.Messages;
-    //    }
-    //}
     /// <summary>
     /// Represents Or specification
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public sealed class OrSpecification<T> : CompositeSpecification<T>
     {
-        ISpecification<T> leftSpecification;
-        ISpecification<T> rightSpecification;
+        private readonly ISpecification<T> leftSpecification;
+        private readonly ISpecification<T> rightSpecification;
         /// <summary>
         /// 
         /// </summary>
@@ -478,102 +425,15 @@ namespace Fluentx
         }
 
     }
-    //public sealed class OrNotSpecification<T> : CompositeSpecification<T>
-    //{
-    //    ISpecification<T> leftSpecification;
-    //    ISpecification<T> rightSpecification;
-    //    /// <summary>
-    //    /// 
-    //    /// </summary>
-    //    /// <param name="left"></param>
-    //    /// <param name="right"></param>
-    //    public OrNotSpecification(ISpecification<T> left, ISpecification<T> right)
-    //    {
-    //        this.Messages = new List<string>();
-    //        this.leftSpecification = left;
-    //        this.rightSpecification = right;
-    //    }
 
-    //    public override bool Validate(T instance)
-    //    {
-    //        (this.Messages as IList<string>).Clear();
-
-    //        var leftResult = false;
-    //        var rightResult = false;
-
-    //        if (leftResult = this.leftSpecification.Validate(instance))
-    //        {
-    //            return true;
-    //        }
-    //        else
-    //        {
-    //            if (rightResult = !this.rightSpecification.Validate(instance))
-    //            {
-    //                return true;
-    //            }
-    //            else
-    //            {
-    //                this.Messages = this.Messages.Concat(this.leftSpecification.Messages);
-    //                this.Messages = this.Messages.Concat(this.rightSpecification.Messages);
-    //            }
-    //        }
-    //        return false;
-    //    }
-    //    /// <summary>
-    //    /// Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
-    //    /// </summary>
-    //    /// <param name="instance"></param>
-    //    /// <returns></returns>
-    //    public override bool ValidateAndContinue(T instance)
-    //    {
-    //        (this.Messages as IList<string>).Clear();
-
-    //        var leftResult = this.leftSpecification.Validate(instance);
-    //        var rightResult = !this.rightSpecification.Validate(instance);
-
-    //        if (!leftResult)
-    //        {
-    //            this.Messages = this.Messages.Concat(this.leftSpecification.Messages);
-    //        }
-
-    //        if (!rightResult)
-    //        {
-    //            this.Messages = this.Messages.Concat(this.rightSpecification.Messages);
-    //        }
-
-
-    //        var result = leftResult | rightResult;
-    //        if (result)
-    //        {
-    //            (this.Messages as IList<string>).Clear();
-    //        }
-    //        return result;
-    //    }
-    //    /// <summary>
-    //    /// Executes and validates the specification and return validation messages
-    //    /// </summary>
-    //    /// <param name="instance"></param>
-    //    /// <returns></returns>
-    //    public override IEnumerable<string> ValidateWithMessages(T instance)
-    //    {
-    //        this.Validate(instance);
-    //        return this.Messages;
-    //    }
-    //    public override IEnumerable<string> ValidateWithMessagesAndContinue(T instance)
-    //    {
-    //        this.ValidateAndContinue(instance);
-    //        return this.Messages;
-    //    }
-
-    //}
     /// <summary>
     /// Represnts XOR specification
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public sealed class XorSpecification<T> : CompositeSpecification<T>
     {
-        ISpecification<T> leftSpecification;
-        ISpecification<T> rightSpecification;
+        readonly ISpecification<T> leftSpecification;
+        readonly ISpecification<T> rightSpecification;
         /// <summary>
         /// 
         /// </summary>
@@ -653,9 +513,9 @@ namespace Fluentx
     /// Represents an expression based specification
     /// </summary>
     /// <typeparam name="T"></typeparam>
-    public sealed class ExpressionSpecification<T> : CompositeSpecification<T>
+    public class ExpressionSpecification<T> : CompositeSpecification<T>
     {
-        private Func<T, bool> expression;
+        private readonly Func<T, bool> expression;
         //private Func<T, IEnumerable<string>> expressionWithMessage;
         /// <summary>
         /// 
@@ -730,4 +590,5 @@ namespace Fluentx
             return (this.expression(instance) ? new List<string>() : Messages);
         }
     }
+
 }

@@ -4,6 +4,17 @@
         <name>Fluentx</name>
     </assembly>
     <members>
+        <member name="T:Fluentx.AbstractBridge`1">
+            <summary>
+            A general class for the abstract pattern, inherit this class where the derived class is the main bridge and T is the implementation type.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Fluentx.AbstractBridge`1.Implementation">
+            <summary>
+            The implementation Instance
+            </summary>
+        </member>
         <member name="T:Fluentx.Age">
             <summary>
             A class representing a simple age entity.
@@ -41,14 +52,147 @@
         </member>
         <member name="M:Fluentx.Age.ToString">
             <summary>
-            Returns a human ready read text for the age entity.
+            Returns a human readable text for the age entity.
             </summary>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Age.ToYMDString">
             <summary>
-            Returns a human ready read text for the age entity with only years, months and days.
+            Returns a human readable text for the age entity with only years, months and days.
             </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.Enumclass`1">
+            <summary>
+            A class representation for Enums, use it to create enums as classes, its advised to create the class as follows: class TestEnum : Enumclass &lt;TestEnum&gt; { protected TestEnum(int value, string name) : base(value, name){}}
+            where the constructor of the class is protected, you can declare the static instances inside the class e.g.: public static TestEnum one = new TestEnum(100, "one"); if you want to create an instance outside the scope of
+            the enum it self then use the Create(int value, string name) static method.
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.#ctor(System.Int32,System.String)">
+            <summary>
+            Creates an enum class using the specified value and name
+            </summary>
+            <param name="value"></param>
+            <param name="name"></param>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.#ctor(System.Int32)">
+            <summary>
+            Creates an enum class using the specified value, value will be also used for the name.
+            </summary>
+            <param name="value"></param>
+        </member>
+        <member name="P:Fluentx.Enumclass`1.Value">
+            <summary>
+            Enum value
+            </summary>
+        </member>
+        <member name="P:Fluentx.Enumclass`1.Name">
+            <summary>
+            Enum name or display name
+            </summary>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.ToString">
+            <summary>
+            Returns the enums Name
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.List">
+            <summary>
+            Returns all public static declared enums of the current Enumclass
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.Parse(System.Int32)">
+            <summary>
+            Parses a value to the correspondent enumclass instance
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.Parse(System.String)">
+            <summary>
+            Parses a name to the correspondent enumclass instance
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.TryParse(System.Int32)">
+            <summary>
+            Tries to parse a value to the correspondent enumclass instance
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.TryParse(System.String)">
+            <summary>
+            Tries to parse a name to the correspondent enumclass instance
+            </summary>
+            <param name="name"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.TryParse``1(``0,System.String,System.Func{`0,System.Boolean})">
+            <summary>
+            
+            </summary>
+            <typeparam name="K"></typeparam>
+            <param name="value"></param>
+            <param name="description"></param>
+            <param name="predicate"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.op_Equality(Fluentx.Enumclass{`0},Fluentx.Enumclass{`0})">
+            <summary>
+            Evaluates based on nullability and value
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.op_Inequality(Fluentx.Enumclass{`0},Fluentx.Enumclass{`0})">
+            <summary>
+            Evaluates based on nullability and value
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.op_BitwiseOr(Fluentx.Enumclass{`0},Fluentx.Enumclass{`0})">
+            <summary>
+            Note that a public constructor should exist in order for bitwise to work
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.op_BitwiseAnd(Fluentx.Enumclass{`0},Fluentx.Enumclass{`0})">
+            <summary>
+            Note that a public constructor should exist in order for bitwise to work
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.Equals(System.Object)">
+            <summary>
+            
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.GetHashCode">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Enumclass`1.CompareTo(`0)">
+            <summary>
+            Compares two instances.
+            </summary>
+            <param name="other"></param>
             <returns></returns>
         </member>
         <member name="T:Fluentx.Expresser`1">
@@ -789,6 +933,13 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.WeeksAgo(System.Int32)">
+            <summary>
+            Returns the current datetime - the specifed number of weeks
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.MonthsAgo(System.Int32)">
             <summary>
             Returns the current datetime - the specifed number of months
@@ -825,6 +976,13 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.DaysFromNow(System.Int32)">
+            <summary>
+            Returns the current datetime + the specifed number of days
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.WeeksFromNow(System.Int32)">
             <summary>
             Returns the current datetime + the specifed number of days
             </summary>
@@ -1003,6 +1161,33 @@
             <param name="year"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsBefore(System.DateTime,System.DateTime)">
+            <summary>
+            Determines whether the specified <see cref="T:System.DateTime"/> is before then current value.
+            </summary>
+            <param name="this">The current value.</param>
+            <param name="toCompareWith">Value to compare with.</param>
+            <returns>
+            	<c>true</c> if the specified current is before; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Determines whether the specified <see cref="T:System.DateTime"/> value is After then current value.
+            </summary>
+            <param name="this">The current value.</param>
+            <param name="toCompareWith">Value to compare with.</param>
+            <returns>
+            	<c>true</c> if the specified current is after; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Noon(System.DateTime)">
+            <summary>
+            Returns original <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).
+            </summary>
+            <param name="value">The <see cref="T:System.DateTime"/> find Noon for.</param>
+            <returns>A <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).</returns>
+        </member>
         <member name="M:Fluentx.Extensions.Age(System.DateTime)">
             <summary>
             Creates an age instance from the specified datetime instance.
@@ -1137,6 +1322,14 @@
             <param name="second"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.LowestCommonMultiple(System.Int32,System.Int32)">
+            <summary>
+            Returns lowest common multiple of the specified first number and second number.
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.IsArmstrong(System.Double)">
             <summary>
             An Armstrong number is an integer such that the sum of the cubes of its digits is equal to the number itself.
@@ -1197,6 +1390,13 @@
         <member name="M:Fluentx.Extensions.IsPrime(System.Int32)">
             <summary>
             Returns whether a number is prime or not.
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DigitsSum(System.Int32)">
+            <summary>
+            Returns the summation of all digits for the specified number.
             </summary>
             <param name="number"></param>
             <returns></returns>
@@ -2757,6 +2957,22 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Fx.GenerateSingletonClass``1(Fluentx.SingletonType)">
+            <summary>
+            Generates a singleton class (as a text) using the specified T type, its based on Jon Skeet book: C# in Depth.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="singletonType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.GenerateSingletonClass(System.String,Fluentx.SingletonType)">
+            <summary>
+            Generates a singleton class (as a text) using the specified class name, its based on Jon Skeet book: C# in Depth.
+            </summary>
+            <param name="className"></param>
+            <param name="singletonType"></param>
+            <returns></returns>
+        </member>
         <member name="T:Fluentx.Fx.CaseInfo">
             <summary>
             Private class to hold information about switch case statement.
@@ -2770,7 +2986,7 @@
         </member>
         <member name="M:Fluentx.Guard.Against(System.Boolean,System.String)">
             <summary>
-            Will throw a <see cref="T:System.InvalidOperationException"/> if the conditionToThroughException
+            Will throw an <see cref="T:System.Exception"/> if the conditionToThroughException
             is true, with the specificied message.
             </summary>
             <param name="conditionToThroughException">if set to <c>true</c> [assertion].</param>
@@ -2784,7 +3000,7 @@
         </member>
         <member name="M:Fluentx.Guard.Against(System.Func{System.Boolean},System.String)">
             <summary>
-            Will throw a <see cref="T:System.InvalidOperationException"/> if the conditionActionToThroughException
+            Will throw an <see cref="T:System.Exception"/> if the conditionActionToThroughException
             is true, with the specificied message.
             </summary>
             <param name="conditionActionToThroughException"></param>
@@ -3715,11 +3931,6 @@
             <typeparam name="T6"></typeparam>
             <typeparam name="T7"></typeparam>
         </member>
-        <member name="T:Fluentx.IKuple">
-            <summary>
-            Interface to represent multivalue data structures identified by a key
-            </summary>
-        </member>
         <member name="T:Fluentx.IKuple`1">
             <summary>
             Interface to represent multivalue data structures identified by a key
@@ -4205,6 +4416,34 @@
             <param name="expRight"></param>
             <returns></returns>
         </member>
+        <member name="T:Fluentx.ResponsibilityChainAbstract">
+            <summary>
+            A shell implementation for the Chain of responsibility design pattern, you need to access the nested class with this class to use the AbstractHandler
+            </summary>
+        </member>
+        <member name="T:Fluentx.ResponsibilityChainAbstract.AbstractHandler">
+            <summary>
+            When overriden its a node in the chain of responsibility.
+            </summary>
+        </member>
+        <member name="P:Fluentx.ResponsibilityChainAbstract.AbstractHandler.Next">
+            <summary>
+            The next handler in the chain.
+            </summary>
+        </member>
+        <member name="M:Fluentx.ResponsibilityChainAbstract.AbstractHandler.#ctor(Fluentx.ResponsibilityChainAbstract.AbstractHandler)">
+            <summary>
+            Passes the next handler to the current handler in the chain of responsibility
+            </summary>
+            <param name="next"></param>
+        </member>
+        <member name="M:Fluentx.ResponsibilityChainAbstract.AbstractHandler.Handle``1(``0)">
+            <summary>
+            When overriden it will send the package to the next handler to continue the chain of resposiblity.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="package"></param>
+        </member>
         <member name="T:Fluentx.SequentialGuidType">
             <summary>
             An enum for possible values to generate a sequential guid.
@@ -4223,6 +4462,41 @@
         <member name="F:Fluentx.SequentialGuidType.SequentialAtEnd">
             <summary>
             Useful for SQL Server Based Guids as it has its own way of sorting the Guids
+            </summary>
+        </member>
+        <member name="T:Fluentx.SingletonType">
+            <summary>
+            Possible ways to generate a singleton class based on Jon Skeets book "C# In Depth", more details in the link: http://csharpindepth.com/Articles/General/Singleton.aspx
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.NotThreadSafeNotLazy">
+            <summary>
+            A singleton class that is very simple but not thread safe
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.ThreadSafeUsingLockNotLazy">
+            <summary>
+            A singleton class that is simple and thread safe but uses a lock for thread safety, which in terms of performance is not the best
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.ThreadSafeUsingLockDoubleCheckingNotLazy">
+            <summary>
+            A singleton class that is simple and thread safe but uses a lock for thread safety and double checking trying to minimize the locks acquired.
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.ThreadSafeNoLocksSemiLazy">
+            <summary>
+            A singleton class that is thread safe without using locks, so it has a good performance, one take is that if the class has has other static members and got called then the initialization is not lazy any more.
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.ThreadSafeFullLazy">
+            <summary>
+            A singleton class that is thread safe without any performance complication and its fully lazy since the initialization will only happen on the call to the static instance only.
+            </summary>
+        </member>
+        <member name="F:Fluentx.SingletonType.ThreadSafeFullLazyUsingLazyClass">
+            <summary>
+            A singleton class that is thread safe with a good performance and its fully lazy initialized using .net framework Lazy class.
             </summary>
         </member>
         <member name="T:Fluentx.ISpecification`1">
@@ -4326,23 +4600,47 @@
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.And(Fluentx.ISpecification{`0})">
             <summary>
-            Current specification AND specified specification 
+            Creates a new Specification holding current specification AND specified specification 
             </summary>
             <param name="specification"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.Or(Fluentx.ISpecification{`0})">
             <summary>
-            Current specification OR specified specification 
+            Creates a new specification holding current specification OR specified specification 
             </summary>
             <param name="specification"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.Xor(Fluentx.ISpecification{`0})">
             <summary>
-            Current specification XOR specified specification 
+            Creates a new specification holding current specification XOR specified specification 
             </summary>
             <param name="specification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseAnd(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.CompositeSpecification`1.op_ExclusiveOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
             <returns></returns>
         </member>
         <member name="T:Fluentx.AndSpecification`1">

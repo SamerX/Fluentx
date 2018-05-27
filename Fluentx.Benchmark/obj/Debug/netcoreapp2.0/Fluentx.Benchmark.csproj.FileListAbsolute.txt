@@ -5,11 +5,11 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluent
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluentx.Benchmark.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluentx.pdb
-D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.csprojResolveAssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluentx.xml
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.csprojAssemblyReference.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.csproj.CoreCompileInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.AssemblyInfo.cs
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.csproj.CopyComplete
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\obj\Debug\netcoreapp2.0\Fluentx.Benchmark.pdb
-D:\Mii Projects\Fluentx\Fluentx\Fluentx.Benchmark\bin\Debug\netcoreapp2.0\Fluentx.xml

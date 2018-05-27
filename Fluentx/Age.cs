@@ -34,7 +34,7 @@ namespace Fluentx
         /// </summary>
         public int Seconds { get; set; }
         /// <summary>
-        /// Returns a human ready read text for the age entity.
+        /// Returns a human readable text for the age entity.
         /// </summary>
         /// <returns></returns>
         public override string ToString()
@@ -42,7 +42,7 @@ namespace Fluentx
             return $"{Years} Years {Months} Months {Days} Days {Hours} Hours {Minutes} Minutes {Seconds} Seconds";
         }
         /// <summary>
-        /// Returns a human ready read text for the age entity with only years, months and days.
+        /// Returns a human readable text for the age entity with only years, months and days.
         /// </summary>
         /// <returns></returns>
         public string ToYMDString()

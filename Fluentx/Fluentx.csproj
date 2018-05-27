@@ -1,15 +1,19 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.5;net45;net451;net452;net46;net461;net462;net47;net471</TargetFrameworks>
-    <Version>5.0.3</Version>
+    <TargetFrameworks>netstandard1.5;net45;net451;net452;net46;net461;net462;net47;net471;net472</TargetFrameworks>
+    <Version>5.1.0</Version>
     <Description>A great library with enumerous helper methods .. it has a lightweight IoC container, a light weight Object to Object mapper, an implementation for the specification pattern and tons of extension and helper methods .. use it you will love it.</Description>
     <Copyright>Samer A.R.</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
-    <AssemblyVersion>5.0.3.0</AssemblyVersion>
-    <FileVersion>5.0.3.0</FileVersion>
+    <AssemblyVersion>5.1.0.0</AssemblyVersion>
+    <FileVersion>5.1.0.0</FileVersion>
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netstandard1.5|AnyCPU'">
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
 </Project>

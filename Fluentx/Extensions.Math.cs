@@ -123,6 +123,27 @@ namespace Fluentx
             return first;
         }
         /// <summary>
+        /// Returns lowest common multiple of the specified first number and second number.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static int LowestCommonMultiple(int first, int second)
+        {
+            if (first == 0)
+                return second;
+
+            while (second != 0)
+            {
+                if (first > second)
+                    first -= second;
+                else
+                    second -= first;
+            }
+
+            return first;
+        }
+        /// <summary>
         /// An Armstrong number is an integer such that the sum of the cubes of its digits is equal to the number itself.
         /// </summary>
         /// <param name="num"></param>
@@ -351,7 +372,23 @@ namespace Fluentx
             }
             return number != 1;
         }
+        /// <summary>
+        /// Returns the summation of all digits for the specified number.
+        /// </summary>
+        /// <param name="number"></param>
+        /// <returns></returns>
+        public static int DigitsSum(this int number)
+        {
+            if (number != 0)
+            {
+                return (number % 10 + DigitsSum(number / 10));
+            }
+            else
+            {
+                return 0;
+            }
+        }
 
-        
+
     }
 }

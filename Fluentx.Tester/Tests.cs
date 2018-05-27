@@ -839,8 +839,19 @@ namespace Fluentx.Tester
                 return x > 15;
             }
             , new string[] { "less than 15" });
-
+            var res = spec1 & spec2;
             var result = spec1.And(spec2).And(spec3).ValidateWithMessages(22);
+        }
+
+        [Fact]
+        public void Test_Enumclass()
+        {
+            var result = EOne.List();
+            //var x = EOne.Parse("First");
+            
+            var combined = EOne.one | EOne.two;
+            var backward = combined & EOne.one;
+
         }
         //[Fact]
         //public void Test_Not_Specification()
@@ -871,12 +882,13 @@ namespace Fluentx.Tester
             DateTime[] dates = new DateTime[] { DateTime.Now, DateTime.Now.AddYears(3) };
             string value = strings.ToCSV();
             dates.ToCSV();
+            Assert.Equal("one,two", value);
         }
 
         [Fact]
         public void Test_MinBy()
         {
-            DateTime[] dates = new DateTime[] { DateTime.Now, DateTime.Now.AddYears(3) };
+            DateTime[] dates = new DateTime[] { 27.May(2017), 27.May(2017).AddYears(3) };
             var min = dates.MinBy(x => x.Year);
             Assert.Equal(2017, min.Year);
 
@@ -887,7 +899,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_MaxBy()
         {
-            DateTime[] dates = new DateTime[] { DateTime.Now, DateTime.Now.AddYears(3) };
+            DateTime[] dates = new DateTime[] { 27.May(2017), 27.May(2017).AddYears(3) };
             var max = dates.MaxBy(x => x.Year);
             Assert.Equal(2020, max.Year);
         }
@@ -895,14 +907,14 @@ namespace Fluentx.Tester
         public void Test_EndOfDay()
         {
             var eod = DateTime.Now.EndOfDay();
-            Assert.Equal(true, true);
+            Assert.Equal(59, eod.Second);
         }
 
         [Fact]
         public void Test_StartOfDay()
         {
             var date = DateTime.Now.StartOfDay();
-            Assert.Equal(true, true);
+            Assert.Equal(0, date.Second);
         }
         [Fact]
         public void Test_NextDay()
@@ -984,6 +996,12 @@ namespace Fluentx.Tester
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
+        }
+
+        [Fact]
+        public void Test_SingletonGeneration()
+        {
+            var text = Fx.GenerateSingletonClass("Test", SingletonType.ThreadSafeFullLazy);
         }
         public interface IOne { }
         public class One
@@ -1078,6 +1096,18 @@ namespace Fluentx.Tester
             }
         }
 
+        public class EOne : Enumclass<EOne>
+        {
+            public EOne(int value) : base(value)
+            {
+
+            }
+
+            public static EOne one = new EOne(1);
+            public static EOne two = new EOne(2);
+            public static EOne four = new EOne(4);
+            public static EOne eight = new EOne(8);
+        }
 
     }
 }

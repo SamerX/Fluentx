@@ -218,17 +218,12 @@ namespace Fluentx
     {
 
     }
-    /// <summary>
-    /// Interface to represent multivalue data structures identified by a key
-    /// </summary>
-    public interface IKuple
-    {
-    }
+    
     /// <summary>
     /// Interface to represent multivalue data structures identified by a key
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
-    public interface IKuple<TKey> : IKuple
+    public interface IKuple<TKey>
     {
         /// <summary>
         /// 

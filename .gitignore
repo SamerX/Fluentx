@@ -4,3 +4,7 @@
 
 /.vs/Fluentx/v15/Server/sqlite3/db.lock
 /.vs/Fluentx/v15/Server/sqlite3
+/Fluentx/obj
+/Fluentx/bin/Debug
+/Fluentx.Tester/obj/Debug/netcoreapp2.0
+/Fluentx.Benchmark/obj/Debug/netcoreapp2.0

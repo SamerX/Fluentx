@@ -10,7 +10,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "BenchmarkDotNet": "0.10.14",
-          "Fluentx": "5.0.2"
+          "Fluentx": "5.1.0"
         },
         "runtime": {
           "Fluentx.Benchmark.dll": {}
@@ -676,7 +676,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Fluentx/5.0.2": {
+      "Fluentx/5.1.0": {
         "runtime": {
           "Fluentx.dll": {}
         }
@@ -1116,7 +1116,7 @@
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
-    "Fluentx/5.0.2": {
+    "Fluentx/5.1.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
