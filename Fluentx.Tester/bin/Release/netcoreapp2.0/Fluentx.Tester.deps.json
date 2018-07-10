@@ -9,7 +9,7 @@
       "Fluentx.Tester/1.0.0": {
         "dependencies": {
           "BenchmarkDotNet.Core": "0.10.14",
-          "Fluentx": "5.1.0",
+          "Fluentx": "5.1.1",
           "Microsoft.NET.Test.Sdk": "15.3.0-preview-20170628-02",
           "xunit": "2.2.0",
           "xunit.runner.visualstudio": "2.2.0"
@@ -31,7 +31,10 @@
           "System.Xml.XmlSerializer": "4.3.0"
         },
         "runtime": {
-          "lib/netcoreapp2.0/BenchmarkDotNet.Core.dll": {}
+          "lib/netcoreapp2.0/BenchmarkDotNet.Core.dll": {
+            "assemblyVersion": "0.10.14.0",
+            "fileVersion": "0.10.14.0"
+          }
         }
       },
       "Microsoft.CSharp/4.0.1": {
@@ -66,7 +69,10 @@
           "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
+          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.DotNet.PlatformAbstractions/1.1.1": {
@@ -81,7 +87,10 @@
           "System.Runtime.InteropServices.RuntimeInformation": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
+          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
         }
       },
       "Microsoft.Extensions.DependencyModel/1.1.0": {
@@ -93,7 +102,10 @@
           "System.Linq": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {}
+          "lib/netstandard1.6/Microsoft.Extensions.DependencyModel.dll": {
+            "assemblyVersion": "1.1.0.0",
+            "fileVersion": "1.1.0.0"
+          }
         }
       },
       "Microsoft.NET.Test.Sdk/15.3.0-preview-20170628-02": {
@@ -119,9 +131,18 @@
           "System.Xml.XPath.XmlDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.5/Microsoft.TestPlatform.CoreUtilities.dll": {},
-          "lib/netstandard1.5/Microsoft.TestPlatform.PlatformAbstractions.dll": {},
-          "lib/netstandard1.5/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {}
+          "lib/netstandard1.5/Microsoft.TestPlatform.CoreUtilities.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          },
+          "lib/netstandard1.5/Microsoft.TestPlatform.PlatformAbstractions.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          },
+          "lib/netstandard1.5/Microsoft.VisualStudio.TestPlatform.ObjectModel.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          }
         },
         "resources": {
           "lib/netstandard1.5/cs/Microsoft.TestPlatform.CoreUtilities.resources.dll": {
@@ -211,10 +232,22 @@
           "Newtonsoft.Json": "9.0.1"
         },
         "runtime": {
-          "lib/netstandard1.5/Microsoft.TestPlatform.CommunicationUtilities.dll": {},
-          "lib/netstandard1.5/Microsoft.TestPlatform.CrossPlatEngine.dll": {},
-          "lib/netstandard1.5/Microsoft.VisualStudio.TestPlatform.Common.dll": {},
-          "lib/netstandard1.5/testhost.dll": {}
+          "lib/netstandard1.5/Microsoft.TestPlatform.CommunicationUtilities.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          },
+          "lib/netstandard1.5/Microsoft.TestPlatform.CrossPlatEngine.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          },
+          "lib/netstandard1.5/Microsoft.VisualStudio.TestPlatform.Common.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          },
+          "lib/netstandard1.5/testhost.dll": {
+            "assemblyVersion": "15.0.0.0",
+            "fileVersion": "15.0.0.0"
+          }
         },
         "resources": {
           "lib/netstandard1.5/cs/Microsoft.TestPlatform.CommunicationUtilities.resources.dll": {
@@ -389,7 +422,10 @@
           "System.Xml.XDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.0/Newtonsoft.Json.dll": {}
+          "lib/netstandard1.0/Newtonsoft.Json.dll": {
+            "assemblyVersion": "9.0.0.0",
+            "fileVersion": "9.0.1.19813"
+          }
         }
       },
       "runtime.native.System/4.3.0": {
@@ -1080,7 +1116,10 @@
           "System.Xml.XmlDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
+          "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
       "xunit/2.2.0": {
@@ -1091,12 +1130,18 @@
       },
       "xunit.abstractions/2.0.1": {
         "runtime": {
-          "lib/netstandard1.0/xunit.abstractions.dll": {}
+          "lib/netstandard1.0/xunit.abstractions.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
         }
       },
       "xunit.assert/2.2.0": {
         "runtime": {
-          "lib/netstandard1.1/xunit.assert.dll": {}
+          "lib/netstandard1.1/xunit.assert.dll": {
+            "assemblyVersion": "2.2.0.3545",
+            "fileVersion": "2.2.0.0"
+          }
         }
       },
       "xunit.core/2.2.0": {
@@ -1110,7 +1155,10 @@
           "xunit.abstractions": "2.0.1"
         },
         "runtime": {
-          "lib/netstandard1.1/xunit.core.dll": {}
+          "lib/netstandard1.1/xunit.core.dll": {
+            "assemblyVersion": "2.2.0.3545",
+            "fileVersion": "2.2.0.0"
+          }
         }
       },
       "xunit.extensibility.execution/2.2.0": {
@@ -1118,7 +1166,10 @@
           "xunit.extensibility.core": "2.2.0"
         },
         "runtime": {
-          "lib/netstandard1.1/xunit.execution.dotnet.dll": {}
+          "lib/netstandard1.1/xunit.execution.dotnet.dll": {
+            "assemblyVersion": "2.2.0.3545",
+            "fileVersion": "2.2.0.0"
+          }
         }
       },
       "xunit.runner.visualstudio/2.2.0": {
@@ -1129,7 +1180,7 @@
           "System.Threading.ThreadPool": "4.3.0"
         }
       },
-      "Fluentx/5.1.0": {
+      "Fluentx/5.1.1": {
         "runtime": {
           "Fluentx.dll": {}
         }
@@ -1716,7 +1767,7 @@
       "path": "xunit.runner.visualstudio/2.2.0",
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
     },
-    "Fluentx/5.1.0": {
+    "Fluentx/5.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

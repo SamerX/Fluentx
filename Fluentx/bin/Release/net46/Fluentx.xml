@@ -4665,7 +4665,7 @@
         </member>
         <member name="M:Fluentx.AndSpecification`1.ValidateAndContinue(`0)">
             <summary>
-            Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
+            Executes and validates the specificaiton, this will continue to the next specification if the validation fails
             </summary>
             <param name="instance"></param>
             <returns></returns>

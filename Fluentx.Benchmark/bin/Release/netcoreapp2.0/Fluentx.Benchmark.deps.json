@@ -10,7 +10,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "BenchmarkDotNet": "0.10.14",
-          "Fluentx": "5.1.0"
+          "Fluentx": "5.1.1"
         },
         "runtime": {
           "Fluentx.Benchmark.dll": {}
@@ -30,7 +30,10 @@
           "System.Text.RegularExpressions": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/AutoMapper.dll": {}
+          "lib/netstandard1.3/AutoMapper.dll": {
+            "assemblyVersion": "6.2.2.0",
+            "fileVersion": "6.2.2.0"
+          }
         }
       },
       "BenchmarkDotNet/0.10.14": {
@@ -38,7 +41,10 @@
           "BenchmarkDotNet.Core": "0.10.14"
         },
         "runtime": {
-          "lib/netcoreapp2.0/BenchmarkDotNet.dll": {}
+          "lib/netcoreapp2.0/BenchmarkDotNet.dll": {
+            "assemblyVersion": "0.10.14.0",
+            "fileVersion": "0.10.14.0"
+          }
         }
       },
       "BenchmarkDotNet.Core/0.10.14": {
@@ -54,7 +60,10 @@
           "System.Xml.XmlSerializer": "4.3.0"
         },
         "runtime": {
-          "lib/netcoreapp2.0/BenchmarkDotNet.Core.dll": {}
+          "lib/netcoreapp2.0/BenchmarkDotNet.Core.dll": {
+            "assemblyVersion": "0.10.14.0",
+            "fileVersion": "0.10.14.0"
+          }
         }
       },
       "Microsoft.CSharp/4.3.0": {
@@ -89,7 +98,10 @@
           "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {}
+          "lib/netstandard1.3/Microsoft.DotNet.InternalAbstractions.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
         }
       },
       "Microsoft.DotNet.PlatformAbstractions/1.1.1": {
@@ -104,7 +116,10 @@
           "System.Runtime.InteropServices.RuntimeInformation": "4.0.0"
         },
         "runtime": {
-          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {}
+          "lib/netstandard1.3/Microsoft.DotNet.PlatformAbstractions.dll": {
+            "assemblyVersion": "1.1.1.0",
+            "fileVersion": "1.1.1.0"
+          }
         }
       },
       "Microsoft.NETCore.Targets/1.1.0": {},
@@ -673,10 +688,13 @@
           "System.Xml.XmlDocument": "4.3.0"
         },
         "runtime": {
-          "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
+          "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {
+            "assemblyVersion": "4.0.2.0",
+            "fileVersion": "4.6.24705.1"
+          }
         }
       },
-      "Fluentx/5.1.0": {
+      "Fluentx/5.1.1": {
         "runtime": {
           "Fluentx.dll": {}
         }
@@ -1116,7 +1134,7 @@
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
-    "Fluentx/5.1.0": {
+    "Fluentx/5.1.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
