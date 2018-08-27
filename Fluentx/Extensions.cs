@@ -768,8 +768,14 @@ namespace Fluentx
             return sBuilder.ToString(0, Math.Max(0, sBuilder.Length - separator.Length));
         }
 
-
-
-
+#if !NETSTANDARD1_5
+        ///<summary>
+        /// Returns wether the current type implements the specified type.
+        ///</summary>
+        public static bool Implements<T>(this Type type)
+        {
+            return typeof(T).IsAssignableFrom(type);
+        }
+#endif
     }
 }

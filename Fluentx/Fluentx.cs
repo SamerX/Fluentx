@@ -1476,6 +1476,9 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
+        
+        
+
         /// <summary>
         /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.
         /// </summary>

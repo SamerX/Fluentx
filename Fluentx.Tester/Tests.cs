@@ -848,7 +848,7 @@ namespace Fluentx.Tester
         {
             var result = EOne.List();
             //var x = EOne.Parse("First");
-            
+
             var combined = EOne.one | EOne.two;
             var backward = combined & EOne.one;
 
@@ -990,12 +990,27 @@ namespace Fluentx.Tester
             var mapper = new Mapper<One, VMOne>();
             var dest = mapper.Map(source);
         }
+
+        [Fact]
+        public void Test_Lowest_Sequence()
+        {
+            IList<int> list = null; // new List<int> { 10, 1, 8, 2, 7 };
+            //list.QuickSort();
+
+            int min = 1;
+            int max = 10;
+
+            //var value = list.FindAllMissing(-5, 10);
+
+        }
+
         [Fact]
         public void Test_IoC()
         {
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
+            
         }
 
         [Fact]

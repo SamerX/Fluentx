@@ -388,7 +388,88 @@ namespace Fluentx
                 return 0;
             }
         }
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="list"></param>
+        ///// <param name="minValue"></param>
+        ///// <param name="maxValue"></param>
+        ///// <returns></returns>
+        //public static IEnumerable<int> FindAllMissing(this IList<int> list, int minValue, int maxValue)
+        //{
+        //    if (minValue > maxValue)
+        //    {
+        //        throw new Exception("minValue can't be greater than maxValue");
+        //    }
 
+        //    int count = maxValue - minValue + 1;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (list.IsNull() || !list.Contains(minValue + i))
+        //        {
+        //            yield return minValue + i;
+        //        }
+        //    }
+        //}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="list"></param>
+        ///// <param name="minValue"></param>
+        ///// <param name="maxValue"></param>
+        ///// <returns></returns>
+        //public static int? FindMinMissing(this IList<int> list, int minValue, int maxValue)
+        //{
+        //    if (minValue > maxValue)
+        //    {
+        //        throw new Exception("minValue can't be greater than maxValue");
+        //    }
 
+        //    if (list.IsNull())
+        //    {
+        //        return minValue;
+        //    }
+
+        //    int count = maxValue - minValue + 1;
+        //    for (int i = 0; i < count; i++)
+        //    {
+        //        if (!list.Contains(minValue + i))
+        //        {
+        //            return minValue + i;
+        //        }
+        //    }
+        //    return null;
+        //}
+        ///// <summary>
+        ///// 
+        ///// </summary>
+        ///// <param name="list"></param>
+        ///// <param name="minValue"></param>
+        ///// <param name="maxValue"></param>
+        ///// <returns></returns>
+        //public static int? FindMaxMissing(this IList<int> list, int minValue, int maxValue)
+        //{
+        //    if (minValue > maxValue)
+        //    {
+        //        throw new Exception("minValue can't be greater than maxValue");
+        //    }
+
+        //    if (list.IsNull())
+        //    {
+        //        return maxValue;
+        //    }
+
+        //    int count = maxValue - minValue + 1;
+        //    for (int i = count - 1; i >= 0; i--)
+        //    {
+        //        if (!list.Contains(minValue + i))
+        //        {
+        //            return minValue + i;
+        //        }
+        //    }
+        //    return null;
+        //}
     }
+
+
 }
