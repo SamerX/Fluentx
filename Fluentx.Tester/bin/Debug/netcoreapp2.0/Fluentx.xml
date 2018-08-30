@@ -4444,6 +4444,140 @@
             <typeparam name="T"></typeparam>
             <param name="package"></param>
         </member>
+        <member name="T:Fluentx.Result">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.ErrorMessages">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.HasErrors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Result.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Result.#ctor(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+        </member>
+        <member name="M:Fluentx.Result.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+        </member>
+        <member name="M:Fluentx.Result.Return">
+            <summary>
+            
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Error(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Error(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Return``1(``0,System.String[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Return``1(``0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="data"></param>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Error``1(System.String[])">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Result.Error``1(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="errorMessages"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Fluentx.Result`1">
+            <summary>
+            
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Fluentx.Result`1.Data">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor(`0)">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor(System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor(System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="errorMessages"></param>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor(`0,System.String[])">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="errorMessages"></param>
+        </member>
+        <member name="M:Fluentx.Result`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            
+            </summary>
+            <param name="data"></param>
+            <param name="errorMessages"></param>
+        </member>
         <member name="T:Fluentx.SequentialGuidType">
             <summary>
             An enum for possible values to generate a sequential guid.
@@ -4665,7 +4799,7 @@
         </member>
         <member name="M:Fluentx.AndSpecification`1.ValidateAndContinue(`0)">
             <summary>
-            Executes and validates the specificaiton, this will NOT continue to the next specification if the validation fails
+            Executes and validates the specificaiton, this will continue to the next specification if the validation fails
             </summary>
             <param name="instance"></param>
             <returns></returns>

@@ -34,6 +34,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_KGtoLBS()
         {
+            
             var result = 6.ToKG();
 
             var backResult = result.ToLBS();

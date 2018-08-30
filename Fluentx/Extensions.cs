@@ -769,12 +769,76 @@ namespace Fluentx
         }
 
 #if !NETSTANDARD1_5
-        ///<summary>
-        /// Returns wether the current type implements the specified type.
-        ///</summary>
-        public static bool Implements<T>(this Type type)
+        /// <summary>
+        /// Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool Implements<T>(this Type @this)
         {
-            return typeof(T).IsAssignableFrom(type);
+            return @this.Implements(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="interfaceType"></param>
+        /// <returns></returns>
+        public static bool Implements(this Type @this, Type interfaceType)
+        {
+            return @this.GetInterfaces().Any(x => x == interfaceType);
+        }
+        /// <summary>
+        /// Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsSubclass<T>(this Type @this)
+        {
+            return @this.IsSubclass(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="classType"></param>
+        /// <returns></returns>
+        public static bool IsSubclass(this Type @this, Type classType)
+        {
+            if (@this == classType || @this.IsInterface || classType.IsInterface) return false;
+
+            while (@this != null && @this != typeof(object))
+            {
+                var current = @this.IsGenericType ? @this.GetGenericTypeDefinition() : @this;
+                if (classType == current || (classType.IsGenericType && current == classType.GetGenericTypeDefinition() && Enumerable.SequenceEqual(@this.GetGenericArguments(), classType.GetGenericArguments())))
+                {
+                    return true;
+                }
+                @this = @this.BaseType;
+            }
+            return false;
+        }
+        /// <summary>
+        /// Returns whether @this type inherits the specified type, this works for both interfaces and classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool Inherits<T>(this Type @this)
+        {
+            return @this.Inherits(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type inherits the specified type, this works for both interfaces and classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool Inherits(this Type @this, Type type)
+        {
+            return @this.Implements(type) || @this.IsSubclass(type);
         }
 #endif
     }
