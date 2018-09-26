@@ -770,6 +770,21 @@ namespace Fluentx
 
 #if !NETSTANDARD1_5
         /// <summary>
+        /// Invokes the specified method on the target object supplying the generic parameters dynamically with its required parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="methodName"></param>
+        /// <param name="genericParams"></param>
+        /// <param name="params"></param>
+        /// <returns></returns>
+        public static object InvokeGenericMethod<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
+        {
+            var method = typeof(T).GetMethod(methodName).MakeGenericMethod(genericParams);
+            var data = method.Invoke(@this, @params);
+            return data;
+        }
+        /// <summary>
         /// Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
         /// </summary>
         /// <typeparam name="T"></typeparam>

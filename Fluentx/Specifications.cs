@@ -106,6 +106,7 @@ namespace Fluentx
         {
             return new AndSpecification<T>(this, specification);
         }
+
         /// <summary>
         /// Creates a new specification holding current specification OR specified specification 
         /// </summary>

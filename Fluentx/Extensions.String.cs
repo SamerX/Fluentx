@@ -274,7 +274,7 @@ namespace Fluentx
                 return defaultValue;
         }
 
-        
+
         /// <summary>
         /// Extension method to compare two strings for equality ignoring character case. (Note: uses Equals(string, StringComparison.OrdinalIgnoreCase)).
         /// </summary>
@@ -297,6 +297,36 @@ namespace Fluentx
                 return @this;
 
             return string.Join(" ", Regex.Split(@this, @"(?<!^)(?=[A-Z])"));
+        }
+        /// <summary>
+        /// Makes the first letter of the specified string capital.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string Capitalize(this string @this)
+        {
+            if (@this.IsNullOrEmpty())
+            {
+                return @this;
+            }
+            var characters = @this.ToCharArray();
+            characters[0] = char.ToUpper(characters[0]);
+            return new string(characters);
+        }
+        /// <summary>
+        /// Makes the first letter of the specified string in lower case.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string UnCapitalize(this string @this)
+        {
+            if (@this.IsNullOrEmpty())
+            {
+                return @this;
+            }
+            var characters = @this.ToCharArray();
+            characters[0] = char.ToLower(characters[0]);
+            return new string(characters);
         }
         /// <summary>
         /// Counts the words within the specified strings, two algorithms can be used, Regex is the default one used: more accurate but slower. Loop method is much much faster but less accurate.

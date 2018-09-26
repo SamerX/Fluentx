@@ -31,3 +31,21 @@ C:\Users\Samer\Source\Repos\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Flu
 C:\Users\Samer\Source\Repos\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csproj.CopyComplete
 C:\Users\Samer\Source\Repos\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.dll
 C:\Users\Samer\Source\Repos\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\xunit.runner.utility.netstandard15.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\xunit.runner.reporters.netstandard15.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.Tester.deps.json
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.Tester.runtimeconfig.json
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.Tester.runtimeconfig.dev.json
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.Tester.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.Tester.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.xml
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csprojAssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csproj.CoreCompileInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.AssemblyInfoInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.AssemblyInfo.cs
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csproj.CopyComplete
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.pdb

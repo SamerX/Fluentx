@@ -1803,7 +1803,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Fluentx/5.1.5": {
+      "Fluentx/5.1.8": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.5",
         "dependencies": {
@@ -5937,7 +5937,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Fluentx/5.1.5": {
+    "Fluentx/5.1.8": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -5946,7 +5946,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "BenchmarkDotNet.Core >= 0.10.14",
-      "Fluentx >= 5.1.5",
+      "Fluentx >= 5.1.8",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
       "xunit >= 2.2.0",
@@ -5954,7 +5954,7 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samer\\.nuget\\packages\\": {},
+    "C:\\Users\\Samer\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
@@ -5963,14 +5963,14 @@
       "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
       "projectName": "Fluentx.Tester",
       "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
-      "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
+      "packagesPath": "C:\\Users\\Samer\\.nuget\\packages\\",
       "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
