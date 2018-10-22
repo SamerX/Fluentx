@@ -271,7 +271,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static bool Is<T>(this T @this) => @this is T;
+        public static bool Is<T>(this object @this) => @this is T;
 
         /// <summary>
         /// Extension method that performs a safe cast for @this as T.
@@ -279,7 +279,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static T As<T>(this T @this) where T : class => @this as T;
+        public static T As<T>(this object @this) where T : class => @this as T;
 
         /// <summary>
         /// Performs a lock operation (using a private object) on the specified action with @this as the parameter for the action.
