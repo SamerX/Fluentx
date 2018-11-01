@@ -16,6 +16,8 @@ namespace Fluentx
     {
         private static readonly Random _random = new Random();
         private const string alphabetAndNumbersCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+
+
         private Fx()
         {
             //Not to be initialized from the out side.
@@ -32,7 +34,50 @@ namespace Fluentx
         /// PI represented as 22/7.
         /// </summary>
         public static readonly double PI = 22 / 7;
-
+        /// <summary>
+        /// Space character
+        /// </summary>
+        public const string Space = " ";
+        /// <summary>
+        /// Underscore Character
+        /// </summary>
+        public const string UnderScore = "_";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Comma = ",";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Colon = ":";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string SemiColon = ";";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string QuestionMark = "?";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string ExclamationMark = "!";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Dot = ".";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string Dash = "-";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string DollarSign = "$";
+        /// <summary>
+        /// 
+        /// </summary>
+        public const string AtSign = "@";
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
@@ -1476,8 +1521,8 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
-        
-        
+
+
 
         /// <summary>
         /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.

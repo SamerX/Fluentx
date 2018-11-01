@@ -443,7 +443,7 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
-        <member name="M:Fluentx.Extensions.Is``1(``0)">
+        <member name="M:Fluentx.Extensions.Is``1(System.Object)">
             <summary>
             Extension method that performs a boolean evaluation if @this is of type T.
             </summary>
@@ -451,7 +451,7 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.As``1(``0)">
+        <member name="M:Fluentx.Extensions.As``1(System.Object)">
             <summary>
             Extension method that performs a safe cast for @this as T.
             </summary>
@@ -2116,11 +2116,12 @@
             <param name="compareOperand"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.Wordify(System.String)">
+        <member name="M:Fluentx.Extensions.Wordify(System.String,System.String)">
             <summary>
-            Returns a string that holds the words splitted by space.e.g. thisIsGood => this Is Good
+            Returns a string that holds the words splitted by space (optional separator).e.g. thisIsGood => this Is Good.
             </summary>
             <param name="this"></param>
+            <param name="separator"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.Capitalize(System.String)">
@@ -2253,6 +2254,61 @@
         <member name="F:Fluentx.Fx.PI">
             <summary>
             PI represented as 22/7.
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.Space">
+            <summary>
+            Space character
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.UnderScore">
+            <summary>
+            Underscore Character
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.Comma">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.Colon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.SemiColon">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.QuestionMark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.ExclamationMark">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.Dot">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.Dash">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.DollarSign">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.AtSign">
+            <summary>
+            
             </summary>
         </member>
         <member name="P:Fluentx.Fx.Action">

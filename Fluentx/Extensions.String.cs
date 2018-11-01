@@ -286,17 +286,18 @@ namespace Fluentx
             return @this.Equals(compareOperand, StringComparison.OrdinalIgnoreCase);
         }
         /// <summary>
-        /// Returns a string that holds the words splitted by space.e.g. thisIsGood => this Is Good
+        /// Returns a string that holds the words splitted by space (optional separator).e.g. thisIsGood => this Is Good.
         /// </summary>
         /// <param name="this"></param>
+        /// <param name="separator"></param>
         /// <returns></returns>
-        public static string Wordify(this string @this)
+        public static string Wordify(this string @this, string separator = " ")
         {
             // if the word is all upper, just return it
             if (!Regex.IsMatch(@this, "[a-z]"))
                 return @this;
 
-            return string.Join(" ", Regex.Split(@this, @"(?<!^)(?=[A-Z])"));
+            return string.Join(separator, Regex.Split(@this, @"(?<!^)(?=[A-Z])"));
         }
         /// <summary>
         /// Makes the first letter of the specified string capital.

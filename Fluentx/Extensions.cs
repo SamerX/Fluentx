@@ -768,7 +768,7 @@ namespace Fluentx
             return sBuilder.ToString(0, Math.Max(0, sBuilder.Length - separator.Length));
         }
 
-#if !NETSTANDARD1_5
+
         /// <summary>
         /// Invokes the specified method on the target object supplying the generic parameters dynamically with its required parameters.
         /// </summary>
@@ -780,7 +780,7 @@ namespace Fluentx
         /// <returns></returns>
         public static object InvokeGenericMethod<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
-            var method = typeof(T).GetMethod(methodName).MakeGenericMethod(genericParams);
+            var method = typeof(T).GetTypeInfo().GetMethod(methodName).MakeGenericMethod(genericParams);
             var data = method.Invoke(@this, @params);
             return data;
         }
@@ -802,7 +802,7 @@ namespace Fluentx
         /// <returns></returns>
         public static bool Implements(this Type @this, Type interfaceType)
         {
-            return @this.GetInterfaces().Any(x => x == interfaceType);
+            return @this.GetTypeInfo().GetInterfaces().Any(x => x == interfaceType);
         }
         /// <summary>
         /// Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
@@ -822,16 +822,16 @@ namespace Fluentx
         /// <returns></returns>
         public static bool IsSubclass(this Type @this, Type classType)
         {
-            if (@this == classType || @this.IsInterface || classType.IsInterface) return false;
+            if (@this == classType || @this.GetTypeInfo().IsInterface || classType.GetTypeInfo().IsInterface) return false;
 
             while (@this != null && @this != typeof(object))
             {
-                var current = @this.IsGenericType ? @this.GetGenericTypeDefinition() : @this;
-                if (classType == current || (classType.IsGenericType && current == classType.GetGenericTypeDefinition() && Enumerable.SequenceEqual(@this.GetGenericArguments(), classType.GetGenericArguments())))
+                var current = @this.GetTypeInfo().IsGenericType ? @this.GetGenericTypeDefinition() : @this;
+                if (classType == current || (classType.GetTypeInfo().IsGenericType && current == classType.GetGenericTypeDefinition() && Enumerable.SequenceEqual(@this.GetTypeInfo().GetGenericArguments(), classType.GetTypeInfo().GetGenericArguments())))
                 {
                     return true;
                 }
-                @this = @this.BaseType;
+                @this = @this.GetTypeInfo().BaseType;
             }
             return false;
         }
@@ -855,6 +855,6 @@ namespace Fluentx
         {
             return @this.Implements(type) || @this.IsSubclass(type);
         }
-#endif
+
     }
 }

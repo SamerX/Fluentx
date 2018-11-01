@@ -34,7 +34,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_KGtoLBS()
         {
-            
+
             var result = 6.ToKG();
 
             var backResult = result.ToLBS();
@@ -1011,7 +1011,7 @@ namespace Fluentx.Tester
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
-            
+            var result = typeof(One).Implements<IOne>();
         }
 
         [Fact]
@@ -1020,7 +1020,7 @@ namespace Fluentx.Tester
             var text = Fx.GenerateSingletonClass("Test", SingletonType.ThreadSafeFullLazy);
         }
         public interface IOne { }
-        public class One
+        public class One : IOne
         {
             public string X1 { get; set; }
             public int X2 { get; set; }
