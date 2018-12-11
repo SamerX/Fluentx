@@ -239,7 +239,7 @@ namespace Fluentx
                         }
                     }
 
-                    outerBreak:
+                outerBreak:
                     if (i2 == text.Length)
                         chars[i1] = text[0];
                 }
@@ -330,5 +330,215 @@ namespace Fluentx
                 return true;
             }
         }
+        /// <summary>
+        /// Returns a value of how much similar the two strings are.
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static double SorensenDiceMatch(this string first, string second)
+        {
+            if (string.IsNullOrEmpty(first) || string.IsNullOrEmpty(second))
+                return 0;
+
+            if (first == second)
+                return 1;
+
+            int strlen1 = first.Length;
+            int strlen2 = second.Length;
+
+            if (strlen1 < 2 || strlen2 < 2)
+                return 0;
+
+            int length1 = strlen1 - 1;
+            int length2 = strlen2 - 1;
+
+            double matches = 0;
+            int i = 0;
+            int j = 0;
+
+            while (i < length1 && j < length2)
+            {
+                string a = first.Substring(i, 2);
+                string b = second.Substring(j, 2);
+                int cmp = string.Compare(a, b);
+
+                if (cmp == 0)
+                    matches += 2;
+
+                ++i;
+                ++j;
+            }
+
+            return matches / (length1 + length2);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static int DamerauLevenshteinDistance(this string first, string second)
+        {
+            var bounds = new { Height = first.Length + 1, Width = second.Length + 1 };
+
+            int[,] matrix = new int[bounds.Height, bounds.Width];
+
+            for (int height = 0; height < bounds.Height; height++) { matrix[height, 0] = height; };
+            for (int width = 0; width < bounds.Width; width++) { matrix[0, width] = width; };
+
+            for (int height = 1; height < bounds.Height; height++)
+            {
+                for (int width = 1; width < bounds.Width; width++)
+                {
+                    int cost = (first[height - 1] == second[width - 1]) ? 0 : 1;
+                    int insertion = matrix[height, width - 1] + 1;
+                    int deletion = matrix[height - 1, width] + 1;
+                    int substitution = matrix[height - 1, width - 1] + cost;
+
+                    int distance = Math.Min(insertion, Math.Min(deletion, substitution));
+
+                    if (height > 1 && width > 1 && first[height - 1] == second[width - 2] && first[height - 2] == second[width - 1])
+                    {
+                        distance = Math.Min(distance, matrix[height - 2, width - 2] + cost);
+                    }
+
+                    matrix[height, width] = distance;
+                }
+            }
+
+            //return matrix[bounds.Height - 1, bounds.Width - 1];
+            return (int)(Math.Round(1.0 - ((double)matrix[bounds.Height - 1, bounds.Width - 1] / (double)Math.Max(first.Length, second.Length)), 2) * 100);
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <returns></returns>
+        public static int LevenshteinDistance(this string first, string second)
+        {
+            int n = first.Length;
+            int m = second.Length;
+            int[,] d = new int[n + 1, m + 1];
+
+            // Step 1
+            if (n == 0)
+            {
+                return m;
+            }
+
+            if (m == 0)
+            {
+                return n;
+            }
+
+            // Step 2
+            for (int i = 0; i <= n; d[i, 0] = i++)
+            {
+            }
+
+            for (int j = 0; j <= m; d[0, j] = j++)
+            {
+            }
+
+            // Step 3
+            for (int i = 1; i <= n; i++)
+            {
+                //Step 4
+                for (int j = 1; j <= m; j++)
+                {
+                    // Step 5
+                    int cost = (second[j - 1] == first[i - 1]) ? 0 : 1;
+
+                    // Step 6
+                    d[i, j] = Math.Min(
+                        Math.Min(d[i - 1, j] + 1, d[i, j - 1] + 1),
+                        d[i - 1, j - 1] + cost);
+                }
+            }
+            // Step 7
+            //return d[n, m];
+            return (int)(Math.Round(1.0 - (d[n, m] / (double)Math.Max(first.Length, second.Length)), 2) * 100);
+        }
+        ///// <summary>
+        ///// Returns the Jaro-Winkler distance between the specified  
+        ///// strings. The distance is symmetric and will fall in the 
+        ///// range 0 (no match) to 1 (perfect match). 
+        ///// </summary>
+        ///// <param name="aString1">First String</param>
+        ///// <param name="aString2">Second String</param>
+        ///// <returns></returns>
+        //public static int JaroWinkler(this string aString1, string aString2)
+        //{
+        //    /* The Winkler modification will not be applied unless the 
+        //    * percent match was at or above the mWeightThreshold percent 
+        //    * without the modification. 
+        //    * Winkler's paper used a default value of 0.7
+        //    */
+        //    double mWeightThreshold = 0.7;
+        //    /* Size of the prefix to be concidered by the Winkler modification. 
+        //     * Winkler's paper used a default value of 4
+        //     */
+        //    int mNumChars = 4;
+
+        //    int lLen1 = aString1.Length;
+        //    int lLen2 = aString2.Length;
+
+        //    if (lLen1 == 0)
+        //        return lLen2 == 0 ? 1 : 0;
+
+        //    int lSearchRange = Math.Max(0, Math.Max(lLen1, lLen2) / 2 - 1);
+
+        //    // default initialized to false
+        //    bool[] lMatched1 = new bool[lLen1];
+        //    bool[] lMatched2 = new bool[lLen2];
+
+        //    int lNumCommon = 0;
+        //    for (int i = 0; i < lLen1; ++i)
+        //    {
+        //        int lStart = Math.Max(0, i - lSearchRange);
+        //        int lEnd = Math.Min(i + lSearchRange + 1, lLen2);
+        //        for (int j = lStart; j < lEnd; ++j)
+        //        {
+        //            if (lMatched2[j]) continue;
+        //            if (aString1[i] != aString2[j])
+        //                continue;
+        //            lMatched1[i] = true;
+        //            lMatched2[j] = true;
+        //            ++lNumCommon;
+        //            break;
+        //        }
+        //    }
+        //    if (lNumCommon == 0) return 0;
+
+        //    int lNumHalfTransposed = 0;
+        //    int k = 0;
+        //    for (int i = 0; i < lLen1; ++i)
+        //    {
+        //        if (!lMatched1[i]) continue;
+        //        while (!lMatched2[k]) ++k;
+        //        if (aString1[i] != aString2[k])
+        //            ++lNumHalfTransposed;
+        //        ++k;
+        //    }
+        //    // System.Diagnostics.Debug.WriteLine("numHalfTransposed=" + numHalfTransposed);
+        //    int lNumTransposed = lNumHalfTransposed / 2;
+
+        //    // System.Diagnostics.Debug.WriteLine("numCommon=" + numCommon + " numTransposed=" + numTransposed);
+        //    double lNumCommonD = lNumCommon;
+        //    double lWeight = (lNumCommonD / lLen1
+        //                     + lNumCommonD / lLen2
+        //                     + (lNumCommon - lNumTransposed) / lNumCommonD) / 3.0;
+
+        //    if (lWeight <= mWeightThreshold) return (int)Math.Round(lWeight, 2);
+        //    int lMax = Math.Min(mNumChars, Math.Min(aString1.Length, aString2.Length));
+        //    int lPos = 0;
+        //    while (lPos < lMax && aString1[lPos] == aString2[lPos])
+        //        ++lPos;
+        //    if (lPos == 0) return (int)Math.Round(lWeight, 2);
+        //    return (int)Math.Round((lWeight + 0.1 * lPos * (1.0 - lWeight)), 2);
+
+        //}
     }
 }

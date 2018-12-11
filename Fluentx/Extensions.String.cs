@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using System.Text;
 using System.Text.RegularExpressions;
 
@@ -77,6 +78,17 @@ namespace Fluentx
                 return x;
             else
                 return defaultValue;
+        }
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int? ToInt(this string @this)
+        {
+            if (Int32.TryParse(@this, out int x))
+                return x;
+            return default(int?);
         }
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
@@ -483,48 +495,7 @@ namespace Fluentx
             }
             return hash;
         }
-        /// <summary>
-        /// Returns a value of how much similar the two strings are.
-        /// </summary>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
-        /// <returns></returns>
-        public static double SorensenDiceMatch(this string first, string second)
-        {
-            if (string.IsNullOrEmpty(first) || string.IsNullOrEmpty(second))
-                return 0;
-
-            if (first == second)
-                return 1;
-
-            int strlen1 = first.Length;
-            int strlen2 = second.Length;
-
-            if (strlen1 < 2 || strlen2 < 2)
-                return 0;
-
-            int length1 = strlen1 - 1;
-            int length2 = strlen2 - 1;
-
-            double matches = 0;
-            int i = 0;
-            int j = 0;
-
-            while (i < length1 && j < length2)
-            {
-                string a = first.Substring(i, 2);
-                string b = second.Substring(j, 2);
-                int cmp = string.Compare(a, b);
-
-                if (cmp == 0)
-                    matches += 2;
-
-                ++i;
-                ++j;
-            }
-
-            return matches / (length1 + length2);
-        }
+        
         /// <summary>
         /// Encrypts a string using the Cesar algorithm.
         /// </summary>
@@ -549,6 +520,27 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
+        ///// <summary>
+        ///// This method do a trim start and end for all string properties on the specified object.
+        ///// </summary>
+        ///// <typeparam name="T"></typeparam>
+        ///// <param name="this"></param>
+        ///// <param name="bindingFlags"></param>
+        ///// <returns></returns>
+        //public static T TrimStringProperties<T>(this T @this, BindingFlags bindingFlags)
+        //{
+        //    var stringMembers = typeof(T).GetTypeInfo().GetProperties(bindingFlags).Where(p => p.DeclaringType == typeof(string) && p.MemberType == MemberTypes.Property || p.MemberType == MemberTypes.Field);
+
+        //    foreach (var stringProperty in stringMembers)
+        //    {
+        //        if (stringProperty.CanWrite)
+        //        {
+        //            string currentValue = (string)stringProperty.GetValue(@this, null);
+        //            stringProperty.SetValue(@this, currentValue?.Trim(), null);
+        //        }
+        //    }
+        //    return @this;
+        //}
         /// <summary>
         /// Decrypts a string using cesar algorithm.
         /// </summary>

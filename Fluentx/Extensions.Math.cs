@@ -25,41 +25,7 @@ namespace Fluentx
 
             return d;
         }
-        /// <summary>
-        /// Levenshtein Distance is a string metric for measuring the difference between two sequences, distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
-        /// </summary>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
-        /// <returns></returns>
-        public static int LevenshteinDistance(string first, string second)
-        {
-            uint s1len, s2len, x, y, lastdiag, olddiag;
-            s1len = (uint)first.Length;
-            s2len = (uint)second.Length;
-            uint[] column = new uint[s1len + 1];
 
-            for (y = 1; y <= s1len; ++y)
-                column[y] = y;
-
-            for (x = 1; x <= s2len; ++x)
-            {
-                column[0] = x;
-
-                for (y = 1, lastdiag = x - 1; y <= s1len; ++y)
-                {
-                    olddiag = column[y];
-                    column[y] = MIN3(column[y] + 1, column[y - 1] + 1, (uint)(lastdiag + (first[(int)(y - 1)] == second[(int)(x - 1)] ? 0 : 1)));
-                    lastdiag = olddiag;
-                }
-            }
-
-            return (int)(column[s1len]);
-
-            uint MIN3(uint a, uint b, uint c)
-            {
-                return ((a) < (b) ? ((a) < (c) ? (a) : (c)) : ((b) < (c) ? (b) : (c)));
-            }
-        }
         /// <summary>
         /// 
         /// </summary>

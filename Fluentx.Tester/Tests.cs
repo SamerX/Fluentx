@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -995,11 +995,13 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Lowest_Sequence()
         {
-            IList<int> list = null; // new List<int> { 10, 1, 8, 2, 7 };
-            //list.QuickSort();
+            var clazz = new ClassForStringTesting() { One = "One ", Three = "Two" };
+            //clazz.TrimStringProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
+            //IList<int> list = null; // new List<int> { 10, 1, 8, 2, 7 };
+            ////list.QuickSort();
 
-            int min = 1;
-            int max = 10;
+            //int min = 1;
+            //int max = 10;
 
             //var value = list.FindAllMissing(-5, 10);
 
@@ -1012,6 +1014,18 @@ namespace Fluentx.Tester
             IoC.AutoRegisterByInterfaces(new Type[] { typeof(IOne) });
             //IoC.AutoRegisterByClasses(new Type[] { typeof(One) });
             var result = typeof(One).Implements<IOne>();
+            var e = "34".To<int?>();
+        }
+
+        [Fact]
+        public void Test_Sorenson_Dice()
+        {
+            
+            var first = "سامر ابو ربيع";
+            var second = "سامر ابو وديع";
+            var result = first.LevenshteinDistance(second);
+            
+            //var val = x.ToUnixTimeInMilliSeconds();
         }
 
         [Fact]
@@ -1081,6 +1095,19 @@ namespace Fluentx.Tester
 
         }
 
+        public class ClassForStringTesting
+        {
+            public ClassForStringTesting()
+            {
+                Two = "Two ";
+                Four = "Four ";
+            }
+            public string One { get; set; }
+            private string Two { get; set; }
+
+            public string Three;
+            private string Four;
+        }
         public interface IOneBusinessRules
         {
             ISpecification<One> FirstRule { get; }

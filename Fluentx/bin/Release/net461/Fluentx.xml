@@ -844,7 +844,21 @@
             <param name="date"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToUnixTimeInSeconds(System.Nullable{System.DateTime})">
+            <summary>
+            Converts to unitx time in seconds
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToUnixTimeInMilliSeconds(System.DateTime)">
+            <summary>
+            Converts to unix time in milli seconds.
+            </summary>
+            <param name="date"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUnixTimeInMilliSeconds(System.Nullable{System.DateTime})">
             <summary>
             Converts to unix time in milli seconds.
             </summary>
@@ -1069,7 +1083,21 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.LastYear(System.Nullable{System.DateTime})">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.NextYear(System.DateTime)">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NextYear(System.Nullable{System.DateTime})">
             <summary>
             
             </summary>
@@ -1083,6 +1111,13 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.LastMonth(System.Nullable{System.DateTime})">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.NextMonth(System.DateTime)">
             <summary>
             
@@ -1090,7 +1125,23 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.NextMonth(System.Nullable{System.DateTime})">
+            <summary>
+            
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.IsWithin(System.DateTime,Fluentx.Period,System.Boolean)">
+            <summary>
+            Returns a boolean value wether the date is within the specifed period. (default : edges are not calculated within)
+            </summary>
+            <param name="this"></param>
+            <param name="period"></param>
+            /// <param name="includeEdges"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsWithin(System.Nullable{System.DateTime},Fluentx.Period,System.Boolean)">
             <summary>
             Returns a boolean value wether the date is within the specifed period. (default : edges are not calculated within)
             </summary>
@@ -1108,7 +1159,23 @@
             <param name="includeEdges"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsNotWithin(System.Nullable{System.DateTime},Fluentx.Period,System.Boolean)">
+            <summary>
+            returns a boolean value wether the date is NOT within the specifed period. (default : edges are not calculated within)
+            </summary>
+            <param name="this"></param>
+            <param name="period"></param>
+            <param name="includeEdges"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.EndOfDay(System.DateTime)">
+            <summary>
+            Returns end of day 23:59:59;
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.EndOfDay(System.Nullable{System.DateTime})">
             <summary>
             Returns end of day 23:59:59;
             </summary>
@@ -1122,7 +1189,21 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.StartOfDay(System.Nullable{System.DateTime})">
+            <summary>
+            Returns start of day 00:00:00
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Tomorrow(System.DateTime)">
+            <summary>
+            Returns tomorrow of the specified day
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Tomorrow(System.Nullable{System.DateTime})">
             <summary>
             Returns tomorrow of the specified day
             </summary>
@@ -1136,7 +1217,21 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.NextDay(System.Nullable{System.DateTime})">
+            <summary>
+            Returns next day of the specified day
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Yesterday(System.DateTime)">
+            <summary>
+            Returns yesterday of the specified day
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Yesterday(System.Nullable{System.DateTime})">
             <summary>
             Returns yesterday of the specified day
             </summary>
@@ -1150,7 +1245,25 @@
             <param name="this"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.PreviousDay(System.Nullable{System.DateTime})">
+            <summary>
+            Returns yesterday of the specified day
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.At(System.DateTime,System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Returns a new datetime instance with the specified Hour(24 based), Minute, Second and MiliSecond
+            </summary>
+            <param name="this"></param>
+            <param name="hour"></param>
+            <param name="minute"></param>
+            <param name="second"></param>
+            <param name="millisecond"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.At(System.Nullable{System.DateTime},System.Int32,System.Int32,System.Int32,System.Int32)">
             <summary>
             Returns a new datetime instance with the specified Hour(24 based), Minute, Second and MiliSecond
             </summary>
@@ -1184,6 +1297,13 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.StartOfMonth(System.Nullable{System.DateTime})">
+            <summary>
+            Returns start of the month as datetime.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.EndOfMonth(System.DateTime)">
             <summary>
             Returns end of the month as datetime.
@@ -1191,7 +1311,21 @@
             <param name="value"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.EndOfMonth(System.Nullable{System.DateTime})">
+            <summary>
+            Returns end of the month as datetime.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.LastDayOfMonth(System.DateTime)">
+            <summary>
+            Returns last day of the month for the specified datetime value.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.LastDayOfMonth(System.Nullable{System.DateTime})">
             <summary>
             Returns last day of the month for the specified datetime value.
             </summary>
@@ -1207,6 +1341,13 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.IsLeapYear(System.DateTime)">
+            <summary>
+            Returns whether this date time is in a leap year.
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsLeapYear(System.Nullable{System.DateTime})">
             <summary>
             Returns whether this date time is in a leap year.
             </summary>
@@ -1230,7 +1371,27 @@
             	<c>true</c> if the specified current is before; otherwise, <c>false</c>.
             </returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsBefore(System.Nullable{System.DateTime},System.DateTime)">
+            <summary>
+            Determines whether the specified <see cref="T:System.DateTime"/> is before then current value.
+            </summary>
+            <param name="this">The current value.</param>
+            <param name="toCompareWith">Value to compare with.</param>
+            <returns>
+            	<c>true</c> if the specified current is before; otherwise, <c>false</c>.
+            </returns>
+        </member>
         <member name="M:Fluentx.Extensions.IsAfter(System.DateTime,System.DateTime)">
+            <summary>
+            Determines whether the specified <see cref="T:System.DateTime"/> value is After then current value.
+            </summary>
+            <param name="this">The current value.</param>
+            <param name="toCompareWith">Value to compare with.</param>
+            <returns>
+            	<c>true</c> if the specified current is after; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsAfter(System.Nullable{System.DateTime},System.DateTime)">
             <summary>
             Determines whether the specified <see cref="T:System.DateTime"/> value is After then current value.
             </summary>
@@ -1247,7 +1408,21 @@
             <param name="value">The <see cref="T:System.DateTime"/> find Noon for.</param>
             <returns>A <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).</returns>
         </member>
+        <member name="M:Fluentx.Extensions.Noon(System.Nullable{System.DateTime})">
+            <summary>
+            Returns original <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).
+            </summary>
+            <param name="value">The <see cref="T:System.DateTime"/> find Noon for.</param>
+            <returns>A <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).</returns>
+        </member>
         <member name="M:Fluentx.Extensions.Age(System.DateTime)">
+            <summary>
+            Creates an age instance from the specified datetime instance.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Age(System.Nullable{System.DateTime})">
             <summary>
             Creates an age instance from the specified datetime instance.
             </summary>
@@ -1349,14 +1524,6 @@
             <param name="lng1"></param>
             <param name="lat2"></param>
             <param name="lng2"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.Extensions.LevenshteinDistance(System.String,System.String)">
-            <summary>
-            Levenshtein Distance is a string metric for measuring the difference between two sequences, distance between two words is the minimum number of single-character edits (insertions, deletions or substitutions) required to change one word into the other.
-            </summary>
-            <param name="first"></param>
-            <param name="second"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.Fibonacci(System.Int32)">
@@ -1529,6 +1696,30 @@
             </summary>
             <param name="text"></param>
             <param name="valueToFind"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SorensenDiceMatch(System.String,System.String)">
+            <summary>
+            Returns a value of how much similar the two strings are.
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DamerauLevenshteinDistance(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.LevenshteinDistance(System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.InsertionSort``1(System.Collections.Generic.IList{``0})">
@@ -2047,6 +2238,13 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToInt(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToUInt(System.String,System.UInt32)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
@@ -2253,14 +2451,6 @@
             AP is a hybrid rotative and additive hash function algorithm.
             </summary>
             <param name="value"></param>
-            <returns></returns>
-        </member>
-        <member name="M:Fluentx.Extensions.SorensenDiceMatch(System.String,System.String)">
-            <summary>
-            Returns a value of how much similar the two strings are.
-            </summary>
-            <param name="first"></param>
-            <param name="second"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.CesarEncrypt(System.String,System.Int32)">
