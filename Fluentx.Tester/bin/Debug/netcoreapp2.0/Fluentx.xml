@@ -539,7 +539,7 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.Set``1(``0,System.Action{``0})">
+        <member name="M:Fluentx.Extensions.Set``1(``0,System.Func{``0,``0})">
             <summary>
             Simple update of instance memebers using lambda expression.
             </summary>

@@ -428,7 +428,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void Set<T>(this T @this, Action<T> action) { action(@this); }
+        public static T Set<T>(this T @this, Action<T> action) { action(@this); return @this; }
         /// <summary>
         /// Safely tries to evaluate the specified expression path
         /// </summary>
