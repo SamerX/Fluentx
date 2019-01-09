@@ -14,10 +14,21 @@ namespace Fluentx
         /// 
         /// </summary>
         public IList<string> ErrorMessages { get; set; }
+        public IList<string> WarningMessages { get; set; }
+
+        public IList<string> InfoMessages { get; set; }
         /// <summary>
         /// 
         /// </summary>
         public bool HasErrors { get { return ErrorMessages.IsNotNullOrEmpty(); } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool HasWarnings { get { return WarningMessages.IsNotNullOrEmpty(); } }
+        /// <summary>
+        /// 
+        /// </summary>
+        public bool HasInfos { get { return InfoMessages.IsNotNullOrEmpty(); } }
         /// <summary>
         /// 
         /// </summary>

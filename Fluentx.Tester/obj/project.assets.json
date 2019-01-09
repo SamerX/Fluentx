@@ -1803,7 +1803,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Fluentx/5.3.1": {
+      "Fluentx/5.3.2": {
         "type": "project",
         "framework": ".NETStandard,Version=v1.5",
         "dependencies": {
@@ -5995,7 +5995,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Fluentx/5.3.1": {
+    "Fluentx/5.3.2": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -6004,7 +6004,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.0": [
       "BenchmarkDotNet.Core >= 0.10.14",
-      "Fluentx >= 5.3.1",
+      "Fluentx >= 5.3.2",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "Microsoft.NETCore.App >= 2.0.0",
       "xunit >= 2.2.0",

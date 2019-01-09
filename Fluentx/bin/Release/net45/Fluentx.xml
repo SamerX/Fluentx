@@ -4778,6 +4778,16 @@
             
             </summary>
         </member>
+        <member name="P:Fluentx.Result.HasWarnings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.HasInfos">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="M:Fluentx.Result.#ctor">
             <summary>
             
