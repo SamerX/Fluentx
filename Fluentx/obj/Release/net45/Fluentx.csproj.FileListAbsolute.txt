@@ -1,6 +1,7 @@
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net45\Fluentx.xml
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net45\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net45\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net45\Fluentx.csprojAssemblyReference.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net45\Fluentx.csproj.CoreCompileInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net45\Fluentx.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net45\Fluentx.AssemblyInfo.cs

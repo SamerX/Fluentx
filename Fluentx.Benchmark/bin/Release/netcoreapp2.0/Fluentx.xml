@@ -798,6 +798,22 @@
             <param name="interfaceType"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.NotImplement``1(System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT Implement the specified interface type, this is only for interfaces not for classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotImplement(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
+            </summary>
+            <param name="this"></param>
+            <param name="interfaceType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.IsSubclass``1(System.Type)">
             <summary>
             Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
@@ -814,6 +830,22 @@
             <param name="classType"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsNotSubclass``1(System.Type)">
+            <summary>
+            Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNotSubclass(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+            </summary>
+            <param name="this"></param>
+            <param name="classType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Inherits``1(System.Type)">
             <summary>
             Returns whether @this type inherits the specified type, this works for both interfaces and classes.
@@ -825,6 +857,22 @@
         <member name="M:Fluentx.Extensions.Inherits(System.Type,System.Type)">
             <summary>
             Returns whether @this type inherits the specified type, this works for both interfaces and classes.
+            </summary>
+            <param name="this"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotInherit``1(System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotInherit(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
             </summary>
             <param name="this"></param>
             <param name="type"></param>

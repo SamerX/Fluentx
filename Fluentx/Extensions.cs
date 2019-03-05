@@ -805,6 +805,26 @@ namespace Fluentx
             return @this.GetTypeInfo().GetInterfaces().Any(x => x == interfaceType);
         }
         /// <summary>
+        /// Returns whether @this type DOES NOT Implement the specified interface type, this is only for interfaces not for classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool NotImplement<T>(this Type @this)
+        {
+            return @this.NotImplement(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="interfaceType"></param>
+        /// <returns></returns>
+        public static bool NotImplement(this Type @this, Type interfaceType)
+        {
+            return !@this.Implements(interfaceType);
+        }
+        /// <summary>
         /// Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -836,6 +856,26 @@ namespace Fluentx
             return false;
         }
         /// <summary>
+        /// Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsNotSubclass<T>(this Type @this)
+        {
+            return !@this.IsSubclass(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="classType"></param>
+        /// <returns></returns>
+        public static bool IsNotSubclass(this Type @this, Type classType)
+        {
+            return !@this.IsSubclass(classType);
+        }
+        /// <summary>
         /// Returns whether @this type inherits the specified type, this works for both interfaces and classes.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -854,6 +894,26 @@ namespace Fluentx
         public static bool Inherits(this Type @this, Type type)
         {
             return @this.Implements(type) || @this.IsSubclass(type);
+        }
+        /// <summary>
+        /// Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool NotInherit<T>(this Type @this)
+        {
+            return !@this.Inherits(typeof(T));
+        }
+        /// <summary>
+        /// Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="type"></param>
+        /// <returns></returns>
+        public static bool NotInherit(this Type @this, Type type)
+        {
+            return @this.NotImplement(type) && @this.IsNotSubclass(type);
         }
 
     }
