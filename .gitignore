@@ -8,3 +8,5 @@
 /Fluentx/bin/Debug
 /Fluentx.Tester/obj/Debug/netcoreapp2.0
 /Fluentx.Benchmark/obj/Debug/netcoreapp2.0
+/Fluentx/bin/Release
+/Fluentx.Benchmark/obj

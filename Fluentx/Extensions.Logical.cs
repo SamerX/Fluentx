@@ -21,7 +21,19 @@ namespace Fluentx
         {
             return !@this;
         }
-       
+
+        /// <summary>
+        /// Negates an expression
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="predicate"></param>
+        /// <returns></returns>
+        public static bool Not<T>(this T @this, Func<T, bool> predicate)
+        {
+            return !predicate(@this);
+        }
+
         /// <summary>
         /// Anding with a condition
         /// </summary>

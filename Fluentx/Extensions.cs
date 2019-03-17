@@ -279,7 +279,8 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
-        public static T As<T>(this object @this) where T : class => @this as T;
+        public static T As<T>(this object @this) => (T)@this; //where T : class => @this as T;
+
 
         /// <summary>
         /// Performs a lock operation (using a private object) on the specified action with @this as the parameter for the action.

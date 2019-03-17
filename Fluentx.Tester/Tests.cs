@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Dynamic;
 using System.Linq;
 using Xunit;
 
@@ -11,6 +12,8 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Conditional_1_If_Excuted()
         {
+            dynamic x = new ExpandoObject();
+            x.As<string>();
             bool result = false;
 
             Fx.If(() => { return true; }).Then(() => { result = true; }).Else(() => { result = false; });
@@ -403,6 +406,9 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Lock()
         {
+            var enc = "Samer".XORCipher("test");
+            var dec = enc.XORCipher("test");
+
             string value = "Fluentx";
             value.Lock(x => { });
         }
@@ -995,6 +1001,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Lowest_Sequence()
         {
+            var result = typeof(One).Not(x => x.IsEnum);
             var clazz = new ClassForStringTesting() { One = "One ", Three = "Two" };
             //clazz.TrimStringProperties(System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.Public | System.Reflection.BindingFlags.NonPublic);
             //IList<int> list = null; // new List<int> { 10, 1, 8, 2, 7 };

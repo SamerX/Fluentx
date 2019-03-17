@@ -1,0 +1,172 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {}
+  },
+  "projects": {
+    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+        "projectName": "Fluentx.Tester",
+        "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+        "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
+        "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.0": {
+            "projectReferences": {
+              "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
+                "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.0": {
+          "dependencies": {
+            "BenchmarkDotNet.Core": {
+              "target": "Package",
+              "version": "[0.10.14, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[15.3.0-preview-20170628-02, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.0, )",
+              "autoReferenced": true
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "xunit.runner.visualstudio": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
+      "version": "5.3.4",
+      "restore": {
+        "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
+        "projectName": "Fluentx",
+        "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
+        "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
+        "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\obj\\",
+        "projectStyle": "PackageReference",
+        "crossTargeting": true,
+        "fallbackFolders": [
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net45",
+          "net451",
+          "net452",
+          "net46",
+          "net461",
+          "net462",
+          "net47",
+          "net471",
+          "net472",
+          "netstandard1.5"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net45": {
+            "projectReferences": {}
+          },
+          "net451": {
+            "projectReferences": {}
+          },
+          "net452": {
+            "projectReferences": {}
+          },
+          "net46": {
+            "projectReferences": {}
+          },
+          "net461": {
+            "projectReferences": {}
+          },
+          "net462": {
+            "projectReferences": {}
+          },
+          "net47": {
+            "projectReferences": {}
+          },
+          "net471": {
+            "projectReferences": {}
+          },
+          "net472": {
+            "projectReferences": {}
+          },
+          "netstandard1.5": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net45": {},
+        "net451": {},
+        "net452": {},
+        "net46": {},
+        "net461": {},
+        "net462": {},
+        "net47": {},
+        "net471": {},
+        "net472": {},
+        "netstandard1.5": {
+          "dependencies": {
+            "NETStandard.Library": {
+              "target": "Package",
+              "version": "[1.6.1, )",
+              "autoReferenced": true
+            }
+          }
+        }
+      }
+    }
+  }
+}
