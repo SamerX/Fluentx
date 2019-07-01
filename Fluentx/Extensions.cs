@@ -168,6 +168,7 @@ namespace Fluentx
             //throw new ArgumentNullException("instance is null, can't check against null.");
             return list.Contains(@this);
         }
+        
         /// <summary>
         /// Extension method to evaluate if the specified object doest not exists within the specified list.
         /// </summary>
@@ -190,7 +191,7 @@ namespace Fluentx
             return (@this == null || @this.Count() == 0);
         }
         /// <summary>
-        /// 
+        /// Returns wether the Enumerable is not null or empty
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>

@@ -913,6 +913,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_EndOfDay()
         {
+            var x = "123".ToLong(0);
             var eod = DateTime.Now.EndOfDay();
             Assert.Equal(59, eod.Second);
         }

@@ -387,7 +387,7 @@
         </member>
         <member name="M:Fluentx.Extensions.IsNotNullOrEmpty``1(System.Collections.Generic.IEnumerable{``0})">
             <summary>
-            
+            Returns wether the Enumerable is not null or empty
             </summary>
             <typeparam name="T"></typeparam>
             <param name="this"></param>
@@ -539,7 +539,7 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.Set``1(``0,System.Func{``0,``0})">
+        <member name="M:Fluentx.Extensions.Set``1(``0,System.Action{``0})">
             <summary>
             Simple update of instance memebers using lambda expression.
             </summary>
@@ -798,6 +798,22 @@
             <param name="interfaceType"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.NotImplement``1(System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT Implement the specified interface type, this is only for interfaces not for classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotImplement(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
+            </summary>
+            <param name="this"></param>
+            <param name="interfaceType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.IsSubclass``1(System.Type)">
             <summary>
             Returns whether @this type is a sub class of the specified class type, this is only for classes not for classes.
@@ -814,6 +830,22 @@
             <param name="classType"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsNotSubclass``1(System.Type)">
+            <summary>
+            Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsNotSubclass(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type IS NOT a sub class of the specified class type, this is only for classes not for classes.
+            </summary>
+            <param name="this"></param>
+            <param name="classType"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Inherits``1(System.Type)">
             <summary>
             Returns whether @this type inherits the specified type, this works for both interfaces and classes.
@@ -825,6 +857,22 @@
         <member name="M:Fluentx.Extensions.Inherits(System.Type,System.Type)">
             <summary>
             Returns whether @this type inherits the specified type, this works for both interfaces and classes.
+            </summary>
+            <param name="this"></param>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotInherit``1(System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.NotInherit(System.Type,System.Type)">
+            <summary>
+            Returns whether @this type DOES NOT inherit the specified type, this works for both interfaces and classes.
             </summary>
             <param name="this"></param>
             <param name="type"></param>
@@ -1434,6 +1482,15 @@
             Negates a condition
             </summary>
             <param name="this"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Not``1(``0,System.Func{``0,System.Boolean})">
+            <summary>
+            Negates an expression
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="predicate"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.And(System.Boolean,System.Boolean)">
@@ -2200,19 +2257,19 @@
         </member>
         <member name="M:Fluentx.Extensions.FormatWith(System.String,System.Object[])">
             <summary>
-            Extension method that performs the operation string.Format 
+            Extension method that performs the operation string.Format
             </summary>
             <param name="this"></param>
             <param name="args"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.To``1(System.IConvertible)">
-            <summary>
+             <summary>
             
-            </summary>
-            <typeparam name="T"></typeparam>
-            <param name="obj"></param>
-            <returns></returns>
+             </summary>
+             <typeparam name="T"></typeparam>
+             <param name="obj"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToInt32(System.String,System.Int32)">
             <summary>
@@ -2222,7 +2279,23 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToInt32(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToUInt32(System.String,System.UInt32)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt32(System.String)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
@@ -2261,12 +2334,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToLong(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToULong(System.String,System.UInt64)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToULong(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToInt16(System.String,System.Int16)">
@@ -2277,12 +2364,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToInt16(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToUInt16(System.String,System.UInt16)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt16(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToInt64(System.String,System.Int64)">
@@ -2293,12 +2394,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToInt64(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToUInt64(System.String,System.UInt64)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToUInt64(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToDouble(System.String,System.Double)">
@@ -2309,12 +2424,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToDouble(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToFloat(System.String,System.Single)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToFloat(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToDecimal(System.String,System.Decimal)">
@@ -2325,12 +2454,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToDecimal(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToByte(System.String,System.Byte)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToByte(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToSByte(System.String,System.SByte)">
@@ -2341,6 +2484,13 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToSByte(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToBool(System.String,System.Boolean)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
@@ -2349,12 +2499,26 @@
             <param name="defaultValue"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToBool(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.ToDateTime(System.String,System.DateTime)">
             <summary>
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
             <param name="defaultValue"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToDateTime(System.String)">
+            <summary>
+            Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToGuid(System.String,System.Guid)">
@@ -2413,7 +2577,7 @@
         <member name="M:Fluentx.Extensions.ReplaceLast(System.String,System.String,System.String)">
             <summary>
             Returns a new string in which the last occurrence of a specified string
-            in this instance are replaced with another specified string.  
+            in this instance are replaced with another specified string.
             </summary>
             <param name="this"></param>
             <param name="oldValue"></param>
@@ -2431,7 +2595,7 @@
         <member name="M:Fluentx.Extensions.ReplaceFirst(System.String,System.String,System.String)">
             <summary>
             Returns a new string in which the last occurrence of a specified string
-            in this instance are replaced with another specified string.  
+            in this instance are replaced with another specified string.
             </summary>
             <param name="this"></param>
             <param name="oldValue"></param>
@@ -4773,7 +4937,22 @@
             
             </summary>
         </member>
+        <member name="P:Fluentx.Result.InfoMessages">
+            <summary>
+            List of info messages
+            </summary>
+        </member>
         <member name="P:Fluentx.Result.HasErrors">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.HasWarnings">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.HasInfos">
             <summary>
             
             </summary>

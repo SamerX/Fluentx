@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Linq.Expressions;
-using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Fluentx
@@ -14,7 +9,7 @@ namespace Fluentx
     public static partial class Extensions
     {
         /// <summary>
-        /// Extension method that performs the operation string.Format 
+        /// Extension method that performs the operation string.Format
         /// </summary>
         /// <param name="this"></param>
         /// <param name="args"></param>
@@ -23,8 +18,9 @@ namespace Fluentx
         {
             return string.Format(@this, args);
         }
+
         /// <summary>
-        /// 
+        ///
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -40,13 +36,14 @@ namespace Fluentx
                 return default(T);
             }
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static int ToInt32(this string @this, int defaultValue = default(int))
+        public static int ToInt32(this string @this, int defaultValue)
         {
             if (Int32.TryParse(@this, out int x))
                 return x;
@@ -59,7 +56,21 @@ namespace Fluentx
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static uint ToUInt32(this string @this, uint defaultValue = default(uint))
+        public static int? ToInt32(this string @this)
+        {
+            if (Int32.TryParse(@this, out int x))
+                return x;
+            else
+                return default;
+        }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static uint ToUInt32(this string @this, uint defaultValue)
         {
             if (UInt32.TryParse(@this, out uint x))
                 return x;
@@ -72,13 +83,28 @@ namespace Fluentx
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static int ToInt(this string @this, int defaultValue = default(int))
+        public static uint? ToUInt32(this string @this)
+        {
+            if (UInt32.TryParse(@this, out uint x))
+                return x;
+            else
+                return default;
+        }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="defaultValue"></param>
+        /// <returns></returns>
+        public static int ToInt(this string @this, int defaultValue)
         {
             if (Int32.TryParse(@this, out int x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
@@ -90,202 +116,379 @@ namespace Fluentx
                 return x;
             return default(int?);
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static uint ToUInt(this string @this, uint defaultValue = default(uint))
+        public static uint ToUInt(this string @this, uint defaultValue)
         {
             if (UInt32.TryParse(@this, out uint x))
                 return x;
-            else
-                return defaultValue;
+            return defaultValue;
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static long ToLong(this string @this, long defaultValue = default(long))
+        public static long ToLong(this string @this, long defaultValue)
         {
             if (long.TryParse(@this, out long x))
                 return x;
-            else
-                return defaultValue;
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static long? ToLong(this string @this)
+        {
+            if (long.TryParse(@this, out long x))
+                return x;
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static ulong ToULong(this string @this, ulong defaultValue = default(ulong))
+        public static ulong ToULong(this string @this, ulong defaultValue)
         {
             if (ulong.TryParse(@this, out ulong x))
                 return x;
-            else
-                return defaultValue;
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static ulong? ToULong(this string @this)
+        {
+            if (ulong.TryParse(@this, out ulong x))
+                return x;
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static short ToInt16(this string @this, short defaultValue = default(short))
+        public static short ToInt16(this string @this, short defaultValue)
         {
             if (Int16.TryParse(@this, out short x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static short? ToInt16(this string @this)
+        {
+            if (Int16.TryParse(@this, out short x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static ushort ToUInt16(this string @this, ushort defaultValue = default(ushort))
+        public static ushort ToUInt16(this string @this, ushort defaultValue)
         {
             if (UInt16.TryParse(@this, out ushort x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static ushort? ToUInt16(this string @this)
+        {
+            if (UInt16.TryParse(@this, out ushort x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static long ToInt64(this string @this, long defaultValue = default(long))
+        public static long ToInt64(this string @this, long defaultValue)
         {
             if (Int64.TryParse(@this, out long x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static long? ToInt64(this string @this)
+        {
+            if (Int64.TryParse(@this, out long x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static ulong ToUInt64(this string @this, ulong defaultValue = default(ulong))
+        public static ulong ToUInt64(this string @this, ulong defaultValue)
         {
             if (UInt64.TryParse(@this, out ulong x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static ulong? ToUInt64(this string @this)
+        {
+            if (UInt64.TryParse(@this, out ulong x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static double ToDouble(this string @this, double defaultValue = default(double))
+        public static double ToDouble(this string @this, double defaultValue)
         {
             if (Double.TryParse(@this, out double x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static double? ToDouble(this string @this)
+        {
+            if (Double.TryParse(@this, out double x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static float ToFloat(this string @this, float defaultValue = default(float))
+        public static float ToFloat(this string @this, float defaultValue)
         {
             if (Single.TryParse(@this, out float x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static float? ToFloat(this string @this)
+        {
+            if (Single.TryParse(@this, out float x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static decimal ToDecimal(this string @this, decimal defaultValue = default(decimal))
+        public static decimal ToDecimal(this string @this, decimal defaultValue)
         {
             if (decimal.TryParse(@this, out decimal x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static decimal? ToDecimal(this string @this)
+        {
+            if (decimal.TryParse(@this, out decimal x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static byte ToByte(this string @this, byte defaultValue = default(byte))
+        public static byte ToByte(this string @this, byte defaultValue)
         {
             if (Byte.TryParse(@this, out byte x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static byte? ToByte(this string @this)
+        {
+            if (Byte.TryParse(@this, out byte x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static sbyte ToSByte(this string @this, sbyte defaultValue = default(sbyte))
+        public static sbyte ToSByte(this string @this, sbyte defaultValue)
         {
             if (SByte.TryParse(@this, out sbyte x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static sbyte? ToSByte(this string @this)
+        {
+            if (SByte.TryParse(@this, out sbyte x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static bool ToBool(this string @this, bool defaultValue = default(bool))
+        public static bool ToBool(this string @this, bool defaultValue)
         {
             if (bool.TryParse(@this, out bool x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool? ToBool(this string @this)
+        {
+            if (bool.TryParse(@this, out bool x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static DateTime ToDateTime(this string @this, DateTime defaultValue = default(DateTime))
+        public static DateTime ToDateTime(this string @this, DateTime defaultValue)
         {
             if (DateTime.TryParse(@this, out DateTime x))
                 return x;
-            else
-                return defaultValue;
+
+            return defaultValue;
         }
+
+        /// <summary>
+        /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static DateTime? ToDateTime(this string @this)
+        {
+            if (DateTime.TryParse(@this, out DateTime x))
+                return x;
+
+            return default;
+        }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
         /// <param name="defaultValue"></param>
         /// <returns></returns>
-        public static Guid ToGuid(this string @this, Guid defaultValue = default(Guid))
+        public static Guid ToGuid(this string @this, Guid defaultValue)
         {
             if (Guid.TryParse(@this, out Guid x))
                 return x;
-            else
-                return defaultValue;
-        }
 
+            return defaultValue;
+        }
 
         /// <summary>
         /// Extension method to compare two strings for equality ignoring character case. (Note: uses Equals(string, StringComparison.OrdinalIgnoreCase)).
@@ -297,6 +500,7 @@ namespace Fluentx
         {
             return @this.Equals(compareOperand, StringComparison.OrdinalIgnoreCase);
         }
+
         /// <summary>
         /// Returns a string that holds the words splitted by space (optional separator).e.g. thisIsGood => this Is Good.
         /// </summary>
@@ -311,6 +515,7 @@ namespace Fluentx
 
             return string.Join(separator, Regex.Split(@this, @"(?<!^)(?=[A-Z])"));
         }
+
         /// <summary>
         /// Makes the first letter of the specified string capital.
         /// </summary>
@@ -326,6 +531,7 @@ namespace Fluentx
             characters[0] = char.ToUpper(characters[0]);
             return new string(characters);
         }
+
         /// <summary>
         /// Makes the first letter of the specified string in lower case.
         /// </summary>
@@ -341,6 +547,7 @@ namespace Fluentx
             characters[0] = char.ToLower(characters[0]);
             return new string(characters);
         }
+
         /// <summary>
         /// Counts the words within the specified strings, two algorithms can be used, Regex is the default one used: more accurate but slower. Loop method is much much faster but less accurate.
         /// </summary>
@@ -375,6 +582,7 @@ namespace Fluentx
                 return count;
             }
         }
+
         /// <summary>
         /// Reverses the specifed string
         /// </summary>
@@ -399,9 +607,10 @@ namespace Fluentx
             }
             return new string(charArray);
         }
+
         /// <summary>
         /// Returns a new string in which the last occurrence of a specified string
-        /// in this instance are replaced with another specified string.  
+        /// in this instance are replaced with another specified string.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="oldValue"></param>
@@ -420,6 +629,7 @@ namespace Fluentx
                 return @this;
             }
         }
+
         /// <summary>
         /// Counts the occurences of the specified string within a string
         /// </summary>
@@ -438,9 +648,10 @@ namespace Fluentx
                 return 0;
             }
         }
+
         /// <summary>
         /// Returns a new string in which the last occurrence of a specified string
-        /// in this instance are replaced with another specified string.  
+        /// in this instance are replaced with another specified string.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="oldValue"></param>
@@ -459,6 +670,7 @@ namespace Fluentx
                 return @this;
             }
         }
+
         /// <summary>
         /// Encrypts the specified text with the specified key, decryption can be done using the same method on the ciphered data with the same key.
         /// </summary>
@@ -478,6 +690,7 @@ namespace Fluentx
 
             return new string(output);
         }
+
         /// <summary>
         /// AP is a hybrid rotative and additive hash function algorithm.
         /// </summary>
@@ -495,7 +708,7 @@ namespace Fluentx
             }
             return hash;
         }
-        
+
         /// <summary>
         /// Encrypts a string using the Cesar algorithm.
         /// </summary>
@@ -520,6 +733,7 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
+
         ///// <summary>
         ///// This method do a trim start and end for all string properties on the specified object.
         ///// </summary>
@@ -551,6 +765,7 @@ namespace Fluentx
         {
             return CesarEncrypt(input, 26 - key);
         }
+
         /// <summary>
         /// Enumeration to specify which algorithm to use when counting words for the WordCount extension method
         /// </summary>
@@ -561,11 +776,11 @@ namespace Fluentx
             /// Note: this benchmark is taken from http://www.dotnetperls.com
             /// </summary>
             Regex,
+
             /// <summary>
             /// Uses a simple loop to check characters and count words, this method is faster than regex, but less accurate.
             /// </summary>
             Loop,
         }
     }
-
 }

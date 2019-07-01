@@ -10,7 +10,7 @@
         "dependencies": {
           "AutoMapper": "6.2.2",
           "BenchmarkDotNet": "0.10.14",
-          "Fluentx": "5.3.1"
+          "Fluentx": "5.3.5"
         },
         "runtime": {
           "Fluentx.Benchmark.dll": {}
@@ -694,7 +694,7 @@
           }
         }
       },
-      "Fluentx/5.3.1": {
+      "Fluentx/5.3.5": {
         "runtime": {
           "Fluentx.dll": {}
         }
@@ -710,21 +710,21 @@
     "AutoMapper/6.2.2": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Gmj+Cp6LN2b6pTffuh0cXY1U662EzQJttSS0QRyleTpVz7IXtddPLUBFaK9gKfesdH0vkOvGv9J7QmqgY/79kA==",
+      "sha512": "sha512-eGKcnJdoF5rYMWPUaSPtlWdvua9xw4hnQN5kM/X4AXLGKghrtPIaMv+RYoA3sj0kyZ3X6wZ1Qj67F+u0pCCPaw==",
       "path": "automapper/6.2.2",
       "hashPath": "automapper.6.2.2.nupkg.sha512"
     },
     "BenchmarkDotNet/0.10.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+stXALmPGAURIs1a/DpE/fN8XeO/5dQXNcPXhI2B9JSsM4jxpkG5aBmBaK1NThP+Id25RFms4E9O/xJr9bDt2A==",
+      "sha512": "sha512-pPM8h3fv4NUg9P3Qh5ga+Klmvh3FpJ0tblBHwTcsh0XjSHvwGc4/vRJYM6ix06evf58NQcge5Cyv1PBY83ZCwg==",
       "path": "benchmarkdotnet/0.10.14",
       "hashPath": "benchmarkdotnet.0.10.14.nupkg.sha512"
     },
     "BenchmarkDotNet.Core/0.10.14": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hPG+gSYzHM3unEpx7RRKLvHtp/acAUGrNXPCLoH+iMFE3klSY41r8tfzNijUvQXBR46gVE7LtUXSQl+AgLcgrQ==",
+      "sha512": "sha512-f2B6ERn4sBCv4VVt699FYtfRfqX0NuMZoG1lXrzNkCKyPRjRWvreqqJ5aRTMf4PnosfUaylQezpi1yoITncCRQ==",
       "path": "benchmarkdotnet.core/0.10.14",
       "hashPath": "benchmarkdotnet.core.0.10.14.nupkg.sha512"
     },
@@ -773,7 +773,7 @@
     "runtime.native.System.IO.Compression/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-INBPonS5QPEgn7naufQFXJEp3zX6L4bwHgJ/ZH78aBTpeNfQMtf7C6VrAFhlq2xxWBveIOWyFzQjJ8XzHMhdOQ==",
+      "sha512": "sha512-b+V9JC/Ii3sR659flBeaBJww111425tgjcDS1k+hqV4sGh9FALRDBvJnDtQ895gAzpPTUOFDHdqaZ2Et7BpZMg==",
       "path": "runtime.native.system.io.compression/4.3.0",
       "hashPath": "runtime.native.system.io.compression.4.3.0.nupkg.sha512"
     },
@@ -822,7 +822,7 @@
     "System.Collections.Specialized/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
+      "sha512": "sha512-NoPBj0ykejqAWW4p4gGtrrL+3c84ZLSvGnHgq422ew1Rj4WKj1FA8/BCybqC111EtgcqUl6ZJNFYYS22HLgbjA==",
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
     },
@@ -1046,7 +1046,7 @@
     "System.Runtime.Serialization.Primitives/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Wz+0KOukJGAlXjtKr+5Xpuxf8+c8739RI1C+A2BoQZT+wMCCoMDDdO8/4IRHfaVINqL78GO8dW8G2lW/e45Mcw==",
+      "sha512": "sha512-2Z5t70a2SwMsfQDp9KOclaZNyQhfIga2gppq9lIUDM1A4ohTshn4JqT7ir8bvIhXgorWKYDAr6rPzEbi/nTGKg==",
       "path": "system.runtime.serialization.primitives/4.3.0",
       "hashPath": "system.runtime.serialization.primitives.4.3.0.nupkg.sha512"
     },
@@ -1130,11 +1130,11 @@
     "System.Xml.XPath.XmlDocument/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-91tvfHWHSrYFPolCwWYqbpo1YaoBUCQ3uNZ/O/zr0ev5BnkoATJoie16ywlMVUaXZtfSfNELxhtG3aqpTfwR4w==",
+      "sha512": "sha512-A/uxsWi/Ifzkmd4ArTLISMbfFs6XpRPsXZonrIqyTY70xi8t+mDtvSM5Os0RqyRDobjMBwIDHDL4NOIbkDwf7A==",
       "path": "system.xml.xpath.xmldocument/4.3.0",
       "hashPath": "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512"
     },
-    "Fluentx/5.3.1": {
+    "Fluentx/5.3.5": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

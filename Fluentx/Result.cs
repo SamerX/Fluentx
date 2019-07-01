@@ -15,7 +15,9 @@ namespace Fluentx
         /// </summary>
         public IList<string> ErrorMessages { get; set; }
         public IList<string> WarningMessages { get; set; }
-
+        /// <summary>
+        /// List of info messages
+        /// </summary>
         public IList<string> InfoMessages { get; set; }
         /// <summary>
         /// 
