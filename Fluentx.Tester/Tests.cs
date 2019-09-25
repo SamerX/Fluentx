@@ -792,7 +792,13 @@ namespace Fluentx.Tester
                 return x > 15;
             }
             , new string[] { "less than 15" });
-            var result = spec1.And(spec2).ValidateWithMessagesAndContinue(22);
+
+            var spec3 = new ExpressionSpecification<int>((x) =>
+            {
+                return x < 100 ? new[] { "less than 100" } : null;
+            });
+
+            var result = spec1.Not().ValidateWithMessagesAndContinue(22);
         }
 
         [Fact]
@@ -808,7 +814,7 @@ namespace Fluentx.Tester
                 return x > 15;
             }
             , new string[] { "less than 15" });
-            var result = spec1.Or(spec2).ValidateWithMessages(12);
+            var result = spec1.Not().ValidateWithMessages(12);
         }
 
         [Fact]
@@ -1028,11 +1034,11 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Sorenson_Dice()
         {
-            
+
             var first = "سامر ابو ربيع";
             var second = "سامر ابو وديع";
             var result = first.LevenshteinDistance(second);
-            
+
             //var val = x.ToUnixTimeInMilliSeconds();
         }
 
@@ -1114,7 +1120,7 @@ namespace Fluentx.Tester
             private string Two { get; set; }
 
             public string Three;
-            private string Four;
+            private string Four = null;
         }
         public interface IOneBusinessRules
         {

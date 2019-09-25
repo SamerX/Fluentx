@@ -43,7 +43,6 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp2.0\Fluentx.xml
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csprojAssemblyReference.cache
-D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csproj.CoreCompileInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.AssemblyInfo.cs
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp2.0\Fluentx.Tester.csproj.CopyComplete

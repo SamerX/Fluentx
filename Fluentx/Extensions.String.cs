@@ -20,7 +20,7 @@ namespace Fluentx
         }
 
         /// <summary>
-        ///
+        /// Converts the specified object using Convert.Change type, if failed returns a default value.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="obj"></param>
@@ -54,8 +54,6 @@ namespace Fluentx
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
-        /// <param name="defaultValue"></param>
-        /// <returns></returns>
         public static int? ToInt32(this string @this)
         {
             if (Int32.TryParse(@this, out int x))
@@ -81,7 +79,6 @@ namespace Fluentx
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
         /// <param name="this"></param>
-        /// <param name="defaultValue"></param>
         /// <returns></returns>
         public static uint? ToUInt32(this string @this)
         {

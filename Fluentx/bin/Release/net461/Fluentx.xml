@@ -5150,11 +5150,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateAndContinue(`0)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="instance"></param>
-            <returns></returns>
+             </summary>
+             <param name="instance"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateWithMessages(`0)">
             <summary>
@@ -5164,11 +5164,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateWithMessagesAndContinue(`0)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="instance"></param>
-            <returns></returns>
+             </summary>
+             <param name="instance"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.And(Fluentx.ISpecification{`0})">
             <summary>
@@ -5193,7 +5193,7 @@
         </member>
         <member name="T:Fluentx.CompositeSpecification`1">
             <summary>
-            Base abstract class for custom specifications 
+            Base abstract class for custom specifications
             </summary>
             <typeparam name="T"></typeparam>
         </member>
@@ -5210,11 +5210,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateAndContinue(`0)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="instance"></param>
-            <returns></returns>
+             </summary>
+             <param name="instance"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateWithMessages(`0)">
             <summary>
@@ -5224,56 +5224,56 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateWithMessagesAndContinue(`0)">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="instance"></param>
-            <returns></returns>
+             </summary>
+             <param name="instance"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.And(Fluentx.ISpecification{`0})">
             <summary>
-            Creates a new Specification holding current specification AND specified specification 
+            Creates a new Specification holding current specification AND specified specification
             </summary>
             <param name="specification"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.Or(Fluentx.ISpecification{`0})">
             <summary>
-            Creates a new specification holding current specification OR specified specification 
+            Creates a new specification holding current specification OR specified specification
             </summary>
             <param name="specification"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.Xor(Fluentx.ISpecification{`0})">
             <summary>
-            Creates a new specification holding current specification XOR specified specification 
+            Creates a new specification holding current specification XOR specified specification
             </summary>
             <param name="specification"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseAnd(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="first"></param>
-            <param name="second"></param>
-            <returns></returns>
+             </summary>
+             <param name="first"></param>
+             <param name="second"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="first"></param>
-            <param name="second"></param>
-            <returns></returns>
+             </summary>
+             <param name="first"></param>
+             <param name="second"></param>
+             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_ExclusiveOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="first"></param>
-            <param name="second"></param>
-            <returns></returns>
+             </summary>
+             <param name="first"></param>
+             <param name="second"></param>
+             <returns></returns>
         </member>
         <member name="T:Fluentx.AndSpecification`1">
             <summary>
@@ -5282,11 +5282,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.AndSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
+             </summary>
+             <param name="left"></param>
+             <param name="right"></param>
         </member>
         <member name="M:Fluentx.AndSpecification`1.Validate(`0)">
             <summary>
@@ -5323,11 +5323,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.OrSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
+             </summary>
+             <param name="left"></param>
+             <param name="right"></param>
         </member>
         <member name="M:Fluentx.OrSpecification`1.Validate(`0)">
             <summary>
@@ -5364,11 +5364,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.XorSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="left"></param>
-            <param name="right"></param>
+             </summary>
+             <param name="left"></param>
+             <param name="right"></param>
         </member>
         <member name="M:Fluentx.XorSpecification`1.Validate(`0)">
             <summary>
@@ -5405,17 +5405,23 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.ExpressionSpecification`1.#ctor(System.Func{`0,System.Boolean})">
-            <summary>
+             <summary>
             
-            </summary>
-            <param name="expression"></param>
+             </summary>
+             <param name="expression"></param>
         </member>
         <member name="M:Fluentx.ExpressionSpecification`1.#ctor(System.Func{`0,System.Boolean},System.Collections.Generic.IEnumerable{System.String})">
-            <summary>
-            
-            </summary>
-            <param name="expression"></param>
-            <param name="messages"></param>
+             <summary>
+            Creates an expression specification
+             </summary>
+             <param name="expression"></param>
+             <param name="messages"></param>
+        </member>
+        <member name="M:Fluentx.ExpressionSpecification`1.#ctor(System.Func{`0,System.Collections.Generic.IEnumerable{System.String}})">
+             <summary>
+            Creates an expression specification
+             </summary>
+             <param name="expression"></param>
         </member>
         <member name="M:Fluentx.ExpressionSpecification`1.Validate(`0)">
             <summary>
@@ -5441,6 +5447,34 @@
         <member name="M:Fluentx.ExpressionSpecification`1.ValidateWithMessagesAndContinue(`0)">
             <summary>
             Executes and validates the specification and returns all messages, it will not stop on the first failed validation.
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.NotSpecification`1.#ctor(Fluentx.ISpecification{`0})">
+             <summary>
+            Not Specification
+             </summary>
+             <param name="specification"></param>
+             <param name="right"></param>
+        </member>
+        <member name="M:Fluentx.NotSpecification`1.Validate(`0)">
+            <summary>
+            Executes and valiates the specification
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.NotSpecification`1.ValidateAndContinue(`0)">
+            <summary>
+            Validates and continues
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.NotSpecification`1.ValidateWithMessages(`0)">
+            <summary>
+            Executes and validates the specification and return validation messages
             </summary>
             <param name="instance"></param>
             <returns></returns>
