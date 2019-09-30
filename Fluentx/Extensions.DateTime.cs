@@ -327,7 +327,7 @@ namespace Fluentx
             return DateTime.Now.AddYears(@this);
         }
         /// <summary>
-        /// 
+        /// Last year from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -335,9 +335,9 @@ namespace Fluentx
         {
             return @this.AddYears(-1);
         }
-        
+
         /// <summary>
-        /// 
+        /// Last year from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -346,7 +346,7 @@ namespace Fluentx
             return @this?.AddYears(-1);
         }
         /// <summary>
-        /// 
+        /// Next year from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -355,7 +355,7 @@ namespace Fluentx
             return @this.AddYears(1);
         }
         /// <summary>
-        /// 
+        /// Next year from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -364,7 +364,7 @@ namespace Fluentx
             return @this?.AddYears(1);
         }
         /// <summary>
-        /// 
+        /// Last month from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -373,7 +373,7 @@ namespace Fluentx
             return @this.AddMonths(-1);
         }
         /// <summary>
-        /// 
+        /// Last month from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -382,7 +382,7 @@ namespace Fluentx
             return @this?.AddMonths(-1);
         }
         /// <summary>
-        /// 
+        /// Next month from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>
@@ -391,7 +391,7 @@ namespace Fluentx
             return @this.AddMonths(1);
         }
         /// <summary>
-        /// 
+        /// Next month from the specified datetime
         /// </summary>
         /// <param name="this"></param>
         /// <returns></returns>

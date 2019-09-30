@@ -1150,56 +1150,56 @@
         </member>
         <member name="M:Fluentx.Extensions.LastYear(System.DateTime)">
             <summary>
-            
+            Last year from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.LastYear(System.Nullable{System.DateTime})">
             <summary>
-            
+            Last year from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.NextYear(System.DateTime)">
             <summary>
-            
+            Next year from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.NextYear(System.Nullable{System.DateTime})">
             <summary>
-            
+            Next year from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.LastMonth(System.DateTime)">
             <summary>
-            
+            Last month from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.LastMonth(System.Nullable{System.DateTime})">
             <summary>
-            
+            Last month from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.NextMonth(System.DateTime)">
             <summary>
-            
+            Next month from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.NextMonth(System.Nullable{System.DateTime})">
             <summary>
-            
+            Next month from the specified datetime
             </summary>
             <param name="this"></param>
             <returns></returns>
