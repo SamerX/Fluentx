@@ -878,6 +878,30 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.Clamp``1(``0,``0,``0)">
+            <summary>
+            Returns if the specified value within the range returns the range, if its lower then returns the min, if its higher then returns the max.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <param name="min"></param>
+            <param name="max"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Value(Fluentx.Hour)">
+            <summary>
+            Return the integer value for Hour enum
+            </summary>
+            <param name="hour"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Value(Fluentx.Month)">
+            <summary>
+            Return the integer value for Month enum
+            </summary>
+            <param name="month"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.FromUnixTime(System.Int64)">
             <summary>
             Parses a unit time to datetime.
@@ -1585,7 +1609,7 @@
         </member>
         <member name="M:Fluentx.Extensions.Fibonacci(System.Int32)">
             <summary>
-            
+            Return an array of fibonacci up till the specified count
             </summary>
             <param name="count"></param>
             <returns></returns>
@@ -2264,12 +2288,12 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.To``1(System.IConvertible)">
-             <summary>
-            
-             </summary>
-             <typeparam name="T"></typeparam>
-             <param name="obj"></param>
-             <returns></returns>
+            <summary>
+            Converts the specified object using Convert.Change type, if failed returns a default value.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="obj"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToInt32(System.String,System.Int32)">
             <summary>
@@ -2284,8 +2308,6 @@
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
-            <param name="defaultValue"></param>
-            <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToUInt32(System.String,System.UInt32)">
             <summary>
@@ -2300,7 +2322,6 @@
             Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
             </summary>
             <param name="this"></param>
-            <param name="defaultValue"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.ToInt(System.String,System.Int32)">
@@ -2681,47 +2702,47 @@
         </member>
         <member name="F:Fluentx.Fx.Comma">
             <summary>
-            
+            Comman
             </summary>
         </member>
         <member name="F:Fluentx.Fx.Colon">
             <summary>
-            
+            Colon
             </summary>
         </member>
         <member name="F:Fluentx.Fx.SemiColon">
             <summary>
-            
+            Semi Colon
             </summary>
         </member>
         <member name="F:Fluentx.Fx.QuestionMark">
             <summary>
-            
+            Question Mark
             </summary>
         </member>
         <member name="F:Fluentx.Fx.ExclamationMark">
             <summary>
-            
+            Exclamation Mark
             </summary>
         </member>
         <member name="F:Fluentx.Fx.Dot">
             <summary>
-            
+            Dot
             </summary>
         </member>
         <member name="F:Fluentx.Fx.Dash">
             <summary>
-            
+            Dash
             </summary>
         </member>
         <member name="F:Fluentx.Fx.DollarSign">
             <summary>
-            
+            Dollar Sign
             </summary>
         </member>
         <member name="F:Fluentx.Fx.AtSign">
             <summary>
-            
+            At sign
             </summary>
         </member>
         <member name="P:Fluentx.Fx.Action">
@@ -3515,6 +3536,131 @@
             <param name="conditionActionToThroughException"></param>
             <param name="message"></param>
         </member>
+        <member name="T:Fluentx.Hour">
+            <summary>
+            Hours as an enum, its weird .NET framework dont have this :S
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H0">
+            <summary>
+            Not Set
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H1">
+            <summary>
+            1
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H2">
+            <summary>
+            2
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H3">
+            <summary>
+            3
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H4">
+            <summary>
+            4
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H5">
+            <summary>
+            5
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H6">
+            <summary>
+            6
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H7">
+            <summary>
+             7
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H8">
+            <summary>
+            8
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H9">
+            <summary>
+            9
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H10">
+            <summary>
+            10
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H11">
+            <summary>
+            11
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H12">
+            <summary>
+            12
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H13">
+            <summary>
+            13
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H14">
+            <summary>
+            14
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H15">
+            <summary>
+            15
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H16">
+            <summary>
+            16
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H17">
+            <summary>
+            17
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H18">
+            <summary>
+            18
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H19">
+            <summary>
+            19
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H20">
+            <summary>
+            20
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H21">
+            <summary>
+            21
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H22">
+            <summary>
+            22
+            </summary>
+        </member>
+        <member name="F:Fluentx.Hour.H23">
+            <summary>
+            23
+            </summary>
+        </member>
         <member name="T:Fluentx.IFluentInterface">
             <summary>
             Represnt the core of a fluent interface in fluentx
@@ -4268,6 +4414,76 @@
             <param name="dest"></param>
             <returns></returns>
         </member>
+        <member name="T:Fluentx.Month">
+            <summary>
+            Months as an enum, its weird .NET framework dont have this :S
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.NotSet">
+            <summary>
+            Not Set
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.January">
+            <summary>
+            January
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.February">
+            <summary>
+            February
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.March">
+            <summary>
+            March
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.April">
+            <summary>
+            April
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.May">
+            <summary>
+            May
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.June">
+            <summary>
+            June
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.July">
+            <summary>
+             July
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.August">
+            <summary>
+            August
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.September">
+            <summary>
+            September
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.October">
+            <summary>
+            October
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.November">
+            <summary>
+            November
+            </summary>
+        </member>
+        <member name="F:Fluentx.Month.December">
+            <summary>
+            December
+            </summary>
+        </member>
         <member name="T:Fluentx.MultitionaryBase`2">
             <summary>
             Multi-value dictionary identified by a key
@@ -4929,12 +5145,17 @@
         </member>
         <member name="T:Fluentx.Result">
             <summary>
-            
+            A class that represents a proper data with structured schema for info, wanrings and errors
             </summary>
         </member>
         <member name="P:Fluentx.Result.ErrorMessages">
             <summary>
-            
+            List of error messages
+            </summary>
+        </member>
+        <member name="P:Fluentx.Result.WarningMessages">
+            <summary>
+            List of warning messages
             </summary>
         </member>
         <member name="P:Fluentx.Result.InfoMessages">
@@ -4944,59 +5165,59 @@
         </member>
         <member name="P:Fluentx.Result.HasErrors">
             <summary>
-            
+            Returns if there is any errors
             </summary>
         </member>
         <member name="P:Fluentx.Result.HasWarnings">
             <summary>
-            
+            Return if there is any warnings
             </summary>
         </member>
         <member name="P:Fluentx.Result.HasInfos">
             <summary>
-            
+            Returns if there is any infos
             </summary>
         </member>
         <member name="M:Fluentx.Result.#ctor">
             <summary>
-            
+            Constructor
             </summary>
         </member>
         <member name="M:Fluentx.Result.#ctor(System.String[])">
             <summary>
-            
+            Constrcutor
             </summary>
             <param name="errorMessages"></param>
         </member>
         <member name="M:Fluentx.Result.#ctor(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Constrcutor
             </summary>
             <param name="errorMessages"></param>
         </member>
         <member name="M:Fluentx.Result.Return">
             <summary>
-            
+            Returns an empty result object
             </summary>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Result.Error(System.String[])">
             <summary>
-            
+            Returns a result object with the specified error messages
             </summary>
             <param name="errorMessages"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Result.Error(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Returns a result object with the specified error messages
             </summary>
             <param name="errorMessages"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Result.Return``1(``0,System.String[])">
             <summary>
-            
+            Returns a result object with the specified data
             </summary>
             <typeparam name="T"></typeparam>
             <param name="data"></param>
@@ -5005,7 +5226,7 @@
         </member>
         <member name="M:Fluentx.Result.Return``1(``0,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Returns a result object with the specified data
             </summary>
             <typeparam name="T"></typeparam>
             <param name="data"></param>
@@ -5014,7 +5235,7 @@
         </member>
         <member name="M:Fluentx.Result.Error``1(System.String[])">
             <summary>
-            
+            Returns a result object with the specified error messages
             </summary>
             <typeparam name="T"></typeparam>
             <param name="errorMessages"></param>
@@ -5022,7 +5243,7 @@
         </member>
         <member name="M:Fluentx.Result.Error``1(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Returns a result object with the specified error messages
             </summary>
             <typeparam name="T"></typeparam>
             <param name="errorMessages"></param>
@@ -5030,48 +5251,48 @@
         </member>
         <member name="T:Fluentx.Result`1">
             <summary>
-            
+            Represent a result object
             </summary>
             <typeparam name="T"></typeparam>
         </member>
         <member name="P:Fluentx.Result`1.Data">
             <summary>
-            
+            Data persisted with the results objects that to be returned
             </summary>
         </member>
         <member name="M:Fluentx.Result`1.#ctor">
             <summary>
-            
+            Constructor
             </summary>
         </member>
         <member name="M:Fluentx.Result`1.#ctor(`0)">
             <summary>
-            
+            Constructor
             </summary>
             <param name="data"></param>
         </member>
         <member name="M:Fluentx.Result`1.#ctor(System.String[])">
             <summary>
-            
+            Constructor
             </summary>
             <param name="errorMessages"></param>
         </member>
         <member name="M:Fluentx.Result`1.#ctor(System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Constructor
             </summary>
             <param name="errorMessages"></param>
         </member>
         <member name="M:Fluentx.Result`1.#ctor(`0,System.String[])">
             <summary>
-            
+            Constructor
             </summary>
             <param name="data"></param>
             <param name="errorMessages"></param>
         </member>
         <member name="M:Fluentx.Result`1.#ctor(`0,System.Collections.Generic.IEnumerable{System.String})">
             <summary>
-            
+            Constructor
             </summary>
             <param name="data"></param>
             <param name="errorMessages"></param>
@@ -5150,11 +5371,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateAndContinue(`0)">
-             <summary>
-            
-             </summary>
-             <param name="instance"></param>
-             <returns></returns>
+            <summary>
+            Runs the specification returning success of failure
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateWithMessages(`0)">
             <summary>
@@ -5165,7 +5386,7 @@
         </member>
         <member name="M:Fluentx.ISpecification`1.ValidateWithMessagesAndContinue(`0)">
              <summary>
-            
+            Validates the specification and returns a list of errors if any.
              </summary>
              <param name="instance"></param>
              <returns></returns>
@@ -5191,6 +5412,26 @@
             <param name="specification"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.ISpecification`1.Not">
+            <summary>
+            Negates the current specification
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ISpecification`1.AndNot(Fluentx.ISpecification{`0})">
+            <summary>
+            Anding with a negate to the specified specification
+            </summary>
+            <param name="specification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.ISpecification`1.OrNot(Fluentx.ISpecification{`0})">
+            <summary>
+            Oring with a negate to the specified specification
+            </summary>
+            <param name="specification"></param>
+            <returns></returns>
+        </member>
         <member name="T:Fluentx.CompositeSpecification`1">
             <summary>
             Base abstract class for custom specifications
@@ -5210,11 +5451,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateAndContinue(`0)">
-             <summary>
-            
-             </summary>
-             <param name="instance"></param>
-             <returns></returns>
+            <summary>
+            Validate the specification and returns success or failure.
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateWithMessages(`0)">
             <summary>
@@ -5224,11 +5465,11 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.ValidateWithMessagesAndContinue(`0)">
-             <summary>
-            
-             </summary>
-             <param name="instance"></param>
-             <returns></returns>
+            <summary>
+            Validates the specification and returns errors if any.
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.And(Fluentx.ISpecification{`0})">
             <summary>
@@ -5251,29 +5492,49 @@
             <param name="specification"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.CompositeSpecification`1.Not">
+            <summary>
+            Negates the current specification
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.CompositeSpecification`1.AndNot(Fluentx.ISpecification{`0})">
+            <summary>
+            Anding with a negate to the specified specification
+            </summary>
+            <param name="specification"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.CompositeSpecification`1.OrNot(Fluentx.ISpecification{`0})">
+            <summary>
+            Oring with a negate to the specified specification
+            </summary>
+            <param name="specification"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseAnd(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="first"></param>
-             <param name="second"></param>
-             <returns></returns>
+            <summary>
+            And Specification
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_BitwiseOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="first"></param>
-             <param name="second"></param>
-             <returns></returns>
+            <summary>
+            OR Specification
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
         </member>
         <member name="M:Fluentx.CompositeSpecification`1.op_ExclusiveOr(Fluentx.CompositeSpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="first"></param>
-             <param name="second"></param>
-             <returns></returns>
+            <summary>
+            XOR specification
+            </summary>
+            <param name="first"></param>
+            <param name="second"></param>
+            <returns></returns>
         </member>
         <member name="T:Fluentx.AndSpecification`1">
             <summary>
@@ -5282,11 +5543,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.AndSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="left"></param>
-             <param name="right"></param>
+            <summary>
+            Constructor
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
         </member>
         <member name="M:Fluentx.AndSpecification`1.Validate(`0)">
             <summary>
@@ -5323,11 +5584,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.OrSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="left"></param>
-             <param name="right"></param>
+            <summary>
+            Constructor
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
         </member>
         <member name="M:Fluentx.OrSpecification`1.Validate(`0)">
             <summary>
@@ -5364,11 +5625,11 @@
             <typeparam name="T"></typeparam>
         </member>
         <member name="M:Fluentx.XorSpecification`1.#ctor(Fluentx.ISpecification{`0},Fluentx.ISpecification{`0})">
-             <summary>
-            
-             </summary>
-             <param name="left"></param>
-             <param name="right"></param>
+            <summary>
+            Constructor
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
         </member>
         <member name="M:Fluentx.XorSpecification`1.Validate(`0)">
             <summary>
@@ -5406,7 +5667,7 @@
         </member>
         <member name="M:Fluentx.ExpressionSpecification`1.#ctor(System.Func{`0,System.Boolean})">
              <summary>
-            
+            Constructor
              </summary>
              <param name="expression"></param>
         </member>
@@ -5451,12 +5712,17 @@
             <param name="instance"></param>
             <returns></returns>
         </member>
+        <member name="T:Fluentx.NotSpecification`1">
+            <summary>
+            Represents a negate based specification
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
         <member name="M:Fluentx.NotSpecification`1.#ctor(Fluentx.ISpecification{`0})">
-             <summary>
-            Not Specification
-             </summary>
-             <param name="specification"></param>
-             <param name="right"></param>
+            <summary>
+            Represents a negate based specification
+            </summary>
+            <param name="specification"></param>
         </member>
         <member name="M:Fluentx.NotSpecification`1.Validate(`0)">
             <summary>
@@ -5475,6 +5741,13 @@
         <member name="M:Fluentx.NotSpecification`1.ValidateWithMessages(`0)">
             <summary>
             Executes and validates the specification and return validation messages
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.NotSpecification`1.ValidateWithMessagesAndContinue(`0)">
+            <summary>
+            Validate the specification and returns errors if any
             </summary>
             <param name="instance"></param>
             <returns></returns>

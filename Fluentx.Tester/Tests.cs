@@ -31,7 +31,7 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Celius()
         {
-            var result = 90.ToCelcius();
+            var result = 90.ToCelcius(); 10.Clamp(13, 14);
         }
 
         [Fact]

@@ -917,6 +917,37 @@ namespace Fluentx
         {
             return @this.NotImplement(type) && @this.IsNotSubclass(type);
         }
+        /// <summary>
+        /// Returns if the specified value within the range returns the range, if its lower then returns the min, if its higher then returns the max.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="value"></param>
+        /// <param name="min"></param>
+        /// <param name="max"></param>
+        /// <returns></returns>
+        public static T Clamp<T>(this T value, T min, T max) where T : IComparable<T>
+        {
+            return (value.CompareTo(min) < 0) ? min : (value.CompareTo(max) > 0) ? max : value;
+        }
+        /// <summary>
+        /// Return the integer value for Hour enum
+        /// </summary>
+        /// <param name="hour"></param>
+        /// <returns></returns>
+        public static int Value(this Hour hour)
+        {
+            return (int)hour;
+        }
+
+        /// <summary>
+        /// Return the integer value for Month enum
+        /// </summary>
+        /// <param name="month"></param>
+        /// <returns></returns>
+        public static int Value(this Month month)
+        {
+            return (int)month;
+        }
 
     }
 }

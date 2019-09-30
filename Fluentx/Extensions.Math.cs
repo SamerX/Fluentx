@@ -27,7 +27,7 @@ namespace Fluentx
         }
 
         /// <summary>
-        /// 
+        /// Return an array of fibonacci up till the specified count
         /// </summary>
         /// <param name="count"></param>
         /// <returns></returns>
@@ -354,6 +354,7 @@ namespace Fluentx
                 return 0;
             }
         }
+        
         ///// <summary>
         ///// 
         ///// </summary>

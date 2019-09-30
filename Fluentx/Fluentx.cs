@@ -43,39 +43,39 @@ namespace Fluentx
         /// </summary>
         public const string UnderScore = "_";
         /// <summary>
-        /// 
+        /// Comman
         /// </summary>
         public const string Comma = ",";
         /// <summary>
-        /// 
+        /// Colon
         /// </summary>
         public const string Colon = ":";
         /// <summary>
-        /// 
+        /// Semi Colon
         /// </summary>
         public const string SemiColon = ";";
         /// <summary>
-        /// 
+        /// Question Mark
         /// </summary>
         public const string QuestionMark = "?";
         /// <summary>
-        /// 
+        /// Exclamation Mark
         /// </summary>
         public const string ExclamationMark = "!";
         /// <summary>
-        /// 
+        /// Dot
         /// </summary>
         public const string Dot = ".";
         /// <summary>
-        /// 
+        /// Dash
         /// </summary>
         public const string Dash = "-";
         /// <summary>
-        /// 
+        /// Dollar Sign
         /// </summary>
         public const string DollarSign = "$";
         /// <summary>
-        /// 
+        /// At sign
         /// </summary>
         public const string AtSign = "@";
 
@@ -1521,8 +1521,7 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
-
-
+        
 
         /// <summary>
         /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.
