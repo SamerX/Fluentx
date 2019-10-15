@@ -47,7 +47,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(params string[] errorMessages)
         {
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
         /// <summary>
         /// Constrcutor
@@ -55,7 +55,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(IEnumerable<string> errorMessages)
         {
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
         /// <summary>
         /// Returns an empty result object
@@ -159,7 +159,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(params string[] errorMessages)
         {
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
         /// <summary>
         /// Constructor
@@ -167,7 +167,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(IEnumerable<string> errorMessages)
         {
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
         /// <summary>
         /// Constructor
@@ -177,7 +177,7 @@ namespace Fluentx
         public Result(T data, params string[] errorMessages)
         {
             Data = data;
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
         /// <summary>
         /// Constructor
@@ -187,7 +187,7 @@ namespace Fluentx
         public Result(T data, IEnumerable<string> errorMessages)
         {
             Data = data;
-            ErrorMessages = errorMessages?.ToList();
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
         }
     }
 }

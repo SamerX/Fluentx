@@ -3733,11 +3733,10 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samer\\.nuget\\packages\\": {},
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+    "C:\\Users\\samer\\.nuget\\packages\\": {}
   },
   "project": {
-    "version": "5.3.7",
+    "version": "5.3.8",
     "restore": {
       "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
       "projectName": "Fluentx",
@@ -3746,9 +3745,6 @@
       "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\obj\\",
       "projectStyle": "PackageReference",
       "crossTargeting": true,
-      "fallbackFolders": [
-        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-      ],
       "configFilePaths": [
         "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

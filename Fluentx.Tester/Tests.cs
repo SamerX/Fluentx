@@ -934,6 +934,8 @@ namespace Fluentx.Tester
         public void Test_NextDay()
         {
             var date = DateTime.Now.NextDay().EndOfDay();
+
+            var x = Result.Return(new string[] { "one", "two" });
             Assert.Equal(true, true);
         }
         [Fact]
