@@ -936,6 +936,8 @@ namespace Fluentx.Tester
             var date = DateTime.Now.NextDay().EndOfDay();
 
             var x = Result.Return(new string[] { "one", "two" });
+
+            var value1 = 7.5.DaysToMinutes();
             Assert.Equal(true, true);
         }
         [Fact]

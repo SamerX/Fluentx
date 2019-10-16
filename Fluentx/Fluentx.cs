@@ -739,7 +739,7 @@ namespace Fluentx
         }
 
         /// <summary>
-        /// 
+        /// Evaluates the specified action to boolean
         /// </summary>
         /// <param name="action"></param>
         /// <returns></returns>

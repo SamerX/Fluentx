@@ -1487,6 +1487,90 @@
             <param name="value">The <see cref="T:System.DateTime"/> find Noon for.</param>
             <returns>A <see cref="T:System.DateTime"/> value with time part set to Noon (12:00:00h).</returns>
         </member>
+        <member name="M:Fluentx.Extensions.MinutesToSeconds(System.Double)">
+            <summary>
+            Minutes to seconds
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToMinutes(System.Double)">
+            <summary>
+            Seconds to minutes
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToSeconds(System.Double)">
+            <summary>
+            Hours to seconds
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToHours(System.Double)">
+            <summary>
+            Seconds to hours
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToHours(System.Double)">
+            <summary>
+            Minutes to Hours
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToMinutes(System.Double)">
+            <summary>
+            Hours to Minutes
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToDays(System.Double)">
+            <summary>
+            Minutes to Days
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToMinutes(System.Double)">
+            <summary>
+            Days to Minutes
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToDays(System.Double)">
+            <summary>
+            Hours to Days
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToHours(System.Double)">
+            <summary>
+            Days to Hours
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToDays(System.Double)">
+            <summary>
+            Seconds to Days
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToSeconds(System.Double)">
+            <summary>
+            Days to Seconds
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Age(System.DateTime)">
             <summary>
             Creates an age instance from the specified datetime instance.
@@ -3096,7 +3180,7 @@
         </member>
         <member name="M:Fluentx.Fx.Is(System.Func{System.Boolean})">
             <summary>
-            
+            Evaluates the specified action to boolean
             </summary>
             <param name="action"></param>
             <returns></returns>
