@@ -890,6 +890,115 @@ namespace Fluentx
         {
             return TimeSpan.FromDays(days).TotalSeconds;
         }
+
+        /// <summary>
+        /// Minutes to seconds
+        /// </summary>
+        /// <param name="minutes"></param>
+        /// <returns></returns>
+        public static double MinutesToSeconds(this int minutes)
+        {
+            return TimeSpan.FromMinutes(minutes).TotalSeconds;
+        }
+        /// <summary>
+        /// Seconds to minutes
+        /// </summary>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        public static double SecondsToMinutes(this int seconds)
+        {
+            return TimeSpan.FromSeconds(seconds).TotalMinutes;
+        }
+        /// <summary>
+        /// Hours to seconds
+        /// </summary>
+        /// <param name="hours"></param>
+        /// <returns></returns>
+        public static double HoursToSeconds(this int hours)
+        {
+            return TimeSpan.FromHours(hours).TotalSeconds;
+        }
+        /// <summary>
+        /// Seconds to hours
+        /// </summary>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        public static double SecondsToHours(this int seconds)
+        {
+            return TimeSpan.FromSeconds(seconds).TotalHours;
+        }
+        /// <summary>
+        /// Minutes to Hours
+        /// </summary>
+        /// <param name="minutes"></param>
+        /// <returns></returns>
+        public static double MinutesToHours(this int minutes)
+        {
+            return TimeSpan.FromMinutes(minutes).TotalHours;
+        }
+        /// <summary>
+        /// Hours to Minutes
+        /// </summary>
+        /// <param name="hours"></param>
+        /// <returns></returns>
+        public static double HoursToMinutes(this int hours)
+        {
+            return TimeSpan.FromHours(hours).TotalMinutes;
+        }
+        /// <summary>
+        /// Minutes to Days
+        /// </summary>
+        /// <param name="minutes"></param>
+        /// <returns></returns>
+        public static double MinutesToDays(this int minutes)
+        {
+            return TimeSpan.FromMinutes(minutes).TotalDays;
+        }
+        /// <summary>
+        /// Days to Minutes
+        /// </summary>
+        /// <param name="days"></param>
+        /// <returns></returns>
+        public static double DaysToMinutes(this int days)
+        {
+            return TimeSpan.FromDays(days).TotalMinutes;
+        }
+        /// <summary>
+        /// Hours to Days
+        /// </summary>
+        /// <param name="hours"></param>
+        /// <returns></returns>
+        public static double HoursToDays(this int hours)
+        {
+            return TimeSpan.FromHours(hours).TotalDays;
+        }
+        /// <summary>
+        /// Days to Hours
+        /// </summary>
+        /// <param name="days"></param>
+        /// <returns></returns>
+        public static double DaysToHours(this int days)
+        {
+            return TimeSpan.FromDays(days).TotalHours;
+        }
+        /// <summary>
+        /// Seconds to Days
+        /// </summary>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        public static double SecondsToDays(this int seconds)
+        {
+            return TimeSpan.FromSeconds(seconds).TotalDays;
+        }
+        /// <summary>
+        /// Days to Seconds
+        /// </summary>
+        /// <param name="days"></param>
+        /// <returns></returns>
+        public static double DaysToSeconds(this int days)
+        {
+            return TimeSpan.FromDays(days).TotalSeconds;
+        }
         //public static int Age(this DateTime dateTime)
         //{
         //    var today = DateTime.Today;

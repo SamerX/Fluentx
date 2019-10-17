@@ -1571,6 +1571,90 @@
             <param name="days"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.MinutesToSeconds(System.Int32)">
+            <summary>
+            Minutes to seconds
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToMinutes(System.Int32)">
+            <summary>
+            Seconds to minutes
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToSeconds(System.Int32)">
+            <summary>
+            Hours to seconds
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToHours(System.Int32)">
+            <summary>
+            Seconds to hours
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToHours(System.Int32)">
+            <summary>
+            Minutes to Hours
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToMinutes(System.Int32)">
+            <summary>
+            Hours to Minutes
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToDays(System.Int32)">
+            <summary>
+            Minutes to Days
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToMinutes(System.Int32)">
+            <summary>
+            Days to Minutes
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToDays(System.Int32)">
+            <summary>
+            Hours to Days
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToHours(System.Int32)">
+            <summary>
+            Days to Hours
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToDays(System.Int32)">
+            <summary>
+            Seconds to Days
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToSeconds(System.Int32)">
+            <summary>
+            Days to Seconds
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Age(System.DateTime)">
             <summary>
             Creates an age instance from the specified datetime instance.
