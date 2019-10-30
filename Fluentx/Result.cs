@@ -13,15 +13,15 @@ namespace Fluentx
         /// <summary>
         /// List of error messages
         /// </summary>
-        public IList<string> ErrorMessages { get; set; }
+        public IList<string> ErrorMessages { get; set; } = new List<string>();
         /// <summary>
         /// List of warning messages
         /// </summary>
-        public IList<string> WarningMessages { get; set; }
+        public IList<string> WarningMessages { get; set; } = new List<string>();
         /// <summary>
         /// List of info messages
         /// </summary>
-        public IList<string> InfoMessages { get; set; }
+        public IList<string> InfoMessages { get; set; } = new List<string>();
         /// <summary>
         /// Returns if there is any errors
         /// </summary>
@@ -47,7 +47,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(params string[] errorMessages)
         {
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>();
         }
         /// <summary>
         /// Constrcutor
@@ -55,7 +55,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(IEnumerable<string> errorMessages)
         {
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>(); ;
         }
         /// <summary>
         /// Returns an empty result object
@@ -159,7 +159,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(params string[] errorMessages)
         {
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>(); ;
         }
         /// <summary>
         /// Constructor
@@ -167,7 +167,7 @@ namespace Fluentx
         /// <param name="errorMessages"></param>
         public Result(IEnumerable<string> errorMessages)
         {
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>(); ;
         }
         /// <summary>
         /// Constructor
@@ -177,7 +177,7 @@ namespace Fluentx
         public Result(T data, params string[] errorMessages)
         {
             Data = data;
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>(); ;
         }
         /// <summary>
         /// Constructor
@@ -187,7 +187,7 @@ namespace Fluentx
         public Result(T data, IEnumerable<string> errorMessages)
         {
             Data = data;
-            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : null;
+            ErrorMessages = errorMessages.IsNotNullOrEmpty() ? errorMessages.ToList() : new List<string>(); ;
         }
     }
 }
