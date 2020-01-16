@@ -12,7 +12,7 @@ namespace Fluentx
     /// <typeparam name="TEntity"></typeparam>    
     public sealed class Expresser<TEntity>
     {
-        Dictionary<string, object> store = new Dictionary<string, object>();
+        readonly Dictionary<string, object> store = new Dictionary<string, object>();
         /// <summary>
         /// 
         /// </summary>

@@ -493,7 +493,7 @@ namespace Fluentx
         public static void RetryOnFail(Func<bool> action, ushort attempts = 3, ushort attemptSleepInMilliSeconds = 1000)
         {
             int counter = 0;
-            var isSuccess = false;
+            bool isSuccess;
             do
             {
                 counter++;
@@ -1521,7 +1521,7 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
-        
+
 
         /// <summary>
         /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.
@@ -1732,8 +1732,24 @@ namespace Fluentx
                 }}".FormatWith(name);
         }
         /// <summary>
+        /// Compares two byte arrays in length-constant time. This comparison
+        /// method is used so that password hashes cannot be extracted from
+        /// on-line systems using a timing attack and then attacked off-line.
+        /// </summary>
+        /// <param name="a">The first byte array.</param>
+        /// <param name="b">The second byte array.</param>
+        /// <returns>True if both byte arrays are equal. False otherwise.</returns>
+        public static bool SlowEquals(byte[] a, byte[] b)
+        {
+            uint diff = (uint)a.Length ^ (uint)b.Length;
+            for (int i = 0; i < a.Length && i < b.Length; i++)
+                diff |= (uint)(a[i] ^ b[i]);
+            return diff == 0;
+        }
+        /// <summary>
         /// Private class to hold information about switch case statement.
         /// </summary>
+        /// 
         private class CaseInfo
         {
             public object Operand { get; set; }

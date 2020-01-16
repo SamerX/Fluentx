@@ -14,7 +14,7 @@ namespace Fluentx
     /// </summary>
     public static partial class Extensions
     {
-        private static Random random = new Random();
+        private static readonly Random random = new Random();
         /// <summary>
         /// Extension method to perform For Each operation.
         /// </summary>
@@ -168,7 +168,7 @@ namespace Fluentx
             //throw new ArgumentNullException("instance is null, can't check against null.");
             return list.Contains(@this);
         }
-        
+
         /// <summary>
         /// Extension method to evaluate if the specified object doest not exists within the specified list.
         /// </summary>
@@ -948,6 +948,54 @@ namespace Fluentx
         {
             return (int)month;
         }
+        /// <summary>
+        /// Return an enumerable of enumerables from the specfied Enumerable, it actually divides an enumerable to several enumerables based on size
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> source, int size)
+        {
+            while (source.Any())
+            {
+                yield return source.Take(size);
+                source = source.Skip(size);
+            }
+        }
+        /// <summary>
+        /// Same as where but only added when the condition is met
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static IEnumerable<TSource> WhereIf<TSource>(this IEnumerable<TSource> source, Func<TSource, bool> predicate, bool condition)
+        {
+            if (condition)
+                return source.Where(predicate);
+            else
+                return source;
+        }
+
+#if !NETSTANDARD1_5 && !NETSTANDARD1_6
+        /// <summary>
+        /// Same as where but only added when the condition is met
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="predicate"></param>
+        /// <param name="condition"></param>
+        /// <returns></returns>
+        public static IQueryable<TSource> WhereIf<TSource>(this IQueryable<TSource> source, Expression<Func<TSource, bool>> predicate, bool condition)
+        {
+            if (condition)
+                return source.Where(predicate);
+            else
+                return source;
+        }
+#endif
 
     }
 }

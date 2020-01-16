@@ -936,7 +936,7 @@ namespace Fluentx.Tester
             var date = DateTime.Now.NextDay().EndOfDay();
 
             var x = Result.Return(new string[] { "one", "two" });
-            int u = 7;
+            
             
             
             
@@ -1127,7 +1127,7 @@ namespace Fluentx.Tester
             private string Two { get; set; }
 
             public string Three;
-            private string Four = null;
+            private readonly string Four = null;
         }
         public interface IOneBusinessRules
         {

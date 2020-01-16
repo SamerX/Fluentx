@@ -220,8 +220,7 @@ namespace Fluentx
 
                 for (int i1 = len - 1; i1 > -1; --i1)
                 {
-                    int i2 = 0;
-
+                    int i2;
                     for (i2 = text.IndexOf(chars[i1]) + 1; i2 < text.Length; ++i2)
                     {
                         chars[i1] = text[i2];

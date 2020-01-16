@@ -1226,7 +1226,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Fluentx/5.4.0": {
+      "Fluentx/5.4.1": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
@@ -4685,7 +4685,7 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "Fluentx/5.4.0": {
+    "Fluentx/5.4.1": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -4695,7 +4695,7 @@
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.2.2",
       "BenchmarkDotNet >= 0.10.14",
-      "Fluentx >= 5.4.0",
+      "Fluentx >= 5.4.1",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
@@ -4765,7 +4765,7 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.100\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

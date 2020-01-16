@@ -9,7 +9,7 @@
       "Fluentx.Tester/1.0.0": {
         "dependencies": {
           "BenchmarkDotNet.Core": "0.10.14",
-          "Fluentx": "5.4.0",
+          "Fluentx": "5.4.1",
           "Microsoft.NET.Test.Sdk": "15.3.0-preview-20170628-02",
           "xunit": "2.2.0",
           "xunit.runner.visualstudio": "2.2.0"
@@ -1106,7 +1106,7 @@
           "System.Threading.ThreadPool": "4.3.0"
         }
       },
-      "Fluentx/5.4.0": {
+      "Fluentx/5.4.1": {
         "runtime": {
           "Fluentx.dll": {}
         }
@@ -1693,7 +1693,7 @@
       "path": "xunit.runner.visualstudio/2.2.0",
       "hashPath": "xunit.runner.visualstudio.2.2.0.nupkg.sha512"
     },
-    "Fluentx/5.4.0": {
+    "Fluentx/5.4.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

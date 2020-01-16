@@ -103,7 +103,7 @@ namespace Fluentx
         /// <returns></returns>
         public static T TryParse(int value)
         {
-            return TryParse(value, "value", item => item.Value == value);
+            return TryParse(item => item.Value == value);
         }
         /// <summary>
         /// Tries to parse a name to the correspondent enumclass instance
@@ -112,17 +112,14 @@ namespace Fluentx
         /// <returns></returns>
         public static T TryParse(string name)
         {
-            return TryParse(name, "name", item => item.Name.IgnoreCaseEqual(name));
+            return TryParse(item => item.Name.IgnoreCaseEqual(name));
         }
         /// <summary>
         /// 
         /// </summary>
-        /// <typeparam name="K"></typeparam>
-        /// <param name="value"></param>
-        /// <param name="description"></param>
         /// <param name="predicate"></param>
         /// <returns></returns>
-        private static T TryParse<K>(K value, string description, Func<T, bool> predicate)
+        private static T TryParse(Func<T, bool> predicate)
         {
             var matchingItem = List().FirstOrDefault(predicate);
             return matchingItem;
