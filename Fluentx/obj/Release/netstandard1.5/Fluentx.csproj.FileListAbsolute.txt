@@ -6,4 +6,3 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.Assem
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.AssemblyInfo.cs
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.pdb
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csprojAssemblyReference.cache

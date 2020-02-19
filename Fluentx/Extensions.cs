@@ -21,7 +21,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void ForEach<T>(this IEnumerable<T> @this, Action<T> action)
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T> action)
         {
             if (@this != null)
             {
@@ -30,6 +30,7 @@ namespace Fluentx
                     action(item);
                 }
             }
+            return @this;
         }
         /// <summary>
         /// Performs a foreach loop on the specified list by excuting action for each item in the Enumerable providing the current index of the item.
@@ -37,7 +38,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
+        public static IEnumerable<T> ForEach<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
             if (@this != null)
             {
@@ -48,6 +49,7 @@ namespace Fluentx
                     index += 1;
                 }
             }
+            return @this;
         }
         /// <summary>
         /// (Synonym to ForEach) Extension method to perform For Each operation.
@@ -55,7 +57,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void ForEvery<T>(this IEnumerable<T> @this, Action<T> action)
+        public static IEnumerable<T> ForEvery<T>(this IEnumerable<T> @this, Action<T> action)
         {
             if (@this != null)
             {
@@ -64,6 +66,7 @@ namespace Fluentx
                     action(item);
                 }
             }
+            return @this;
         }
         /// <summary>
         /// (Synonym to ForEach) Performs a foreach loop on the specified list by excuting action for each item in the Enumerable providing the current index of the item.
@@ -71,7 +74,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="action"></param>
-        public static void ForEvery<T>(this IEnumerable<T> @this, Action<T, int> action)
+        public static IEnumerable<T> ForEvery<T>(this IEnumerable<T> @this, Action<T, int> action)
         {
             if (@this != null)
             {
@@ -82,14 +85,9 @@ namespace Fluentx
                     index += 1;
                 }
             }
+            return @this;
         }
-        /// <summary>
-        /// Returns whether the specified source doesn't contain the specified value or not.
-        /// </summary>
-        /// <typeparam name="TSource"></typeparam>
-        /// <param name="source"></param>
-        /// <param name="value"></param>
-        /// <returns></returns>
+
         public static bool NotContains<TSource>(this IEnumerable<TSource> source, TSource value)
         {
             return !source.Contains(value);
@@ -916,6 +914,26 @@ namespace Fluentx
         public static bool NotInherit(this Type @this, Type type)
         {
             return @this.NotImplement(type) && @this.IsNotSubclass(type);
+        }
+        /// <summary>
+        /// Returns whether the specified types belongs to one of the simple types below:
+        /// Int16, Int32, Int64, UInt16, UInt32, UInt64, DateTime, Boolean, Byte, SByte, Char, 
+        /// Double, Single, Decimal, IntPtr, UIntPtr, String, Guid And thier Nullable counterparts.
+        /// Please note that the difinition of simple types is completly different from primitive types.
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static bool IsSimpleType(this Type @this)
+        {
+            var simpleTypes = new Type[]
+            {
+                typeof(Int16),typeof(Int32),typeof(Int64),typeof(UInt16),typeof(UInt32),typeof(UInt64),
+                typeof(DateTime), typeof(Boolean), typeof(Byte), typeof(SByte), typeof(Char), typeof(Double),
+                typeof(Single), typeof(Decimal), typeof(IntPtr), typeof(UIntPtr), typeof(String), typeof(Guid)
+            };
+
+            return simpleTypes.Contains(@this) || @this.IsSubclass(typeof(Nullable<>)) && simpleTypes.Contains(@this.GenericTypeArguments.FirstOrDefault());
+
         }
         /// <summary>
         /// Returns if the specified value within the range returns the range, if its lower then returns the min, if its higher then returns the max.

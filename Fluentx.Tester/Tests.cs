@@ -25,6 +25,10 @@ namespace Fluentx.Tester
         {
             bool result = false;
             Fx.If(() => { return false; }).Then(() => { result = true; }).Else(() => { result = false; });
+
+            var b1= typeof(string).IsSimpleType();
+            var b2 = typeof(int?).IsSimpleType();
+
             Assert.False(result);
         }
 

@@ -133,13 +133,10 @@
             <param name="name"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Enumclass`1.TryParse``1(``0,System.String,System.Func{`0,System.Boolean})">
+        <member name="M:Fluentx.Enumclass`1.TryParse(System.Func{`0,System.Boolean})">
             <summary>
             
             </summary>
-            <typeparam name="K"></typeparam>
-            <param name="value"></param>
-            <param name="description"></param>
             <param name="predicate"></param>
             <returns></returns>
         </member>
@@ -309,15 +306,6 @@
             <typeparam name="T"></typeparam>
             <param name="this"></param>
             <param name="action"></param>
-        </member>
-        <member name="M:Fluentx.Extensions.NotContains``1(System.Collections.Generic.IEnumerable{``0},``0)">
-            <summary>
-            Returns whether the specified source doesn't contain the specified value or not.
-            </summary>
-            <typeparam name="TSource"></typeparam>
-            <param name="source"></param>
-            <param name="value"></param>
-            <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
             <summary>
@@ -878,6 +866,16 @@
             <param name="type"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsSimpleType(System.Type)">
+            <summary>
+            Returns whether the specified types belongs to one of the simple types below:
+            Int16, Int32, Int64, UInt16, UInt32, UInt64, DateTime, Boolean, Byte, SByte, Char, 
+            Double, Single, Decimal, IntPtr, UIntPtr, String, Guid And thier Nullable counterparts.
+            Please note that the difinition of simple types is completly different from primitive types.
+            </summary>
+            <param name="this"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Clamp``1(``0,``0,``0)">
             <summary>
             Returns if the specified value within the range returns the range, if its lower then returns the min, if its higher then returns the max.
@@ -900,6 +898,35 @@
             Return the integer value for Month enum
             </summary>
             <param name="month"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Chunk``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Return an enumerable of enumerables from the specfied Enumerable, it actually divides an enumerable to several enumerables based on size
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="source"></param>
+            <param name="size"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.WhereIf``1(System.Collections.Generic.IEnumerable{``0},System.Func{``0,System.Boolean},System.Boolean)">
+            <summary>
+            Same as where but only added when the condition is met
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.WhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
+            <summary>
+            Same as where but only added when the condition is met
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="predicate"></param>
+            <param name="condition"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.FromUnixTime(System.Int64)">
@@ -1565,6 +1592,90 @@
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.DaysToSeconds(System.Double)">
+            <summary>
+            Days to Seconds
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToSeconds(System.Int32)">
+            <summary>
+            Minutes to seconds
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToMinutes(System.Int32)">
+            <summary>
+            Seconds to minutes
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToSeconds(System.Int32)">
+            <summary>
+            Hours to seconds
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToHours(System.Int32)">
+            <summary>
+            Seconds to hours
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToHours(System.Int32)">
+            <summary>
+            Minutes to Hours
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToMinutes(System.Int32)">
+            <summary>
+            Hours to Minutes
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.MinutesToDays(System.Int32)">
+            <summary>
+            Minutes to Days
+            </summary>
+            <param name="minutes"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToMinutes(System.Int32)">
+            <summary>
+            Days to Minutes
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.HoursToDays(System.Int32)">
+            <summary>
+            Hours to Days
+            </summary>
+            <param name="hours"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToHours(System.Int32)">
+            <summary>
+            Days to Hours
+            </summary>
+            <param name="days"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SecondsToDays(System.Int32)">
+            <summary>
+            Seconds to Days
+            </summary>
+            <param name="seconds"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DaysToSeconds(System.Int32)">
             <summary>
             Days to Seconds
             </summary>
@@ -3561,10 +3672,21 @@
             <param name="singletonType"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Fx.SlowEquals(System.Byte[],System.Byte[])">
+            <summary>
+            Compares two byte arrays in length-constant time. This comparison
+            method is used so that password hashes cannot be extracted from
+            on-line systems using a timing attack and then attacked off-line.
+            </summary>
+            <param name="a">The first byte array.</param>
+            <param name="b">The second byte array.</param>
+            <returns>True if both byte arrays are equal. False otherwise.</returns>
+        </member>
         <member name="T:Fluentx.Fx.CaseInfo">
             <summary>
             Private class to hold information about switch case statement.
             </summary>
+            
         </member>
         <member name="T:Fluentx.Guard">
             <summary>
@@ -4138,6 +4260,27 @@
             </summary>
             <param name="action"></param>
             <returns></returns>
+        </member>
+        <member name="T:Fluentx.IgnoreAttribute">
+            <summary>
+            A generic purpose ignore attribute with support of categorization (Multipurpose Attribute)
+            </summary>
+        </member>
+        <member name="P:Fluentx.IgnoreAttribute.Category">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.IgnoreAttribute.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.IgnoreAttribute.#ctor(System.String)">
+            <summary>
+            This category is for categorization purposes to allow the using of the attribute simultaniously by different models
+            </summary>
+            <param name="category"></param>
         </member>
         <member name="T:Fluentx.LifeCycle">
             <summary>

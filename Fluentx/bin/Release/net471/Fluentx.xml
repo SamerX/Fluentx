@@ -307,15 +307,6 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
-        <member name="M:Fluentx.Extensions.NotContains``1(System.Collections.Generic.IEnumerable{``0},``0)">
-            <summary>
-            Returns whether the specified source doesn't contain the specified value or not.
-            </summary>
-            <typeparam name="TSource"></typeparam>
-            <param name="source"></param>
-            <param name="value"></param>
-            <returns></returns>
-        </member>
         <member name="M:Fluentx.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
             <summary>
             Returns whether the specified source doesn't contain the specified value or not.
@@ -873,6 +864,16 @@
             </summary>
             <param name="this"></param>
             <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsSimpleType(System.Type)">
+            <summary>
+            Returns whether the specified types belongs to one of the simple types below:
+            Int16, Int32, Int64, UInt16, UInt32, UInt64, DateTime, Boolean, Byte, SByte, Char, 
+            Double, Single, Decimal, IntPtr, UIntPtr, String, Guid And thier Nullable counterparts.
+            Please note that the difinition of simple types is completly different from primitive types.
+            </summary>
+            <param name="this"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.Clamp``1(``0,``0,``0)">
