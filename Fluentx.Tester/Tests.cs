@@ -4,7 +4,7 @@ using System.Collections.ObjectModel;
 using System.Dynamic;
 using System.Linq;
 using Xunit;
-
+using Fluentx;
 namespace Fluentx.Tester
 {
     public class Fluentester
@@ -26,9 +26,10 @@ namespace Fluentx.Tester
             bool result = false;
             Fx.If(() => { return false; }).Then(() => { result = true; }).Else(() => { result = false; });
 
-            var b1= typeof(string).IsSimpleType();
+            var b1 = typeof(string).IsSimpleType();
             var b2 = typeof(int?).IsSimpleType();
 
+            var x = (..30).Random();
             Assert.False(result);
         }
 
@@ -940,10 +941,10 @@ namespace Fluentx.Tester
             var date = DateTime.Now.NextDay().EndOfDay();
 
             var x = Result.Return(new string[] { "one", "two" });
-            
-            
-            
-            
+
+
+
+
             var value1 = 7.5.DaysToMinutes();
             Assert.Equal(true, true);
         }

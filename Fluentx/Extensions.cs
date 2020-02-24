@@ -119,6 +119,19 @@ namespace Fluentx
             }
             return default(T);
         }
+#if NETSTANDARD2_1
+        /// <summary>
+        /// Return a random value from the specified range
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static int Random(this Range @this)
+        {
+
+            return random.Next(@this.Start.Value, @this.End.Value);
+        }
+#endif
         /// <summary>
         /// Returns a random sequential range from the specified Enumeration.
         /// </summary>
