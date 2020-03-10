@@ -793,7 +793,7 @@ namespace Fluentx
         /// <returns></returns>
         public static object InvokeGenericMethod<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
-            var method = typeof(T).GetTypeInfo().GetMethod(methodName).MakeGenericMethod(genericParams);
+            var method = typeof(T).GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault(x => x.IsGenericMethod).MakeGenericMethod(genericParams);
             var data = method.Invoke(@this, @params);
             return data;
         }
