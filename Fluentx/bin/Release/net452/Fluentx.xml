@@ -770,6 +770,17 @@
             <param name="params"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.InvokeGenericMethodAsync``1(``0,System.String,System.Type[],System.Object[])">
+            <summary>
+            Invokes the specified method ASYNCROUNOUSLY (if its an async method) on the target object supplying the generic parameters dynamically with its required parameters.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="methodName"></param>
+            <param name="genericParams"></param>
+            <param name="params"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Implements``1(System.Type)">
             <summary>
             Returns whether @this type Implements the specified interface type, this is only for interfaces not for classes.
