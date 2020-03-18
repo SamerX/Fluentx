@@ -759,6 +759,16 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.InvokeMethod``1(``0,System.String,System.Object[])">
+            <summary>
+            Invokes the specified method (Not Generic Method) on the target object dynamically with its required parameters.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="methodName"></param>
+            <param name="params"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.InvokeGenericMethod``1(``0,System.String,System.Type[],System.Object[])">
             <summary>
             Invokes the specified method on the target object supplying the generic parameters dynamically with its required parameters.

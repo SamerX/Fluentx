@@ -782,7 +782,38 @@ namespace Fluentx
             return sBuilder.ToString(0, Math.Max(0, sBuilder.Length - separator.Length));
         }
 
-
+        /// <summary>
+        /// Invokes the specified method (Not Generic Method) on the target object dynamically with its required parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="methodName"></param>
+        /// <param name="params"></param>
+        /// <returns></returns>
+        public static object InvokeMethod<T>(this T @this, string methodName, params object[] @params)
+        {
+            var method = typeof(T).GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault();
+            var data = method.Invoke(@this, @params);
+            return data;
+        }
+#if !NETSTANDARD1_5 && !NETSTANDARD1_6
+        /// <summary>
+        /// Invokes the specified method (Not Generic Method) ASYNCROUNOUSLY (if its an async method) on the target object dynamically with its required parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="methodName"></param>
+        /// <param name="genericParams"></param>
+        /// <param name="params"></param>
+        /// <returns></returns>
+        public static async Task<object> InvokeMethodAsync<T>(this T @this, string methodName, params object[] @params)
+        {
+            var task = (Task)@this.InvokeMethod(methodName, @params);
+            await task.ConfigureAwait(false);
+            var result = task.GetType().GetProperty("Result");
+            return result.GetValue(task);
+        }
+#endif
         /// <summary>
         /// Invokes the specified method on the target object supplying the generic parameters dynamically with its required parameters.
         /// </summary>
@@ -798,6 +829,7 @@ namespace Fluentx
             var data = method.Invoke(@this, @params);
             return data;
         }
+
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>
         /// Invokes the specified method ASYNCROUNOUSLY (if its an async method) on the target object supplying the generic parameters dynamically with its required parameters.
