@@ -792,7 +792,8 @@ namespace Fluentx
         /// <returns></returns>
         public static object InvokeMethod<T>(this T @this, string methodName, params object[] @params)
         {
-            var method = typeof(T).GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault();
+            Guard.Against<ArgumentNullException>(@this == null, "InvokeMethod failed as target object is null");
+            var method = @this.GetType().GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault();
             var data = method.Invoke(@this, @params);
             return data;
         }
@@ -808,6 +809,7 @@ namespace Fluentx
         /// <returns></returns>
         public static async Task<object> InvokeMethodAsync<T>(this T @this, string methodName, params object[] @params)
         {
+            Guard.Against<ArgumentNullException>(@this == null, "InvokeMethodAsync failed as target object is null");
             var task = (Task)@this.InvokeMethod(methodName, @params);
             await task.ConfigureAwait(false);
             var result = task.GetType().GetProperty("Result");
@@ -825,7 +827,8 @@ namespace Fluentx
         /// <returns></returns>
         public static object InvokeGenericMethod<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
-            var method = typeof(T).GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault(x => x.IsGenericMethod).MakeGenericMethod(genericParams);
+            Guard.Against<ArgumentNullException>(@this == null, "InvokeGenericMethod failed as target object is null");
+            var method = @this.GetType().GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault(x => x.IsGenericMethod).MakeGenericMethod(genericParams);
             var data = method.Invoke(@this, @params);
             return data;
         }
@@ -842,6 +845,7 @@ namespace Fluentx
         /// <returns></returns>
         public static async Task<object> InvokeGenericMethodAsync<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
+            Guard.Against<ArgumentNullException>(@this == null, "InvokeGenericMethodAsync failed as target object is null");
             var task = (Task)@this.InvokeGenericMethod(methodName, genericParams, @params);
             await task.ConfigureAwait(false);
             var result = task.GetType().GetProperty("Result");
