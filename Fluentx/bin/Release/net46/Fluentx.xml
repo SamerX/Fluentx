@@ -951,7 +951,7 @@
             <param name="condition"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.ToEnumerable``1(``0)">
+        <member name="M:Fluentx.Extensions.WrapAsEnumerable``1(``0)">
             <summary>
             Wraps the specified instance in an IEnumerable<typeparamref name="T"/>
             </summary>
@@ -959,7 +959,7 @@
             <param name="instance"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.ToArray``1(``0)">
+        <member name="M:Fluentx.Extensions.WrapAsArray``1(``0)">
             <summary>
             Wraps the specified instance in an Array<typeparamref name="T"/>
             </summary>
@@ -967,7 +967,7 @@
             <param name="instance"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.ToList``1(``0)">
+        <member name="M:Fluentx.Extensions.WrapAsList``1(``0)">
             <summary>
             Wraps the specified instance in an IList<typeparamref name="T"/>
             </summary>

@@ -1070,7 +1070,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public static IEnumerable<T> ToEnumerable<T>(T instance)
+        public static IEnumerable<T> WrapAsEnumerable<T>(this T instance)
         {
             return new[] { instance };
         }
@@ -1080,7 +1080,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public static T[] ToArray<T>(T instance)
+        public static T[] WrapAsArray<T>(this T instance)
         {
             return new[] { instance };
         }
@@ -1090,7 +1090,7 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="instance"></param>
         /// <returns></returns>
-        public static IList<T> ToList<T>(T instance)
+        public static IList<T> WrapAsList<T>(this T instance)
         {
             return new List<T> { instance };
         }

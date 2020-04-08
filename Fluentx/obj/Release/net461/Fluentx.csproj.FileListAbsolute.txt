@@ -1,9 +1,9 @@
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.xml
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.dll
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.pdb
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.csprojAssemblyReference.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.AssemblyInfo.cs
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.csproj.CoreCompileInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.xml
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.dll
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net461\Fluentx.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.pdb
+D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net461\Fluentx.csprojAssemblyReference.cache
