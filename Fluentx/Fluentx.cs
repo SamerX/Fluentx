@@ -1575,6 +1575,14 @@ namespace Fluentx
         {
             return GenerateSingletonClass(typeof(T).Name, singletonType);
         }
+
+#if !NETSTANDARD1_5 && !NETSTANDARD1_6
+        public static Type FindType<TAssemblyType>(string name)
+        {
+            var type = typeof(TAssemblyType).Assembly.GetTypes().SingleOrDefault(t => t.Name == name);
+            return type;
+        }
+#endif
         /// <summary>
         /// Generates a singleton class (as a text) using the specified class name, its based on Jon Skeet book: C# in Depth.
         /// </summary>

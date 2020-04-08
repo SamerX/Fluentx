@@ -1064,7 +1064,36 @@ namespace Fluentx
             else
                 return source;
         }
-
+        /// <summary>
+        /// Wraps the specified instance in an IEnumerable<typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static IEnumerable<T> ToEnumerable<T>(T instance)
+        {
+            return new[] { instance };
+        }
+        /// <summary>
+        /// Wraps the specified instance in an Array<typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static T[] ToArray<T>(T instance)
+        {
+            return new[] { instance };
+        }
+        /// <summary>
+        /// Wraps the specified instance in an IList<typeparamref name="T"/>
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static IList<T> ToList<T>(T instance)
+        {
+            return new List<T> { instance };
+        }
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>
         /// Same as where but only added when the condition is met

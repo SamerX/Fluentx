@@ -959,6 +959,30 @@
             <param name="condition"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToEnumerable``1(``0)">
+            <summary>
+            Wraps the specified instance in an IEnumerable<typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToArray``1(``0)">
+            <summary>
+            Wraps the specified instance in an Array<typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.ToList``1(``0)">
+            <summary>
+            Wraps the specified instance in an IList<typeparamref name="T"/>
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.WhereIf``1(System.Linq.IQueryable{``0},System.Linq.Expressions.Expression{System.Func{``0,System.Boolean}},System.Boolean)">
             <summary>
             Same as where but only added when the condition is met
