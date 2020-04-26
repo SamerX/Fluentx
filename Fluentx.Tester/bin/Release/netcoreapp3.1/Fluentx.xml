@@ -2854,7 +2854,7 @@
             <param name="this"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.ReplaceLast(System.String,System.String,System.String)">
+        <member name="M:Fluentx.Extensions.ReplaceLast(System.String,System.String,System.String,System.StringComparison)">
             <summary>
             Returns a new string in which the last occurrence of a specified string
             in this instance are replaced with another specified string.
@@ -2862,6 +2862,7 @@
             <param name="this"></param>
             <param name="oldValue"></param>
             <param name="newValue"></param>
+            <param name="comparison"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.CountOccurences(System.String,System.String)">
@@ -2872,7 +2873,7 @@
             <param name="match"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Extensions.ReplaceFirst(System.String,System.String,System.String)">
+        <member name="M:Fluentx.Extensions.ReplaceFirst(System.String,System.String,System.String,System.StringComparison)">
             <summary>
             Returns a new string in which the last occurrence of a specified string
             in this instance are replaced with another specified string.
@@ -3726,6 +3727,14 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="singletonType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.FindType``1(System.String)">
+            <summary>
+            Finds the type in the specified <typeparamref name="TAssemblyType"/> assembly using the specified type name
+            </summary>
+            <typeparam name="TAssemblyType"></typeparam>
+            <param name="name"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.GenerateSingletonClass(System.String,Fluentx.SingletonType)">

@@ -612,10 +612,11 @@ namespace Fluentx
         /// <param name="this"></param>
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
+        /// <param name="comparison"></param>
         /// <returns></returns>
-        public static string ReplaceLast(this string @this, string oldValue, string newValue)
+        public static string ReplaceLast(this string @this, string oldValue, string newValue, StringComparison comparison = StringComparison.Ordinal)
         {
-            int index = @this.LastIndexOf(oldValue);
+            int index = @this.LastIndexOf(oldValue, comparison);
             if (index > -1)
             {
                 string newString = @this.Remove(index, oldValue.Length).Insert(index, newValue);
@@ -654,9 +655,9 @@ namespace Fluentx
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
         /// <returns></returns>
-        public static string ReplaceFirst(this string @this, string oldValue, string newValue)
+        public static string ReplaceFirst(this string @this, string oldValue, string newValue, StringComparison comparison = StringComparison.Ordinal)
         {
-            int index = @this.IndexOf(oldValue);
+            int index = @this.IndexOf(oldValue, comparison);
             if (index > -1)
             {
                 string newString = @this.Remove(index, oldValue.Length).Insert(index, newValue);

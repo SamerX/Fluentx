@@ -1577,9 +1577,15 @@ namespace Fluentx
         }
 
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
-        public static Type FindType<TAssemblyType>(string name)
+        /// <summary>
+        /// Finds the type in the specified <typeparamref name="TAssemblyType"/> assembly using the specified type name
+        /// </summary>
+        /// <typeparam name="TAssemblyType"></typeparam>
+        /// <param name="name"></param>
+        /// <returns></returns>
+        public static Type FindType<TAssemblyType>(string typeName)
         {
-            var type = typeof(TAssemblyType).Assembly.GetTypes().SingleOrDefault(t => t.Name == name);
+            var type = typeof(TAssemblyType).Assembly.GetTypes().SingleOrDefault(t => t.Name == typeName);
             return type;
         }
 #endif
