@@ -959,6 +959,15 @@
             <param name="condition"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.ToBatches``1(System.Collections.Generic.IEnumerable{``0},System.Int32)">
+            <summary>
+            Returns an Enumerable of the specified size of an Enumerable. convert the list to bach of list using the specified size.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="list"></param>
+            <param name="batchSize"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.WrapAsEnumerable``1(``0)">
             <summary>
             Wraps the specified instance in an IEnumerable<typeparamref name="T"/>
@@ -2906,6 +2915,37 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.WrapWith(System.String,System.Object)">
+            <summary>
+            Wraps the specified instance with the specified tex
+            </summary>
+            <param name="instance"></param>
+            <param name="text"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.WrapWith(System.String,System.Object,System.Object)">
+            <summary>
+            Wraps the specified instance with the specified tex
+            </summary>
+            <param name="instance"></param>
+            <param name="before"></param>
+            <param name="after"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.DoubleQuote(System.String)">
+            <summary>
+            Wraps the text with double quotations
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.SingleQuote(System.String)">
+            <summary>
+            Wraps the text with single quotations
+            </summary>
+            <param name="instance"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.CesarDecrypt(System.String,System.Int32)">
             <summary>
             Decrypts a string using cesar algorithm.
@@ -3003,6 +3043,16 @@
         <member name="F:Fluentx.Fx.AtSign">
             <summary>
             At sign
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.DoubleQuote">
+            <summary>
+            Double Quote
+            </summary>
+        </member>
+        <member name="F:Fluentx.Fx.SingleQuote">
+            <summary>
+            Single Quote
             </summary>
         </member>
         <member name="P:Fluentx.Fx.Action">

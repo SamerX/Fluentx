@@ -731,7 +731,45 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
-
+        /// <summary>
+        /// Wraps the specified instance with the specified tex
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="text"></param>
+        /// <returns></returns>
+        public static string WrapWith(this string instance, object text)
+        {
+            return text + instance + text;
+        }
+        /// <summary>
+        /// Wraps the specified instance with the specified tex
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <param name="before"></param>
+        /// <param name="after"></param>
+        /// <returns></returns>
+        public static string WrapWith(this string instance, object before, object after)
+        {
+            return before + instance + after;
+        }
+        /// <summary>
+        /// Wraps the text with double quotations
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static string DoubleQuote(this string instance)
+        {
+            return Fx.DoubleQuote + instance + Fx.DoubleQuote;
+        }
+        /// <summary>
+        /// Wraps the text with single quotations
+        /// </summary>
+        /// <param name="instance"></param>
+        /// <returns></returns>
+        public static string SingleQuote(this string instance)
+        {
+            return Fx.SingleQuote + instance + Fx.SingleQuote;
+        }
         ///// <summary>
         ///// This method do a trim start and end for all string properties on the specified object.
         ///// </summary>

@@ -78,6 +78,14 @@ namespace Fluentx
         /// At sign
         /// </summary>
         public const string AtSign = "@";
+        /// <summary>
+        /// Double Quote
+        /// </summary>
+        public const string DoubleQuote = "\"";
+        /// <summary>
+        /// Single Quote
+        /// </summary>
+        public const string SingleQuote = "'";
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }

@@ -1065,6 +1065,34 @@ namespace Fluentx
                 return source;
         }
         /// <summary>
+        /// Returns an Enumerable of the specified size of an Enumerable. convert the list to bach of list using the specified size.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="list"></param>
+        /// <param name="batchSize"></param>
+        /// <returns></returns>
+        public static IEnumerable<IEnumerable<T>> ToBatches<T>(this IEnumerable<T> list, int batchSize)
+        {
+            if (list.IsNull())
+            {
+                return null;
+            }
+            else if (list.IsNullOrEmpty())
+            {
+                return list.WrapAsEnumerable();
+            }
+            if (batchSize <= 0)
+            {
+                throw new ArgumentException($"Invalid BatchSize value {batchSize}");
+            }
+
+            var batched = list?
+                .Select((Value, Index) => new { Value, Index })
+                .GroupBy(p => p.Index / batchSize)
+                .Select(g => g.Select(p => p.Value));
+            return batched;
+        }
+        /// <summary>
         /// Wraps the specified instance in an IEnumerable<typeparamref name="T"/>
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -1084,6 +1112,7 @@ namespace Fluentx
         {
             return new[] { instance };
         }
+
         /// <summary>
         /// Wraps the specified instance in an IList<typeparamref name="T"/>
         /// </summary>
