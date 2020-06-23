@@ -574,6 +574,47 @@ namespace Fluentx
                 list[i] = temp;
             }
         }
+
+        /// <summary>
+        /// <value></value>Hundred
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        //public static int Hundred(this int value)
+        //{
+        //    return value * 100;
+        //}
+        public static int Hundred<T>(this int value)
+        {
+            return value * 100;
+        }
+        /// <summary>
+        /// <value></value>Thousand
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int Thousand(this int value)
+        {
+            return value * 1000;
+        }
+        /// <summary>
+        /// <value></value>Million
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int Million(this int value)
+        {
+            return value * 1_000_000;
+        }
+        /// <summary>
+        /// <value></value>Billion
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static int Billion(this int value)
+        {
+            return value * 1_000_000_000;
+        }
         /// <summary>
         /// KB stands for Kilo Byte. The value mutliplied by 1024. e.g. 3.KB()
         /// </summary>
@@ -828,9 +869,22 @@ namespace Fluentx
         public static object InvokeGenericMethod<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
             Guard.Against<ArgumentNullException>(@this == null, "InvokeGenericMethod failed as target object is null");
-            var method = @this.GetType().GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault(x => x.IsGenericMethod).MakeGenericMethod(genericParams);
+            var method = @this.GetType().GetTypeInfo().GetMethods().Where(x => x.Name == methodName && x.IsGenericMethod && x.GetGenericArguments().Length == genericParams.Length).FirstOrDefault().MakeGenericMethod(genericParams);
             var data = method.Invoke(@this, @params);
             return data;
+        }
+        /// <summary>
+        /// Invokes the specified method on the target object supplying the generic parameter dynamically with its required parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="methodName"></param>
+        /// <param name="genericParam"></param>
+        /// <param name="params"></param>
+        /// <returns></returns>
+        public static object InvokeGenericMethod<T>(this T @this, string methodName, Type genericParam, params object[] @params)
+        {
+            return InvokeGenericMethod<T>(@this, methodName, genericParam.WrapAsArray(), @params);
         }
 
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
@@ -850,6 +904,19 @@ namespace Fluentx
             await task.ConfigureAwait(false);
             var result = task.GetType().GetProperty("Result");
             return result.GetValue(task);
+        }
+        /// <summary>
+        /// Invokes the specified method ASYNCROUNOUSLY (if its an async method) on the target object supplying the generic parameter dynamically with its required parameters.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="methodName"></param>
+        /// <param name="genericParam"></param>
+        /// <param name="params"></param>
+        /// <returns></returns>
+        public static async Task<object> InvokeGenericMethodAsync<T>(this T @this, string methodName, Type genericParam, params object[] @params)
+        {
+            return await InvokeGenericMethodAsync<T>(@this, methodName, genericParam.WrapAsArray(), @params);
         }
 #endif
         /// <summary>

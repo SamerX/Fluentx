@@ -602,6 +602,34 @@
             <typeparam name="T"></typeparam>
             <param name="list"></param>
         </member>
+        <member name="M:Fluentx.Extensions.Hundred``1(System.Int32)">
+            <summary>
+            <value></value>Hundred
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Thousand(System.Int32)">
+            <summary>
+            <value></value>Thousand
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Million(System.Int32)">
+            <summary>
+            <value></value>Million
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Billion(System.Int32)">
+            <summary>
+            <value></value>Billion
+            </summary>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.KB(System.Int32)">
             <summary>
             KB stands for Kilo Byte. The value mutliplied by 1024. e.g. 3.KB()
@@ -777,6 +805,17 @@
             <param name="this"></param>
             <param name="methodName"></param>
             <param name="genericParams"></param>
+            <param name="params"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.InvokeGenericMethod``1(``0,System.String,System.Type,System.Object[])">
+            <summary>
+            Invokes the specified method on the target object supplying the generic parameter dynamically with its required parameters.
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="this"></param>
+            <param name="methodName"></param>
+            <param name="genericParam"></param>
             <param name="params"></param>
             <returns></returns>
         </member>
