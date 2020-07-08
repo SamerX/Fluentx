@@ -511,10 +511,11 @@ namespace Fluentx
             var minValue = predicate(min);
             foreach (var item in source)
             {
-                if (comparer.Compare(predicate(item), minValue) < 0)
+                var itemValue = predicate(item);
+                if (comparer.Compare(itemValue, minValue) <= 0)
                 {
                     min = item;
-                    minValue = predicate(min);
+                    minValue = itemValue;
                 }
             }
             return min;
@@ -547,10 +548,11 @@ namespace Fluentx
             var maxValue = predicate(max);
             foreach (var item in source)
             {
-                if (comparer.Compare(predicate(item), maxValue) > 0)
+                var itemValue = predicate(item);
+                if (comparer.Compare(itemValue, maxValue) >= 0)
                 {
                     max = item;
-                    maxValue = predicate(max);
+                    maxValue = itemValue;
                 }
             }
             return max;

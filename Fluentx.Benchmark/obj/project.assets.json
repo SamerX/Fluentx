@@ -1226,7 +1226,7 @@
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
       },
-      "Fluentx/5.4.14": {
+      "Fluentx/5.4.15": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.0",
         "compile": {
@@ -4685,7 +4685,7 @@
         "system.xml.xpath.xmldocument.nuspec"
       ]
     },
-    "Fluentx/5.4.14": {
+    "Fluentx/5.4.15": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -4695,7 +4695,7 @@
     ".NETCoreApp,Version=v2.0": [
       "AutoMapper >= 6.2.2",
       "BenchmarkDotNet >= 0.10.14",
-      "Fluentx >= 5.4.14",
+      "Fluentx >= 5.4.15",
       "Microsoft.NETCore.App >= 2.0.0"
     ]
   },
