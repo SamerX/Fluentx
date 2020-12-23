@@ -444,6 +444,27 @@ namespace Fluentx
         /// <param name="action"></param>
         public static T Set<T>(this T @this, Action<T> action) { action(@this); return @this; }
         /// <summary>
+        /// Get property value for the specified object
+        /// </summary>
+        /// <typeparam name="TPropertyType"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static TPropertyType PropertyValue<TPropertyType>(this object @this, string propertyName)
+        {
+            return (TPropertyType)@this.GetType().GetTypeInfo().GetProperty(propertyName).GetValue(@this, null);
+        }
+        /// <summary>
+        /// Get property value for the specified object
+        /// </summary>
+        /// <param name="this"></param>
+        /// <param name="propertyName"></param>
+        /// <returns></returns>
+        public static object PropertyValue(this object @this, string propertyName)
+        {
+            return @this.GetType().GetTypeInfo().GetProperty(propertyName).GetValue(@this, null);
+        }
+        /// <summary>
         /// Safely tries to evaluate the specified expression path
         /// </summary>
         /// <typeparam name="T"></typeparam>

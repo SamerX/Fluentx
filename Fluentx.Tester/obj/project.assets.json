@@ -2185,7 +2185,7 @@
           "build/netcoreapp1.0/xunit.runner.visualstudio.props": {}
         }
       },
-      "Fluentx/5.4.15": {
+      "Fluentx/5.4.18": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
         "compile": {
@@ -6836,7 +6836,7 @@
         "xunit.runner.visualstudio.nuspec"
       ]
     },
-    "Fluentx/5.4.15": {
+    "Fluentx/5.4.18": {
       "type": "project",
       "path": "../Fluentx/Fluentx.csproj",
       "msbuildProject": "../Fluentx/Fluentx.csproj"
@@ -6845,7 +6845,7 @@
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v3.1": [
       "BenchmarkDotNet.Core >= 0.10.14",
-      "Fluentx >= 5.4.15",
+      "Fluentx >= 5.4.18",
       "Microsoft.NET.Test.Sdk >= 15.3.0-preview-20170628-02",
       "xunit >= 2.2.0",
       "xunit.runner.visualstudio >= 2.2.0"
@@ -6876,6 +6876,7 @@
       },
       "frameworks": {
         "netcoreapp3.1": {
+          "targetAlias": "netcoreapp3.1",
           "projectReferences": {
             "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
               "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
@@ -6891,6 +6892,7 @@
     },
     "frameworks": {
       "netcoreapp3.1": {
+        "targetAlias": "netcoreapp3.1",
         "dependencies": {
           "BenchmarkDotNet.Core": {
             "target": "Package",
@@ -6924,7 +6926,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

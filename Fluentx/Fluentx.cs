@@ -1753,6 +1753,51 @@ namespace Fluentx
                     }}
                 }}".FormatWith(name);
         }
+#if !NETSTANDARD1_5 && !NETSTANDARD1_6
+        /// <summary>
+        /// Get all types in the assembly of the provided T1 type
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Type> TypesOf<T1>()
+        {
+            return typeof(T1).Assembly.GetTypes();
+        }
+        /// <summary>
+        /// Get all types in the assembly of the provided T1, T2 types
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T3"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Type> TypesOf<T1, T2>()
+        {
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes());
+        }
+        /// <summary>
+        /// Get all types in the assembly of the provided T1, T2, T3 types
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T3"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Type> TypesOf<T1, T2, T3>()
+        {
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes()));
+        }
+        /// <summary>
+        /// Get all types in the assembly of the provided T1, T2, T3, T4 types
+        /// </summary>
+        /// <typeparam name="T1"></typeparam>
+        /// <typeparam name="T2"></typeparam>
+        /// <typeparam name="T3"></typeparam>
+        /// <typeparam name="T4"></typeparam>
+        /// <returns></returns>
+        public static IEnumerable<Type> TypesOf<T1, T2, T3, T4>()
+        {
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes().Union(typeof(T4).Assembly.GetTypes())));
+        }
+#endif
         /// <summary>
         /// Compares two byte arrays in length-constant time. This comparison
         /// method is used so that password hashes cannot be extracted from

@@ -535,6 +535,23 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
+        <member name="M:Fluentx.Extensions.PropertyValue``1(System.Object,System.String)">
+            <summary>
+            Get property value for the specified object
+            </summary>
+            <typeparam name="TPropertyType"></typeparam>
+            <param name="this"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.PropertyValue(System.Object,System.String)">
+            <summary>
+            Get property value for the specified object
+            </summary>
+            <param name="this"></param>
+            <param name="propertyName"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Safe``2(``0,System.Func{``0,``1})">
             <summary>
             Safely tries to evaluate the specified expression path
@@ -3835,6 +3852,41 @@
             </summary>
             <param name="className"></param>
             <param name="singletonType"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.TypesOf``1">
+            <summary>
+            Get all types in the assembly of the provided T1 type
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.TypesOf``2">
+            <summary>
+            Get all types in the assembly of the provided T1, T2 types
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.TypesOf``3">
+            <summary>
+            Get all types in the assembly of the provided T1, T2, T3 types
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.TypesOf``4">
+            <summary>
+            Get all types in the assembly of the provided T1, T2, T3, T4 types
+            </summary>
+            <typeparam name="T1"></typeparam>
+            <typeparam name="T2"></typeparam>
+            <typeparam name="T3"></typeparam>
+            <typeparam name="T4"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.SlowEquals(System.Byte[],System.Byte[])">
