@@ -1759,9 +1759,9 @@ namespace Fluentx
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<Type> TypesOf<T1>()
+        public static IEnumerable<Type> TypesOf<T1>(Func<Type, bool> predicate = null)
         {
-            return typeof(T1).Assembly.GetTypes();
+            return typeof(T1).Assembly.GetTypes().WhereIf(predicate, predicate.IsNotNull());
         }
         /// <summary>
         /// Get all types in the assembly of the provided T1, T2 types
@@ -1770,9 +1770,9 @@ namespace Fluentx
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<Type> TypesOf<T1, T2>()
+        public static IEnumerable<Type> TypesOf<T1, T2>(Func<Type, bool> predicate = null)
         {
-            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes());
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes()).WhereIf(predicate, predicate.IsNotNull());
         }
         /// <summary>
         /// Get all types in the assembly of the provided T1, T2, T3 types
@@ -1781,9 +1781,9 @@ namespace Fluentx
         /// <typeparam name="T2"></typeparam>
         /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<Type> TypesOf<T1, T2, T3>()
+        public static IEnumerable<Type> TypesOf<T1, T2, T3>(Func<Type, bool> predicate = null)
         {
-            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes()));
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes())).WhereIf(predicate, predicate.IsNotNull());
         }
         /// <summary>
         /// Get all types in the assembly of the provided T1, T2, T3, T4 types
@@ -1793,9 +1793,9 @@ namespace Fluentx
         /// <typeparam name="T3"></typeparam>
         /// <typeparam name="T4"></typeparam>
         /// <returns></returns>
-        public static IEnumerable<Type> TypesOf<T1, T2, T3, T4>()
+        public static IEnumerable<Type> TypesOf<T1, T2, T3, T4>(Func<Type, bool> predicate = null)
         {
-            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes().Union(typeof(T4).Assembly.GetTypes())));
+            return typeof(T1).Assembly.GetTypes().Union(typeof(T2).Assembly.GetTypes().Union(typeof(T3).Assembly.GetTypes().Union(typeof(T4).Assembly.GetTypes()))).WhereIf(predicate, predicate.IsNotNull());
         }
 #endif
         /// <summary>
