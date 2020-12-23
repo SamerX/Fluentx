@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 namespace Fluentx
@@ -801,7 +802,165 @@ namespace Fluentx
         {
             return CesarEncrypt(input, 26 - key);
         }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="input"></param>
+        /// <param name="pattern"></param>
+        /// <param name="CaseInsensitive"></param>
+        /// <returns></returns>
+        public static bool Like(this string input, string pattern, bool CaseInsensitive = true)
+        {
+            //Nothing matches a null mask or null input string
+            if (pattern == null || input == null)
+                return false;
+            //Null strings are treated as empty and get checked against the mask.
+            //If checking is case-insensitive we convert to uppercase to facilitate this.
+            if (CaseInsensitive)
+            {
+                input = input.ToUpperInvariant();
+                pattern = pattern.ToUpperInvariant();
+            }
+            //Keeps track of our position in the primary string - s.
+            int j = 0;
+            //Used to keep track of multi-character wildcards.
+            bool matchanymulti = false;
+            //Used to keep track of multiple possibility character masks.
+            string multicharmask = null;
+            bool inversemulticharmask = false;
+            for (int i = 0; i < pattern.Length; i++)
+            {
+                //If this is the last character of the mask and its a % or * we are done
+                if (i == pattern.Length - 1 && (pattern[i] == '%' || pattern[i] == '*'))
+                    return true;
+                //A direct character match allows us to proceed.
+                var charcheck = true;
+                //Backslash acts as an escape character.  If we encounter it, proceed
+                //to the next character.
+                if (pattern[i] == '\\')
+                {
+                    i++;
+                    if (i == pattern.Length)
+                        i--;
+                }
+                else
+                {
+                    //If this is a wildcard mask we flag it and proceed with the next character
+                    //in the mask.
+                    if (pattern[i] == '%' || pattern[i] == '*')
+                    {
+                        matchanymulti = true;
+                        continue;
+                    }
+                    //If this is a single character wildcard advance one character.
+                    if (pattern[i] == '_')
+                    {
+                        //If there is no character to advance we did not find a match.
+                        if (j == input.Length)
+                            return false;
+                        j++;
+                        continue;
+                    }
+                    if (pattern[i] == '[')
+                    {
+                        var endbracketidx = pattern.IndexOf(']', i);
+                        //Get the characters to check for.
+                        multicharmask = pattern.Substring(i + 1, endbracketidx - i - 1);
+                        //Check for inversed masks
+                        inversemulticharmask = multicharmask.StartsWith("^");
+                        //Remove the inversed mask character
+                        if (inversemulticharmask)
+                            multicharmask = multicharmask.Remove(0, 1);
+                        //Unescape \^ to ^
+                        multicharmask = multicharmask.Replace("\\^", "^");
 
+                        //Prevent direct character checking of the next mask character
+                        //and advance to the next mask character.
+                        charcheck = false;
+                        i = endbracketidx;
+                        //Detect and expand character ranges
+                        if (multicharmask.Length == 3 && multicharmask[1] == '-')
+                        {
+                            var newmask = "";
+                            var first = multicharmask[0];
+                            var last = multicharmask[2];
+                            if (last < first)
+                            {
+                                first = last;
+                                last = multicharmask[0];
+                            }
+                            var c = first;
+                            while (c <= last)
+                            {
+                                newmask += c;
+                                c++;
+                            }
+                            multicharmask = newmask;
+                        }
+                        //If the mask is invalid we cannot find a mask for it.
+                        if (endbracketidx == -1)
+                            return false;
+                    }
+                }
+                //Keep track of match finding for this character of the mask.
+                var matched = false;
+                while (j < input.Length)
+                {
+                    //This character matches, move on.
+                    if (charcheck && input[j] == pattern[i])
+                    {
+                        j++;
+                        matched = true;
+                        break;
+                    }
+                    //If we need to check for multiple charaters to do.
+                    if (multicharmask != null)
+                    {
+                        var ismatch = multicharmask.Contains(input[j]);
+                        //If this was an inverted mask and we match fail the check for this string.
+                        //If this was not an inverted mask check and we did not match fail for this string.
+                        if (inversemulticharmask && ismatch ||
+                            !inversemulticharmask && !ismatch)
+                        {
+                            //If we have a wildcard preceding us we ignore this failure
+                            //and continue checking.
+                            if (matchanymulti)
+                            {
+                                j++;
+                                continue;
+                            }
+                            return false;
+                        }
+                        j++;
+                        matched = true;
+                        //Consumse our mask.
+                        multicharmask = null;
+                        break;
+                    }
+                    //We are in an multiple any-character mask, proceed to the next character.
+                    if (matchanymulti)
+                    {
+                        j++;
+                        continue;
+                    }
+                    break;
+                }
+                //We've found a match - proceed.
+                if (matched)
+                {
+                    matchanymulti = false;
+                    continue;
+                }
+
+                //If no match our mask fails
+                return false;
+            }
+            //Some characters are left - our mask check fails.
+            if (j < input.Length)
+                return false;
+            //We've processed everything - this is a match.
+            return true;
+        }
         /// <summary>
         /// Enumeration to specify which algorithm to use when counting words for the WordCount extension method
         /// </summary>

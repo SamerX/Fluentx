@@ -2970,6 +2970,15 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.Like(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <param name="pattern"></param>
+            <param name="CaseInsensitive"></param>
+            <returns></returns>
+        </member>
         <member name="T:Fluentx.Extensions.WordCountAlgorithm">
             <summary>
             Enumeration to specify which algorithm to use when counting words for the WordCount extension method

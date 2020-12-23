@@ -3021,6 +3021,15 @@
             <param name="key"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.Like(System.String,System.String,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="input"></param>
+            <param name="pattern"></param>
+            <param name="CaseInsensitive"></param>
+            <returns></returns>
+        </member>
         <member name="T:Fluentx.Extensions.WordCountAlgorithm">
             <summary>
             Enumeration to specify which algorithm to use when counting words for the WordCount extension method
@@ -3862,14 +3871,14 @@
             <param name="singletonType"></param>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Fx.TypesOf``1">
+        <member name="M:Fluentx.Fx.TypesOf``1(System.Func{System.Type,System.Boolean})">
             <summary>
             Get all types in the assembly of the provided T1 type
             </summary>
             <typeparam name="T1"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Fx.TypesOf``2">
+        <member name="M:Fluentx.Fx.TypesOf``2(System.Func{System.Type,System.Boolean})">
             <summary>
             Get all types in the assembly of the provided T1, T2 types
             </summary>
@@ -3878,7 +3887,7 @@
             <typeparam name="T3"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Fx.TypesOf``3">
+        <member name="M:Fluentx.Fx.TypesOf``3(System.Func{System.Type,System.Boolean})">
             <summary>
             Get all types in the assembly of the provided T1, T2, T3 types
             </summary>
@@ -3887,7 +3896,7 @@
             <typeparam name="T3"></typeparam>
             <returns></returns>
         </member>
-        <member name="M:Fluentx.Fx.TypesOf``4">
+        <member name="M:Fluentx.Fx.TypesOf``4(System.Func{System.Type,System.Boolean})">
             <summary>
             Get all types in the assembly of the provided T1, T2, T3, T4 types
             </summary>
