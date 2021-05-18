@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Fluentx
@@ -51,6 +52,7 @@ namespace Fluentx
             else
                 return defaultValue;
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
@@ -76,6 +78,7 @@ namespace Fluentx
             else
                 return defaultValue;
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
@@ -272,6 +275,7 @@ namespace Fluentx
 
             return defaultValue;
         }
+
         /// <summary>
         /// Extension method that tries to parse the string, if parsing faild it returns the default value (specified default value or implicit default value).
         /// </summary>
@@ -515,6 +519,16 @@ namespace Fluentx
         }
 
         /// <summary>
+        /// Returns with the specified string is numeric or not.
+        /// </summary>
+        /// <param name="theValue"></param>
+        /// <returns></returns>
+        public static bool IsNumeric(this string theValue)
+        {
+            return long.TryParse(theValue, System.Globalization.NumberStyles.Integer, System.Globalization.NumberFormatInfo.InvariantInfo, result: out _);
+        }
+
+        /// <summary>
         /// Makes the first letter of the specified string capital.
         /// </summary>
         /// <param name="this"></param>
@@ -732,6 +746,7 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
+
         /// <summary>
         /// Wraps the specified instance with the specified tex
         /// </summary>
@@ -742,6 +757,7 @@ namespace Fluentx
         {
             return text + instance + text;
         }
+
         /// <summary>
         /// Wraps the specified instance with the specified tex
         /// </summary>
@@ -753,6 +769,7 @@ namespace Fluentx
         {
             return before + instance + after;
         }
+
         /// <summary>
         /// Wraps the text with double quotations
         /// </summary>
@@ -762,6 +779,7 @@ namespace Fluentx
         {
             return Fx.DoubleQuote + instance + Fx.DoubleQuote;
         }
+
         /// <summary>
         /// Wraps the text with single quotations
         /// </summary>
@@ -771,6 +789,7 @@ namespace Fluentx
         {
             return Fx.SingleQuote + instance + Fx.SingleQuote;
         }
+
         ///// <summary>
         ///// This method do a trim start and end for all string properties on the specified object.
         ///// </summary>
@@ -802,8 +821,20 @@ namespace Fluentx
         {
             return CesarEncrypt(input, 26 - key);
         }
+
         /// <summary>
-        /// 
+        /// Returns with the character is a vowel in european languages.
+        /// </summary>
+        /// <param name="ch"></param>
+        /// <returns></returns>
+        public static bool IsVowel(this char ch)
+        {
+            return "aeiouyáéíóúýa̋e̋i̋őűàèìòùỳầềồḕṑǜừằȁȅȉȍȕăĕĭŏŭy̆ắằẳẵặḝȃȇȋȏȗǎěǐǒǔy̌a̧ȩə̧ɛ̧i̧ɨ̧o̧u̧âêîôûŷḙṷẩểổấếốẫễỗậệộäëïöüÿṳḯǘǚṏǟȫǖṻȧėıȯẏǡạẹịọụỵậȩ̇ǡȱảẻỉỏủỷơướứờừởửỡữợựāǣēīōūȳḗṓȭǭąęįǫųy̨åi̊ůḁǻą̊ãẽĩõũỹаэыуояеёюийⱥɇɨøɵꝋʉᵿɏөӫұɨαεηιοωυάέήίόώύὰὲὴὶὸὼὺἀἐἠἰὀὠὐἁἑἡἱὁὡὑᾶῆῖῶῦἆἦἶὦὖἇἧἷὧὗᾳῃῳᾷῇῷᾴῄῴᾲῂῲᾀᾐᾠᾁᾑᾡᾆᾖᾦᾇᾗᾧϊϋΐΰῒῢῗῧἅἕἥἵὅὥὕἄἔἤἴὄὤὔἂἒἢἲὂὢὒἃἓἣἳὃὣὓᾅᾕᾥᾄᾔᾤᾂᾒᾢᾃᾓᾣæɯɪʏʊøɘɤəɛœɜɞʌɔɐɶɑɒιυ"
+                     .Contains("" + ch);
+        }
+
+        /// <summary>
+        /// Performs like operation on the specified input using a pattern
         /// </summary>
         /// <param name="input"></param>
         /// <param name="pattern"></param>
@@ -961,6 +992,89 @@ namespace Fluentx
             //We've processed everything - this is a match.
             return true;
         }
+
+        /// <summary>
+        /// Default masking character used in a mask.
+        /// </summary>
+        public static readonly char DefaultMaskCharacter = '*';
+
+        /// <summary>
+        /// Returns true if the string is non-null and at least the specified number of characters.
+        /// </summary>
+        /// <param name="value">The string to check.</param>
+        /// <param name="length">The minimum length.</param>
+        /// <returns>True if string is non-null and at least the length specified.</returns>
+        /// <exception>throws ArgumentOutOfRangeException if length is not a non-negative number.</exception>
+        public static bool IsLengthAtLeast(this string value, int length)
+        {
+            if (length < 0)
+            {
+                throw new ArgumentOutOfRangeException("length", length,
+                                                        "The length must be a non-negative number.");
+            }
+
+            return value != null
+                        ? value.Length >= length
+                        : false;
+        }
+
+        /// <summary>
+        /// Mask the source string with the mask char except for the last exposed digits.
+        /// </summary>
+        /// <param name="sourceValue">Original string to mask.</param>
+        /// <param name="maskChar">The character to use to mask the source.</param>
+        /// <param name="numExposed">Number of characters exposed in masked value.</param>
+        /// <returns>The masked account number.</returns>
+        public static string Mask(this string sourceValue, char maskChar, int numExposed)
+        {
+            var maskedString = sourceValue;
+
+            if (sourceValue.IsLengthAtLeast(numExposed))
+            {
+                var builder = new StringBuilder(sourceValue.Length);
+                int index = maskedString.Length - numExposed;
+
+                builder.Append(maskChar, index);
+
+                builder.Append(sourceValue.Substring(index));
+                maskedString = builder.ToString();
+            }
+
+            return maskedString;
+        }
+
+        /// <summary>
+        /// Mask the source string with the default mask char except for the last exposed digits.
+        /// </summary>
+        /// <param name="sourceValue">Original string to mask.</param>
+        /// <param name="numExposed">Number of characters exposed in masked value.</param>
+        /// <returns>The masked account number.</returns>
+        public static string Mask(this string sourceValue, int numExposed)
+        {
+            return Mask(sourceValue, DefaultMaskCharacter, numExposed);
+        }
+
+        /// <summary>
+        /// Mask the source string with the default mask char.
+        /// </summary>
+        /// <param name="sourceValue">Original string to mask.</param>
+        /// <returns>The masked account number.</returns>
+        public static string Mask(this string sourceValue)
+        {
+            return Mask(sourceValue, DefaultMaskCharacter, 0);
+        }
+
+        /// <summary>
+        /// Mask the source string with the mask char.
+        /// </summary>
+        /// <param name="sourceValue">Original string to mask.</param>
+        /// <param name="maskChar">The character to use to mask the source.</param>
+        /// <returns>The masked account number.</returns>
+        public static string Mask(this string sourceValue, char maskChar)
+        {
+            return Mask(sourceValue, maskChar, 0);
+        }
+
         /// <summary>
         /// Enumeration to specify which algorithm to use when counting words for the WordCount extension method
         /// </summary>
