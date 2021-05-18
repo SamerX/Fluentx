@@ -2,13 +2,22 @@
 
   <PropertyGroup>
     <TargetFrameworks>netstandard1.5;netstandard1.6;netstandard2.0;netstandard2.1;net45;net451;net452;net46;net461;net462;net47;net471;net472</TargetFrameworks>
+<<<<<<< HEAD
     <Version>5.4.20</Version>
+=======
+    <Version>5.4.19</Version>
+>>>>>>> e7e45f8a46836c7ad312617ea8a17d7359115afa
     <Description>A great library with enumerous helper methods .. it has a lightweight IoC container, a light weight Object to Object mapper, an implementation for the specification pattern and tons of extension and helper methods .. use it and you will love it.</Description>
     <Copyright>Samer Aburabie</Copyright>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+<<<<<<< HEAD
     <AssemblyVersion>5.4.20.0</AssemblyVersion>
     <FileVersion>5.4.20.0</FileVersion>
+=======
+    <AssemblyVersion>5.4.19.0</AssemblyVersion>
+    <FileVersion>5.4.19.0</FileVersion>
+>>>>>>> e7e45f8a46836c7ad312617ea8a17d7359115afa
     <DocumentationFile>bin\$(Configuration)\$(TargetFramework)\$(AssemblyName).xml</DocumentationFile>
   </PropertyGroup>
 

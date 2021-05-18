@@ -5433,7 +5433,11 @@
     "C:\\Users\\samer\\.nuget\\packages\\": {}
   },
   "project": {
+<<<<<<< HEAD
     "version": "5.4.20",
+=======
+    "version": "5.4.19",
+>>>>>>> e7e45f8a46836c7ad312617ea8a17d7359115afa
     "restore": {
       "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
       "projectName": "Fluentx",
