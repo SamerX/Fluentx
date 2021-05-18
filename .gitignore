@@ -10,3 +10,7 @@
 /Fluentx.Benchmark/obj/Debug/netcoreapp2.0
 /Fluentx/bin/Release
 /Fluentx.Benchmark/obj
+/Fluentx.Benchmark/bin/Debug/netcoreapp2.0
+/Fluentx.Tester/bin/Debug/netcoreapp3.1
+/Fluentx.Tester/obj/Debug/netcoreapp3.1/Fluentx.Tester.pdb
+/Fluentx.Tester/obj/Debug/netcoreapp3.1/Fluentx.Tester.dll

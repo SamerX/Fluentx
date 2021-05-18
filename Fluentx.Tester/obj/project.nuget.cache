@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "GHoSYYtmPuhvp5647ABVeDM+UQC15Q0Dfi+8mbyOtStTrYLh977YLzvW2DKCrQkvzdr83eVLP/QT5tUNk0V1Xg==",
+  "dgSpecHash": "ef1oMrWCwP4tla0eAChwlRQ0C3cVXlkIYMxbq/1bNdwI9I1V0D1bqFHzcnifV8sMb61ji2mFZmNiBmbQXqv3nA==",
   "success": true,
   "projectFilePath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
   "expectedPackageFiles": [
@@ -117,8 +117,7 @@
     "C:\\Users\\samer\\.nuget\\packages\\xunit.core\\2.2.0\\xunit.core.2.2.0.nupkg.sha512",
     "C:\\Users\\samer\\.nuget\\packages\\xunit.extensibility.core\\2.2.0\\xunit.extensibility.core.2.2.0.nupkg.sha512",
     "C:\\Users\\samer\\.nuget\\packages\\xunit.extensibility.execution\\2.2.0\\xunit.extensibility.execution.2.2.0.nupkg.sha512",
-    "C:\\Users\\samer\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512",
-    "C:\\Users\\samer\\.nuget\\packages\\fluentx\\5.4.20\\fluentx.5.4.20.nupkg.sha512"
+    "C:\\Users\\samer\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512"
   ],
   "logs": []
 }
