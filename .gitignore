@@ -5,12 +5,9 @@
 /.vs/Fluentx/v15/Server/sqlite3/db.lock
 /.vs/Fluentx/v15/Server/sqlite3
 /Fluentx/obj
-/Fluentx/bin/Debug
-/Fluentx.Tester/obj/Debug/netcoreapp2.0
-/Fluentx.Benchmark/obj/Debug/netcoreapp2.0
-/Fluentx/bin/Release
+/Fluentx/bin
 /Fluentx.Benchmark/obj
-/Fluentx.Benchmark/bin/Debug/netcoreapp2.0
-/Fluentx.Tester/bin/Debug/netcoreapp3.1
-/Fluentx.Tester/obj/Debug/netcoreapp3.1/Fluentx.Tester.pdb
-/Fluentx.Tester/obj/Debug/netcoreapp3.1/Fluentx.Tester.dll
+/Fluentx.Benchmark/bin
+/Fluentx.Tester/obj
+/Fluentx.Tester/bin
+

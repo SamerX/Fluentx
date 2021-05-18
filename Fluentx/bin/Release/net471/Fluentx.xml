@@ -2035,6 +2035,13 @@
             <param name="number"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.Ordinalize(System.Int32)">
+            <summary>
+            Adds an ordinal to a number 
+            </summary>
+            <param name="number"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.LinearSearch``1(System.Collections.Generic.IList{``0},``0)">
             <summary>
             Linear search implementation.
@@ -2893,6 +2900,13 @@
             <param name="separator"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.IsNumeric(System.String)">
+            <summary>
+            Returns with the specified string is numeric or not.
+            </summary>
+            <param name="theValue"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Capitalize(System.String)">
             <summary>
             Makes the first letter of the specified string capital.
@@ -3012,6 +3026,68 @@
             <param name="input"></param>
             <param name="key"></param>
             <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.IsVowel(System.Char)">
+            <summary>
+            Returns with the character is a vowel in european languages.
+            </summary>
+            <param name="ch"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Like(System.String,System.String,System.Boolean)">
+            <summary>
+            Performs like operation on the specified input using a pattern
+            </summary>
+            <param name="input"></param>
+            <param name="pattern"></param>
+            <param name="CaseInsensitive"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Fluentx.Extensions.DefaultMaskCharacter">
+            <summary>
+            Default masking character used in a mask.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.IsLengthAtLeast(System.String,System.Int32)">
+            <summary>
+            Returns true if the string is non-null and at least the specified number of characters.
+            </summary>
+            <param name="value">The string to check.</param>
+            <param name="length">The minimum length.</param>
+            <returns>True if string is non-null and at least the length specified.</returns>
+            <exception>throws ArgumentOutOfRangeException if length is not a non-negative number.</exception>
+        </member>
+        <member name="M:Fluentx.Extensions.Mask(System.String,System.Char,System.Int32)">
+            <summary>
+            Mask the source string with the mask char except for the last exposed digits.
+            </summary>
+            <param name="sourceValue">Original string to mask.</param>
+            <param name="maskChar">The character to use to mask the source.</param>
+            <param name="numExposed">Number of characters exposed in masked value.</param>
+            <returns>The masked account number.</returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Mask(System.String,System.Int32)">
+            <summary>
+            Mask the source string with the default mask char except for the last exposed digits.
+            </summary>
+            <param name="sourceValue">Original string to mask.</param>
+            <param name="numExposed">Number of characters exposed in masked value.</param>
+            <returns>The masked account number.</returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Mask(System.String)">
+            <summary>
+            Mask the source string with the default mask char.
+            </summary>
+            <param name="sourceValue">Original string to mask.</param>
+            <returns>The masked account number.</returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Mask(System.String,System.Char)">
+            <summary>
+            Mask the source string with the mask char.
+            </summary>
+            <param name="sourceValue">Original string to mask.</param>
+            <param name="maskChar">The character to use to mask the source.</param>
+            <returns>The masked account number.</returns>
         </member>
         <member name="T:Fluentx.Extensions.WordCountAlgorithm">
             <summary>
