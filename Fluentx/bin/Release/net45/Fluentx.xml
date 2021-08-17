@@ -266,7 +266,7 @@
             Set of very useful extension methods for hour by hour use in .NET code.
             </summary>
             <summary>
-            Set of very useful extension methods for hour by hour use in .NET code.
+            Set of very useful extension methods for hour by hour use in .NET code.    
             </summary>
             <summary>
             Set of very useful extension methods for hour by hour use in .NET code.
@@ -1059,6 +1059,13 @@
             <param name="source"></param>
             <param name="predicate"></param>
             <param name="condition"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.TrimOffset(System.DateTime)">
+            <summary>
+            Returns a new datetime object without the offset or UTC information.
+            </summary>
+            <param name="dateTime"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.FromUnixTime(System.Int64)">
@@ -3912,6 +3919,19 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="singletonType"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fluentx.Fx.Now">
+            <summary>
+            Returns a datetime object is set to the current date time on this computer WITHOUT offset data.
+            <para></para> 
+            <para>&#160;</para> 
+            <para>Comparison:</para>
+            <para>&#160;</para> 
+            <para>DateTime.Now.ToString("o") => 1983-05-27T07:05:03.7050301+04:00</para>
+            <para>&#160;</para> 
+            <para>Fx.Now.ToString("o") => 1983-05-27T07:05:03.7050301</para>
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.FindType``1(System.String)">

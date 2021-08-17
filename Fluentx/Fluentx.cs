@@ -1583,6 +1583,24 @@ namespace Fluentx
         {
             return GenerateSingletonClass(typeof(T).Name, singletonType);
         }
+        /// <summary>
+        /// Returns a datetime object is set to the current date time on this computer WITHOUT offset data.
+        /// <para></para> 
+        /// <para>&#160;</para> 
+        /// <para>Comparison:</para>
+        /// <para>&#160;</para> 
+        /// <para>DateTime.Now.ToString("o") => 1983-05-27T07:05:03.7050301+04:00</para>
+        /// <para>&#160;</para> 
+        /// <para>Fx.Now.ToString("o") => 1983-05-27T07:05:03.7050301</para>
+        /// </summary>
+        /// <returns></returns>
+        public static DateTime Now
+        {
+            get
+            {
+                return new DateTime(DateTime.Now.Ticks);
+            }
+        }
 
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>

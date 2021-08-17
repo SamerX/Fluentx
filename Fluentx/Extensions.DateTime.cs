@@ -8,10 +8,20 @@ using System.Text.RegularExpressions;
 namespace Fluentx
 {
     /// <summary>
-    /// Set of very useful extension methods for hour by hour use in .NET code.
+    /// Set of very useful extension methods for hour by hour use in .NET code.    
     /// </summary>
     public static partial class Extensions
     {
+        
+        /// <summary>
+        /// Returns a new datetime object without the offset or UTC information.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static DateTime TrimOffset(this DateTime dateTime)
+        {
+            return new DateTime(dateTime.Ticks);
+        }
         /// <summary>
         /// Parses a unit time to datetime.
         /// </summary>
