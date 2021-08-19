@@ -3934,6 +3934,19 @@
             </summary>
             <returns></returns>
         </member>
+        <member name="P:Fluentx.Fx.UtcNow">
+            <summary>
+            Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data.
+            <para></para> 
+            <para>&#160;</para> 
+            <para>Comparison:</para>
+            <para>&#160;</para> 
+            <para>DateTime.Now.ToString("o") => 1983-05-27T07:05:03.7050301+04:00</para>
+            <para>&#160;</para> 
+            <para>Fx.Now.ToString("o") => 1983-05-27T07:05:03.7050301</para>
+            </summary>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Fx.FindType``1(System.String)">
             <summary>
             Finds the type in the specified <typeparamref name="TAssemblyType"/> assembly using the specified type name
