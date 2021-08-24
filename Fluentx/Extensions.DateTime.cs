@@ -12,7 +12,7 @@ namespace Fluentx
     /// </summary>
     public static partial class Extensions
     {
-        
+
         /// <summary>
         /// Returns a new datetime object without the offset or UTC information.
         /// </summary>
@@ -21,6 +21,15 @@ namespace Fluentx
         public static DateTime TrimOffset(this DateTime dateTime)
         {
             return new DateTime(dateTime.Ticks);
+        }
+        /// <summary>
+        /// Returns a new datetime object without the offset or UTC information.
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <returns></returns>
+        public static DateTime? TrimOffset(this DateTime? dateTime)
+        {
+            return dateTime == null ? null : new DateTime(dateTime.Value.Ticks);
         }
         /// <summary>
         /// Parses a unit time to datetime.
