@@ -91,6 +91,8 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp3.1\zh-Hant
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp3.1\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp3.1\Fluentx.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\bin\Release\netcoreapp3.1\Fluentx.xml
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.csproj.AssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.GeneratedMSBuildEditorConfig.editorconfig
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.AssemblyInfo.cs
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.csproj.CoreCompileInputs.cache
@@ -98,4 +100,3 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.genruntimeconfig.cache
-D:\Mii Projects\Fluentx\Fluentx\Fluentx.Tester\obj\Release\netcoreapp3.1\Fluentx.Tester.csproj.AssemblyReference.cache

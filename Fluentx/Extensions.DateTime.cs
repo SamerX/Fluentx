@@ -29,7 +29,9 @@ namespace Fluentx
         /// <returns></returns>
         public static DateTime? TrimOffset(this DateTime? dateTime)
         {
-            return dateTime == null ? null : new DateTime(dateTime.Value.Ticks);
+            if (dateTime == null)
+                return null;
+            return new DateTime(dateTime.Value.Ticks);
         }
         /// <summary>
         /// Parses a unit time to datetime.

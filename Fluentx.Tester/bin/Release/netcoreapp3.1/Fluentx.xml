@@ -1076,6 +1076,13 @@
             <param name="dateTime"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.TrimOffset(System.Nullable{System.DateTime})">
+            <summary>
+            Returns a new datetime object without the offset or UTC information.
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.FromUnixTime(System.Int64)">
             <summary>
             Parses a unit time to datetime.

@@ -1,7 +1,6 @@
 {
   "version": 3,
   "targets": {
-    ".NETFramework,Version=v4.5": {},
     ".NETFramework,Version=v4.5.1": {},
     ".NETFramework,Version=v4.5.2": {},
     ".NETFramework,Version=v4.6": {},
@@ -5521,7 +5520,6 @@
     }
   },
   "projectFileDependencyGroups": {
-    ".NETFramework,Version=v4.5": [],
     ".NETFramework,Version=v4.5.1": [],
     ".NETFramework,Version=v4.5.2": [],
     ".NETFramework,Version=v4.6": [],
@@ -5559,7 +5557,6 @@
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
-        "net45",
         "net451",
         "net452",
         "net46",
@@ -5578,10 +5575,6 @@
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
-        "net45": {
-          "targetAlias": "net45",
-          "projectReferences": {}
-        },
         "net451": {
           "targetAlias": "net451",
           "projectReferences": {}
@@ -5638,10 +5631,6 @@
       }
     },
     "frameworks": {
-      "net45": {
-        "targetAlias": "net45",
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
-      },
       "net451": {
         "targetAlias": "net451",
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.100-preview.7.21379.14\\RuntimeIdentifierGraph.json"
