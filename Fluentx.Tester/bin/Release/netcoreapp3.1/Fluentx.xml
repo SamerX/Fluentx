@@ -5133,7 +5133,7 @@
             Multi-value dictionary identified by a key
             </summary>
             <typeparam name="TKey"></typeparam>
-            <typeparam name="T1"></typeparam>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="T:Fluentx.Multitionary`3">
             <summary>
@@ -5505,14 +5505,14 @@
             Interface to represent multivalue data structures identified by a key
             </summary>
             <typeparam name="TKey"></typeparam>
-            <typeparam name="T1"></typeparam>
+            <typeparam name="T"></typeparam>
         </member>
         <member name="P:Fluentx.Kuple`2.Key">
             <summary>
             
             </summary>
         </member>
-        <member name="P:Fluentx.Kuple`2.Value1">
+        <member name="P:Fluentx.Kuple`2.Value">
             <summary>
             
             </summary>

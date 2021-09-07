@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -138,8 +139,8 @@ namespace Fluentx
     /// Multi-value dictionary identified by a key
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="T1"></typeparam>
-    public class Multitionary<TKey, T1> : MultitionaryBase<TKey, Kuple<TKey, T1>>
+    /// <typeparam name="T"></typeparam>
+    public class Multitionary<TKey, T> : MultitionaryBase<TKey, Kuple<TKey, T>>
     {
 
     }
@@ -218,7 +219,7 @@ namespace Fluentx
     {
 
     }
-    
+
     /// <summary>
     /// Interface to represent multivalue data structures identified by a key
     /// </summary>
@@ -241,7 +242,7 @@ namespace Fluentx
     /// <typeparam name="T5"></typeparam>
     /// <typeparam name="T6"></typeparam>
     /// <typeparam name="T7"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2, T3, T4, T5, T6, T7> : IKuple<TKey>
     {
         /// <summary>
@@ -309,7 +310,7 @@ namespace Fluentx
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="T5"></typeparam>
     /// <typeparam name="T6"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2, T3, T4, T5, T6> : IKuple<TKey>
     {
         /// <summary>
@@ -370,7 +371,7 @@ namespace Fluentx
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
     /// <typeparam name="T5"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2, T3, T4, T5> : IKuple<TKey>
     {
         /// <summary>
@@ -424,7 +425,7 @@ namespace Fluentx
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
     /// <typeparam name="T4"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2, T3, T4> : IKuple<TKey>
     {
         /// <summary>
@@ -471,7 +472,7 @@ namespace Fluentx
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
     /// <typeparam name="T3"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2, T3> : IKuple<TKey>
     {
         /// <summary>
@@ -511,7 +512,7 @@ namespace Fluentx
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="T1"></typeparam>
     /// <typeparam name="T2"></typeparam>
-    
+
     public class Kuple<TKey, T1, T2> : IKuple<TKey>
     {
         /// <summary>
@@ -543,9 +544,9 @@ namespace Fluentx
     /// Interface to represent multivalue data structures identified by a key
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="T1"></typeparam>
-    
-    public class Kuple<TKey, T1> : IKuple<TKey>
+    /// <typeparam name="T"></typeparam>
+
+    public class Kuple<TKey, T> : IKuple<TKey>
     {
         /// <summary>
         /// 
@@ -554,16 +555,17 @@ namespace Fluentx
         /// <summary>
         /// 
         /// </summary>
-        public T1 Value1 { get; private set; }
+        public T Value { get; private set; }
         /// <summary>
         /// 
         /// </summary>
         /// <param name="key"></param>
         /// <param name="value1"></param>
-        public Kuple(TKey key, T1 value1)
+        public Kuple(TKey key, T value1)
         {
             this.Key = key;
-            this.Value1 = value1;
+            this.Value = value1;
         }
+
     }
 }
