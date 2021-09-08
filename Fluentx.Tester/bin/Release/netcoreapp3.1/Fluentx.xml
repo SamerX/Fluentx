@@ -5589,6 +5589,69 @@
             
             </summary>
         </member>
+        <member name="T:Fluentx.Pair`1">
+            <summary>
+            Represents a pair of left and right
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Fluentx.Trio`3">
+            <summary>
+            Represents a triple of left, middle and right
+            </summary>
+            <typeparam name="TLeft"></typeparam>
+            <typeparam name="TMiddle"></typeparam>
+            <typeparam name="TRight"></typeparam>
+        </member>
+        <member name="P:Fluentx.Trio`3.Left">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="P:Fluentx.Trio`3.Right">
+            <summary>
+            Right
+            </summary>
+        </member>
+        <member name="P:Fluentx.Trio`3.Middle">
+            <summary>
+            Middle
+            </summary>
+        </member>
+        <member name="T:Fluentx.Trio`1">
+            <summary>
+            Represents a triple of left, middle and right of the same type
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="T:Fluentx.DateValuePair`1">
+            <summary>
+            Represent a pair of date and value
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Fluentx.DateValuePair`1.DateTime">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Fluentx.DateValuePair`1.Value">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.DateValuePair`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Fluentx.DateValuePair`1.#ctor(System.DateTime,`0)">
+            <summary>
+            
+            </summary>
+            <param name="dateTime"></param>
+            <param name="value"></param>
+        </member>
         <member name="T:Fluentx.Filial`1">
             <summary>
             Represent a parent child data structure

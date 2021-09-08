@@ -37,6 +37,75 @@ namespace Fluentx
 
         }
     }
+    /// <summary>
+    /// Represents a pair of left and right
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Pair<T> : Pair<T, T>
+    {
+
+    }
+    /// <summary>
+    /// Represents a triple of left, middle and right
+    /// </summary>
+    /// <typeparam name="TLeft"></typeparam>
+    /// <typeparam name="TMiddle"></typeparam>
+    /// <typeparam name="TRight"></typeparam>
+    public class Trio<TLeft, TMiddle, TRight>
+    {
+        /// <summary>
+        /// Left
+        /// </summary>
+        public TLeft Left { get; set; }
+        /// <summary>
+        /// Right
+        /// </summary>
+        public TRight Right { get; set; }
+        /// <summary>
+        /// Middle
+        /// </summary>
+        public TMiddle Middle { get; set; }
+    }
+    /// <summary>
+    /// Represents a triple of left, middle and right of the same type
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class Trio<T> : Trio<T, T, T>
+    {
+
+    }
+    /// <summary>
+    /// Represent a pair of date and value
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class DateValuePair<T>
+    {
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateTime DateTime { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public T Value { get; set; }
+        /// <summary>
+        /// 
+        /// </summary>
+        public DateValuePair()
+        {
+
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="dateTime"></param>
+        /// <param name="value"></param>
+        public DateValuePair(DateTime dateTime, T value)
+        {
+            DateTime = dateTime;
+            Value = value;
+        }
+    }
 
     /// <summary>
     /// Represent a parent child data structure
