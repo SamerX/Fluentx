@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -1625,7 +1626,7 @@ namespace Fluentx
         /// Finds the type in the specified <typeparamref name="TAssemblyType"/> assembly using the specified type name
         /// </summary>
         /// <typeparam name="TAssemblyType"></typeparam>
-        /// <param name="name"></param>
+        /// <param name="typeName"></param>
         /// <returns></returns>
         public static Type FindType<TAssemblyType>(string typeName)
         {
@@ -1804,7 +1805,6 @@ namespace Fluentx
         /// </summary>
         /// <typeparam name="T1"></typeparam>
         /// <typeparam name="T2"></typeparam>
-        /// <typeparam name="T3"></typeparam>
         /// <returns></returns>
         public static IEnumerable<Type> TypesOf<T1, T2>(Func<Type, bool> predicate = null)
         {
@@ -1866,6 +1866,18 @@ namespace Fluentx
                 return new FxEqualityComparer<TSource, TKey>(projection);
             }
         }
+        /// <summary>
+        /// Generates an Enumerable range of dates in days between two dates including the specified dates.
+        /// </summary>
+        /// <param name="from"></param>
+        /// <param name="to"></param>
+        /// <returns></returns>
+        public static IEnumerable<DateTime> RangeInDays(DateTime from, DateTime to)
+        {
+            var range = Enumerable.Range(0, 1 + to.Subtract(from).Days).Select(offset => from.AddDays(offset)).ToArray();
+            return range;
+        }
+
         /// <summary>
         /// Private class to hold information about switch case statement.
         /// </summary>

@@ -669,6 +669,7 @@ namespace Fluentx
         /// <param name="this"></param>
         /// <param name="oldValue"></param>
         /// <param name="newValue"></param>
+        /// <param name="comparison"></param>
         /// <returns></returns>
         public static string ReplaceFirst(this string @this, string oldValue, string newValue, StringComparison comparison = StringComparison.Ordinal)
         {

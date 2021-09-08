@@ -1126,13 +1126,13 @@ namespace Fluentx.Tester
             public ClassForStringTesting()
             {
                 Two = "Two ";
-                Four = "Four ";
+                //Four = "Four ";
             }
             public string One { get; set; }
             private string Two { get; set; }
 
             public string Three;
-            private readonly string Four = null;
+            //private readonly string Four = null;
         }
         public interface IOneBusinessRules
         {

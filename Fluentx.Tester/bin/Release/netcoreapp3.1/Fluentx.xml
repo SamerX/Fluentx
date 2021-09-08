@@ -342,9 +342,18 @@
             <param name="this"></param>
             <param name="action"></param>
         </member>
-        <member name="M:Fluentx.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+        <member name="M:Fluentx.Extensions.NotContains``1(System.Collections.Generic.IEnumerable{``0},``0)">
             <summary>
             Returns whether the specified source doesn't contain the specified value or not.
+            </summary>
+            <typeparam name="TSource"></typeparam>
+            <param name="source"></param>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.Contains``1(System.Collections.Generic.IEnumerable{``0},``0,System.Collections.Generic.IEqualityComparer{``0})">
+            <summary>
+            Returns whether the specified source contain the specified value or not.
             </summary>
             <typeparam name="TSource"></typeparam>
             <param name="source"></param>
@@ -364,7 +373,6 @@
             <summary>
             Return a random value from the specified range
             </summary>
-            <typeparam name="T"></typeparam>
             <param name="this"></param>
             <returns></returns>
         </member>
@@ -864,7 +872,6 @@
             <typeparam name="T"></typeparam>
             <param name="this"></param>
             <param name="methodName"></param>
-            <param name="genericParams"></param>
             <param name="params"></param>
             <returns></returns>
         </member>
@@ -3020,6 +3027,7 @@
             <param name="this"></param>
             <param name="oldValue"></param>
             <param name="newValue"></param>
+            <param name="comparison"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Extensions.XORCipher(System.String,System.String)">
@@ -4002,7 +4010,7 @@
             Finds the type in the specified <typeparamref name="TAssemblyType"/> assembly using the specified type name
             </summary>
             <typeparam name="TAssemblyType"></typeparam>
-            <param name="name"></param>
+            <param name="typeName"></param>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.GenerateSingletonClass(System.String,Fluentx.SingletonType)">
@@ -4026,7 +4034,6 @@
             </summary>
             <typeparam name="T1"></typeparam>
             <typeparam name="T2"></typeparam>
-            <typeparam name="T3"></typeparam>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.TypesOf``3(System.Func{System.Type,System.Boolean})">
@@ -4070,6 +4077,14 @@
             </summary>
             <typeparam name="TKey"></typeparam>
             <param name="projection"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.RangeInDays(System.DateTime,System.DateTime)">
+            <summary>
+            Generates an Enumerable range of dates in days between two dates including the specified dates.
+            </summary>
+            <param name="from"></param>
+            <param name="to"></param>
             <returns></returns>
         </member>
         <member name="T:Fluentx.Fx.CaseInfo">

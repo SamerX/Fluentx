@@ -88,13 +88,19 @@ namespace Fluentx
             }
             return @this;
         }
-
+        /// <summary>
+        /// Returns whether the specified source doesn't contain the specified value or not.
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        /// <param name="source"></param>
+        /// <param name="value"></param>
+        /// <returns></returns>
         public static bool NotContains<TSource>(this IEnumerable<TSource> source, TSource value)
         {
             return !source.Contains(value);
         }
         /// <summary>
-        /// Returns whether the specified source doesn't contain the specified value or not.
+        /// Returns whether the specified source contain the specified value or not.
         /// </summary>
         /// <typeparam name="TSource"></typeparam>
         /// <param name="source"></param>
@@ -124,7 +130,6 @@ namespace Fluentx
         /// <summary>
         /// Return a random value from the specified range
         /// </summary>
-        /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <returns></returns>
         public static int Random(this Range @this)
@@ -876,7 +881,6 @@ namespace Fluentx
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
         /// <param name="methodName"></param>
-        /// <param name="genericParams"></param>
         /// <param name="params"></param>
         /// <returns></returns>
         public static async Task<object> InvokeMethodAsync<T>(this T @this, string methodName, params object[] @params)
