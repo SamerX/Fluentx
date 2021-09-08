@@ -180,7 +180,15 @@ namespace Fluentx
             //throw new ArgumentNullException("instance is null, can't check against null.");
             return list.Contains(@this);
         }
-
+        
+        //public static bool AnyIn<T>(this IEnumerable<T> @this, IEnumerable<T> list)
+        //{
+        //    if (list.IsNullOrEmpty())
+        //    {
+        //        return @this?.Intersect(list).Any() == true;
+        //    }
+        //    return 
+        //}
         /// <summary>
         /// Extension method to evaluate if the specified object doest not exists within the specified list.
         /// </summary>

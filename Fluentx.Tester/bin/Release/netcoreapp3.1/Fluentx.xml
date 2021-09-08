@@ -5560,6 +5560,63 @@
             Sort direction
             </summary>
         </member>
+        <member name="T:Fluentx.Pair`2">
+            <summary>
+            Represents a pair of left and right
+            </summary>
+            <typeparam name="TLeft"></typeparam>
+            <typeparam name="TRight"></typeparam>
+        </member>
+        <member name="P:Fluentx.Pair`2.Left">
+            <summary>
+            Left
+            </summary>
+        </member>
+        <member name="P:Fluentx.Pair`2.Right">
+            <summary>
+            Right
+            </summary>
+        </member>
+        <member name="M:Fluentx.Pair`2.#ctor(`0,`1)">
+            <summary>
+            
+            </summary>
+            <param name="left"></param>
+            <param name="right"></param>
+        </member>
+        <member name="M:Fluentx.Pair`2.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Fluentx.Filial`1">
+            <summary>
+            Represent a parent child data structure
+            </summary>
+            <typeparam name="T"></typeparam>
+        </member>
+        <member name="P:Fluentx.Filial`1.Parent">
+            <summary>
+            Parent
+            </summary>
+        </member>
+        <member name="P:Fluentx.Filial`1.Child">
+            <summary>
+            Child
+            </summary>
+        </member>
+        <member name="M:Fluentx.Filial`1.#ctor(`0,`0)">
+            <summary>
+            
+            </summary>
+            <param name="parent"></param>
+            <param name="child"></param>
+        </member>
+        <member name="M:Fluentx.Filial`1.#ctor">
+            <summary>
+            
+            </summary>
+        </member>
         <member name="T:Fluentx.Period">
             <summary>
             A class represents a time period between to date item instances.
