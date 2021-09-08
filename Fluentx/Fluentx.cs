@@ -1850,6 +1850,23 @@ namespace Fluentx
             return diff == 0;
         }
         /// <summary>
+        /// A generic equality comparer that takes a lambda to do the equality
+        /// </summary>
+        /// <typeparam name="TSource"></typeparam>
+        public static class EqualityComparer<TSource>
+        {
+            /// <summary>
+            /// Creates an instance of an Equality Comparer based on a supplied lambda expression
+            /// </summary>
+            /// <typeparam name="TKey"></typeparam>
+            /// <param name="projection"></param>
+            /// <returns></returns>
+            public static IEqualityComparer<TSource> Create<TKey>(Func<TSource, TKey> projection)
+            {
+                return new FxEqualityComparer<TSource, TKey>(projection);
+            }
+        }
+        /// <summary>
         /// Private class to hold information about switch case statement.
         /// </summary>
         /// 

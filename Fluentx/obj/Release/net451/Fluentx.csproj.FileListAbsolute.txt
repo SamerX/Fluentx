@@ -1,7 +1,6 @@
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net451\Fluentx.xml
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net451\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\bin\Release\net451\Fluentx.pdb
-D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net451\Fluentx.csproj.AssemblyReference.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net451\Fluentx.GeneratedMSBuildEditorConfig.editorconfig
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net451\Fluentx.AssemblyInfoInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net451\Fluentx.AssemblyInfo.cs

@@ -17,7 +17,7 @@ namespace Fluentx.Tester
             bool result = false;
 
             Fx.If(() => { return true; }).Then(() => { result = true; }).Else(() => { result = false; });
-
+            Fx.EqualityComparer<One>.Create(x => x.X1);
             Assert.True(result);
         }
         [Fact]
