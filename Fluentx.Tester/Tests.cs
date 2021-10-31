@@ -79,7 +79,18 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Age()
         {
-            var age = 27.May(1983).Age();
+            //var list = new CircularList<string>() { "one", "two", "three"};
+            //list.GetEnumerator().MoveNext();
+            //var current = list.GetEnumerator().Current;
+
+            //list.GetEnumerator().MoveNext();
+            //current = list.GetEnumerator().Current;
+
+            //list.GetEnumerator().MoveNext();
+            //current = list.GetEnumerator().Current;
+
+            //list.GetEnumerator().MoveNext();
+            //current = list.GetEnumerator().Current;
         }
 
         [Fact]
@@ -1059,6 +1070,14 @@ namespace Fluentx.Tester
         {
             var text = Fx.GenerateSingletonClass("Test", SingletonType.ThreadSafeFullLazy);
         }
+
+        [Fact]
+        public void Test_Implments()
+        {
+            var entity = new DomainEntity();
+
+            var result = entity.GetType().Implements(typeof(IEntity<>));
+        }
         public interface IOne { }
         public class One : IOne
         {
@@ -1176,6 +1195,20 @@ namespace Fluentx.Tester
             public static EOne two = new EOne(2);
             public static EOne four = new EOne(4);
             public static EOne eight = new EOne(8);
+        }
+
+        public interface IDomain
+        {
+
+        }
+        public interface IEntity<TId> : IDomain
+        {
+
+        }
+
+        public class DomainEntity : IEntity<long?>
+        {
+
         }
 
     }

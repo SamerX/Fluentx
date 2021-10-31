@@ -185,7 +185,7 @@ namespace Fluentx
             //throw new ArgumentNullException("instance is null, can't check against null.");
             return list.Contains(@this);
         }
-        
+
         //public static bool AnyIn<T>(this IEnumerable<T> @this, IEnumerable<T> list)
         //{
         //    if (list.IsNullOrEmpty())
@@ -972,7 +972,12 @@ namespace Fluentx
         /// <returns></returns>
         public static bool Implements(this Type @this, Type interfaceType)
         {
+#if NET452_OR_GREATER || NETSTANDARD2_0_OR_GREATER
+            return @this.GetTypeInfo().GetInterfaces().Any(x => x == interfaceType || (x.IsGenericType && x.GetGenericTypeDefinition() == interfaceType));
+#else
             return @this.GetTypeInfo().GetInterfaces().Any(x => x == interfaceType);
+#endif
+
         }
         /// <summary>
         /// Returns whether @this type DOES NOT Implement the specified interface type, this is only for interfaces not for classes.
