@@ -1871,6 +1871,78 @@
             <param name="days"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Extensions.KindUtc(System.DateTime)">
+            <summary>
+            Returns a new datetime object using the ticks from the specified instance with Kind Utc
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.KindUnspecified(System.DateTime)">
+            <summary>
+            Returns a new datetime object using the ticks from the specified instance with Kind Unspecified
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.KindLocal(System.DateTime)">
+            <summary>
+            Returns a new datetime object using the ticks from the specified instance with Kind Local
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.KindUtc(System.Nullable{System.DateTime})">
+            <summary>
+            Returns a new datetime? object using the ticks from the specified instance with Kind Utc
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Extensions.KindUnspecified(System.Nullable{System.DateTime})">
+            <summary>
+            Returns a new datetime? object using the ticks from the specified instance with Kind Unspecified
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Fluentx.Extensions.NowKindUtc">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Utc
+            </summary>
+        </member>
+        <member name="P:Fluentx.Extensions.UtcNowKindUtc">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Utc
+            </summary>
+        </member>
+        <member name="P:Fluentx.Extensions.NowKindUnspecified">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Unspecified
+            </summary>
+        </member>
+        <member name="P:Fluentx.Extensions.UtcNowKindUnspecified">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Unspecified
+            </summary>
+        </member>
+        <member name="P:Fluentx.Extensions.NowKindLocal">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Local
+            </summary>
+        </member>
+        <member name="P:Fluentx.Extensions.UtcNowKindLocal">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Local
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.KindLocal(System.Nullable{System.DateTime})">
+            <summary>
+            Returns a new datetime? object using the ticks from the specified instance with Kind Local
+            </summary>
+            <param name="dateTime"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Extensions.Age(System.DateTime)">
             <summary>
             Creates an age instance from the specified datetime instance.
@@ -3970,32 +4042,6 @@
             </summary>
             <typeparam name="T"></typeparam>
             <param name="singletonType"></param>
-            <returns></returns>
-        </member>
-        <member name="P:Fluentx.Fx.Now">
-            <summary>
-            Returns a datetime object is set to the current date time on this computer WITHOUT offset data (Kind = Utc).
-            <para></para> 
-            <para>&#160;</para> 
-            <para>Comparison:</para>
-            <para>&#160;</para> 
-            <para>DateTime.Now.ToString("o") => 1983-05-27T07:05:03.7050301+04:00</para>
-            <para>&#160;</para> 
-            <para>Fx.Now.ToString("o") => 1983-05-27T07:05:03.7050301</para>
-            </summary>
-            <returns></returns>
-        </member>
-        <member name="P:Fluentx.Fx.UtcNow">
-            <summary>
-            Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data (Kind = Utc).
-            <para></para> 
-            <para>&#160;</para> 
-            <para>Comparison:</para>
-            <para>&#160;</para> 
-            <para>DateTime.Now.ToString("o") => 1983-05-27T07:05:03.7050301+04:00</para>
-            <para>&#160;</para> 
-            <para>Fx.Now.ToString("o") => 1983-05-27T07:05:03.7050301</para>
-            </summary>
             <returns></returns>
         </member>
         <member name="M:Fluentx.Fx.FindType``1(System.String)">

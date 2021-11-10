@@ -1081,8 +1081,8 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Now()
         {
-            var now = Fx.Now;
-            var utcNow = Fx.UtcNow;
+            var now = DateTime.Now.KindUtc();
+            var utcNow = DateTime.UtcNow.KindUtc();
 
         }
         public interface IOne { }
