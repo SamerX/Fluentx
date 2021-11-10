@@ -1078,6 +1078,13 @@ namespace Fluentx.Tester
 
             var result = entity.GetType().Implements(typeof(IEntity<>));
         }
+        [Fact]
+        public void Test_Now()
+        {
+            var now = Fx.Now;
+            var utcNow = Fx.UtcNow;
+
+        }
         public interface IOne { }
         public class One : IOne
         {

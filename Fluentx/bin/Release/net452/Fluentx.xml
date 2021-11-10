@@ -3974,7 +3974,7 @@
         </member>
         <member name="P:Fluentx.Fx.Now">
             <summary>
-            Returns a datetime object is set to the current date time on this computer WITHOUT offset data.
+            Returns a datetime object is set to the current date time on this computer WITHOUT offset data (Kind = Utc).
             <para></para> 
             <para>&#160;</para> 
             <para>Comparison:</para>
@@ -3987,7 +3987,7 @@
         </member>
         <member name="P:Fluentx.Fx.UtcNow">
             <summary>
-            Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data.
+            Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data (Kind = Utc).
             <para></para> 
             <para>&#160;</para> 
             <para>Comparison:</para>

@@ -1585,7 +1585,7 @@ namespace Fluentx
             return GenerateSingletonClass(typeof(T).Name, singletonType);
         }
         /// <summary>
-        /// Returns a datetime object is set to the current date time on this computer WITHOUT offset data.
+        /// Returns a datetime object is set to the current date time on this computer WITHOUT offset data (Kind = Utc).
         /// <para></para> 
         /// <para>&#160;</para> 
         /// <para>Comparison:</para>
@@ -1603,7 +1603,7 @@ namespace Fluentx
             }
         }
         /// <summary>
-        /// Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data.
+        /// Returns a datetime object is set to the UTC date time on this computer WITHOUT offset data (Kind = Utc).
         /// <para></para> 
         /// <para>&#160;</para> 
         /// <para>Comparison:</para>
