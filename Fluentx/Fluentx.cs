@@ -1556,17 +1556,20 @@ namespace Fluentx
             switch (guidType)
             {
                 case SequentialGuidType.SequentialAsString:
-                case SequentialGuidType.SequentialAsBinary:
                     Buffer.BlockCopy(timestampBytes, 2, guidBytes, 0, 6);
                     Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
 
                     // If formatting as a string, we have to reverse the order
                     // of the Data1 and Data2 blocks on little-endian systems.
-                    if (guidType == SequentialGuidType.SequentialAsString && BitConverter.IsLittleEndian)
+                    if (BitConverter.IsLittleEndian)
                     {
                         Array.Reverse(guidBytes, 0, 4);
                         Array.Reverse(guidBytes, 4, 2);
                     }
+                    break;
+                case SequentialGuidType.SequentialAsBinary:
+                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 0, 6);
+                    Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
                     break;
 
                 case SequentialGuidType.SequentialAtEnd:

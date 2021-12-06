@@ -1081,11 +1081,12 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Now()
         {
-            var now = DateTime.Now.KindUtc();
-            var utcNow = DateTime.UtcNow.KindUtc();
-            var test1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
-            var test2 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
-            var test3 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
+            for (int i = 0; i < 1_000_000; i++)
+            {
+                var test1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAtEnd);
+
+            }
+            
         }
         public interface IOne { }
         public class One : IOne
