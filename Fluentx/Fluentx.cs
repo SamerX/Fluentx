@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -17,6 +18,7 @@ namespace Fluentx
     {
         private static readonly Random _random = new Random();
         private const string alphabetAndNumbersCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+        private static RandomNumberGenerator randomGenerator = RandomNumberGenerator.Create();
 
 
         private Fx()
@@ -1538,7 +1540,8 @@ namespace Fluentx
         /// <returns></returns>
         public static Guid NewSequentialGuid(SequentialGuidType guidType = SequentialGuidType.SequentialAsString)
         {
-            byte[] guidArray = Guid.NewGuid().ToByteArray();
+            byte[] randomBytes = new byte[10];
+            randomGenerator.GetBytes(randomBytes);
 
             long timestamp = DateTime.UtcNow.Ticks / 10000L;
             byte[] timestampBytes = BitConverter.GetBytes(timestamp);
@@ -1548,31 +1551,31 @@ namespace Fluentx
                 Array.Reverse(timestampBytes);
             }
 
+            byte[] guidBytes = new byte[16];
+
             switch (guidType)
             {
                 case SequentialGuidType.SequentialAsString:
-                    {
-                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 0, 6);
-
-                        if (BitConverter.IsLittleEndian)
-                        {
-                            Array.Reverse(guidArray, 0, 4);
-                            Array.Reverse(guidArray, 4, 2);
-                        }
-                        break;
-                    }
                 case SequentialGuidType.SequentialAsBinary:
+                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 0, 6);
+                    Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
+
+                    // If formatting as a string, we have to reverse the order
+                    // of the Data1 and Data2 blocks on little-endian systems.
+                    if (guidType == SequentialGuidType.SequentialAsString && BitConverter.IsLittleEndian)
                     {
-                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 0, 6);
-                        break;
+                        Array.Reverse(guidBytes, 0, 4);
+                        Array.Reverse(guidBytes, 4, 2);
                     }
+                    break;
+
                 case SequentialGuidType.SequentialAtEnd:
-                    {
-                        Buffer.BlockCopy(timestampBytes, 2, guidArray, 10, 6);
-                        break;
-                    }
+                    Buffer.BlockCopy(randomBytes, 0, guidBytes, 0, 10);
+                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 10, 6);
+                    break;
             }
-            return new Guid(guidArray);
+
+            return new Guid(guidBytes);
         }
         /// <summary>
         /// Generates a singleton class (as a text) using the specified T type, its based on Jon Skeet book: C# in Depth.
@@ -1584,7 +1587,7 @@ namespace Fluentx
         {
             return GenerateSingletonClass(typeof(T).Name, singletonType);
         }
-        
+
 
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>
@@ -1842,8 +1845,67 @@ namespace Fluentx
             var range = Enumerable.Range(0, 1 + to.Subtract(from).Days).Select(offset => from.AddDays(offset)).ToArray();
             return range;
         }
-        
-        
+
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Utc
+        /// </summary>
+        public static DateTime NowKindUtc
+        {
+            get
+            {
+                return DateTime.Now.KindUtc();
+            }
+        }
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Utc
+        /// </summary>
+        public static DateTime UtcNowKindUtc
+        {
+            get
+            {
+                return DateTime.UtcNow.KindUtc();
+            }
+        }
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Unspecified
+        /// </summary>
+        public static DateTime NowKindUnspecified
+        {
+            get
+            {
+                return DateTime.Now.KindUnspecified();
+            }
+        }
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Unspecified
+        /// </summary>
+        public static DateTime UtcNowKindUnspecified
+        {
+            get
+            {
+                return DateTime.UtcNow.KindUnspecified();
+            }
+        }
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Local
+        /// </summary>
+        public static DateTime NowKindLocal
+        {
+            get
+            {
+                return DateTime.Now.KindLocal();
+            }
+        }
+        /// <summary>
+        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Local
+        /// </summary>
+        public static DateTime UtcNowKindLocal
+        {
+            get
+            {
+                return DateTime.UtcNow.KindLocal();
+            }
+        }
         /// <summary>
         /// Private class to hold information about switch case statement.
         /// </summary>

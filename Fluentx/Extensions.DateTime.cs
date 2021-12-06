@@ -1069,66 +1069,7 @@ namespace Fluentx
                 return null;
             return new DateTime(dateTime.Value.Ticks, DateTimeKind.Unspecified);
         }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Utc
-        /// </summary>
-        public static DateTime NowKindUtc
-        {
-            get
-            {
-                return DateTime.Now.KindUtc();
-            }
-        }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Utc
-        /// </summary>
-        public static DateTime UtcNowKindUtc
-        {
-            get
-            {
-                return DateTime.UtcNow.KindUtc();
-            }
-        }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Unspecified
-        /// </summary>
-        public static DateTime NowKindUnspecified
-        {
-            get
-            {
-                return DateTime.Now.KindUnspecified();
-            }
-        }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Unspecified
-        /// </summary>
-        public static DateTime UtcNowKindUnspecified
-        {
-            get
-            {
-                return DateTime.UtcNow.KindUnspecified();
-            }
-        }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.Now with Kind Local
-        /// </summary>
-        public static DateTime NowKindLocal
-        {
-            get
-            {
-                return DateTime.Now.KindLocal();
-            }
-        }
-        /// <summary>
-        /// Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Local
-        /// </summary>
-        public static DateTime UtcNowKindLocal
-        {
-            get
-            {
-                return DateTime.UtcNow.KindLocal();
-            }
-        }
+        
         /// <summary>
         /// Returns a new datetime? object using the ticks from the specified instance with Kind Local
         /// </summary>

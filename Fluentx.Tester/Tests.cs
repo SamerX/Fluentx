@@ -1083,7 +1083,9 @@ namespace Fluentx.Tester
         {
             var now = DateTime.Now.KindUtc();
             var utcNow = DateTime.UtcNow.KindUtc();
-
+            var test1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
+            var test2 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
+            var test3 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
         }
         public interface IOne { }
         public class One : IOne

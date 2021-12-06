@@ -1913,36 +1913,6 @@
             <param name="dateTime"></param>
             <returns></returns>
         </member>
-        <member name="P:Fluentx.Extensions.NowKindUtc">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.Now with Kind Utc
-            </summary>
-        </member>
-        <member name="P:Fluentx.Extensions.UtcNowKindUtc">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Utc
-            </summary>
-        </member>
-        <member name="P:Fluentx.Extensions.NowKindUnspecified">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.Now with Kind Unspecified
-            </summary>
-        </member>
-        <member name="P:Fluentx.Extensions.UtcNowKindUnspecified">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Unspecified
-            </summary>
-        </member>
-        <member name="P:Fluentx.Extensions.NowKindLocal">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.Now with Kind Local
-            </summary>
-        </member>
-        <member name="P:Fluentx.Extensions.UtcNowKindLocal">
-            <summary>
-            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Local
-            </summary>
-        </member>
         <member name="M:Fluentx.Extensions.KindLocal(System.Nullable{System.DateTime})">
             <summary>
             Returns a new datetime? object using the ticks from the specified instance with Kind Local
@@ -4132,6 +4102,36 @@
             <param name="from"></param>
             <param name="to"></param>
             <returns></returns>
+        </member>
+        <member name="P:Fluentx.Fx.NowKindUtc">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Utc
+            </summary>
+        </member>
+        <member name="P:Fluentx.Fx.UtcNowKindUtc">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Utc
+            </summary>
+        </member>
+        <member name="P:Fluentx.Fx.NowKindUnspecified">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Unspecified
+            </summary>
+        </member>
+        <member name="P:Fluentx.Fx.UtcNowKindUnspecified">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Unspecified
+            </summary>
+        </member>
+        <member name="P:Fluentx.Fx.NowKindLocal">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.Now with Kind Local
+            </summary>
+        </member>
+        <member name="P:Fluentx.Fx.UtcNowKindLocal">
+            <summary>
+            Returns a new datetime? object using the ticks from DateTime.UtcNow with Kind Local
+            </summary>
         </member>
         <member name="T:Fluentx.Fx.CaseInfo">
             <summary>
