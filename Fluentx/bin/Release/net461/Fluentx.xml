@@ -2141,6 +2141,26 @@
             <param name="number"></param>
             <returns></returns>
         </member>
+        <member name="F:Fluentx.Extensions.CloneMethod">
+            <summary>
+            The Clone Method that will be recursively used for the deep clone.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.IsPrimitive(System.Type)">
+            <summary>
+            Returns TRUE if the type is a primitive one, FALSE otherwise.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.DeepClone(System.Object)">
+            <summary>
+            Returns a Deep Clone/Deep Copy of an object using a recursive call to all objects in the graph.
+            </summary>
+        </member>
+        <member name="M:Fluentx.Extensions.DeepClone``1(``0)">
+            <summary>
+            Returns a Deep Clone / Deep Copy of an object of type T using a recursive call to the CloneMethod specified above.
+            </summary>
+        </member>
         <member name="M:Fluentx.Extensions.LinearSearch``1(System.Collections.Generic.IList{``0},``0)">
             <summary>
             Linear search implementation.

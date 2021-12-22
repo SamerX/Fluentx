@@ -1,0 +1,14 @@
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\xunit.runner.visualstudio.dotnetcore.testadapter.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\xunit.runner.utility.netstandard15.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\xunit.runner.reporters.netstandard15.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.deps.json
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.runtimeconfig.json
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.runtimeconfig.dev.json
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.csproj.AssemblyReference.cache
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.GeneratedMSBuildEditorConfig.editorconfig
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.AssemblyInfoInputs.cache
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.AssemblyInfo.cs
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.csproj.CopyComplete
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.dll
+D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx.Tester\Debug\netcoreapp3.1\Fluentx.Tester.genruntimeconfig.cache

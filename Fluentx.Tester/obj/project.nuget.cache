@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "bA47sOk8i8DBZYZLuK1kG0vG7uL3g7N8arwlYIX3tRT1QTy8o9gZarSGaVmgVZhFzMz0c8ssejjvLumTxChH8Q==",
+  "dgSpecHash": "jLMOPE69x6Zl4ZovyKn5eqA989SXt8DBqWpFGdlY/p8H38egTj/i8hJ/uXYi0VUfvT7FyLAmWj5GYdUqfvAYDw==",
   "success": true,
   "projectFilePath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
   "expectedPackageFiles": [
@@ -117,7 +117,10 @@
     "C:\\Users\\samer\\.nuget\\packages\\xunit.core\\2.2.0\\xunit.core.2.2.0.nupkg.sha512",
     "C:\\Users\\samer\\.nuget\\packages\\xunit.extensibility.core\\2.2.0\\xunit.extensibility.core.2.2.0.nupkg.sha512",
     "C:\\Users\\samer\\.nuget\\packages\\xunit.extensibility.execution\\2.2.0\\xunit.extensibility.execution.2.2.0.nupkg.sha512",
-    "C:\\Users\\samer\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512"
+    "C:\\Users\\samer\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512",
+    "C:\\Users\\samer\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.10\\microsoft.aspnetcore.app.ref.3.1.10.nupkg.sha512",
+    "C:\\Users\\samer\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\3.1.0\\microsoft.windowsdesktop.app.ref.3.1.0.nupkg.sha512",
+    "C:\\Users\\samer\\.nuget\\packages\\microsoft.netcore.app.ref\\3.1.0\\microsoft.netcore.app.ref.3.1.0.nupkg.sha512"
   ],
   "logs": []
 }
