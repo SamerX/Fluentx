@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "b2vMNciFMm9cx18Ypnws0Y4OXdYYUBkBNZv4XKcQscP9RXwKc+34+dvK3oAN6r2jGyXpZrDBHokbhz5m1SnubQ==",
+  "dgSpecHash": "K3PkmkyFYDqaaXo5JhA0Z2LebPws2mB2snHx5WM3dxN1uwRdbktebBBHnZ7B5ztjxsMUgrdeeclim1/LZ1WTuQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
   "expectedPackageFiles": [
@@ -117,8 +117,7 @@
     "C:\\Users\\s.aburabie\\.nuget\\packages\\xunit.core\\2.2.0\\xunit.core.2.2.0.nupkg.sha512",
     "C:\\Users\\s.aburabie\\.nuget\\packages\\xunit.extensibility.core\\2.2.0\\xunit.extensibility.core.2.2.0.nupkg.sha512",
     "C:\\Users\\s.aburabie\\.nuget\\packages\\xunit.extensibility.execution\\2.2.0\\xunit.extensibility.execution.2.2.0.nupkg.sha512",
-    "C:\\Users\\s.aburabie\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512",
-    "C:\\Users\\s.aburabie\\.nuget\\packages\\fluentx\\5.6.2\\fluentx.5.6.2.nupkg.sha512"
+    "C:\\Users\\s.aburabie\\.nuget\\packages\\xunit.runner.visualstudio\\2.2.0\\xunit.runner.visualstudio.2.2.0.nupkg.sha512"
   ],
   "logs": []
 }
