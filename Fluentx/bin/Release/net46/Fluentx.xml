@@ -4020,6 +4020,22 @@
             <param name="length"></param>
             <returns></returns>
         </member>
+        <member name="M:Fluentx.Fx.Join(System.String,System.Collections.Generic.IEnumerable{System.String})">
+            <summary>
+            Concatenates the specified strings using the specified separator between each member. Ignoring null and empty strings
+            </summary>
+            <param name="separator"></param>
+            <param name="strings"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Fluentx.Fx.Join(System.String,System.String[])">
+            <summary>
+            Concatenates the specified strings using the specified separator between each member. Ignoring null and empty strings
+            </summary>
+            <param name="separator"></param>
+            <param name="strings"></param>
+            <returns></returns>
+        </member>
         <member name="M:Fluentx.Fx.NewSequentialGuid(Fluentx.SequentialGuidType)">
             <summary>
             Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.

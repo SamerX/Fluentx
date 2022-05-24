@@ -9,3 +9,14 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.cspro
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.pdb
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csproj.AssemblyReference.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.xml
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.deps.json
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.dll
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\netstandard1.5\Fluentx.pdb
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csproj.AssemblyReference.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.AssemblyInfoInputs.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.AssemblyInfo.cs
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.csproj.CoreCompileInputs.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.dll
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\netstandard1.5\Fluentx.pdb

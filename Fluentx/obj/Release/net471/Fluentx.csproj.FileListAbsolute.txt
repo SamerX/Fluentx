@@ -8,3 +8,13 @@ D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net471\Fluentx.AssemblyInfo.
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net471\Fluentx.csproj.CoreCompileInputs.cache
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net471\Fluentx.dll
 D:\Mii Projects\Fluentx\Fluentx\Fluentx\obj\Release\net471\Fluentx.pdb
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\net471\Fluentx.xml
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\net471\Fluentx.dll
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\bin\Release\net471\Fluentx.pdb
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.csproj.AssemblyReference.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.AssemblyInfoInputs.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.AssemblyInfo.cs
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.csproj.CoreCompileInputs.cache
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.dll
+C:\Users\s.aburabie\Source\Repos\Fluentx\Fluentx\obj\Release\net471\Fluentx.pdb
