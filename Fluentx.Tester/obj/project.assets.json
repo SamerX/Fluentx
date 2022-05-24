@@ -6954,19 +6954,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samer\\.nuget\\packages\\": {}
+    "C:\\Users\\s.aburabie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+      "projectUniqueName": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
       "projectName": "Fluentx.Tester",
-      "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
-      "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
-      "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\obj\\",
+      "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+      "packagesPath": "C:\\Users\\s.aburabie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\s.aburabie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6980,8 +6980,8 @@
         "netcoreapp3.1": {
           "targetAlias": "netcoreapp3.1",
           "projectReferences": {
-            "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
-              "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
+            "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj": {
+              "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj"
             }
           }
         }
@@ -7023,26 +7023,12 @@
         ],
         "assetTargetFallback": true,
         "warn": true,
-        "downloadDependencies": [
-          {
-            "name": "Microsoft.AspNetCore.App.Ref",
-            "version": "[3.1.10, 3.1.10]"
-          },
-          {
-            "name": "Microsoft.NETCore.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          },
-          {
-            "name": "Microsoft.WindowsDesktop.App.Ref",
-            "version": "[3.1.0, 3.1.0]"
-          }
-        ],
         "frameworkReferences": {
           "Microsoft.NETCore.App": {
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

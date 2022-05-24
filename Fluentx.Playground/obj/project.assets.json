@@ -6972,19 +6972,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\samer\\.nuget\\packages\\": {}
+    "C:\\Users\\s.aburabie\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Playground\\Fluentx.Playground.csproj",
+      "projectUniqueName": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Playground\\Fluentx.Playground.csproj",
       "projectName": "Fluentx.Playground",
-      "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Playground\\Fluentx.Playground.csproj",
-      "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
-      "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Playground\\obj\\",
+      "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Playground\\Fluentx.Playground.csproj",
+      "packagesPath": "C:\\Users\\s.aburabie\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Playground\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\s.aburabie\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -6998,11 +6998,11 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {
-              "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj"
+            "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {
+              "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj"
             },
-            "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
-              "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
+            "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj": {
+              "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj"
             }
           }
         }
@@ -7031,7 +7031,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
       }
     }
   }

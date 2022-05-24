@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Linq.Expressions;
@@ -1186,6 +1187,7 @@ namespace Fluentx
             this.LoopStoper = LoopStopers.Continue;
             return this;
         }
+
         /// <summary>
         /// Performs the while statement using the specifed condition after it has evaluated the previous chained Do statement.
         /// </summary>
@@ -1263,6 +1265,103 @@ namespace Fluentx
             while (condition());
             return this;
         }
+#if NET47_OR_GREATER || NETSTANDARD2_0_OR_GREATER
+        /// <summary>
+        /// Run the specified action and returns the exection time and/or exception if any.
+        /// </summary>
+        /// <param name="action"></param>
+        public static (long? ExectionTime, Exception Exception) Run(Action action)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            Exception exception = null;
+            try
+            {
+                action();
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+            finally
+            {
+                stopWatch.Stop();
+            }
+            return (stopWatch.ElapsedMilliseconds, exception);
+        }
+        /// <summary>
+        /// Run the specified action and returns its result along with the exection time and/or exception if any.
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static (TResult Result, long? ExectionTime, Exception Exception) Run<TResult>(Func<TResult> action)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            Exception exception = null;
+            TResult result = default;
+            try
+            {
+                result = action();
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+            finally
+            {
+                stopWatch.Stop();
+            }
+            return (result, stopWatch.ElapsedMilliseconds, exception);
+        }
+        /// <summary>
+        /// Run the specified action async and returns the exection time and/or exception if any.
+        /// </summary>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static async Task<(long? ExectionTime, Exception Exception)> Run(Func<Task> action)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            Exception exception = null;
+            try
+            {
+                await action();
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+            finally
+            {
+                stopWatch.Stop();
+            }
+            return (stopWatch.ElapsedMilliseconds, exception);
+        }
+        /// <summary>
+        /// Run the specified action async and returns its result along with the exection time and/or exception if any.
+        /// </summary>
+        /// <typeparam name="TResult"></typeparam>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static async Task<(TResult Result, long? ExectionTime, Exception Exception)> Run<TResult>(Func<Task<TResult>> action)
+        {
+            var stopWatch = Stopwatch.StartNew();
+            Exception exception = null;
+            TResult result = default;
+            try
+            {
+                result = await action();
+            }
+            catch (Exception ex)
+            {
+                exception = ex;
+            }
+            finally
+            {
+                stopWatch.Stop();
+            }
+            return (result, stopWatch.ElapsedMilliseconds, exception);
+        }
+#endif
         /// <summary>
         /// Performs the previously chained Try action and swallow any exception that might occur.
         /// </summary>
@@ -1532,7 +1631,26 @@ namespace Fluentx
             return new string(Enumerable.Repeat(alphabetAndNumbersCharacters, length)
               .Select(s => s[_random.Next(s.Length)]).ToArray());
         }
-
+        /// <summary>
+        /// Concatenates the specified strings using the specified separator between each member. Ignoring null and empty strings
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="strings"></param>
+        /// <returns></returns>
+        public static string Join(string separator, IEnumerable<string> strings)
+        {
+            return string.Join(separator, strings.Where(s => !string.IsNullOrEmpty(s)));
+        }
+        /// <summary>
+        /// Concatenates the specified strings using the specified separator between each member. Ignoring null and empty strings
+        /// </summary>
+        /// <param name="separator"></param>
+        /// <param name="strings"></param>
+        /// <returns></returns>
+        public static string Join(string separator, params string[] strings)
+        {
+            return string.Join(separator, strings?.Where(s => !string.IsNullOrEmpty(s)));
+        }
 
         /// <summary>
         /// Generates a time based sequential guid based on COMB algorithm, original implementation from Jeremy Todd on codeproject.

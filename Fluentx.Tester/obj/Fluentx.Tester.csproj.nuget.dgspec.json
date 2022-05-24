@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {}
+    "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {}
   },
   "projects": {
-    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {
+    "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+        "projectUniqueName": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
         "projectName": "Fluentx.Tester",
-        "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
-        "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
-        "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx.Tester\\obj\\",
+        "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\Fluentx.Tester.csproj",
+        "packagesPath": "C:\\Users\\s.aburabie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx.Tester\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\s.aburabie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -28,8 +28,8 @@
           "netcoreapp3.1": {
             "targetAlias": "netcoreapp3.1",
             "projectReferences": {
-              "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
-                "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj"
+              "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj": {
+                "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj"
               }
             }
           }
@@ -71,41 +71,27 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[3.1.10, 3.1.10]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            },
-            {
-              "name": "Microsoft.WindowsDesktop.App.Ref",
-              "version": "[3.1.0, 3.1.0]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     },
-    "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj": {
+    "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj": {
       "version": "5.6.2",
       "restore": {
-        "projectUniqueName": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
+        "projectUniqueName": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj",
         "projectName": "Fluentx",
-        "projectPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\Fluentx.csproj",
-        "packagesPath": "C:\\Users\\samer\\.nuget\\packages\\",
-        "outputPath": "D:\\Mii Projects\\Fluentx\\Fluentx\\Fluentx\\obj\\",
+        "projectPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\Fluentx.csproj",
+        "packagesPath": "C:\\Users\\s.aburabie\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\s.aburabie\\Source\\Repos\\Fluentx\\Fluentx\\obj\\",
         "projectStyle": "PackageReference",
         "crossTargeting": true,
         "configFilePaths": [
-          "C:\\Users\\samer\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\s.aburabie\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -180,31 +166,31 @@
       "frameworks": {
         "net452": {
           "targetAlias": "net452",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net46": {
           "targetAlias": "net46",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net461": {
           "targetAlias": "net461",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net462": {
           "targetAlias": "net462",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net47": {
           "targetAlias": "net47",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net471": {
           "targetAlias": "net471",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "net472": {
           "targetAlias": "net472",
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "netstandard1.5": {
           "targetAlias": "netstandard1.5",
@@ -215,7 +201,7 @@
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "netstandard1.6": {
           "targetAlias": "netstandard1.6",
@@ -226,7 +212,7 @@
               "autoReferenced": true
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.0": {
           "targetAlias": "netstandard2.0",
@@ -248,7 +234,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         },
         "netstandard2.1": {
           "targetAlias": "netstandard2.1",
@@ -267,7 +253,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.300\\RuntimeIdentifierGraph.json"
         }
       }
     }
