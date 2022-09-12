@@ -9,7 +9,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluentx.Tester", "Fluentx.T
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluentx.Benchmark", "Fluentx.Benchmark\Fluentx.Benchmark.csproj", "{240A50CF-6F06-4265-BFA5-828A65081BCC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Fluentx.Playground", "Fluentx.Playground\Fluentx.Playground.csproj", "{5E1ADD9B-2E65-4A32-8C0E-A6579DB0291E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Fluentx.Playground", "Fluentx.Playground\Fluentx.Playground.csproj", "{5E1ADD9B-2E65-4A32-8C0E-A6579DB0291E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FFB600BE-55F2-4637-823A-83AF04542367}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
