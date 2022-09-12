@@ -4,10 +4,10 @@
 
 /.vs/Fluentx/v15/Server/sqlite3/db.lock
 /.vs/Fluentx/v15/Server/sqlite3
-/Fluentx/obj
-/Fluentx/bin
-/Fluentx.Benchmark/obj
-/Fluentx.Benchmark/bin
-/Fluentx.Tester/obj
-/Fluentx.Tester/bin
+/Fluentx/obj/*
+/Fluentx/bin/*
+/Fluentx.Benchmark/obj/*
+/Fluentx.Benchmark/bin/*
+/Fluentx.Tester/obj/*
+/Fluentx.Tester/bin/*
 
