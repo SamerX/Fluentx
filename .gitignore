@@ -10,4 +10,7 @@
 /Fluentx.Benchmark/bin/*
 /Fluentx.Tester/obj/*
 /Fluentx.Tester/bin/*
+/Fluentx.Playground/obj/*
+/Fluentx.Playground/bin/*
+/.vs/*
 
