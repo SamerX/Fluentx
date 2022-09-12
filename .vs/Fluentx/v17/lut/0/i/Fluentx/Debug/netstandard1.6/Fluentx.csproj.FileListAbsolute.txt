@@ -1,8 +1,0 @@
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx\Debug\netstandard1.6\Fluentx.deps.json
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\b\Fluentx\Debug\netstandard1.6\Fluentx.dll
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.csproj.AssemblyReference.cache
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.GeneratedMSBuildEditorConfig.editorconfig
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.AssemblyInfoInputs.cache
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.AssemblyInfo.cs
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.csproj.CopyComplete
-D:\Mii Projects\Fluentx\Fluentx\.vs\Fluentx\v17\lut\0\i\Fluentx\Debug\netstandard1.6\Fluentx.dll
