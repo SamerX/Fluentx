@@ -90,6 +90,14 @@ namespace Fluentx
         /// Single Quote
         /// </summary>
         public const string SingleQuote = "'";
+        /// <summary>
+        /// Back Slash
+        /// </summary>
+        public const string BackSlash = @"\";
+        /// <summary>
+        /// Slash
+        /// </summary>
+        public const string Slash = "'";
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
