@@ -97,7 +97,7 @@ namespace Fluentx
         /// <summary>
         /// Slash
         /// </summary>
-        public const string Slash = "'";
+        public const string Slash = "/";
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
