@@ -96,6 +96,8 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Conditional_3_ElseIf_Excuted()
         {
+            new FxSearch<One>();
+            new FxSearch();
             int result = 0;
             int expected = 3;
             Fx
@@ -1085,10 +1087,10 @@ namespace Fluentx.Tester
             for (int i = 0; i < 1_000_000; i++)
             {
                 var test1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAtEnd);
-                
+
 
             }
-            
+
         }
         public interface IOne { }
         public class One : IOne
