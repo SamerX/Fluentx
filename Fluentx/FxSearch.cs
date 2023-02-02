@@ -9,25 +9,32 @@ namespace Fluentx
     /// <summary>
     /// A simple container class to transfer search related data. Equivalent for UISearch with tweaks
     /// </summary>
-    /// <typeparam name="T"></typeparam>
-    public class SearchOptions<T>
+    public class FxSearch
     {
         /// <summary>
         /// Page Index
         /// </summary>
-        public int PageIndex { get; set; }
+        public int? PageIndex { get; set; }
         /// <summary>
         /// Page Size
         /// </summary>
-        public int PageSize { get; set; }
+        public int? PageSize { get; set; }
         /// <summary>
         /// Sort By
         /// </summary>
         public string SortBy { get; set; }
         /// <summary>
-        /// Sort Direction ASC or DESC, default is true ASC.
+        /// Sort Direction ASC or DESC, default value is false which is sort ASC.
         /// </summary>
-        public bool IsAscending { get; set; } = true;
+        public bool? IsDescending { get; set; } = false;
+
+    }
+    /// <summary>
+    /// A simple container class to transfer search related data. Equivalent for UISearch with tweaks
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    public class FxSearch<T> : FxSearch
+    {
         /// <summary>
         /// The criteria used for filter
         /// </summary>
