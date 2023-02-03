@@ -24,9 +24,9 @@ namespace Fluentx
         /// </summary>
         public string SortBy { get; set; }
         /// <summary>
-        /// Sort Direction ASC or DESC, default value is false which is sort ASC.
+        /// Sort Direction ASC or DESC, default value is true which is sort ASC.
         /// </summary>
-        public bool? IsDescending { get; set; } = false;
+        public bool? IsAscending { get; set; } = true;
         /// <summary>
         /// 
         /// </summary>
@@ -40,13 +40,13 @@ namespace Fluentx
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <param name="sortBy"></param>
-        /// <param name="isDescending"></param>
-        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isDescending = null)
+        /// <param name="isAscending"></param>
+        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isAscending = null)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
             SortBy = sortBy;
-            IsDescending = isDescending;
+            IsAscending = isAscending;
         }
     }
     /// <summary>
@@ -66,13 +66,13 @@ namespace Fluentx
         /// <param name="pageIndex"></param>
         /// <param name="pageSize"></param>
         /// <param name="sortBy"></param>
-        /// <param name="isDescending"></param>
-        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isDescending = null)
+        /// <param name="isAscending"></param>
+        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isAscending = null)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
             SortBy = sortBy;
-            IsDescending = isDescending;
+            IsAscending = isAscending;
         }
     }
 }
