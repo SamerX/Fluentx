@@ -26,7 +26,7 @@ namespace Fluentx
         /// <summary>
         /// Sort Direction ASC or DESC, default value is true which is sort ASC.
         /// </summary>
-        public bool? IsAscending { get; set; } = true;
+        public bool IsAscending { get; set; } = true;
         /// <summary>
         /// 
         /// </summary>
@@ -41,7 +41,7 @@ namespace Fluentx
         /// <param name="pageSize"></param>
         /// <param name="sortBy"></param>
         /// <param name="isAscending"></param>
-        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isAscending = null)
+        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool isAscending = true)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
@@ -67,7 +67,7 @@ namespace Fluentx
         /// <param name="pageSize"></param>
         /// <param name="sortBy"></param>
         /// <param name="isAscending"></param>
-        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool? isAscending = null)
+        public FxSearch(int? pageIndex = null, int? pageSize = null, string sortBy = null, bool isAscending = true)
         {
             PageIndex = pageIndex;
             PageSize = pageSize;
