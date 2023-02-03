@@ -96,6 +96,8 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Conditional_3_ElseIf_Excuted()
         {
+            IList<One> x = new List<One>();
+            x.OrderBy(x => x.X1);
             new FxSearch<One>();
             new FxSearch();
             int result = 0;

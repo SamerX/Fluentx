@@ -1,11 +1,25 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace Fluentx
 {
     public static partial class Extensions
     {
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <typeparam name="TKey"></typeparam>
+        /// <param name="items"></param>
+        /// <param name="keySelector"></param>
+        /// <param name="ascending">True for ascending, False for descending</param>
+        /// <returns></returns>
+        public static IOrderedEnumerable<T> OrderBy<T, TKey>(this IEnumerable<T> items, Func<T, TKey> keySelector, bool ascending)
+        {
+            return ascending ? items.OrderBy(keySelector) : items.OrderByDescending(keySelector);
+        }
         /// <summary>
         /// Sorts the list in ascending order using Insertion Sort algorithm
         /// </summary>
