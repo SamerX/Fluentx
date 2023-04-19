@@ -11,6 +11,17 @@ namespace Fluentx
     public static partial class Extensions
     {
         /// <summary>
+        /// Returns a snake case string: lowered case and whitespaces replaced by underscore
+        /// </summary>
+        /// <param name="this"></param>
+        /// <returns></returns>
+        public static string Snake(this string @this)
+        {
+            if (@this != null)
+                return @this.Replace(Fx.Space, Fx.UnderScore).ToLower();
+            return @this;
+        }
+        /// <summary>
         /// Extension method that performs the operation string.Format
         /// </summary>
         /// <param name="this"></param>
