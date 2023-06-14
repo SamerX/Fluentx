@@ -17,6 +17,29 @@ namespace Fluentx
     {
         private static readonly Random random = new Random();
         /// <summary>
+        /// Conditional fluent chaining, if true then trueaction will get executed, if false, then falseaction will get exectued, if any is null, null will not get exectued.
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="condition"></param>
+        /// <param name="trueAction"></param>
+        /// <param name="falseAction"></param>
+        /// <returns></returns>
+        public static T When<T>(this T @this, bool condition, Action<T> trueAction = null, Action<T> falseAction = null)
+        {
+            if (condition is true)
+            {
+                if (trueAction != null)
+                    trueAction(@this);
+            }
+            else
+            {
+                if (falseAction != null)
+                    falseAction(@this);
+            }
+            return @this;
+        }
+        /// <summary>
         /// Extension method to perform For Each operation.
         /// </summary>
         /// <typeparam name="T"></typeparam>
@@ -1262,4 +1285,5 @@ namespace Fluentx
 #endif
 
     }
+
 }
