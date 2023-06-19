@@ -40,6 +40,20 @@ namespace Fluentx
             return @this;
         }
         /// <summary>
+        /// Run the action in a fluent chained way, usefull
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="this"></param>
+        /// <param name="action"></param>
+        /// <returns></returns>
+        public static T Do<T>(this T @this, Action<T> action = null)
+        {
+            if (action != null)
+                action(@this);
+            return @this;
+        }
+
+        /// <summary>
         /// Extension method to perform For Each operation.
         /// </summary>
         /// <typeparam name="T"></typeparam>
