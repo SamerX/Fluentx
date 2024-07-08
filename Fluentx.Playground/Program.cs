@@ -26,7 +26,7 @@ var one = new One()
                 },
     X5 = new Three[]
                {
-                    new Three(){X21=204}, null
+                    new Three(){X21=204}, 
                },
     X6 = new Collection<Three>()
                 {
