@@ -802,78 +802,37 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_And_Specification()
         {
-            var spec1 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 10;
-            }
-            , new string[] { "less than 10" });
-            var spec2 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 15;
-            }
-            , new string[] { "less than 15" });
+            var spec1 = new ExpressionSpecification<int>((x) => x > 10, new string[] { "less than 10" });
+            var spec2 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
 
-            var spec3 = new ExpressionSpecification<int>((x) =>
-            {
-                return x < 100 ? new[] { "less than 100" } : null;
-            });
-
-            var result = spec1.Not().ValidateWithMessagesAndContinue(22);
+            
+            var result = spec1.Not().ValidateAll(22);
         }
 
         [Fact]
         public void Test_Or_Specification()
         {
-            var spec1 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 10;
-            }
-            , new string[] { "less than 10" });
-            var spec2 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 15;
-            }
-            , new string[] { "less than 15" });
-            var result = spec1.Not().ValidateWithMessages(12);
+            var spec1 = new ExpressionSpecification<int>((x) => x > 10, new string[] { "less than 10" });
+            var spec2 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
+            var result = spec1.Not().Validate(12);
         }
 
         [Fact]
         public void Test_Xor_Specification()
         {
-            var spec1 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 10;
-            }
-            , new string[] { "less than 10" });
-            var spec2 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 15;
-            }
-            , new string[] { "less than 15" });
-            var result = spec1.Xor(spec2).ValidateWithMessagesAndContinue(12);
+            var spec1 = new ExpressionSpecification<int>((x) => x > 10, new string[] { "less than 10" });
+            var spec2 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
+            var result = spec1.Xor(spec2).ValidateAll(12);
         }
 
         [Fact]
         public void Test_Specification_PlayGround()
         {
-            var spec1 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 10;
-            }
-            , new string[] { "less than 10" });
-            var spec2 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 25;
-            }
-            , new string[] { "less than 25" });
-
-            var spec3 = new ExpressionSpecification<int>((x) =>
-            {
-                return x > 15;
-            }
-            , new string[] { "less than 15" });
+            var spec1 = new ExpressionSpecification<int>((x) => x > 10, new string[] { "less than 10" });
+            var spec2 = new ExpressionSpecification<int>((x) => x > 25, new string[] { "less than 25" });
+            var spec3 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
             var res = spec1 & spec2;
-            var result = spec1.And(spec2).And(spec3).ValidateWithMessages(22);
+            var result = spec1.And(spec2).And(spec3).Validate(22);
         }
 
         [Fact]
@@ -1181,10 +1140,7 @@ namespace Fluentx.Tester
             {
                 get
                 {
-                    return new ExpressionSpecification<One>(x =>
-                    {
-                        return true;
-                    });
+                    return new ExpressionSpecification<One>(x => true, "First Rule");
                 }
             }
 
@@ -1192,10 +1148,7 @@ namespace Fluentx.Tester
             {
                 get
                 {
-                    return new ExpressionSpecification<One>(x =>
-                    {
-                        return true;
-                    });
+                    return new ExpressionSpecification<One>(x => true, "Second Rule");
                 }
             }
         }
