@@ -258,10 +258,8 @@ namespace Fluentx
                 {
                     return Result.Return(true);
                 }
-                else
-                {
-                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
-                }
+
+                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
             }
             else
             {
@@ -289,10 +287,8 @@ namespace Fluentx
                 {
                     return Result.Return(true);
                 }
-                else
-                {
-                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
-                }
+
+                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
             }
             else
             {
@@ -402,21 +398,17 @@ namespace Fluentx
             {
                 return Result.Return(true);
             }
-            else
-            {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages).ToList();
 
-                Result<bool> rightResult;
-                if ((rightResult = this.rightSpecification.Validate(instance)).Data)
-                {
-                    (this.Messages as IList<string>)?.Clear();
-                    return Result.Return(true);
-                }
-                else
-                {
-                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
-                }
+            this.Messages = this.Messages.Concat(leftResult.ErrorMessages).ToList();
+
+            Result<bool> rightResult;
+            if ((rightResult = this.rightSpecification.Validate(instance)).Data)
+            {
+                (this.Messages as IList<string>)?.Clear();
+                return Result.Return(true);
             }
+
+            this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
 
             return Result.Return(false);
         }
@@ -435,21 +427,17 @@ namespace Fluentx
             {
                 return Result.Return(true);
             }
-            else
-            {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages).ToList();
 
-                Result<bool> rightResult;
-                if ((rightResult = await this.rightSpecification.ValidateAsync(instance)).Data)
-                {
-                    (this.Messages as IList<string>)?.Clear();
-                    return Result.Return(true);
-                }
-                else
-                {
-                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
-                }
+            this.Messages = this.Messages.Concat(leftResult.ErrorMessages).ToList();
+
+            Result<bool> rightResult;
+            if ((rightResult = await this.rightSpecification.ValidateAsync(instance)).Data)
+            {
+                (this.Messages as IList<string>)?.Clear();
+                return Result.Return(true);
             }
+
+            this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
 
             return Result.Return(false);
         }
@@ -518,7 +506,7 @@ namespace Fluentx
     }
 
     /// <summary>
-    /// Represnts XOR specification
+    /// Represents XOR specification
     /// </summary>
     /// <typeparam name="T"></typeparam>
     public sealed class XorSpecification<T> : CompositeSpecification<T>
@@ -664,17 +652,14 @@ namespace Fluentx
                 //Validation is passed (as its a negate)
                 return Result.Return(true);
             }
-            else
+
+            foreach (var errorMessage in result.ErrorMessages)
             {
-                foreach (var errorMessage in result.ErrorMessages)
-                {
-                    (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
-                }
+                (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
             return result;
         }
-
 
         /// <summary>
         /// Executes and validate the specification
@@ -691,12 +676,10 @@ namespace Fluentx
                 //Validation is passed (as its a negate)
                 return Result.Return(true);
             }
-            else
+
+            foreach (var errorMessage in result.ErrorMessages)
             {
-                foreach (var errorMessage in result.ErrorMessages)
-                {
-                    (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
-                }
+                (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
             return result;
@@ -717,12 +700,10 @@ namespace Fluentx
                 //Validation is passed (as its a negate)
                 return Result.Return(true);
             }
-            else
+
+            foreach (var errorMessage in result.ErrorMessages)
             {
-                foreach (var errorMessage in result.ErrorMessages)
-                {
-                    (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
-                }
+                (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
             return result;
@@ -743,12 +724,10 @@ namespace Fluentx
                 //Validation is passed (as its a negate)
                 return Result.Return(true);
             }
-            else
+
+            foreach (var errorMessage in result.ErrorMessages)
             {
-                foreach (var errorMessage in result.ErrorMessages)
-                {
-                    (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
-                }
+                (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
             return result;
@@ -810,10 +789,9 @@ namespace Fluentx
         /// <param name="message"></param>
         public ExpressionSpecification(Func<T, Task<bool>> expression, string message)
         {
-            if (expression == null)
+            if (expression == null || message == null)
                 throw new ArgumentNullException();
-            else
-                this.asyncExpression = expression;
+            this.asyncExpression = expression;
             this.Messages = new[] { message };
         }
 
