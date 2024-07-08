@@ -771,10 +771,9 @@ namespace Fluentx
         /// <param name="messages"></param>
         public ExpressionSpecification(Func<T, bool> expression, IEnumerable<string> messages)
         {
-            if (expression == null)
+            if (expression == null || messages.IsNullOrEmpty())
                 throw new ArgumentNullException();
-            else
-                this.expression = expression;
+            this.expression = expression;
             this.Messages = messages;
         }
 
@@ -785,10 +784,9 @@ namespace Fluentx
         /// <param name="messages"></param>
         public ExpressionSpecification(Func<T, Task<bool>> expression, IEnumerable<string> messages)
         {
-            if (expression == null)
+            if (expression == null || messages.IsNullOrEmpty())
                 throw new ArgumentNullException();
-            else
-                this.asyncExpression = expression;
+            this.asyncExpression = expression;
             this.Messages = messages;
         }
 
@@ -799,10 +797,9 @@ namespace Fluentx
         /// <param name="message"></param>
         public ExpressionSpecification(Func<T, bool> expression, string message)
         {
-            if (expression == null)
+            if (expression == null || message == null)
                 throw new ArgumentNullException();
-            else
-                this.expression = expression;
+            this.expression = expression;
             this.Messages = new[] { message };
         }
 
