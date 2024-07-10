@@ -1053,6 +1053,14 @@ namespace Fluentx.Tester
             }
 
         }
+        [Fact]
+        public void Test_SpecificationTrueAndFalse()
+        {
+            var rule = Specification.True<int>().And(Specification.False<int>());
+            var result = rule.Validate(6);
+            Console.Write((result.Data ? "True" : "False"));
+
+        }
         public interface IOne { }
         public class One : IOne
         {

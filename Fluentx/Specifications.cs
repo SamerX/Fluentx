@@ -11,22 +11,33 @@ namespace Fluentx
     public static class Specification
     {
         /// <summary>
-        /// Use it as a starting point for And Specifications
+        /// Use it as a starting point for your specifications.
         /// </summary>
         /// <returns></returns>
         public static ISpecification<T> True<T>()
         {
-            return new ExpressionSpecification<T>((x) => true, "Not true");
+            return new ExpressionSpecification<T>((x) => true, "##!True##");
         }
 
         /// <summary>
-        /// Use it as starting point for Or Specifications
+        /// Use it as starting point for rare conditions for purposes of testing.
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <returns></returns>
         public static ISpecification<T> False<T>()
         {
-            return new ExpressionSpecification<T>((x) => false, "Not false");
+            return new ExpressionSpecification<T>((x) => false, "##False##");
+        }
+
+        /// <summary>
+        /// Supply a starting point condition to start your specifications dynamically.
+        /// </summary>
+        /// <param name="startingCondition"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static ISpecification<T> Default<T>(bool startingCondition = true)
+        {
+            return startingCondition ? True<T>() : False<T>();
         }
     }
 
@@ -683,7 +694,7 @@ namespace Fluentx
                 this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
             }
 
-            return Result.Return(false);
+            return Result.Return(false, this.Messages);
         }
 
         /// <summary>
@@ -712,7 +723,7 @@ namespace Fluentx
                 this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
             }
 
-            return Result.Return(false);
+            return Result.Return(false, this.Messages);
         }
 
         /// <summary>
@@ -744,7 +755,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Clear();
             }
 
-            return Result.Return(result);
+            return Result.Return(result, this.Messages);
         }
 
         /// <summary>
@@ -776,7 +787,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Clear();
             }
 
-            return Result.Return(result);
+            return Result.Return(result, this.Messages);
         }
     }
 
@@ -827,7 +838,7 @@ namespace Fluentx
 
             this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
 
-            return Result.Return(false);
+            return Result.Return(false, this.Messages);
         }
 
         /// <summary>
@@ -856,7 +867,7 @@ namespace Fluentx
 
             this.Messages = this.Messages.Concat(rightResult.ErrorMessages).ToList();
 
-            return Result.Return(false);
+            return Result.Return(false, this.Messages);
         }
 
         /// <summary>
@@ -887,7 +898,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Clear();
             }
 
-            return Result.Return(result);
+            return Result.Return(result, this.Messages);
         }
 
         /// <summary>
@@ -913,12 +924,13 @@ namespace Fluentx
             }
 
             var result = leftResult.Data | rightResult.Data;
+
             if (result)
             {
                 (this.Messages as IList<string>)?.Clear();
             }
 
-            return Result.Return(result);
+            return Result.Return(result, this.Messages);
         }
     }
 
@@ -959,11 +971,18 @@ namespace Fluentx
 
             if (!xorResult)
             {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
-                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                if (!leftResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
+                }
+
+                if (!rightResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                }
             }
 
-            return Result.Return(xorResult);
+            return Result.Return(xorResult, this.Messages);
         }
 
         /// <summary>
@@ -982,11 +1001,18 @@ namespace Fluentx
 
             if (!xorResult)
             {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
-                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                if (!leftResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
+                }
+
+                if (!rightResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                }
             }
 
-            return Result.Return(xorResult);
+            return Result.Return(xorResult, this.Messages);
         }
 
         /// <summary>
@@ -1005,11 +1031,18 @@ namespace Fluentx
 
             if (!xorResult)
             {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
-                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                if (!leftResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
+                }
+
+                if (!rightResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                }
             }
 
-            return Result.Return(xorResult);
+            return Result.Return(xorResult, this.Messages);
         }
 
         /// <summary>
@@ -1028,11 +1061,18 @@ namespace Fluentx
 
             if (!xorResult)
             {
-                this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
-                this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                if (!leftResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(leftResult.ErrorMessages);
+                }
+
+                if (!rightResult.Data)
+                {
+                    this.Messages = this.Messages.Concat(rightResult.ErrorMessages);
+                }
             }
 
-            return Result.Return(xorResult);
+            return Result.Return(xorResult, this.Messages);
         }
     }
 
@@ -1075,7 +1115,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
-            return result;
+            return Result.Return(!result.Data, this.Messages);
         }
 
         /// <summary>
@@ -1099,7 +1139,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
-            return result;
+            return Result.Return(!result.Data, this.Messages);
         }
 
         /// <summary>
@@ -1123,7 +1163,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
-            return result;
+            return Result.Return(!result.Data, this.Messages);
         }
 
         /// <summary>
@@ -1147,7 +1187,7 @@ namespace Fluentx
                 (this.Messages as IList<string>)?.Add("NOT:" + errorMessage);
             }
 
-            return result;
+            return Result.Return(!result.Data, this.Messages);
         }
     }
 
@@ -1220,7 +1260,7 @@ namespace Fluentx
         public override Result<bool> Validate(T instance)
         {
             var result = this.expression?.Invoke(instance) ?? this.asyncExpression(instance).Result;
-            return Result.Return(result, this.Messages);
+            return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
         }
 
         /// <summary>
@@ -1233,7 +1273,7 @@ namespace Fluentx
             var result = this.asyncExpression != null
                 ? await this.asyncExpression(instance)
                 : this.expression(instance);
-            return Result.Return(result, this.Messages);
+            return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
         }
 
         /// <summary>
