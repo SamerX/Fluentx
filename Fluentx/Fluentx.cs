@@ -129,6 +129,16 @@ namespace Fluentx
         #endregion
 
         /// <summary>
+        /// Creates a starting point for a specification for the supplied type.
+        /// </summary>
+        /// <param name="startingCondition"></param>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static ISpecification<T> Specification<T>(bool startingCondition = true)
+        {
+            return Fluentx.Specification.Default<T>(startingCondition);
+        }
+        /// <summary>
         /// Performs a while control as long the action is evaluating to true.
         /// </summary>
         /// <param name="action"></param>
