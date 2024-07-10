@@ -6,6 +6,31 @@ using System.Threading.Tasks;
 namespace Fluentx
 {
     /// <summary>
+    /// 
+    /// </summary>
+    public static class Specification
+    {
+        /// <summary>
+        /// Use it as a starting point for And Specifications
+        /// </summary>
+        /// <returns></returns>
+        public static ISpecification<T> True<T>()
+        {
+            return new ExpressionSpecification<T>((x) => true, "Not true");
+        }
+
+        /// <summary>
+        /// Use it as starting point for Or Specifications
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <returns></returns>
+        public static ISpecification<T> False<T>()
+        {
+            return new ExpressionSpecification<T>((x) => false, "Not false");
+        }
+    }
+
+    /// <summary>
     /// Represents the core of the specification pattern
     /// </summary>
     /// <typeparam name="T"></typeparam>
@@ -174,6 +199,7 @@ namespace Fluentx
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(ISpecification<T> specification);
+
         /// <summary>
         /// 
         /// </summary>
@@ -212,6 +238,7 @@ namespace Fluentx
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(ISpecification<T> specification);
+
         /// <summary>
         /// 
         /// </summary>
@@ -291,6 +318,11 @@ namespace Fluentx
         /// <returns></returns>
         public ISpecification<T> And(ISpecification<T> specification)
         {
+            if (this.Messages.First() == "##DEFAULT##")
+            {
+                return new AndSpecification<T>(Specification.True<T>(), specification);
+            }
+
             return new AndSpecification<T>(this, specification);
         }
 
