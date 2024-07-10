@@ -53,6 +53,38 @@ namespace Fluentx
         ISpecification<T> And(ISpecification<T> specification);
 
         /// <summary>
+        /// And a specification with another
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, bool> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, Task<bool>> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, bool> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, Task<bool>> expression, string message);
+
+        /// <summary>
         /// Or a specification with another
         /// </summary>
         /// <param name="specification"></param>
@@ -60,11 +92,75 @@ namespace Fluentx
         ISpecification<T> Or(ISpecification<T> specification);
 
         /// <summary>
+        /// Or a specification with another
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, bool> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, Task<bool>> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, bool> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, Task<bool>> expression, string message);
+
+        /// <summary>
         /// Xor a specification with another
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> Xor(ISpecification<T> specification);
+
+        /// <summary>
+        /// Xor a specification with another
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, bool> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, Task<bool>> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, bool> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, Task<bool>> expression, string message);
 
         /// <summary>
         /// Negates the current specification
@@ -78,6 +174,37 @@ namespace Fluentx
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(ISpecification<T> specification);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, bool> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, Task<bool>> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, bool> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, Task<bool>> expression, string message);
 
         /// <summary>
         /// Oring with a negate to the specified specification
@@ -85,6 +212,37 @@ namespace Fluentx
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(ISpecification<T> specification);
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, bool> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, Task<bool>> expression, IEnumerable<string> messages);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, bool> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, Task<bool>> expression, string message);
     }
 
     /// <summary>
@@ -137,6 +295,50 @@ namespace Fluentx
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, bool> expression, IEnumerable<string> messages)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, Task<bool>> expression, IEnumerable<string> messages)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, bool> expression, string message)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, Task<bool>> expression, string message)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
+        }
+
+        /// <summary>
         /// Creates a new specification holding current specification OR specified specification
         /// </summary>
         /// <param name="specification"></param>
@@ -147,6 +349,50 @@ namespace Fluentx
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, bool> expression, IEnumerable<string> messages)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, Task<bool>> expression, IEnumerable<string> messages)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, bool> expression, string message)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, Task<bool>> expression, string message)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
+        }
+
+        /// <summary>
         /// Creates a new specification holding current specification XOR specified specification
         /// </summary>
         /// <param name="specification"></param>
@@ -154,6 +400,51 @@ namespace Fluentx
         public ISpecification<T> Xor(ISpecification<T> specification)
         {
             return new XorSpecification<T>(this, specification);
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, bool> expression, IEnumerable<string> messages)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, Task<bool>> expression, IEnumerable<string> messages)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression, messages));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> Xor(Func<T, bool> expression, string message)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, Task<bool>> expression, string message)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression, message));
         }
 
         /// <summary>
@@ -176,6 +467,54 @@ namespace Fluentx
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> AndNot(Func<T, bool> expression, IEnumerable<string> messages)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, messages).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> AndNot(Func<T, Task<bool>> expression, IEnumerable<string> messages)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, messages).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> AndNot(Func<T, bool> expression, string message)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, message).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> AndNot(Func<T, Task<bool>> expression, string message)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression, message).Not());
+        }
+
+        /// <summary>
         /// Oring with a negate to the specified specification
         /// </summary>
         /// <param name="specification"></param>
@@ -183,6 +522,52 @@ namespace Fluentx
         public ISpecification<T> OrNot(ISpecification<T> specification)
         {
             return new OrSpecification<T>(this, specification.Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, bool> expression, IEnumerable<string> messages)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, messages).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="messages"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> OrNot(Func<T, Task<bool>> expression, IEnumerable<string> messages)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, messages).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, bool> expression, string message)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, message).Not());
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <param name="message"></param>
+        /// <returns></returns>
+        /// <exception cref="NotImplementedException"></exception>
+        public ISpecification<T> OrNot(Func<T, Task<bool>> expression, string message)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression, message).Not());
         }
 
         /// <summary>
