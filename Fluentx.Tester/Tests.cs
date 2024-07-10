@@ -5,6 +5,7 @@ using System.Dynamic;
 using System.Linq;
 using Xunit;
 using Fluentx;
+
 namespace Fluentx.Tester
 {
     public class Fluentester
@@ -20,6 +21,7 @@ namespace Fluentx.Tester
             Fx.EqualityComparer<One>.Create(x => x.X1);
             Assert.True(result);
         }
+
         [Fact]
         public void Test_Conditional_2_Else_Excuted()
         {
@@ -36,13 +38,13 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Celius()
         {
-            var result = 90.ToCelcius(); 10.Clamp(13, 14);
+            var result = 90.ToCelcius();
+            10.Clamp(13, 14);
         }
 
         [Fact]
         public void Test_KGtoLBS()
         {
-
             var result = 6.ToKG();
 
             var backResult = result.ToLBS();
@@ -72,8 +74,6 @@ namespace Fluentx.Tester
             var g311 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAsString);
 
             var str = $"\n{g1} \n{g2} \n{g3} \n\n{g11} \n{g21} \n{g31} \n\n{g111} \n{g211} \n{g311}";
-
-
         }
 
         [Fact]
@@ -139,7 +139,8 @@ namespace Fluentx.Tester
             int result = 0;
             int expected = 1;
             Fx
-                .If(() => { return true; }).And(() => { return true; }).Or(() => { return false; }).Xor(() => { return false; }).AndNot(() => { return false; }).Then(() => { result = 1; })
+                .If(() => { return true; }).And(() => { return true; }).Or(() => { return false; })
+                .Xor(() => { return false; }).AndNot(() => { return false; }).Then(() => { result = 1; })
                 .ElseIf(() => { return expected == 998; }).OrNot(() => { return false; }).Then(() => { result = 2; })
                 .Else(() => result = 3);
             Assert.Equal(expected, result);
@@ -186,10 +187,11 @@ namespace Fluentx.Tester
         {
             int result = 0;
             int conditionEvaluationCount = 0;
-            Fx.While(() => { ++conditionEvaluationCount; return result < 6; }).EarlyBreakOn(() => { return result == 4; }).Do(() =>
+            Fx.While(() =>
             {
-                ++result;
-            });
+                ++conditionEvaluationCount;
+                return result < 6;
+            }).EarlyBreakOn(() => { return result == 4; }).Do(() => { ++result; });
 
             Assert.Equal(conditionEvaluationCount, 5);
         }
@@ -200,10 +202,11 @@ namespace Fluentx.Tester
             int result = 0;
             int conditionEvaluationCount = 0;
 
-            Fx.While(() => { ++conditionEvaluationCount; return result < 6; }).LateBreakOn(() => { return result == 4; }).Do(() =>
+            Fx.While(() =>
             {
-                ++result;
-            });
+                ++conditionEvaluationCount;
+                return result < 6;
+            }).LateBreakOn(() => { return result == 4; }).Do(() => { ++result; });
 
             Assert.Equal(conditionEvaluationCount, 4);
         }
@@ -213,10 +216,7 @@ namespace Fluentx.Tester
         {
             int result = 0;
 
-            Fx.Do(() =>
-            {
-                ++result;
-            }).While(() => { return result < 5; });
+            Fx.Do(() => { ++result; }).While(() => { return result < 5; });
 
             Assert.Equal(result, 5);
         }
@@ -236,7 +236,8 @@ namespace Fluentx.Tester
         {
             bool exceptionOccured = false;
 
-            Fx.Try(() => { throw new NotImplementedException(); }).Catch<NotImplementedException>(ex => { exceptionOccured = true; });
+            Fx.Try(() => { throw new NotImplementedException(); })
+                .Catch<NotImplementedException>(ex => { exceptionOccured = true; });
 
             Assert.True(exceptionOccured);
         }
@@ -246,7 +247,8 @@ namespace Fluentx.Tester
         {
             bool exceptionOccured = false;
 
-            Fx.Try(() => { throw new NotImplementedException(); }).Catch<NotImplementedException, Exception>(ex1 => { exceptionOccured = true; }, ex2 => { });
+            Fx.Try(() => { throw new NotImplementedException(); })
+                .Catch<NotImplementedException, Exception>(ex1 => { exceptionOccured = true; }, ex2 => { });
 
             Assert.True(exceptionOccured);
         }
@@ -280,7 +282,6 @@ namespace Fluentx.Tester
             bool isIDMatched = false;
             if (Fx.Is(() => entity.Id == 900))
             {
-
                 isIDMatched = true;
             }
 
@@ -293,9 +294,9 @@ namespace Fluentx.Tester
             int result = -1;
 
             Fx.Switch<string>()
-               .Case<int>().Execute(() => { result = 1; })
-               .Case<string>().Execute(() => { result = 2; })
-               .Default(() => { result = 0; });
+                .Case<int>().Execute(() => { result = 1; })
+                .Case<string>().Execute(() => { result = 2; })
+                .Default(() => { result = 0; });
 
             Assert.Equal(result, 2);
         }
@@ -305,10 +306,10 @@ namespace Fluentx.Tester
         {
             int result = -1;
             Fx
-               .Switch<short>()
-               .Case<int>().Execute(() => { result = 1; })
-               .Case<string>().Execute(() => { result = 2; })
-               .Default(() => { result = 0; });
+                .Switch<short>()
+                .Case<int>().Execute(() => { result = 1; })
+                .Case<string>().Execute(() => { result = 2; })
+                .Default(() => { result = 0; });
 
             Assert.Equal(result, 0);
         }
@@ -320,9 +321,9 @@ namespace Fluentx.Tester
             int result = -1;
 
             Fx.Switch(condition)
-               .Case("one").Execute(() => { result = 1; })
-               .Case("two").Execute(() => { result = 2; })
-               .Default(() => { result = 0; });
+                .Case("one").Execute(() => { result = 1; })
+                .Case("two").Execute(() => { result = 2; })
+                .Default(() => { result = 0; });
 
             Assert.Equal(result, 2);
         }
@@ -333,10 +334,10 @@ namespace Fluentx.Tester
             string condition = "three";
             int result = -1;
             Fx
-               .Switch(condition)
-               .Case("one").Execute(() => { result = 1; })
-               .Case("two").Execute(() => { result = 2; })
-               .Default(() => { result = 0; });
+                .Switch(condition)
+                .Case("one").Execute(() => { result = 1; })
+                .Case("two").Execute(() => { result = 2; })
+                .Default(() => { result = 0; });
 
             Assert.Equal(result, 0);
         }
@@ -356,12 +357,14 @@ namespace Fluentx.Tester
         }
 
         static bool isDisposed = false;
+
         [Fact]
         public void Test_Using()
         {
             Fx.Using(new PrivateDisposableTestEntity(), (instance) => { });
             Assert.True(isDisposed);
         }
+
         [Fact]
         public void Test_IsNull()
         {
@@ -391,6 +394,7 @@ namespace Fluentx.Tester
 
             Assert.True(result);
         }
+
         [Fact]
         public void Test_NotIn()
         {
@@ -432,12 +436,14 @@ namespace Fluentx.Tester
             string value = "Fluentx";
             value.Lock(x => { });
         }
+
         [Fact]
         public void Test_ReplaceFirst()
         {
             string value = "IdentityIdx";
             Assert.Equal("entityIdx", value.ReplaceFirst("Id", ""));
         }
+
         [Fact]
         public void Test_ReplaceLast()
         {
@@ -487,10 +493,10 @@ namespace Fluentx.Tester
         {
             var list = new List<One>()
             {
-                new One(){X2 = 10},
-                new One(){X2 = 20},
-                new One(){X2 = 30},
-                new One(){X2 = 40}
+                new One() { X2 = 10 },
+                new One() { X2 = 20 },
+                new One() { X2 = 30 },
+                new One() { X2 = 40 }
             };
 
             var randomList = list.RandomRange();
@@ -502,8 +508,8 @@ namespace Fluentx.Tester
             var list = new List<int>() { 4, 5, 1, 9, 2, 1, 7, 9, 64, 3 };
             list.InsertionSort();
             Assert.True(list.IsSorted());
-
         }
+
         [Fact]
         public void Test_InsertionSortDescending()
         {
@@ -575,14 +581,15 @@ namespace Fluentx.Tester
             list.QuickSortDescending();
             Assert.True(list.IsSortedDescending());
         }
+
         [Fact]
         public void Test_CocktailSort()
         {
             var list = new List<int>() { 4, 5, 1, 9, 2, 1, 7, 9, 64, 3 };
             list.CocktailSort();
             Assert.True(list.IsSorted());
-
         }
+
         [Fact]
         public void Test_CocktailSortDescending()
         {
@@ -590,6 +597,7 @@ namespace Fluentx.Tester
             list.CocktailSortDescending();
             Assert.True(list.IsSortedDescending());
         }
+
         [Fact]
         public void Test_BubbleSort()
         {
@@ -597,6 +605,7 @@ namespace Fluentx.Tester
             list.BubbleSort();
             Assert.True(list.IsSorted());
         }
+
         [Fact]
         public void Test_BubbleSortDescending()
         {
@@ -651,6 +660,7 @@ namespace Fluentx.Tester
             int count = data.BogoSortDescending();
             Assert.True(data.IsSortedDescending());
         }
+
         //[Fact]
         //public void Test_HeapSortDescending()
         //{
@@ -665,6 +675,7 @@ namespace Fluentx.Tester
             list.MergeSort();
             Assert.True(list.IsSorted());
         }
+
         [Fact]
         public void Test_MergeSortDescending()
         {
@@ -679,16 +690,16 @@ namespace Fluentx.Tester
             var list = new List<int>() { 4, 5, 1, 9, 2, 1, 7, 9, 64, 3 };
             list.OddEvenSort();
             Assert.True(list.IsSorted());
-
         }
+
         [Fact]
         public void Test_OddEvenSortDescending()
         {
             var list = new List<int>() { 4, 5, 1, 9, 2, 1, 7, 9, 64, 3 };
             list.OddEvenSortDescending();
             Assert.True(list.IsSortedDescending());
-
         }
+
         [Fact]
         public void Test_CombSort()
         {
@@ -696,6 +707,7 @@ namespace Fluentx.Tester
             list.CombSort();
             Assert.True(list.IsSorted());
         }
+
         [Fact]
         public void Test_CombSortDescending()
         {
@@ -703,6 +715,7 @@ namespace Fluentx.Tester
             list.CombSortDescending();
             Assert.True(list.IsSortedDescending());
         }
+
         [Fact]
         public void Test_BinarySearch()
         {
@@ -714,7 +727,8 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Resverse()
         {
-            IList<string> list = new List<string>() { "samer", "ahmad", "xerox", "ali", "MID", "gada", "xerox", "chair" };
+            IList<string> list = new List<string>()
+                { "samer", "ahmad", "xerox", "ali", "MID", "gada", "xerox", "chair" };
             //list.QuickSort();
             list.Reverse();
             Assert.True(list[0] == "chair");
@@ -747,10 +761,10 @@ namespace Fluentx.Tester
         {
             var list = new List<One>()
             {
-                new One(){X2 = 10},
-                new One(){X2 = 20},
-                new One(){X2 = 30},
-                new One(){X2 = 40}
+                new One() { X2 = 10 },
+                new One() { X2 = 20 },
+                new One() { X2 = 30 },
+                new One() { X2 = 40 }
             };
 
             {
@@ -787,8 +801,6 @@ namespace Fluentx.Tester
             PrivateDisposableTestEntity entity = null;
             var result = entity.Safe(x => x.Id);
             Assert.True(result == 0);
-
-
         }
 
         [Fact]
@@ -799,13 +811,14 @@ namespace Fluentx.Tester
             var array = new List<int> { 1, 2, 3 };
             var result = array.Where(test.Compile()).ToList();
         }
+
         [Fact]
         public void Test_And_Specification()
         {
             var spec1 = new ExpressionSpecification<int>((x) => x > 10, new string[] { "less than 10" });
             var spec2 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
 
-            
+
             var result = spec1.Not().ValidateAll(22);
         }
 
@@ -843,7 +856,6 @@ namespace Fluentx.Tester
 
             var combined = EOne.one | EOne.two;
             var backward = combined & EOne.one;
-
         }
         //[Fact]
         //public void Test_Not_Specification()
@@ -861,12 +873,14 @@ namespace Fluentx.Tester
         {
             var x = Fx.RandomString(3);
         }
+
         [Fact]
         public void Test_Shuffle()
         {
             var data = new string[] { "one", "two", "three", "four", "five", "sex", "seven" };
             data.Shuffle();
         }
+
         [Fact]
         public void Test_ToCSV()
         {
@@ -895,6 +909,7 @@ namespace Fluentx.Tester
             var max = dates.MaxBy(x => x.Year);
             Assert.Equal(2020, max.Year);
         }
+
         [Fact]
         public void Test_EndOfDay()
         {
@@ -909,6 +924,7 @@ namespace Fluentx.Tester
             var date = DateTime.Now.StartOfDay();
             Assert.Equal(0, date.Second);
         }
+
         [Fact]
         public void Test_NextDay()
         {
@@ -917,11 +933,10 @@ namespace Fluentx.Tester
             var x = Result.Return(new string[] { "one", "two" });
 
 
-
-
             var value1 = 7.5.DaysToMinutes();
             Assert.Equal(true, true);
         }
+
         [Fact]
         public void Test_Mapper()
         {
@@ -938,32 +953,32 @@ namespace Fluentx.Tester
                     },
                     X12 = new List<Three>()
                     {
-                        new Three(){ X21 = 105 }
+                        new Three() { X21 = 105 }
                     }
                 },
                 X4 = new List<Three>()
                 {
-                    new Three(){X21=203}
+                    new Three() { X21 = 203 }
                 },
                 X5 = new Three[]
                 {
-                    new Three(){X21=204}, null
+                    new Three() { X21 = 204 }, null
                 },
                 X6 = new Collection<Three>()
                 {
-                    new Three(){X21=205}
+                    new Three() { X21 = 205 }
                 },
                 X7 = new List<Three>()
                 {
-                    new Three(){X21=206}
+                    new Three() { X21 = 206 }
                 },
                 X8 = new Three[]
                 {
-                    new Three(){X21=207}
+                    new Three() { X21 = 207 }
                 },
                 X9 = new Collection<Three>()
                 {
-                    new Three(){X21=208}
+                    new Three() { X21 = 208 }
                 },
                 X10 = new Two()
                 {
@@ -984,8 +999,8 @@ namespace Fluentx.Tester
         {
             var source = new List<One>()
             {
-                new One(){X1 = "X1"},
-                new One(){X1 = "X1_1"}
+                new One() { X1 = "X1" },
+                new One() { X1 = "X1_1" }
             };
 
             var mapper = new Mapper<One, VMOne>();
@@ -1005,7 +1020,6 @@ namespace Fluentx.Tester
             //int max = 10;
 
             //var value = list.FindAllMissing(-5, 10);
-
         }
 
         [Fact]
@@ -1021,7 +1035,6 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Sorenson_Dice()
         {
-
             var first = "سامر ابو ربيع";
             var second = "سامر ابو وديع";
             var result = first.LevenshteinDistance(second);
@@ -1042,26 +1055,31 @@ namespace Fluentx.Tester
 
             var result = entity.GetType().Implements(typeof(IEntity<>));
         }
+
         [Fact]
         public void Test_Now()
         {
             for (int i = 0; i < 1_000_000; i++)
             {
                 var test1 = Fx.NewSequentialGuid(SequentialGuidType.SequentialAtEnd);
-
-
             }
-
         }
+
         [Fact]
         public void Test_SpecificationTrueAndFalse()
         {
-            var rule = Specification.True<int>().And(Specification.False<int>());
+            var rule = Specification.True<int>().And((number) =>
+            {
+                throw new Exception("Test Exception");
+                return true;
+            }, "Number should be greater than 5");
             var result = rule.Validate(6);
-            Console.Write((result.Data ? "True" : "False"));
-
         }
-        public interface IOne { }
+
+        public interface IOne
+        {
+        }
+
         public class One : IOne
         {
             public string X1 { get; set; }
@@ -1089,6 +1107,7 @@ namespace Fluentx.Tester
             public IList<VMThree> X9 { get; set; }
             public VMTwo X10 { get; set; }
         }
+
         public class Two
         {
             public Three X11 { get; set; }
@@ -1100,6 +1119,7 @@ namespace Fluentx.Tester
             public VMThree X11 { get; set; }
             public IList<VMThree> X12 { get; set; }
         }
+
         public class Three
         {
             public int X21 { get; set; }
@@ -1109,18 +1129,19 @@ namespace Fluentx.Tester
         {
             public int X21 { get; set; }
         }
+
         public class PrivateDisposableTestEntity : IDisposable
         {
             public int Id { get; set; }
+
             public PrivateDisposableTestEntity()
             {
-
             }
+
             public void Dispose()
             {
                 isDisposed = true;
             }
-
         }
 
         public class ClassForStringTesting
@@ -1130,34 +1151,30 @@ namespace Fluentx.Tester
                 Two = "Two ";
                 //Four = "Four ";
             }
+
             public string One { get; set; }
             private string Two { get; set; }
 
             public string Three;
             //private readonly string Four = null;
         }
+
         public interface IOneBusinessRules
         {
             ISpecification<One> FirstRule { get; }
             ISpecification<One> SecondRule { get; }
-
         }
+
         public class OneBusinessRules : IOneBusinessRules
         {
             public ISpecification<One> FirstRule
             {
-                get
-                {
-                    return new ExpressionSpecification<One>(x => true, "First Rule");
-                }
+                get { return new ExpressionSpecification<One>(x => true, "First Rule"); }
             }
 
             public ISpecification<One> SecondRule
             {
-                get
-                {
-                    return new ExpressionSpecification<One>(x => true, "Second Rule");
-                }
+                get { return new ExpressionSpecification<One>(x => true, "Second Rule"); }
             }
         }
 
@@ -1165,7 +1182,6 @@ namespace Fluentx.Tester
         {
             public EOne(int value) : base(value)
             {
-
             }
 
             public static EOne one = new EOne(1);
@@ -1176,17 +1192,14 @@ namespace Fluentx.Tester
 
         public interface IDomain
         {
-
         }
+
         public interface IEntity<TId> : IDomain
         {
-
         }
 
         public class DomainEntity : IEntity<long?>
         {
-
         }
-
     }
 }

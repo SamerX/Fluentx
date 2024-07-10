@@ -1259,8 +1259,16 @@ namespace Fluentx
         /// <returns></returns>
         public override Result<bool> Validate(T instance)
         {
-            var result = this.expression?.Invoke(instance) ?? this.asyncExpression(instance).Result;
-            return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+            try
+            {
+                var result = this.expression?.Invoke(instance) ?? this.asyncExpression(instance).Result;
+                return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+            }
+            catch (Exception ex)
+            {
+                return Result.Return(false,
+                    $"Expression specification with messages \"{this.Messages.ToCSV()}\" threw an exception:\n{ex.Message}");
+            }
         }
 
         /// <summary>
@@ -1270,10 +1278,18 @@ namespace Fluentx
         /// <returns></returns>
         public override async Task<Result<bool>> ValidateAsync(T instance)
         {
-            var result = this.asyncExpression != null
-                ? await this.asyncExpression(instance)
-                : this.expression(instance);
-            return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+            try
+            {
+                var result = this.asyncExpression != null
+                    ? await this.asyncExpression(instance)
+                    : this.expression(instance);
+                return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+            }
+            catch (Exception ex)
+            {
+                return Result.Return(false,
+                    $"Expression specification with messages \"{this.Messages.ToCSV()}\" threw an exception:\n{ex.Message}");
+            }
         }
 
         /// <summary>
