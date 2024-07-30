@@ -784,7 +784,7 @@ namespace Fluentx
         /// <param name="plainText"></param>
         /// <returns></returns>
 
-        public static string Base64Encode(string plainText)
+        public static string Base64Encode(this string plainText)
         {
             var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
             return System.Convert.ToBase64String(plainTextBytes);
@@ -795,7 +795,7 @@ namespace Fluentx
         /// </summary>
         /// <param name="base64EncodedString"></param>
         /// <returns></returns>
-        public static string Base64Decode(string base64EncodedString)
+        public static string Base64Decode(this string base64EncodedString)
         {
             var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedString);
             return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
