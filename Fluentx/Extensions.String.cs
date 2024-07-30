@@ -696,13 +696,33 @@ namespace Fluentx
             }
         }
 
+        
+        /// <summary>
+        /// Encrypts the specified bytes with the specified key, decryption can be done using the same method on the ciphered data with the same key.
+        /// </summary>
+        /// <param name="data"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static byte[] XorCipher(this byte[] data, string key)
+        {
+            byte[] keyBytes = Encoding.UTF8.GetBytes(key);
+            byte[] result = new byte[data.Length];
+
+            for (int i = 0; i < data.Length; i++)
+            {
+                result[i] = (byte)(data[i] ^ keyBytes[i % keyBytes.Length]);
+            }
+
+            return result;
+        }
+        
         /// <summary>
         /// Encrypts the specified text with the specified key, decryption can be done using the same method on the ciphered data with the same key.
         /// </summary>
         /// <param name="this"></param>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static string XORCipher(this string @this, string key)
+        public static string XorCipher(this string @this, string key)
         {
             int dataLen = @this.Length;
             int keyLen = key.Length;
@@ -758,7 +778,28 @@ namespace Fluentx
                 return (char)((((text + _key) - offset) % 26) + offset);
             }
         }
+        /// <summary>
+        /// Base64 Encoding
+        /// </summary>
+        /// <param name="plainText"></param>
+        /// <returns></returns>
 
+        public static string Base64Encode(string plainText)
+        {
+            var plainTextBytes = System.Text.Encoding.UTF8.GetBytes(plainText);
+            return System.Convert.ToBase64String(plainTextBytes);
+        }
+
+        /// <summary>
+        /// Base64 Decoding
+        /// </summary>
+        /// <param name="base64EncodedString"></param>
+        /// <returns></returns>
+        public static string Base64Decode(string base64EncodedString)
+        {
+            var base64EncodedBytes = System.Convert.FromBase64String(base64EncodedString);
+            return System.Text.Encoding.UTF8.GetString(base64EncodedBytes);
+        }
         /// <summary>
         /// Wraps the specified instance with the specified tex
         /// </summary>

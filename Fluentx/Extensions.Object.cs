@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Text;
@@ -13,12 +14,13 @@ namespace Fluentx
         /// </summary>
         private static readonly MethodInfo CloneMethod = typeof(Object).GetMethod("MemberwiseClone", BindingFlags.NonPublic | BindingFlags.Instance);
 
+        
         /// <summary>
         /// Returns TRUE if the type is a primitive one, FALSE otherwise.
         /// </summary>
         private static bool IsPrimitive(this Type type)
         {
-            if (type == typeof(String)) return true;
+            if (type == typeof(string)) return true;
             return (type.IsValueType & type.IsPrimitive);
         }
 

@@ -430,8 +430,17 @@ namespace Fluentx.Tester
         [Fact]
         public void Test_Lock()
         {
-            var enc = "Samer".XORCipher("test");
-            var dec = enc.XORCipher("test");
+            var enc = "Samer".XorCipher("test");
+            var dec = enc.XorCipher("test");
+
+            string value = "Fluentx";
+            value.Lock(x => { });
+        }
+        [Fact]
+        public void Test_XorEncryption()
+        {
+            var enc = "Samer".XorCipher("test");
+            var dec = enc.XorCipher("test");
 
             string value = "Fluentx";
             value.Lock(x => { });
