@@ -828,6 +828,9 @@ namespace Fluentx.Tester
             var spec2 = new ExpressionSpecification<int>((x) => x > 15, new string[] { "less than 15" });
 
 
+            var EmployeesExistFormSpec = spec1.And(spec2);
+            
+            spec1.And(spec2).and .Validate()
             var result = spec1.Not().ValidateAll(22);
         }
 
