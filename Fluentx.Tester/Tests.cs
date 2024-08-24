@@ -830,7 +830,7 @@ namespace Fluentx.Tester
 
             var EmployeesExistFormSpec = spec1.And(spec2);
             
-            spec1.And(spec2).and .Validate()
+            //spec1.And(spec2).and .Validate()
             var result = spec1.Not().ValidateAll(22);
         }
 
