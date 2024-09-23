@@ -329,10 +329,10 @@ namespace Fluentx
         /// <returns></returns>
         public ISpecification<T> And(ISpecification<T> specification)
         {
-            if (this.Messages.First() == "##DEFAULT##")
+            /*if (this.Messages.FirstOrDefault() == "##DEFAULT##")
             {
                 return new AndSpecification<T>(Specification.True<T>(), specification);
-            }
+            }*/
 
             return new AndSpecification<T>(this, specification);
         }
