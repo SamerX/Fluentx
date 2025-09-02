@@ -1636,13 +1636,13 @@ namespace Fluentx
                 {
                     this.Messages = this.expressionWithMessages.Invoke(instance)?.ToList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (expressionWithMessage != null)
                 {
                     this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (asyncExpression != null)
                 {
@@ -1653,13 +1653,13 @@ namespace Fluentx
                 {
                     this.Messages = this.asyncExpressionWithMessages.Invoke(instance).Result?.ToList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (asyncExpressionWithMessage != null)
                 {
                     this.Messages = this.asyncExpressionWithMessage.Invoke(instance).Result?.WrapAsList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
 
                 throw new InvalidOperationException("Expression provided is null");
@@ -1685,36 +1685,36 @@ namespace Fluentx
                 if (asyncExpression != null)
                 {
                     var result = await this.asyncExpression.Invoke(instance);
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (asyncExpressionWithMessages != null)
                 {
                     this.Messages = (await this.asyncExpressionWithMessages.Invoke(instance))?.ToList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (asyncExpressionWithMessage != null)
                 {
                     this.Messages = (await this.asyncExpressionWithMessage.Invoke(instance))?.WrapAsList() ?? new List<string>();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (expression != null)
                 {
                     var result = this.expression.Invoke(instance);
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (expressionWithMessages != null)
                 {
                     this.Messages = this.expressionWithMessages.Invoke(instance)?.ToList();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
                 else if (expressionWithMessage != null)
                 {
                     this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList();
                     var result = this.Messages.IsNullOrEmpty();
-                    Result.Return(result, result ? new List<string>() : this.Messages);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
 
                 throw new InvalidOperationException("Expression provided is null");
