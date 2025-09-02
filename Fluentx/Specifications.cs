@@ -1200,6 +1200,52 @@ namespace Fluentx
         private readonly Func<T, bool> expression;
         private readonly Func<T, Task<bool>> asyncExpression;
 
+        private readonly Func<T, IEnumerable<string>> expressionWithMessages;
+        private readonly Func<T, Task<IEnumerable<string>>> asyncExpressionWithMessages;
+        
+        private readonly Func<T, string> expressionWithMessage;
+        private readonly Func<T, Task<string>> asyncExpressionWithMessage;
+        
+        
+
+        /// <summary>
+        /// Creates an expression specification
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ExpressionSpecification(Func<T, string> expression)
+        {
+            this.expressionWithMessage = expression ?? throw new ArgumentNullException();
+        }
+        /// <summary>
+        /// Creates an expression specification
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ExpressionSpecification(Func<T, Task<string>> expression)
+        {
+            this.asyncExpressionWithMessage = expression ?? throw new ArgumentNullException();
+        }
+        /// <summary>
+        /// Creates an expression specification
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ExpressionSpecification(Func<T, IEnumerable<string>> expression)
+        {
+            this.expressionWithMessages = expression ?? throw new ArgumentNullException();
+        }
+
+        /// <summary>
+        /// Creates an expression specification
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <exception cref="ArgumentNullException"></exception>
+        public ExpressionSpecification(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            this.asyncExpressionWithMessages = expression ?? throw new ArgumentNullException();
+        }
+
         /// <summary>
         /// Creates an expression specification
         /// </summary>
@@ -1261,13 +1307,49 @@ namespace Fluentx
         {
             try
             {
-                var result = this.expression?.Invoke(instance) ?? this.asyncExpression(instance).Result;
-                return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+                if (expression != null)
+                {
+                    var result = this.expression.Invoke(instance);
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (expressionWithMessages != null)
+                {
+                    this.Messages = this.expressionWithMessages.Invoke(instance)?.ToList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (expressionWithMessage != null)
+                {
+                    this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (asyncExpression != null)
+                {
+                    var result = this.asyncExpression.Invoke(instance).Result;
+                    return Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (asyncExpressionWithMessages != null)
+                {
+                    this.Messages = this.asyncExpressionWithMessages.Invoke(instance).Result?.ToList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (asyncExpressionWithMessage != null)
+                {
+                    this.Messages = this.asyncExpressionWithMessage.Invoke(instance).Result?.WrapAsList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+
+                throw new InvalidOperationException("Expression provided is null");
+                //var result = this.expression?.Invoke(instance) ?? this.asyncExpression(instance).Result;
+                //return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
             }
             catch (Exception ex)
             {
                 return Result.Return(false,
-                    $"Expression specification with messages \"{this.Messages.ToCSV()}\" threw an exception:\n{ex.Message}");
+                    $"Validate for specification with messages: \"{this.Messages?.ToCSV()}\" threw an exception:\n{ex.Message}");
             }
         }
 
@@ -1280,15 +1362,51 @@ namespace Fluentx
         {
             try
             {
-                var result = this.asyncExpression != null
+                if (asyncExpression != null)
+                {
+                    var result = await this.asyncExpression.Invoke(instance);
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (asyncExpressionWithMessages != null)
+                {
+                    this.Messages = (await this.asyncExpressionWithMessages.Invoke(instance))?.ToList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (asyncExpressionWithMessage != null)
+                {
+                    this.Messages = (await this.asyncExpressionWithMessage.Invoke(instance))?.WrapAsList() ?? new List<string>();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (expression != null)
+                {
+                    var result = this.expression.Invoke(instance);
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (expressionWithMessages != null)
+                {
+                    this.Messages = this.expressionWithMessages.Invoke(instance)?.ToList();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+                else if (expressionWithMessage != null)
+                {
+                    this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList();
+                    var result = this.Messages.IsNullOrEmpty();
+                    Result.Return(result, result ? new List<string>() : this.Messages);
+                }
+
+                throw new InvalidOperationException("Expression provided is null");
+                /*var result = this.asyncExpression != null
                     ? await this.asyncExpression(instance)
                     : this.expression(instance);
-                return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);
+                return Result.Return(result, result ? Enumerable.Empty<string>() : this.Messages);*/
             }
             catch (Exception ex)
             {
                 return Result.Return(false,
-                    $"Expression specification with messages \"{this.Messages.ToCSV()}\" threw an exception:\n{ex.Message}");
+                    $"ValidateAsync for specification with messages: \"{this.Messages?.ToCSV()}\" threw an exception:\n{ex.Message}");
             }
         }
 
