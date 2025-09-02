@@ -341,6 +341,42 @@ namespace Fluentx
         /// 
         /// </summary>
         /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, string> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, Task<string>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, IEnumerable<string>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> And(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
         /// <param name="messages"></param>
         /// <returns></returns>
         public ISpecification<T> And(Func<T, bool> expression, IEnumerable<string> messages)
@@ -395,6 +431,42 @@ namespace Fluentx
         /// 
         /// </summary>
         /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, string> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, Task<string>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, IEnumerable<string>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Or(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
         /// <param name="messages"></param>
         /// <returns></returns>
         public ISpecification<T> Or(Func<T, bool> expression, IEnumerable<string> messages)
@@ -445,6 +517,42 @@ namespace Fluentx
             return new XorSpecification<T>(this, specification);
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, string> expression)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, Task<string>> expression)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, IEnumerable<string>> expression)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> Xor(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            return new XorSpecification<T>(this, new ExpressionSpecification<T>(expression));
+        }
         /// <summary>
         /// 
         /// </summary>
@@ -513,6 +621,42 @@ namespace Fluentx
         /// 
         /// </summary>
         /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> AndNot(Func<T, string> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> AndNot(Func<T, Task<string>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> AndNot(Func<T, IEnumerable<string>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> AndNot(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            return new AndSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
         /// <param name="messages"></param>
         /// <returns></returns>
         /// <exception cref="NotImplementedException"></exception>
@@ -567,6 +711,42 @@ namespace Fluentx
             return new OrSpecification<T>(this, specification.Not());
         }
 
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, string> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, Task<string>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, IEnumerable<string>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        public ISpecification<T> OrNot(Func<T, Task<IEnumerable<string>>> expression)
+        {
+            return new OrSpecification<T>(this, new ExpressionSpecification<T>(expression).Not());
+        }
         /// <summary>
         /// 
         /// </summary>
