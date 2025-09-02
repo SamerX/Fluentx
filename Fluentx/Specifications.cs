@@ -89,7 +89,7 @@ namespace Fluentx
         ISpecification<T> And(ISpecification<T> specification);
 
         /// <summary>
-        /// And a specification with another
+        /// And a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -97,7 +97,7 @@ namespace Fluentx
         ISpecification<T> And(Func<T, bool> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// And a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -105,7 +105,7 @@ namespace Fluentx
         ISpecification<T> And(Func<T, Task<bool>> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// And a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -113,7 +113,7 @@ namespace Fluentx
         ISpecification<T> And(Func<T, bool> expression, string message);
 
         /// <summary>
-        /// 
+        /// And a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -128,7 +128,7 @@ namespace Fluentx
         ISpecification<T> Or(ISpecification<T> specification);
 
         /// <summary>
-        /// Or a specification with another
+        /// Or a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -136,7 +136,7 @@ namespace Fluentx
         ISpecification<T> Or(Func<T, bool> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// Or a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -144,7 +144,7 @@ namespace Fluentx
         ISpecification<T> Or(Func<T, Task<bool>> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// Or a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -152,7 +152,7 @@ namespace Fluentx
         ISpecification<T> Or(Func<T, bool> expression, string message);
 
         /// <summary>
-        /// 
+        /// Or a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -167,7 +167,7 @@ namespace Fluentx
         ISpecification<T> Xor(ISpecification<T> specification);
 
         /// <summary>
-        /// Xor a specification with another
+        /// Xor a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -175,7 +175,7 @@ namespace Fluentx
         ISpecification<T> Xor(Func<T, bool> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -183,7 +183,7 @@ namespace Fluentx
         ISpecification<T> Xor(Func<T, Task<bool>> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -191,7 +191,7 @@ namespace Fluentx
         ISpecification<T> Xor(Func<T, bool> expression, string message);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -199,20 +199,20 @@ namespace Fluentx
         ISpecification<T> Xor(Func<T, Task<bool>> expression, string message);
 
         /// <summary>
-        /// Negates the current specification
+        /// Negates the current specification, if return true then it passed.
         /// </summary>
         /// <returns></returns>
         ISpecification<T> Not();
 
         /// <summary>
-        /// Anding with a negate to the specified specification
+        /// AndNot a specification with another
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(ISpecification<T> specification);
 
         /// <summary>
-        /// 
+        /// AndNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -220,7 +220,7 @@ namespace Fluentx
         ISpecification<T> AndNot(Func<T, bool> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// AndNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -228,7 +228,7 @@ namespace Fluentx
         ISpecification<T> AndNot(Func<T, Task<bool>> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// AndNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -236,7 +236,7 @@ namespace Fluentx
         ISpecification<T> AndNot(Func<T, bool> expression, string message);
 
         /// <summary>
-        /// 
+        /// AndNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -244,14 +244,14 @@ namespace Fluentx
         ISpecification<T> AndNot(Func<T, Task<bool>> expression, string message);
 
         /// <summary>
-        /// Oring with a negate to the specified specification
+        /// OrNot a specification with a negate another
         /// </summary>
         /// <param name="specification"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(ISpecification<T> specification);
 
         /// <summary>
-        /// 
+        /// OrNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -259,7 +259,7 @@ namespace Fluentx
         ISpecification<T> OrNot(Func<T, bool> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// OrNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="messages"></param>
@@ -267,7 +267,7 @@ namespace Fluentx
         ISpecification<T> OrNot(Func<T, Task<bool>> expression, IEnumerable<string> messages);
 
         /// <summary>
-        /// 
+        /// OrNot a specification with another, if return true then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -275,7 +275,7 @@ namespace Fluentx
         ISpecification<T> OrNot(Func<T, bool> expression, string message);
 
         /// <summary>
-        /// 
+        /// OrNot a specification with another
         /// </summary>
         /// <param name="expression"></param>
         /// <param name="message"></param>
@@ -283,140 +283,140 @@ namespace Fluentx
         ISpecification<T> OrNot(Func<T, Task<bool>> expression, string message);
 
         /// <summary>
-        /// 
+        /// And specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> And(Func<T, string> expression);
 
         /// <summary>
-        /// 
+        /// And specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> And(Func<T, Task<string>> expression);
 
         /// <summary>
-        /// 
+        /// And specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> And(Func<T, IEnumerable<string>> expression);
 
         /// <summary>
-        /// 
+        /// And specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> And(Func<T, Task<IEnumerable<string>>> expression);
 
         /// <summary>
-        /// 
+        /// Or specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Or(Func<T, string> expression);
 
         /// <summary>
-        /// 
+        /// Or specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Or(Func<T, Task<string>> expression);
 
         /// <summary>
-        /// 
+        /// Or specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Or(Func<T, IEnumerable<string>> expression);
 
         /// <summary>
-        /// 
+        /// Or specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Or(Func<T, Task<IEnumerable<string>>> expression);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Xor(Func<T, string> expression);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Xor(Func<T, Task<string>> expression);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Xor(Func<T, IEnumerable<string>> expression);
 
         /// <summary>
-        /// 
+        /// Xor a specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> Xor(Func<T, Task<IEnumerable<string>>> expression);
 
         /// <summary>
-        /// 
+        /// AndNot specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(Func<T, string> expression);
 
         /// <summary>
-        /// 
+        /// AndNot specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(Func<T, Task<string>> expression);
 
         /// <summary>
-        /// 
+        /// AndNot specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(Func<T, IEnumerable<string>> expression);
 
         /// <summary>
-        /// 
+        /// AndNot specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> AndNot(Func<T, Task<IEnumerable<string>>> expression);
 
         /// <summary>
-        /// 
+        /// OrNot specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(Func<T, string> expression);
 
         /// <summary>
-        /// 
+        /// OrNot specification with another, if message is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(Func<T, Task<string>> expression);
 
         /// <summary>
-        /// 
+        /// OrNot specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(Func<T, IEnumerable<string>> expression);
 
         /// <summary>
-        /// 
+        /// OrNot specification with another, if list is null then it passed.
         /// </summary>
         /// <param name="expression"></param>
         /// <returns></returns>
