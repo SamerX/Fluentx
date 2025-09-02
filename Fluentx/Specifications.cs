@@ -1640,7 +1640,8 @@ namespace Fluentx
                 }
                 else if (expressionWithMessage != null)
                 {
-                    this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList() ?? new List<string>();
+                    var message = this.expressionWithMessage.Invoke(instance);
+                    this.Messages = message is null ? new List<string>() : message.WrapAsList();
                     var result = this.Messages.IsNullOrEmpty();
                     return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
@@ -1657,7 +1658,8 @@ namespace Fluentx
                 }
                 else if (asyncExpressionWithMessage != null)
                 {
-                    this.Messages = this.asyncExpressionWithMessage.Invoke(instance).Result?.WrapAsList() ?? new List<string>();
+                    var message = this.asyncExpressionWithMessage.Invoke(instance).Result;
+                    this.Messages = message is null ? new List<string>() : message.WrapAsList();
                     var result = this.Messages.IsNullOrEmpty();
                     return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
@@ -1695,7 +1697,8 @@ namespace Fluentx
                 }
                 else if (asyncExpressionWithMessage != null)
                 {
-                    this.Messages = (await this.asyncExpressionWithMessage.Invoke(instance))?.WrapAsList() ?? new List<string>();
+                    var message = (await this.asyncExpressionWithMessage.Invoke(instance));
+                    this.Messages = message is null ? new List<string>() : message.WrapAsList();
                     var result = this.Messages.IsNullOrEmpty();
                     return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
@@ -1712,7 +1715,8 @@ namespace Fluentx
                 }
                 else if (expressionWithMessage != null)
                 {
-                    this.Messages = this.expressionWithMessage.Invoke(instance)?.WrapAsList();
+                    var message = this.expressionWithMessage.Invoke(instance);
+                    this.Messages = message is null ? new List<string>() : message.WrapAsList();
                     var result = this.Messages.IsNullOrEmpty();
                     return Result.Return(result, result ? new List<string>() : this.Messages);
                 }
