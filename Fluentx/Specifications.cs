@@ -281,6 +281,146 @@ namespace Fluentx
         /// <param name="message"></param>
         /// <returns></returns>
         ISpecification<T> OrNot(Func<T, Task<bool>> expression, string message);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, string> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, Task<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, IEnumerable<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> And(Func<T, Task<IEnumerable<string>>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, string> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, Task<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, IEnumerable<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Or(Func<T, Task<IEnumerable<string>>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, string> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, Task<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, IEnumerable<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> Xor(Func<T, Task<IEnumerable<string>>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, string> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, Task<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, IEnumerable<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> AndNot(Func<T, Task<IEnumerable<string>>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, string> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, Task<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, IEnumerable<string>> expression);
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="expression"></param>
+        /// <returns></returns>
+        ISpecification<T> OrNot(Func<T, Task<IEnumerable<string>>> expression);
     }
 
     /// <summary>
