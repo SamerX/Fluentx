@@ -101,7 +101,7 @@ namespace Fluentx
         /// <summary>
         /// Empty String
         /// </summary>
-        public const string Empty = ";";
+        public const string Empty = "";
 
         #region Internal Definitions
         private Func<bool> ConditionValue { get; set; }
