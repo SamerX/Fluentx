@@ -1039,13 +1039,23 @@ namespace Fluentx
         public static object InvokeMethod<T>(this T @this, string methodName, params object[] @params)
         {
             Guard.Against<ArgumentNullException>(@this == null, "InvokeMethod failed as target object is null");
-            var method = @this.GetType().GetTypeInfo().GetMethods().Where(x => x.Name == methodName).FirstOrDefault();
+            var paramCount = @params?.Length ?? 0;
+            var method = @this.GetType().GetTypeInfo().GetMethods()
+                .Where(x => x.Name == methodName && !x.IsGenericMethod && x.GetParameters().Length == paramCount)
+                .FirstOrDefault();
+
+            if (method is null)
+            {
+                throw new ArgumentException($"Method '{methodName}' with {paramCount} argument(s) not found on type '{@this.GetType().Name}'");
+            }
+
             var data = method.Invoke(@this, @params);
             return data;
         }
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>
-        /// Invokes the specified method (Not Generic Method) ASYNCROUNOUSLY (if its an async method) on the target object dynamically with its required parameters.
+        /// Invokes the specified method (Not Generic Method) ASYNCHRONOUSLY (if its an async method) on the target object dynamically with its required parameters.
+        /// Returns null if the method returns a non-generic Task (void async method).
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -1055,10 +1065,25 @@ namespace Fluentx
         public static async Task<object> InvokeMethodAsync<T>(this T @this, string methodName, params object[] @params)
         {
             Guard.Against<ArgumentNullException>(@this == null, "InvokeMethodAsync failed as target object is null");
-            var task = (Task)@this.InvokeMethod(methodName, @params);
+            var invokeResult = @this.InvokeMethod(methodName, @params);
+
+            var task = invokeResult as Task;
+            if (task == null)
+            {
+                throw new InvalidOperationException($"Method '{methodName}' does not return a Task. Use InvokeMethod instead.");
+            }
+
             await task.ConfigureAwait(false);
-            var result = task.GetType().GetProperty("Result");
-            return result.GetValue(task);
+
+            var taskType = task.GetType();
+            if (taskType.IsGenericType)
+            {
+                var resultProperty = taskType.GetProperty("Result");
+                return resultProperty?.GetValue(task);
+            }
+
+            // Non-generic Task (void async method) - return null
+            return null;
         }
 #endif
         /// <summary>
@@ -1074,10 +1099,19 @@ namespace Fluentx
             params object[] @params)
         {
             Guard.Against<ArgumentNullException>(@this == null, "InvokeGenericMethod failed as target object is null");
-            var method = @this.GetType().GetTypeInfo().GetMethods()
+            var paramTypes = @params?.Select(p => p?.GetType()).ToArray() ?? new Type[0];
+            var methodInfo = @this.GetType().GetTypeInfo().GetMethods()
                 .Where(x => x.Name == methodName && x.IsGenericMethod &&
-                            x.GetGenericArguments().Length == genericParams.Length).FirstOrDefault()
-                .MakeGenericMethod(genericParams);
+                            x.GetGenericArguments().Length == genericParams.Length &&
+                            x.GetParameters().Length == paramTypes.Length)
+                .FirstOrDefault();
+
+            if (methodInfo is null)
+            {
+                throw new ArgumentException($"Generic method '{methodName}' with {genericParams.Length} generic parameter(s) and {paramTypes.Length} argument(s) not found on type '{@this.GetType().Name}'");
+            }
+
+            var method = methodInfo.MakeGenericMethod(genericParams);
             var data = method.Invoke(@this, @params);
             return data;
         }
@@ -1099,7 +1133,8 @@ namespace Fluentx
 
 #if !NETSTANDARD1_5 && !NETSTANDARD1_6
         /// <summary>
-        /// Invokes the specified method ASYNCROUNOUSLY (if its an async method) on the target object supplying the generic parameters dynamically with its required parameters.
+        /// Invokes the specified method ASYNCHRONOUSLY (if its an async method) on the target object supplying the generic parameters dynamically with its required parameters.
+        /// Returns null if the method returns a non-generic Task (void async method).
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -1110,13 +1145,30 @@ namespace Fluentx
         public static async Task<object> InvokeGenericMethodAsync<T>(this T @this, string methodName, Type[] genericParams, params object[] @params)
         {
             Guard.Against<ArgumentNullException>(@this == null, "InvokeGenericMethodAsync failed as target object is null");
-            var task = (Task)@this.InvokeGenericMethod(methodName, genericParams, @params);
+            var invokeResult = @this.InvokeGenericMethod(methodName, genericParams, @params);
+
+            var task = invokeResult as Task;
+            if (task == null)
+            {
+                throw new InvalidOperationException($"Method '{methodName}' does not return a Task. Use InvokeGenericMethod instead.");
+            }
+
             await task.ConfigureAwait(false);
-            var result = task.GetType().GetProperty("Result");
-            return result.GetValue(task);
+
+            var taskType = task.GetType();
+            if (taskType.IsGenericType)
+            {
+                var resultProperty = taskType.GetProperty("Result");
+                return resultProperty?.GetValue(task);
+            }
+
+            // Non-generic Task (void async method) - return null
+            return null;
         }
+
         /// <summary>
-        /// Invokes the specified method ASYNCROUNOUSLY (if its an async method) on the target object supplying the generic parameter dynamically with its required parameters.
+        /// Invokes the specified method ASYNCHRONOUSLY (if its an async method) on the target object supplying the generic parameter dynamically with its required parameters.
+        /// Returns null if the method returns a non-generic Task (void async method).
         /// </summary>
         /// <typeparam name="T"></typeparam>
         /// <param name="this"></param>
@@ -1126,7 +1178,7 @@ namespace Fluentx
         /// <returns></returns>
         public static async Task<object> InvokeGenericMethodAsync<T>(this T @this, string methodName, Type genericParam, params object[] @params)
         {
-            return await InvokeGenericMethodAsync<T>(@this, methodName, genericParam.WrapAsArray(), @params);
+            return await InvokeGenericMethodAsync(@this, methodName, genericParam.WrapAsArray(), @params);
         }
 #endif
         /// <summary>
