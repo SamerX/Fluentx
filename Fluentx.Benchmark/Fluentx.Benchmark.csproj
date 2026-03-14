@@ -10,7 +10,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper" Version="16.1.1" />
     <PackageReference Include="BenchmarkDotNet" Version="0.10.14" />
   </ItemGroup>
 
