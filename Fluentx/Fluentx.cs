@@ -20,6 +20,10 @@ namespace Fluentx
         private static readonly Random _random = new Random();
         private const string alphabetAndNumbersCharacters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
         private static RandomNumberGenerator randomGenerator = RandomNumberGenerator.Create();
+        [ThreadStatic]
+        private static byte[] sequentialGuidRandomBytes;
+        [ThreadStatic]
+        private static byte[] sequentialGuidBuffer;
 
 
         private Fx()
@@ -1680,41 +1684,48 @@ namespace Fluentx
         /// <returns></returns>
         public static Guid NewSequentialGuid(SequentialGuidType guidType = SequentialGuidType.SequentialAsString)
         {
-            byte[] randomBytes = new byte[10];
+            var randomBytes = sequentialGuidRandomBytes ?? (sequentialGuidRandomBytes = new byte[10]);
             randomGenerator.GetBytes(randomBytes);
 
             long timestamp = DateTime.UtcNow.Ticks / 10000L;
-            byte[] timestampBytes = BitConverter.GetBytes(timestamp);
 
-            if (BitConverter.IsLittleEndian)
-            {
-                Array.Reverse(timestampBytes);
-            }
+            // Extract 6 bytes of timestamp in big-endian order (skip top 2 bytes)
+            byte t0 = (byte)(timestamp >> 40);
+            byte t1 = (byte)(timestamp >> 32);
+            byte t2 = (byte)(timestamp >> 24);
+            byte t3 = (byte)(timestamp >> 16);
+            byte t4 = (byte)(timestamp >> 8);
+            byte t5 = (byte)(timestamp);
 
-            byte[] guidBytes = new byte[16];
+            var guidBytes = sequentialGuidBuffer ?? (sequentialGuidBuffer = new byte[16]);
 
             switch (guidType)
             {
                 case SequentialGuidType.SequentialAsString:
-                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 0, 6);
-                    Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
-
-                    // If formatting as a string, we have to reverse the order
-                    // of the Data1 and Data2 blocks on little-endian systems.
+                    // Data1 (bytes 0-3) and Data2 (bytes 4-5) are stored little-endian
+                    // in Guid on LE systems, so we reverse the order for string sorting.
                     if (BitConverter.IsLittleEndian)
                     {
-                        Array.Reverse(guidBytes, 0, 4);
-                        Array.Reverse(guidBytes, 4, 2);
+                        guidBytes[0] = t3; guidBytes[1] = t2; guidBytes[2] = t1; guidBytes[3] = t0;
+                        guidBytes[4] = t5; guidBytes[5] = t4;
                     }
+                    else
+                    {
+                        guidBytes[0] = t0; guidBytes[1] = t1; guidBytes[2] = t2; guidBytes[3] = t3;
+                        guidBytes[4] = t4; guidBytes[5] = t5;
+                    }
+                    Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
                     break;
                 case SequentialGuidType.SequentialAsBinary:
-                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 0, 6);
+                    guidBytes[0] = t0; guidBytes[1] = t1; guidBytes[2] = t2;
+                    guidBytes[3] = t3; guidBytes[4] = t4; guidBytes[5] = t5;
                     Buffer.BlockCopy(randomBytes, 0, guidBytes, 6, 10);
                     break;
 
                 case SequentialGuidType.SequentialAtEnd:
                     Buffer.BlockCopy(randomBytes, 0, guidBytes, 0, 10);
-                    Buffer.BlockCopy(timestampBytes, 2, guidBytes, 10, 6);
+                    guidBytes[10] = t0; guidBytes[11] = t1; guidBytes[12] = t2;
+                    guidBytes[13] = t3; guidBytes[14] = t4; guidBytes[15] = t5;
                     break;
             }
 
